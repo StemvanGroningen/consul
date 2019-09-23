@@ -6,3 +6,8 @@ Airbrake.configure do |config|
   config.environment = Rails.env
   config.ignore_environments = %w[development test]
 end
+
+Airbrake.add_filter do |notice|
+  ignorables = %w[ActiveRecord::RecordNotFound]
+  notice.ignore! if ignorables.include? notice[:errors].first[:type]
+end
