@@ -13,6 +13,7 @@ require "capybara/rspec"
 require "selenium/webdriver"
 
 Rails.application.load_tasks if Rake::Task.tasks.empty?
+I18n.available_locales = ["en", "es", "fr", "gl", "it", "nl", "pt-BR"]
 I18n.default_locale = :en
 
 include Warden::Test::Helpers
