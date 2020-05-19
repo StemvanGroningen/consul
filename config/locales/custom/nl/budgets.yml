@@ -27,7 +27,7 @@ nl:
     investments:
       index:
         by_heading: "Wat wilt ú bij de vijver aan de Mispellaan?"
-        by_heading_description: "Tussen de Elzenlaan en de Esdoornlaan"
+        by_heading_description: "Tussen de Berkenlaan en Elzenlaan"
         orders:
           confidence_score: "meest populair"
         sidebar:
