@@ -30,6 +30,7 @@ nl:
   layouts:
     header:
       budgets: "Ideeën"
+      collaborative_legislation: "Inspraak"
       my_account_link: Mijn gegevens
       my_activity_link: Mijn bijdragen
     footer:
@@ -86,16 +87,29 @@ nl:
         retired: Voorstel ingetrokken
         retired_warning: Dit voorstel is ingetrokken.
         retired_warning_link_to_explanation: Lees waarom.
+    show:
+      comments_tab: "Opmerkingen"
   comments:
     comment:
       responses_show:
         one: "1 reactie (tonen)"
-        other: "%{count} reacties (tonen)"
-        zero: "Geen reacties"
+        other: "%{count} opmerkingen (tonen)"
+        zero: "Geen opmerkingen"
       responses_collapse:
         one: "1 reactie (verbergen)"
-        other: "%{count} reacties (verbergen)"
-        zero: "Geen reacties"
+        other: "%{count} opmerkingen (verbergen)"
+        zero: "Geen opmerkingen"
+  comments_helper:
+    comments_title: "Opmerkingen"
   users:
     show:
-      comments: "Reacties"
+      comments: "Opmerkingen"
+  debates:
+    show:
+      comments_title: "Opmerkingen"
+  polls:
+    show:
+      comments_tab: "Opmerkingen"
+  stats:
+    index:
+      comments: "Opmerkingen"

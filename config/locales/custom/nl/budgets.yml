@@ -52,7 +52,7 @@ nl:
         updated_notice: "Je idee is aangepast."
       show:
         author: "auteur"
-        comments_tab: Reacties
+        comments_tab: "Opmerkingen"
         supports: "Steun"
       investment:
         give_support: "Like"

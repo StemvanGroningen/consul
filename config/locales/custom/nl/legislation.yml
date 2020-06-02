@@ -5,7 +5,7 @@ nl:
         cancel: Annuleren
         publish_comment: Publiceer reactie
       index:
-        title: Reacties
+        title: "Opmerkingen"
     processes:
       debate:
         participate: Neem deel aan discussies
@@ -17,16 +17,27 @@ nl:
       phase_empty:
         empty: Nog niets gepubliceerd
       process:
-        see_latest_comments: BBekijk de vragen
-        see_latest_comments_title: Bekijk de vragen
+        see_latest_comments: "Bekijk de plannen"
+        see_latest_comments_title: "Bekijk de plannen"
+      shared:
+        key_dates: "Plannen"
+        allegations_dates: "Opmerkingen"
+      index:
+        filters:
+          open: "Actieve plannen"
+          past: "Gesloten"
     proposals:
       form:
         tags_label: Categorieën
       not_verified: Voor stemvoorstellen %{verify_account}.
       participation:
-          debate_phase_not_open: De discussie is gesloten en reacties worden niet meer geaccepteerd.
+          debate_phase_not_open: "De discussie is gesloten en opmerkingen worden niet meer geaccepteerd."
           organizations: Deelname van organisaties in discussies is niet toegestaan
           unauthenticated: Je dient %{signin} of %{signup} om deel te nemen.
     questions:
       question:
         debate: Vraag
+    draft_versions:
+      show:
+        seeing_version: "Je bekijkt nu de conceptversie"
+        text_comments: "Opmerkingen"
