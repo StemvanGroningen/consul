@@ -86,6 +86,8 @@ nl:
         retired: Voorstel ingetrokken
         retired_warning: Dit voorstel is ingetrokken.
         retired_warning_link_to_explanation: Lees waarom.
+    show:
+      comments_tab: "Reacties"
   comments:
     comment:
       responses_show:
@@ -96,6 +98,17 @@ nl:
         one: "1 reactie (verbergen)"
         other: "%{count} reacties (verbergen)"
         zero: "Geen reacties"
+  comments_helper:
+    comments_title: "Reacties"
   users:
     show:
+      comments: "Reacties"
+  debates:
+    show:
+      comments_title: "Reacties"
+  polls:
+    show:
+      comments_tab: "Reacties"
+  stats:
+    index:
       comments: "Reacties"

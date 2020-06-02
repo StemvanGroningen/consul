@@ -5,6 +5,7 @@
 // 04. Social
 // 05. Homepage
 // 06. Budgets
+// 07. Processes
 //
 
 
@@ -256,4 +257,19 @@ footer {
 .budgets-stats .header a,
 .budgets-stats .header .icon-angle-left {
   color: #fff;
+}
+
+// 07. Processes
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.legislation-hero .row {
+
+  p {
+    color: $text;
+  }
+}
+
+.legislation-list .legislation-calendar-info,
+.draft-panels .comments-on .calc-index .draft-index-rotated .panel-title {
+  display: none;
 }

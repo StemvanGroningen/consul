@@ -11,3 +11,6 @@ nl:
           submit_button: "Creëer onderwerp"
         new:
           submit_button: "Creëer onderwerp"
+      show:
+        tab:
+          comments_tab: "Reacties"

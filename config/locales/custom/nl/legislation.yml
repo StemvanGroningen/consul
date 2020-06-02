@@ -17,8 +17,15 @@ nl:
       phase_empty:
         empty: Nog niets gepubliceerd
       process:
-        see_latest_comments: BBekijk de vragen
-        see_latest_comments_title: Bekijk de vragen
+        see_latest_comments: "Bekijk de plannen"
+        see_latest_comments_title: "Bekijk de plannen"
+      shared:
+        key_dates: "Plannen"
+        allegations_dates: "Reacties"
+      index:
+        filters:
+          open: "Actieve plannen"
+          past: "Vorige"
     proposals:
       form:
         tags_label: Categorieën
@@ -30,3 +37,7 @@ nl:
     questions:
       question:
         debate: Vraag
+    draft_versions:
+      show:
+        seeing_version: "Je bekijkt nu de conceptversie"
+        text_comments: "Reacties"
