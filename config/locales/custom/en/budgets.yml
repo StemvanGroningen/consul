@@ -1,7 +1,10 @@
 en:
   budgets:
-    index:
-      go_to_ideas: "Go to ideas"
     investments:
       index:
         by_heading_description: "Between l'Alsace Avenue and Maple Avenue"
+      investment:
+        remove_support: "Remove your support"
+    ballots:
+      show:
+        back: "Go back to budgets"

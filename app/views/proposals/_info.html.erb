@@ -13,7 +13,7 @@
   <% if current_user %>
     <span class="bullet">&nbsp;&bull;&nbsp;</span>
     <span class="js-flag-actions">
-      <%= render "proposals/flag_actions", proposal: @proposal %>
+      <%= render "shared/flag_actions", flaggable: @proposal %>
     </span>
   <% end %>
 
@@ -32,9 +32,11 @@
 <blockquote><%= @proposal.summary %></blockquote>
 
 <% if @proposal.video_url.present? %>
-  <div class="small-12 medium-7 small-centered">
-    <div class="flex-video">
-      <div id="js-embedded-video" data-video-code="<%= embedded_video_code(@proposal) %>"></div>
+  <div class="small-12 light">
+    <div class="small-12 medium-7 small-centered">
+      <div class="flex-video">
+        <div id="js-embedded-video" data-video-code="<%= embedded_video_code(@proposal) %>"></div>
+      </div>
     </div>
   </div>
 <% end %>

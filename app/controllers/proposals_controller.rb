@@ -5,7 +5,6 @@ class ProposalsController < ApplicationController
   include ImageAttributes
   include Translatable
 
-  before_action :parse_tag_filter, only: :index
   before_action :load_categories, only: [:index, :new, :create, :edit, :map, :summary]
   before_action :load_geozones, only: [:edit, :map, :summary]
   before_action :authenticate_user!, except: [:index, :show, :map, :summary]
@@ -101,7 +100,7 @@ class ProposalsController < ApplicationController
 
     def proposal_params
       attributes = [:video_url, :responsible_name, :tag_list,
-                    :terms_of_service, :geozone_id, :skip_map,
+                    :terms_of_service, :geozone_id,
                     image_attributes: image_attributes,
                     documents_attributes: [:id, :title, :attachment, :cached_attachment,
                                            :user_id, :_destroy],
@@ -152,7 +151,7 @@ class ProposalsController < ApplicationController
     end
 
     def load_featured
-      return unless !@advanced_search_terms && @search_terms.blank? && @tag_filter.blank? && params[:retired].blank? && @current_order != "recommendations"
+      return unless !@advanced_search_terms && @search_terms.blank? && params[:retired].blank? && @current_order != "recommendations"
 
       if Setting["feature.featured_proposals"]
         @featured_proposals = Proposal.not_archived.unsuccessful

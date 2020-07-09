@@ -9,7 +9,7 @@
 <% end %>
 
 <main>
-  <% if @search_terms || @advanced_search_terms || @tag_filter %>
+  <% if @search_terms || @advanced_search_terms %>
     <div class="highlight no-margin-top padding margin-bottom">
       <div class="row">
         <div class="small-12 column">
@@ -23,18 +23,14 @@
                 ) %>
               <% end %>
             </p>
-          <% elsif @tag_filter %>
-            <h2><%= t("shared.search_results") %></h2>
-            <p>
-              <%= page_entries_info @debates %>
-              <%= t("debates.index.filter_topic", count: @debates.size, topic: @tag_filter) %>
-            </p>
           <% end %>
         </div>
       </div>
     </div>
   <% else %>
-    <%= render "shared/section_header", i18n_namespace: "debates.index.section_header", image: "debates" %>
+    <%= render "shared/section_header",
+               i18n_namespace: "debates.index.section_header",
+               image: "far fa-comment-alt" %>
   <% end %>
 
   <% if feature?("user.recommendations") && @recommended_debates.present? %>
@@ -46,11 +42,9 @@
   <div class="row">
     <div id="debates" class="debates-list small-12 medium-9 column">
 
-      <% if has_banners? %>
-        <%= render "shared/banner" %>
-      <% end %>
+      <%= render "shared/banner" %>
 
-      <% unless @tag_filter || @search_terms || !has_featured? %>
+      <% unless @search_terms || !has_featured? %>
         <%= render "featured_debates" %>
       <% end %>
 
@@ -82,7 +76,7 @@
       <%= paginate @debates %>
 
       <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-        <div id="section_help" class="margin" data-magellan-target="section_help">
+        <div id="section_help" class="section-help" class="margin" data-magellan-target="section_help">
           <p class="lead">
             <strong><%= t("debates.index.section_footer.title") %></strong>
           </p>

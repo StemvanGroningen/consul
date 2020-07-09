@@ -44,7 +44,7 @@ namespace :admin do
     end
   end
 
-  resources :proposal_notifications, only: :index do
+  resources :hidden_proposal_notifications, only: :index do
     member do
       put :restore
       put :confirm_hide
@@ -53,7 +53,9 @@ namespace :admin do
 
   resources :budgets do
     member do
+      patch :publish
       put :calculate_winners
+      put :switch_group
     end
 
     resources :groups, except: [:show], controller: "budget_groups" do
@@ -68,7 +70,9 @@ namespace :admin do
       resources :progress_bars, except: :show, controller: "budget_investment_progress_bars"
     end
 
-    resources :budget_phases, only: [:edit, :update]
+    resources :budget_phases, only: [:index, :edit, :update] do
+      member { patch :toggle_enable }
+    end
   end
 
   resources :milestone_statuses, only: [:index, :new, :create, :update, :edit, :destroy]
@@ -252,4 +256,36 @@ namespace :admin do
   namespace :local_census_records do
     resources :imports, only: [:new, :create, :show]
   end
+end
+
+resolve "Milestone" do |milestone|
+  [*resource_hierarchy_for(milestone.milestoneable), milestone]
+end
+
+resolve "ProgressBar" do |progress_bar|
+  [*resource_hierarchy_for(progress_bar.progressable), progress_bar]
+end
+
+resolve "Audit" do |audit|
+  [*resource_hierarchy_for(audit.associated || audit.auditable), audit]
+end
+
+resolve "Budget::Group" do |group, options|
+  [group.budget, :group, options.merge(id: group)]
+end
+
+resolve "Budget::Heading" do |heading, options|
+  [heading.budget, :group, :heading, options.merge(group_id: heading.group, id: heading)]
+end
+
+resolve "Poll::Booth" do |booth, options|
+  [:booth, options.merge(id: booth)]
+end
+
+resolve "Poll::Officer" do |officer, options|
+  [:officer, options.merge(id: officer)]
+end
+
+resolve "Poll::Question::Answer::Video" do |video, options|
+  [:video, options.merge(id: video)]
 end

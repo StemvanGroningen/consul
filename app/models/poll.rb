@@ -99,8 +99,8 @@ class Poll < ApplicationRecord
   def self.answerable_by(user)
     return none if user.nil? || user.unverified?
 
-    current.joins('LEFT JOIN "geozones_polls" ON "geozones_polls"."poll_id" = "polls"."id"')
-           .where("geozone_restricted = ? OR geozones_polls.geozone_id = ?", false, user.geozone_id)
+    current.left_joins(:geozones)
+      .where("geozone_restricted = ? OR geozones.id = ?", false, user.geozone_id)
   end
 
   def self.votable_by(user)
@@ -173,5 +173,9 @@ class Poll < ApplicationRecord
 
   def budget_poll?
     budget.present?
+  end
+
+  def questions_with_answer_descriptions
+    questions.select { |question| question.answers_with_description.any? }
   end
 end

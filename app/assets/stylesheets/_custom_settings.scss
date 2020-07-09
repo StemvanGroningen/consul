@@ -4,16 +4,22 @@
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
 
-$brand:               #259e8e;
-$brand-secondary:     #554866;
-$primary-color:       #259e8e;
-
-$font-family-serif:   Verdana, Arial, sans-serif;
-$body-font-family:    Verdana, Arial, sans-serif;
-$header-font-family:  $body-font-family;
-
-$link:                #000;
-$link-hover:          #000;
-
-$budget:              #554866;
-$budget-hover:        #554866;
+$base-font-size:       18px;
+$border:            #cbc7c7;
+$brand:             #d3170e;
+$brand-secondary:   #0054ad;
+$dark:              #2d313b;
+$footer:            #c9d8ff;
+$highlight-soft:    #f0f3f6;
+$highlight-text:    #8a9999;
+$hover:             darken($brand, 20%);
+$hover-secondary:   darken($brand-secondary, 20%);
+$info:              #4ab4f9;
+$label:             #00469f;
+$light:             #f2f5f7;
+$like:              #21a562;
+$link-dark:         #493d57;
+$link-hover:        $brand;
+$link-soft:         #a099a8;
+$text:              #000;
+$unlike:            #da262b;

@@ -9,7 +9,7 @@
   <span class="bullet">&nbsp;&bull;&nbsp;</span>
   <% if local_assigns[:preview].nil? %>
     <span class="js-flag-actions">
-      <%= render "budgets/investments/flag_actions", investment: investment %>
+      <%= render "shared/flag_actions", flaggable: investment %>
     </span>
   <% end %>
 </div>
@@ -17,9 +17,6 @@
 <br>
 
 <%= render_image(investment.image, :large, false) if investment.image.present? %>
-
-<div class="clear"></div>
-<hr>
 
 <%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
 

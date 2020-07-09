@@ -3,13 +3,14 @@ nl:
     config:
       manage_email_subscriptions: Wil je dit soort mails niet meer ontvangen? Verander dan hier je instellingen
     budget_investment_created:
-      subject: Bedankt voor het delen van je idee!
-      title: Bedankt voor het delen van je idee!
-      intro: Beste <strong>%{author}</strong>,
-      follow: Bedankt voor je idee. We houden je op de hoogte van het vervolg. Je kunt dit ook volgen op <strong>%{link}</strong>.
-      follow_link: Ideeën
-      share_button: Deel je idee
-      sincerely: Groeten van de Coöperatieve Wijkraad
+      subject: "Bedankt voor het delen van je idee!"
+      title: "Bedankt voor het delen van je idee!"
+      intro: "Beste <strong>%{author}</strong>,"
+      text: "Bedankt voor het delen van je idee <strong>%{investment}</strong> voor de burgerbegroting <strong>%{budget}</strong>."
+      follow: "We houden je op de hoogte van het proces. Je kunt dit ook volgen op <strong>%{link}</strong>."
+      follow_link: "Burgerbegroting"
+      sincerely: ""
+      share: "Deel"
     budget_investment_selected:
       subject: Gefeliciteerd, idee '%{code}' gaat door naar de stemronde!
       title: Gefeliciteerd, je idee gaat door naar de stemronde!

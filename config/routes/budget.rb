@@ -1,5 +1,5 @@
 resources :budgets, only: [:show, :index] do
-  resources :groups, controller: "budgets/groups", only: [:show]
+  resources :groups, controller: "budgets/groups", only: [:index, :show]
   resources :investments, controller: "budgets/investments" do
     member do
       post :vote
@@ -17,6 +17,10 @@ resources :budgets, only: [:show, :index] do
   resource :results, only: :show, controller: "budgets/results"
   resource :stats, only: :show, controller: "budgets/stats"
   resource :executions, only: :show, controller: "budgets/executions"
+end
+
+resolve "Budget::Investment" do |investment, options|
+  [investment.budget, :investment, options.merge(id: investment)]
 end
 
 get "investments/:id/json_data", action: :json_data, controller: "budgets/investments"

@@ -12,7 +12,6 @@
   <% if [
           @search_terms,
           @advanced_search_terms,
-          @tag_filter,
           params[:retired].present?,
           params[:selected].present?
         ].any? %>
@@ -29,12 +28,6 @@
                 ) %>
               <% end %>
             <p>
-          <% elsif @tag_filter %>
-            <h2><%= t("shared.search_results") %></h2>
-            <p>
-              <%= page_entries_info @proposals %>
-              <%= t("proposals.index.filter_topic", count: @proposals.size, topic: @tag_filter) %>
-            </p>
           <% elsif params[:retired].present? %>
             <h2><%= t("proposals.index.retired_proposals") %></h2>
           <% elsif params[:selected].present? %>
@@ -44,7 +37,9 @@
       </div>
     </div>
   <% else %>
-    <%= render "shared/section_header", i18n_namespace: "proposals.index.section_header", image: "proposals" %>
+    <%= render "shared/section_header",
+               i18n_namespace: "proposals.index.section_header",
+               image: "far fa-lightbulb" %>
   <% end %>
 
   <% if show_recommended_proposals? %>
@@ -56,9 +51,7 @@
   <div class="row">
     <div id="proposals" class="proposals-list small-12 medium-9 column">
 
-      <% if has_banners? %>
-        <%= render "shared/banner" %>
-      <% end %>
+      <%= render "shared/banner" %>
 
       <% if show_featured_proposals? %>
         <div id="featured-proposals" class="row featured-proposals">
@@ -113,7 +106,7 @@
         <%= paginate @proposals %>
 
         <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-          <div id="section_help" class="margin" data-magellan-target="section_help">
+          <div id="section_help" class="section-help margin" data-magellan-target="section_help">
             <p class="lead">
               <strong><%= t("proposals.index.section_footer.title") %></strong>
             </p>
@@ -123,19 +116,11 @@
       </div>
     </div>
 
-    <div class="small-12 medium-3 column">
+    <div class="small-12 medium-3 column proposals-sidebar">
       <aside class="margin-bottom">
         <%= link_to t("proposals.index.start_proposal"),
                     new_proposal_path,
                     class: "button expanded" %>
-
-        <div class="sidebar-divider"></div>
-        <h2 class="sidebar-title"><%= t("proposals.index.selected_proposals") %></h2>
-        <br>
-        <p class="small">
-          <%= link_to t("proposals.index.selected_proposals_link"), proposals_path(selected: "all") %>
-        </p>
-
         <% if params[:retired].blank? %>
           <%= render "categories" %>
           <%= render "shared/tag_cloud", taggable: "proposal" %>
