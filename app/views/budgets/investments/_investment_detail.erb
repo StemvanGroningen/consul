@@ -18,9 +18,6 @@
 
 <%= render_image(investment.image, :large, false) if investment.image.present? %>
 
-<div class="clear"></div>
-<hr>
-
 <%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
 
 <% if feature?(:map) && map_location_available?(@investment.map_location) %>
