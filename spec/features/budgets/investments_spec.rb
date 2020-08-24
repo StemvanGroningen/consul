@@ -898,6 +898,15 @@ describe "Budget Investments" do
 
       visit new_budget_investment_path(budget)
 
+      expect(page).to have_content("Describe the idea. Think for example of:")
+      expect(page).to have_content("Why is it a good idea?")
+      expect(page).to have_content("For whom is the idea meant (e.g. older people, young people, everyone)?")
+      expect(page).to have_content("Is it once-only (like an activity) or for several years "\
+                                   "(like a facility)?")
+      expect(page).to have_content("How much money do you think you will need for it? (optional, "\
+                                   "estimation is also fine)")
+      expect(page).to have_content("What would you like to do yourself for the realization of the idea?")
+
       expect(page).to have_content("#{heading.name} (#{budget.formatted_heading_price(heading)})")
 
       expect(page).to have_selector("input[name=\"budget_investment[heading_id]\"][value=\"#{heading.id}\"]",
@@ -932,6 +941,15 @@ describe "Budget Investments" do
       login_as(author)
 
       visit new_budget_investment_path(budget)
+
+      expect(page).to have_content("Describe the idea. Think for example of:")
+      expect(page).to have_content("Why is it a good idea?")
+      expect(page).to have_content("For whom is the idea meant (e.g. older people, young people, everyone)?")
+      expect(page).to have_content("Is it once-only (like an activity) or for several years "\
+                                   "(like a facility)?")
+      expect(page).to have_content("How much money do you think you will need for it? (optional, "\
+                                   "estimation is also fine)")
+      expect(page).to have_content("What would you like to do yourself for the realization of the idea?")
 
       expect(page).not_to have_content("#{heading.name} (#{budget.formatted_heading_price(heading)})")
 

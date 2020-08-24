@@ -1198,6 +1198,13 @@ footer {
   }
 }
 
+.budget-investment-new {
+
+  .recommendations li::before {
+    color: $brand-secondary;
+  }
+}
+
 // 5. Legislation
 // --------------------
 

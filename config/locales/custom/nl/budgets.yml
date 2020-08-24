@@ -156,6 +156,13 @@ nl:
         change_ballot: "Als je je bedenkt kun je je stemmen in %{check_ballot} verwijderen en opnieuw beginnen."
       share:
         message: "Dit is een goed idee voor de Oosterparkwijk! Vanaf 18 november kan je stemmen op dit idee"
+      new:
+        recommendations_title: "Omschrijf het idee. Denk aan bijvoorbeeld aan:"
+        recommendation_one: "Waarom is het een goed idee?"
+        recommendation_two: "Voor wie is het idee bedoeld (bijvoorbeeld ouderen, jongeren, iedereen)?"
+        recommendation_three: "Is het eenmalig (zoals een activiteit) of voor meerdere jaren (zoals een voorziening)?"
+        recommendation_four: "Hoeveel geld denkt u dat u ervoor nodig is? (optioneel, schatting is ook prima)"
+        recommendation_five: "Wat zou u zelf willen doen voor de realisatie van het idee?"
     show:
       see_all_investments: "Bekijk alle ideeën"
       investments_list: "Ideeën"
