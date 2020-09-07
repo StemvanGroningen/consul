@@ -574,7 +574,7 @@ header {
     }
 
     h1 {
-      font-size: rem-calc(60);
+      font-size: rem-calc(36);
 
       @include breakpoint(large) {
         font-size: rem-calc(90);
@@ -583,14 +583,33 @@ header {
   }
 
   .lead {
+    font-size: rem-calc(20);
     font-weight: bold;
-    margin: $line-height * 2 0;
+    margin: $line-height 0;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(24);
+      margin: $line-height * 2 0;
+    }
   }
 
   h3 {
 
     &.title {
       border-bottom: 0;
+    }
+  }
+
+  .button {
+    position: relative;
+
+    &::after {
+      content: "\f054";
+      font-family: "Font Awesome 5 Free";
+      font-weight: bold;
+      position: absolute;
+      right: 24px;
+      top: 19px;
     }
   }
 }
@@ -782,8 +801,12 @@ header {
   }
 
   h2 {
-    font-size: rem-calc(60);
+    font-size: rem-calc(36);
     font-weight: normal;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(60);
+    }
   }
 
   h3 {
