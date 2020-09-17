@@ -39,3 +39,7 @@ nl:
       faq:
         description: "Lees de meestgestelde vragen. Misschien staat je oplossing hier tussen."
         button: "Meestgestelde vragen"
+    custom:
+      accessibility_link: "https://www.toegankelijkheidsverklaring.nl/register/2180"
+      accessibility_image_url: "https://www.toegankelijkheidsverklaring.nl/files/verklaring/label/8a54a8d531cda5e4df1e051373664cde.2180.svg"
+      accessibility_image_alt: "Het toegankelijkheidslabel van Stem van Groningen. Volg de link voor de toegankelijke versie van dit label."

@@ -1,0 +1,10 @@
+<% if @custom_page.slug == "accessibility" %>
+  <div class="small-12 column">
+    <%= link_to t("pages.custom.accessibility_link") do %>
+      <img src="<%= t("pages.custom.accessibility_image_url") %>"
+           alt="<%= t("pages.custom.accessibility_image_alt") %>"
+           width="692"
+           height="251">
+    <% end %>
+  </div>
+<% end %>
