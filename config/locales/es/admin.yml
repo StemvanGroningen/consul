@@ -146,6 +146,7 @@ es:
         success_notice: Presupuesto eliminado correctamente
         unable_notice: No se puede eliminar un presupuesto con proyectos asociados
         unable_notice_polls: No se puede eliminar un presupuesto con una votación asociada
+        unable_notice_staff: "No se puede eliminar un presupuesto con administradores o evaluadores asociados"
       new:
         title_single: Nuevo presupuesto de partida única
         title_multiple: Nuevo presupuesto de múltiples partidas

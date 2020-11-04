@@ -68,6 +68,8 @@ class Admin::BudgetsController < Admin::BaseController
       redirect_to admin_budgets_path, alert: t("admin.budgets.destroy.unable_notice")
     elsif @budget.poll.present?
       redirect_to admin_budgets_path, alert: t("admin.budgets.destroy.unable_notice_polls")
+    elsif @budget.budget_administrators.any? || @budget.budget_valuators.any?
+      redirect_to admin_budgets_path, alert: t("admin.budgets.destroy.unable_notice_staff")
     else
       @budget.destroy!
       redirect_to admin_budgets_path, notice: t("admin.budgets.destroy.success_notice")

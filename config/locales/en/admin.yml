@@ -146,6 +146,7 @@ en:
         success_notice: Budget deleted successfully
         unable_notice: You cannot delete a budget that has associated investments
         unable_notice_polls: You cannot delete a budget that has an associated poll
+        unable_notice_staff: "You cannot delete a budget that has administrators or valuators associated"
       new:
         title_single: New single heading budget
         title_multiple: New multiple headings budget

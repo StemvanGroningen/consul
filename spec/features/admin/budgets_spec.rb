@@ -427,6 +427,24 @@ describe "Admin budgets" do
       expect(page).to have_content("You cannot delete a budget that has an associated poll")
       expect(page).to have_content("There is 1 budget")
     end
+
+    scenario "Try to destroy a budget with administrators or valuators", :js do
+      admin = create(:administrator)
+      valuator = create(:valuator)
+
+      budget = create(:budget, administrators: [admin], valuators: [valuator])
+
+      visit admin_budgets_path
+
+      within "#budget_#{budget.id}" do
+        click_link "Delete budget"
+      end
+
+      accept_confirm
+
+      expect(page).to have_content("You cannot delete a budget that has administrators or valuators associated")
+      expect(page).to have_content(budget.name)
+    end
   end
 
   context "Edit" do
