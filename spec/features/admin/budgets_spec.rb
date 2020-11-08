@@ -418,14 +418,14 @@ describe "Admin budgets" do
       expect(page).to have_content("There is 1 budget")
     end
 
-    scenario "Try to destroy a budget with polls" do
+    scenario "Destroy a budget with polls" do
       create(:poll, budget: budget)
 
       visit edit_admin_budget_path(budget)
       click_link "Delete budget"
 
-      expect(page).to have_content("You cannot delete a budget that has an associated poll")
-      expect(page).to have_content("There is 1 budget")
+      expect(page).to have_content("Budget deleted successfully")
+      expect(page).to have_content("There are no budgets.")
     end
   end
 

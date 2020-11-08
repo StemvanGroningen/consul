@@ -39,7 +39,7 @@ class Budget < ApplicationRecord
   has_many :budget_valuators
   has_many :valuators, through: :budget_valuators
 
-  has_one :poll
+  has_one :poll, dependent: :nullify
 
   after_create :generate_phases
 
