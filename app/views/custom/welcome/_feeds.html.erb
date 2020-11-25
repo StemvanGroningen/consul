@@ -90,7 +90,14 @@
                     <%= item.current_enabled_phase_number %>/<%= item.enabled_phases_amount %></p>
                     <h4><%= item.current_phase.name %></h4>
                   <% end %>
-                  <p class="dates"><%= item.start_date.to_date %> / <%= item.end_date.to_date %></p>
+                  <p class="dates">
+                    <% if item.start_date.present? %>
+                      <%= item.start_date.to_date %> /
+                    <% end %>
+                    <% if item.end_date.present? %>
+                      <%= item.end_date.to_date %>
+                    <% end %>
+                  </p>
                   <div class="description"><%= sanitize(strip_links(item.description)) %></div>
                   <p><%= t("welcome.feed.see_budget") %></p>
                 <% end %>
