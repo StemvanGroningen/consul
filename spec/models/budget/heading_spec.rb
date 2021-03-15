@@ -332,4 +332,18 @@ describe Budget::Heading do
       expect(build(:budget_heading, max_ballot_lines: 0)).not_to be_valid
     end
   end
+
+  describe "price" do
+    it "can't be blank if hide money is false" do
+      expect(build(:budget_heading, group: group, price: nil)).not_to be_valid
+    end
+
+    it "can be blank if hide money is true" do
+      budget_approval = create(:budget, :approval, :hide_money)
+      group = create(:budget_group, budget: budget_approval)
+      heading_without_price = create(:budget_heading, group: group, price: nil)
+
+      expect(heading_without_price).to be_valid
+    end
+  end
 end

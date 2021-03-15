@@ -116,6 +116,17 @@ describe Budget::Investment do
       expect(investment).to be_valid
     end
 
+    it "is valid if hide money is true" do
+      budget = create(:budget, :hide_money)
+      group = create(:budget_group, budget: budget)
+      heading = create(:budget_heading, group: group)
+      investment = create(:budget_investment, heading: heading, price: nil)
+
+      investment.feasibility = "feasible"
+      investment.valuation_finished = true
+      expect(investment).to be_valid
+    end
+
     it "is not valid if valuation finished and feasible" do
       investment.price = ""
       investment.feasibility = "feasible"

@@ -236,7 +236,7 @@ class Budget
     end
 
     def price_required?
-      feasible? && valuation_finished?
+      feasible? && valuation_finished? && !budget.hide_money?
     end
 
     def unfeasible_email_pending?
