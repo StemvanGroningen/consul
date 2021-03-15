@@ -159,6 +159,8 @@ nl:
         duration: "Periode"
         phase: "Fase"
         phase_content: "Bewerk inhoud"
+        hide_money: "Hide money"
+        hide_money_help_text: "If this option is checked, all fields showing the amount of money will be hidden throughout the process."
       winners:
         calculate: "Tel de stemmen"
       shared:
