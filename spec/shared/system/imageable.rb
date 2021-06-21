@@ -27,8 +27,8 @@ shared_examples "imageable" do |imageable_factory_name, imageable_path, imageabl
       visit send(imageable_path, imageable_arguments)
 
       # Remove image title in custom budget investment
-      unless imageable.is_a?(Budget::Investment) || imageable.is_a? Proposal
-        expect(page).to have_content image.title unless
+      unless imageable.is_a?(Budget::Investment) || imageable.is_a?(Proposal)
+        expect(page).to have_content image.title
       end
     end
   end
