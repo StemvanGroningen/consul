@@ -60,6 +60,21 @@
   </div>
 
   <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.check_box :polis, data: { checkbox_toggle: "#polis" } %>
+    </div>
+  </div>
+
+  <div id="polis" style="<%= @poll.polis? ? "" : "display:none" %>">
+    <div class="row">
+      <div class="small-12 medium-6 column">
+        <%= f.text_field :polis_url %>
+        <%= f.text_field :polis_report_url %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="clear">
       <div class="small-12 medium-4 large-2 column">
         <%= f.submit t("admin.polls.#{admin_submit_action(@poll)}.submit_button"),

@@ -1,7 +1,16 @@
 <%= render "poll_header" %>
 
-<div id="poll-resources">
-  <%= render "subnav" %>
+<% if @poll.polis? %>
+  <div class="callout primary">
+    <%= t("admin.polls.polis.info") %>
+    <a href="https://pol.is/" target="_blank">
+      <%= t("admin.polls.polis.link") %>
+    </a>
+  </div>
+<% else %>
+  <div id="poll-resources">
+    <%= render "subnav" %>
 
-  <%= render "questions" %>
-</div>
+    <%= render "questions" %>
+  </div>
+<% end %>

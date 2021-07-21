@@ -57,4 +57,8 @@ module PollsHelper
   def show_polls_description?
     @active_poll.present? && @current_filter == "current"
   end
+
+  def polis_id(polis_url)
+    URI.parse(polis_url).path.gsub("/", "")
+  end
 end

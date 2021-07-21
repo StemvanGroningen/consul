@@ -4,6 +4,10 @@ nl:
     results_enabled: "Toon resultaten"
     stats_enabled: "Toon statistieken"
     advanced_stats_enabled: "Toon geavanceerde statistieken"
+    poll:
+      polis: "This polls use Pol.is"
+      polis_url: "Polis URL"
+      polis_report_url: "Polis report URL (optional)"
     related_sdg_list: "Goals and Targets"
   activerecord:
     models:

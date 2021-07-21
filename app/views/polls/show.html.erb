@@ -12,124 +12,131 @@
 <div class="polls-show">
   <%= render "poll_header" %>
 
-  <%= render "poll_subnav" %>
+  <% if @poll.polis? %>
+    <div id="polis">
+      <div class="polis" data-conversation_id="<%= polis_id(@poll.polis_url) %>"></div>
+      <script async src="https://pol.is/embed.js"></script>
+    </div>
+  <% else %>
+    <%= render "poll_subnav" %>
 
-  <div class="row margin">
-    <div class="small-12 medium-9 column">
-      <%= render "callout" %>
+    <div class="row margin">
+      <div class="small-12 medium-9 column">
+        <%= render "callout" %>
 
-      <% if @poll.voted_in_booth?(current_user) %>
-        <div class="callout warning">
-          <%= t("polls.show.already_voted_in_booth") %>
-        </div>
-      <% else %>
-
-        <% if current_user && @poll.voted_in_web?(current_user) && !@poll.expired? %>
+        <% if @poll.voted_in_booth?(current_user) %>
           <div class="callout warning">
-            <%= t("polls.show.already_voted_in_web") %>
+            <%= t("polls.show.already_voted_in_booth") %>
           </div>
+        <% else %>
+
+          <% if current_user && @poll.voted_in_web?(current_user) && !@poll.expired? %>
+            <div class="callout warning">
+              <%= t("polls.show.already_voted_in_web") %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <% @questions.each_with_index do |question, index| %>
-        <%= render "polls/questions/question", question: question, index: index, token: @token %>
-      <% end %>
+        <% @questions.each_with_index do |question, index| %>
+          <%= render "polls/questions/question", question: question, index: index, token: @token %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <div id="poll_more_info_answers" class="expanded poll-more-info-answers">
-    <% @poll.questions_with_answer_descriptions.each do |question| %>
-      <div class="poll-more-info-answers-divider"></div>
-      <div class="row">
-        <div class="small-12 column padding answer-question">
-          <span class="label-title"><%= t("polls.show.more_info_title") %></span>
-          <h2 id="answer_<%= question.answers_with_description.first.id %>">
-            <%= question.title %>
-          </h2>
+    <div id="poll_more_info_answers" class="expanded poll-more-info-answers">
+      <% @poll.questions_with_answer_descriptions.each do |question| %>
+        <div class="poll-more-info-answers-divider"></div>
+        <div class="row">
+          <div class="small-12 column padding answer-question">
+            <span class="label-title"><%= t("polls.show.more_info_title") %></span>
+            <h2 id="answer_<%= question.answers_with_description.first.id %>">
+              <%= question.title %>
+            </h2>
+          </div>
         </div>
-      </div>
-      <div class="row padding">
-        <% question.answers_with_description.each do |answer| %>
-          <div class="small-12 medium-6 column end answer <%= cycle("first", "float-right") %>">
+        <div class="row padding">
+          <% question.answers_with_description.each do |answer| %>
+            <div class="small-12 medium-6 column end answer <%= cycle("first", "float-right") %>">
 
-            <% if answer.description.present? %>
-              <h3><%= answer.title %></h3>
-            <% end %>
+              <% if answer.description.present? %>
+                <h3><%= answer.title %></h3>
+              <% end %>
 
-            <% if answer.images.any? %>
-              <%= render "gallery", answer: answer %>
-            <% end %>
+              <% if answer.images.any? %>
+                <%= render "gallery", answer: answer %>
+              <% end %>
 
-            <% if answer.description.present? %>
-              <div class="margin-top">
-                <div id="answer_description_<%= answer.id %>" class="answer-description short" data-toggler="short">
-                  <%= wysiwyg(answer.description) %>
-                </div>
-                <% if answer.description.length > 600 %>
-                  <div class="read-more">
-                    <button type="button" id="read_more_<%= answer.id %>"
-                            data-toggle="answer_description_<%= answer.id %>
-                                         read_more_<%= answer.id %>
-                                         read_less_<%= answer.id %>"
-                            data-toggler="hide"
-                            class="button primary">
-                      <%= t("polls.show.read_more", answer: answer.title) %>
-                    </button>
-                    <button type="button" id="read_less_<%= answer.id %>"
-                            data-toggle="answer_description_<%= answer.id %>
-                                         read_more_<%= answer.id %>
-                                         read_less_<%= answer.id %>"
-                            data-toggler="hide"
-                            class="hide button primary">
-                      <%= t("polls.show.read_less", answer: answer.title) %>
-                    </button>
+              <% if answer.description.present? %>
+                <div class="margin-top">
+                  <div id="answer_description_<%= answer.id %>" class="answer-description short" data-toggler="short">
+                    <%= wysiwyg(answer.description) %>
                   </div>
-                <% end %>
-              </div>
-            <% end %>
+                  <% if answer.description.length > 600 %>
+                    <div class="read-more">
+                      <button type="button" id="read_more_<%= answer.id %>"
+                              data-toggle="answer_description_<%= answer.id %>
+                                           read_more_<%= answer.id %>
+                                           read_less_<%= answer.id %>"
+                              data-toggler="hide"
+                              class="button primary">
+                        <%= t("polls.show.read_more", answer: answer.title) %>
+                      </button>
+                      <button type="button" id="read_less_<%= answer.id %>"
+                              data-toggle="answer_description_<%= answer.id %>
+                                           read_more_<%= answer.id %>
+                                           read_less_<%= answer.id %>"
+                              data-toggler="hide"
+                              class="hide button primary">
+                        <%= t("polls.show.read_less", answer: answer.title) %>
+                      </button>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
 
-            <% if answer.documents.present? %>
-              <div class="document-link">
-                <p>
-                  <span class="icon-document"></span>&nbsp;
-                  <strong><%= t("polls.show.documents") %></strong>
-                </p>
+              <% if answer.documents.present? %>
+                <div class="document-link">
+                  <p>
+                    <span class="icon-document"></span>&nbsp;
+                    <strong><%= t("polls.show.documents") %></strong>
+                  </p>
 
-                <% answer.documents.each do |document| %>
-                    <%= link_to document.title,
-                                document.attachment.url,
-                                target: "_blank",
-                                rel: "nofollow" %><br>
-                <% end %>
-              </div>
-            <% end %>
+                  <% answer.documents.each do |document| %>
+                      <%= link_to document.title,
+                                  document.attachment.url,
+                                  target: "_blank",
+                                  rel: "nofollow" %><br>
+                  <% end %>
+                </div>
+              <% end %>
 
-            <% if answer.videos.present? %>
-              <div class="video-link">
-                <p>
-                  <span class="icon-video"></span>&nbsp;
-                  <strong><%= t("polls.show.videos") %></strong>
-                </p>
+              <% if answer.videos.present? %>
+                <div class="video-link">
+                  <p>
+                    <span class="icon-video"></span>&nbsp;
+                    <strong><%= t("polls.show.videos") %></strong>
+                  </p>
 
-                <% answer.videos.each do |video| %>
-                    <%= link_to video.title,
-                                video.url,
-                                target: "_blank",
-                                rel: "nofollow" %><br>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="tabs-content" data-tabs-content="polls_tabs">
-    <%= render "filter_subnav" %>
-
-    <div class="tabs-panel is-active" id="tab-comments">
-      <%= render "comments" %>
+                  <% answer.videos.each do |video| %>
+                      <%= link_to video.title,
+                                  video.url,
+                                  target: "_blank",
+                                  rel: "nofollow" %><br>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  </div>
+
+    <div class="tabs-content" data-tabs-content="polls_tabs">
+      <%= render "filter_subnav" %>
+
+      <div class="tabs-panel is-active" id="tab-comments">
+        <%= render "comments" %>
+      </div>
+    </div>
+  <% end %>
 </div>

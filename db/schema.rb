@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_100648) do
+ActiveRecord::Schema.define(version: 2021_05_19_115249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -1188,6 +1188,9 @@ ActiveRecord::Schema.define(version: 2021_04_01_100648) do
     t.string "related_type"
     t.integer "related_id"
     t.tsvector "tsv"
+    t.boolean "polis", default: false
+    t.string "polis_url"
+    t.string "polis_report_url"
     t.index ["budget_id"], name: "index_polls_on_budget_id", unique: true
     t.index ["related_type", "related_id"], name: "index_polls_on_related_type_and_related_id"
     t.index ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at"

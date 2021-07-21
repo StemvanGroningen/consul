@@ -81,6 +81,31 @@ describe "Admin polls", :admin do
     expect(page).to have_content "Upcoming poll"
   end
 
+  scenario "Create Pol.is poll" do
+    visit admin_polls_path
+    click_link "Create poll"
+
+    start_date = 1.week.from_now.to_date
+    end_date = 2.weeks.from_now.to_date
+
+    fill_in "Name", with: "Poll using Pol.is"
+    fill_in "poll_starts_at", with: start_date
+    fill_in "poll_ends_at", with: end_date
+    fill_in "Summary", with: "This is my first poll using pol.is system"
+    fill_in "Description", with: "Pol.is is a new poll style"
+    check "This polls use Pol.is"
+    fill_in "Polis URL", with: "https://pol.is/example"
+    fill_in "Polis report URL (optional)", with: "https://pol.is/report/example"
+
+    click_button "Create poll"
+
+    expect(page).to have_content "Poll created successfully"
+    expect(page).to have_content I18n.l(start_date)
+    expect(page).to have_content I18n.l(end_date)
+    expect(page).to have_content "This poll uses Pol.is system."
+    expect(page).to have_link("You can configure it from Pol.is site.", href: "https://pol.is/")
+  end
+
   scenario "Edit" do
     poll = create(:poll, :with_image)
 

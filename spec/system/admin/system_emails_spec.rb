@@ -149,7 +149,7 @@ describe "System Emails" do
 
       expect(page).to have_content "Someone has commented on your Debate"
       expect(page).to have_content "Hi John Doe,"
-      expect(page).to have_content "There is a new reaction to your idea."
+      expect(page).to have_content "There is a new reaction to your idea"
       expect(page).to have_content comment.body
 
       # expect(page).to have_link "Let's do...", href: debate_url(debate, host: app_host)

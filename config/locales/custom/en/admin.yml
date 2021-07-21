@@ -15,3 +15,7 @@ en:
         map:
           form:
             submit: "Edit"
+    polls:
+      polis:
+        info: "This poll uses Pol.is system."
+        link: "You can configure it from Pol.is site."

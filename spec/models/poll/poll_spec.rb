@@ -38,6 +38,19 @@ describe Poll do
 
     it "no overlapping polls for proposal polls are allowed" do
     end
+
+    it "is not valid without polis url if polis is enabled" do
+      poll.polis = true
+      poll.polis_url = nil
+      expect(poll).not_to be_valid
+    end
+
+    it "is valid without polis report url if polis is enbaled" do
+      poll.polis = true
+      poll.polis_url = "https://pol.is/example"
+      poll.polis_report_url = nil
+      expect(poll).to be_valid
+    end
   end
 
   describe "proposal polls specific validations" do

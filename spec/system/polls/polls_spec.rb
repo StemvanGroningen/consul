@@ -526,6 +526,19 @@ describe "Polls" do
       expect(page).to have_selector "img[alt='1. No Poverty']"
       expect(page).to have_content "target 1.1"
     end
+
+    scenario "Poll with Pol.is enabled" do
+      poll = create(:poll, polis: true, polis_url: "https://pol.is/example",
+                                        polis_report_url: "https://pol.is/report")
+
+      visit poll_path(poll.id)
+
+      expect(page).to have_selector "#polis"
+      expect(page).to have_link("See report", href: "https://pol.is/report")
+
+      expect(page).not_to have_selector "#poll_more_info_answers"
+      expect(page).not_to have_selector "#polls_tabs"
+    end
   end
 
   context "Booth & Website", :with_frozen_time do

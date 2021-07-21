@@ -38,6 +38,7 @@ class Poll < ApplicationRecord
   validates_translation :name, presence: true
   validate :date_range
   validate :only_one_active, unless: :public?
+  validates :polis_url, presence: true, if: :polis?
 
   accepts_nested_attributes_for :questions, reject_if: :all_blank, allow_destroy: true
 

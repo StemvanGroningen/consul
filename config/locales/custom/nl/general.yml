@@ -220,6 +220,8 @@ nl:
       comments_tab: "Reacties"
       more_info_options: "Meer informatie over de antwoordmogelijkheden"
       info_menu: "Vragen?"
+    polis:
+      see_report: "See report"
   comments:
     comment:
       author: "Auteur"

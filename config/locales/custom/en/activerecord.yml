@@ -3,3 +3,7 @@ en:
     attributes:
       budget/investment:
         location: "Information about the location"
+      poll:
+        polis: "This polls use Pol.is"
+        polis_url: "Polis URL"
+        polis_report_url: "Polis report URL (optional)"

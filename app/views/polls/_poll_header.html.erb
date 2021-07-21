@@ -31,6 +31,12 @@
       <% end %>
 
       <%= render SDG::TagListComponent.new(@poll, linkable: false) %>
+
+      <% if @poll.polis? && @poll.polis_report_url.present? %>
+        <a href="<%= @poll.polis_report_url %>" class="button margin" target="_blank">
+          <strong><%= t("polls.polis.see_report") %></strong>
+        </a>
+      <% end %>
     </div>
 
     <aside class="small-12 medium-3 column margin-top">

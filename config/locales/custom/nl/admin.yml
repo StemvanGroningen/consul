@@ -238,6 +238,9 @@ nl:
       edit:
         title: "Peiling bewerken"
         submit_button: "Opslaan"
+      polis:
+        info: This poll uses Pol.is system.
+        link: "You can configure it from Pol.is site."
     active_polls:
       edit:
         title: "Peiling omschrijving"
