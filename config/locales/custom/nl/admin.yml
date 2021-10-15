@@ -453,6 +453,8 @@ nl:
           proposals: "Initiatieven"
           polls: "Peilingen"
           layouts: "Website lay-out"
+          budgets: "Ideeën"
+          legislation: "Inspraak"
         buttons:
           save: "Opslaan"
       users: "Gebruikers"

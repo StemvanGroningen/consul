@@ -777,6 +777,8 @@ es:
           mailers: "Correos"
           management: "Gestión"
           welcome: "Bienvenido/a"
+          budgets: "Presupuestos Participativos"
+          legislation: "Legislación colaborativa"
         buttons:
           save: "Guardar cambios"
           content_block:
