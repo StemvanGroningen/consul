@@ -420,6 +420,7 @@ header {
 
 .top-bar {
   background: #fff !important;
+  padding-right: 0;
 
   .menu > li {
 
@@ -617,6 +618,10 @@ header {
       width: 100%;
     }
   }
+}
+
+.menu-button {
+  color: $text;
 }
 
 // 2. Homepage and custom pages
