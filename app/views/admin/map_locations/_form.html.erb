@@ -41,9 +41,9 @@
 
   <%= form_tag admin_map_map_location_update_from_map_path(@map_location.map, @map_location), method: :put, id: "map-form" do |f| %>
 
-    <%= hidden_field_tag :latitude,   @map_location.latitude %>
-    <%= hidden_field_tag :longitude,  @map_location.longitude %>
-    <%= hidden_field_tag :zoom,       @map_location.zoom %>
+    <%= hidden_field_tag :latitude, @map_location.latitude %>
+    <%= hidden_field_tag :longitude, @map_location.longitude %>
+    <%= hidden_field_tag :zoom, @map_location.zoom %>
 
     <%= submit_tag t("admin.maps.edit.submit"), class: "button success margin-top" %>
 

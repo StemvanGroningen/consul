@@ -14,7 +14,9 @@
 <%= render "shared/header", header: @header %>
 
 <main>
-  <%= render "steps" %>
+  <% if feature?(:welcome_steps) %>
+    <%= render "steps" %>
+  <% end %>
 
   <%= render "feeds" %>
 

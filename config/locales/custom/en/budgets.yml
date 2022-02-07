@@ -1,8 +1,6 @@
 en:
   budgets:
     investments:
-      investment:
-        remove_support: "Remove your support"
       show:
         edit: "Edit"
       new:
