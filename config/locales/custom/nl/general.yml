@@ -350,8 +350,11 @@ nl:
         proposals: "Initiatieven"
         budgets: "Ideeën"
       see_budget: "Bekijk ideeën"
-      see_all_proposals: "Alle initiatieven"
       see_process: "Bekijk plan"
+      see_all:
+        debates: "Alle discussies"
+        proposals: "Alle initiatieven"
+        processes: "Alle plannen"
     cards:
       title: "Uitgelicht"
   shared:

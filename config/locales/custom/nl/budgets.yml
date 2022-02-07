@@ -66,17 +66,6 @@ nl:
       section_footer:
         title: "Over dit proces"
         description: "Beslis mee over de verdeling van geld tussen verschillende ideeën en projecten."
-      supports_info:
-        title: "Je kunt nu ideeën <strong>steunen</strong>!"
-        next: "Steun de ideeën die jij graag uitgevoerd wil zien."
-        remember: "Je mag zoveel verschillende ideeën steunen als je wilt."
-        different: "Maar... je kunt ieder idee slechts één keer steunen. En je steun is definitief."
-        supported: "Tot nu toe heb je <strong>%{count} ideeën</strong> gesteund."
-        supported_one: "Tot nu toe heb je <strong>1 idee</strong> gesteund."
-        supported_not_logged_in: "Log in om <strong>projecten te steunen</strong>."
-        time: "Je kunt nog tot %{phase_end_date} ideeën steunen."
-        share: "Je kunt ideeën die je hebt gesteund delen op social media. Zo krijgen de ideeën meer aandacht én wellicht meer steun!"
-        scrolling: "Blijf scrollen om alle ideeën te zien"
       unfeasible_investment_proyects: "Ideeën waar niet op gestemd kan worden"
       investment_proyects: "Lijst van alle gekozen ideeën"
       not_selected_investment_proyects: "Niet voor stemmen geselecteerde ideeën bekijken"
@@ -167,8 +156,6 @@ nl:
       investment:
         price_title: "Prijs"
         support_title: "Steunbetuigingen"
-        give_support: "Steunen"
-        remove_support: "Steun verwijderen"
         supports:
           zero: "nog geen steun"
           one: "1 steunbetuiging"
@@ -194,8 +181,6 @@ nl:
         recommendation_four: "wat je zelf wilt of kunt doen voor de realisatie"
         recommendation_five: "of het eenmalig is (zoals een activiteit) of voor meerdere jaren (zoals een voorziening)"
     show:
-      see_all_investments: "Bekijk alle ideeën"
-      investments_list: "Ideeën"
       see_results: "Bekijk de uitslag"
       unfeasible: "Bekijk de niet stembare ideeën"
       unfeasible_title: "Niet stembare ideeën"

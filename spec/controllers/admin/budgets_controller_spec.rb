@@ -49,14 +49,14 @@ describe Admin::BudgetsController, :admin do
       expect(Budget.all).to eq [budget]
     end
 
-    it "does not destroy budgets with a poll" do
+    it "destroy budgets with a poll" do
       create(:poll, budget: budget)
 
       delete :destroy, params: { id: budget }
 
-      expect(response).to redirect_to admin_budget_path(budget)
-      expect(flash[:alert]).to eq "You cannot delete a budget that has an associated poll"
-      expect(Budget.all).to eq [budget]
+      expect(response).to redirect_to admin_budgets_path
+      expect(flash[:notice]).to eq "Budget deleted successfully"
+      expect(Budget.count).to eq 0
     end
   end
 end

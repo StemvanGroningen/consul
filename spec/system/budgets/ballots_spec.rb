@@ -364,8 +364,7 @@ describe "Ballots" do
       end
 
       within("#budget_group_#{group2.id}") do
-        expect(page).not_to have_content "#{group2.name}"
-        expect(page).to have_content "#{heading2.name}"
+        expect(page).to have_content "#{group2.name} - #{heading2.name}"
         expect(page).to have_content "Amount spent €15"
         expect(page).to have_content "Still available to you €35"
       end

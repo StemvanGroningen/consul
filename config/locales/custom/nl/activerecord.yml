@@ -65,20 +65,11 @@ nl:
         title: "Titel"
         body: "Bericht"
       budget:
-        main_button_text: "Tekst knop"
-        main_button_url: "Link knop"
         hide_money: "Verberg budget voor deze begroting"
-      budget/translation:
-        name: "Titel"
       budget/phase:
         enabled: "Fase ingeschakeld"
         ends_at: "Einddatum"
         starts_at: "Startdatum"
-        main_button_text: "Tekst knop"
-        main_button_url: "Link knop"
-      budget/phase/translation:
-        name: "Naam fase"
-        description: "Omschrijving"
       budget/group:
         max_votable_headings: "Maximaal aantal rubrieken waarop een gebruiker kan stemmen"
       budget/group/translation:
