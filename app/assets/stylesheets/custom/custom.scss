@@ -1773,6 +1773,14 @@ footer {
   min-width: 0;
 }
 
+.admin .top-links {
+  justify-content: right;
+
+  a {
+    flex-grow: unset;
+  }
+}
+
 .ui-datepicker-calendar thead tr th {
   border: 1px solid $border;
 }
