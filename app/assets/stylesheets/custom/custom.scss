@@ -1357,12 +1357,6 @@ footer {
   }
 }
 
-.legislation-content {
-  background: $light;
-  padding: $line-height;
-  margin-bottom: $line-height * 2;
-}
-
 .legislation-hero {
 
   .title {
@@ -1373,7 +1367,6 @@ footer {
 }
 
 .legislation-process-list {
-  border-bottom: 2px solid $border;
 
   h3 {
     color: $label;
@@ -1778,6 +1771,14 @@ footer {
   font-size: $small-font-size;
   min-height: 0;
   min-width: 0;
+}
+
+.admin .top-links {
+  justify-content: right;
+
+  a {
+    flex-grow: unset;
+  }
 }
 
 .ui-datepicker-calendar thead tr th {

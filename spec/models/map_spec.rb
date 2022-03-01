@@ -14,14 +14,14 @@ describe Map do
     expect(map).not_to be_valid
   end
 
-  context "#default?" do
+  describe "#default?" do
     it "returns true if it is the default map" do
       expect(Map.default.default?).to be true
       expect(map.default?).to be false
     end
   end
 
-  context ".default" do
+  describe ".default" do
     it "returns the default map if it is already created" do
       expect(Map.count).to be 1
       expect(MapLocation.count).to be 1
@@ -49,7 +49,7 @@ describe Map do
     end
   end
 
-  context ".create_default!" do
+  describe ".create_default!" do
     it "creates and returns the default map using the default coordinates" do
       MapLocation.destroy_all
       Map.destroy_all

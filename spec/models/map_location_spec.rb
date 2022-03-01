@@ -49,7 +49,7 @@ describe MapLocation do
     end
   end
 
-  context "#from_map" do
+  describe "#from_map" do
     let(:map) { Map.default }
 
     it "sets the coordinates from the given map location" do

@@ -57,6 +57,28 @@ describe "Commenting topics from proposals" do
     expect(page).to have_current_path(comment_path(comment))
   end
 
+  scenario "Show order links only if there are comments" do
+    community = proposal.community
+    topic = create(:topic, community: community)
+
+    visit community_topic_path(community, topic)
+
+    within "#tab-comments" do
+      expect(page).not_to have_link "Most voted"
+      expect(page).not_to have_link "Newest first"
+      expect(page).not_to have_link "Oldest first"
+    end
+
+    create(:comment, commentable: topic, user: user)
+    visit community_topic_path(community, topic)
+
+    within "#tab-comments" do
+      expect(page).to have_link "Most voted"
+      expect(page).to have_link "Newest first"
+      expect(page).to have_link "Oldest first"
+    end
+  end
+
   scenario "Collapsable comments" do
     community = proposal.community
     topic = create(:topic, community: community)
@@ -111,13 +133,17 @@ describe "Commenting topics from proposals" do
     expect(c1.body).to appear_before(c2.body)
     expect(c2.body).to appear_before(c3.body)
 
-    visit community_topic_path(community, topic, order: :newest)
+    click_link "Newest first"
 
+    expect(page).to have_link "Newest first", class: "is-active"
+    expect(page).to have_current_path(/#comments/, url: true)
     expect(c3.body).to appear_before(c2.body)
     expect(c2.body).to appear_before(c1.body)
 
-    visit community_topic_path(community, topic, order: :oldest)
+    click_link "Oldest first"
 
+    expect(page).to have_link "Oldest first", class: "is-active"
+    expect(page).to have_current_path(/#comments/, url: true)
     expect(c1.body).to appear_before(c2.body)
     expect(c2.body).to appear_before(c3.body)
   end
@@ -193,6 +219,7 @@ describe "Commenting topics from proposals" do
     end
 
     expect(page).to have_css(".comment", count: 2)
+    expect(page).to have_current_path(/#comments/, url: true)
   end
 
   describe "Not logged user" do
@@ -653,13 +680,17 @@ describe "Commenting topics from budget investments" do
     expect(c1.body).to appear_before(c2.body)
     expect(c2.body).to appear_before(c3.body)
 
-    visit community_topic_path(community, topic, order: :newest)
+    click_link "Newest first"
 
+    expect(page).to have_link "Newest first", class: "is-active"
+    expect(page).to have_current_path(/#comments/, url: true)
     expect(c3.body).to appear_before(c2.body)
     expect(c2.body).to appear_before(c1.body)
 
-    visit community_topic_path(community, topic, order: :oldest)
+    click_link "Oldest first"
 
+    expect(page).to have_link "Oldest first", class: "is-active"
+    expect(page).to have_current_path(/#comments/, url: true)
     expect(c1.body).to appear_before(c2.body)
     expect(c2.body).to appear_before(c3.body)
   end
@@ -735,6 +766,7 @@ describe "Commenting topics from budget investments" do
     end
 
     expect(page).to have_css(".comment", count: 2)
+    expect(page).to have_current_path(/#comments/, url: true)
   end
 
   describe "Not logged user" do

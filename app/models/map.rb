@@ -10,7 +10,7 @@ class Map < ApplicationRecord
   end
 
   def self.default
-    self.find_by(budget_id: 0) || self.create_default!
+    find_by(budget_id: 0) || create_default!
   end
 
   def self.create_default!

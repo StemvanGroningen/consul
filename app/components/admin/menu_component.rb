@@ -13,7 +13,7 @@ class Admin::MenuComponent < ApplicationComponent
     end
 
     def budgets?
-      controller_name.starts_with?("budget")
+      controller_name.starts_with?("budget") || controller_path =~ /budgets_wizard/
     end
 
     def polls?
@@ -58,6 +58,10 @@ class Admin::MenuComponent < ApplicationComponent
     def local_census_records?
       controller_name == "local_census_records" ||
         (controller_name == "imports" && controller.class.parent == Admin::LocalCensusRecords)
+    end
+
+    def maps?
+      controller_name == "maps"
     end
 
     def messages_menu_active?
@@ -344,7 +348,7 @@ class Admin::MenuComponent < ApplicationComponent
       [
         t("admin.menu.maps"),
         admin_maps_path,
-        controller_name == "maps"
+        maps?
       ]
     end
 

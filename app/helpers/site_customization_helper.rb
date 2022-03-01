@@ -7,18 +7,8 @@ module SiteCustomizationHelper
     site_customization_enable_translation?(locale) ? "" : "display: none;"
   end
 
-  def translation_for_locale(content, locale)
-    if content.present?
-      I18nContentTranslation.find_by(
-        i18n_content_id: content.id,
-        locale: locale
-      )&.value
-    else
-      false
-    end
-  end
-
   def information_texts_tabs
-    [:basic, :debates, :proposals, :polls, :budgets, :legislation, :layouts, :mailers, :management, :welcome]
+    [:basic, :debates, :community, :proposals, :budgets, :legislation,
+     :polls, :layouts, :mailers, :management, :welcome, :machine_learning]
   end
 end

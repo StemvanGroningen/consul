@@ -54,7 +54,28 @@ describe "Polls" do
       visit polls_path
 
       within(".poll") do
-        expect(page).to have_content("Remaining 10 days to participate")
+        expect(page).to have_content("Remaining 11 days to participate")
+      end
+
+      click_link "Expired"
+
+      within(".poll") do
+        expect(page).not_to have_content("Remaining")
+        expect(page).not_to have_content("days to participate")
+      end
+
+      travel_back
+    end
+
+    scenario "Polls display remaining hours to participate if not expired" do
+      travel_to "10/06/2020".to_date + 8.hours
+      create(:poll, starts_at: "01/05/2020", ends_at: "31/05/2020", name: "Expired poll")
+      create(:poll, starts_at: "01/06/2020", ends_at: "10/06/2020", name: "Active poll")
+
+      visit polls_path
+
+      within(".poll") do
+        expect(page).to have_content("Remaining about 16 hours to participate")
       end
 
       click_link "Expired"
@@ -168,8 +189,7 @@ describe "Polls" do
       Setting["feature.sdg"] = true
       Setting["sdg.process.polls"] = true
 
-      create(:poll, sdg_goals: [SDG::Goal[1]],
-                    sdg_targets: [SDG::Target["1.1"]])
+      create(:poll, sdg_goals: [SDG::Goal[1]], sdg_targets: [SDG::Target["1.1"]])
 
       visit polls_path
 
@@ -222,6 +242,51 @@ describe "Polls" do
 
       expect(page).to have_content question.title
       expect(page).not_to have_content("Question 1")
+    end
+
+    scenario "Question appear by created at order" do
+      question = create(:poll_question, poll: poll, title: "First question")
+      create(:poll_question, poll: poll, title: "Second question")
+      question_3 = create(:poll_question, poll: poll, title: "Third question")
+
+      visit polls_path
+      expect("First question").to appear_before("Second question")
+      expect("Second question").to appear_before("Third question")
+
+      visit poll_path(poll)
+
+      expect("First question").to appear_before("Second question")
+      expect("Second question").to appear_before("Third question")
+
+      question_3.update!(title: "Third question edited")
+      question.update!(title: "First question edited")
+
+      visit polls_path
+      expect("First question edited").to appear_before("Second question")
+      expect("Second question").to appear_before("Third question edited")
+
+      visit poll_path(poll)
+
+      expect("First question edited").to appear_before("Second question")
+      expect("Second question").to appear_before("Third question edited")
+    end
+
+    scenario "Questions appear by created at order" do
+      question = create(:poll_question, poll: poll, title: "First question")
+      create(:poll_question, poll: poll, title: "Second question")
+      create(:poll_question, poll: poll, title: "Third question")
+
+      question.update!(title: "First question edited")
+
+      visit polls_path
+
+      expect("First question edited").to appear_before("Second question")
+      expect("Second question").to appear_before("Third question")
+
+      visit poll_path(poll)
+
+      expect("First question edited").to appear_before("Second question")
+      expect("Second question").to appear_before("Third question")
     end
 
     scenario "Question answers appear in the given order" do
@@ -297,11 +362,14 @@ describe "Polls" do
     scenario "Read more button appears only in long answer descriptions" do
       question = create(:poll_question, poll: poll)
       create(:poll_question_answer, title: "Long answer", question: question,
-             description: Faker::Lorem.characters(700))
+             description: Faker::Lorem.characters(number: 700))
       create(:poll_question_answer, title: "Short answer", question: question,
-             description: Faker::Lorem.characters(100))
+             description: Faker::Lorem.characters(number: 100))
 
       visit poll_path(poll)
+
+      expect(page).to have_content "Short answer"
+      expect(page).to have_content "Short answer"
 
       within "#poll_more_info_answers" do
         expect(page).to have_content "Read more about Long answer"
@@ -518,13 +586,24 @@ describe "Polls" do
       Setting["feature.sdg"] = true
       Setting["sdg.process.polls"] = true
 
-      poll = create(:poll, sdg_goals: [SDG::Goal[1]],
-                           sdg_targets: [SDG::Target["1.1"]])
+      poll = create(:poll, sdg_goals: [SDG::Goal[1]], sdg_targets: [SDG::Target["1.1"]])
 
       visit poll_path(poll)
 
       expect(page).to have_selector "img[alt='1. No Poverty']"
       expect(page).to have_content "target 1.1"
+    end
+
+    scenario "Polls with users same-geozone listed first" do
+      create(:poll, geozone_restricted: true, name: "A Poll")
+      create(:poll, name: "Not restricted")
+      create(:poll, geozone_restricted: true, geozones: [geozone], name: "Geozone Poll")
+
+      login_as(create(:user, :level_two, geozone: geozone))
+      visit polls_path(poll)
+
+      expect("Not restricted").to appear_before("Geozone Poll")
+      expect("Geozone Poll").to appear_before("A Poll")
     end
   end
 
@@ -603,10 +682,10 @@ describe "Polls" do
       expect(page).not_to have_content("Participation statistics")
 
       visit results_poll_path(poll)
-      expect(page).to have_content("You do not have permission to carry out the action 'results' on poll.")
+      expect(page).to have_content("You do not have permission to carry out the action 'results' on Poll.")
 
       visit stats_poll_path(poll)
-      expect(page).to have_content("You do not have permission to carry out the action 'stats' on poll.")
+      expect(page).to have_content("You do not have permission to carry out the action 'stats' on Poll.")
     end
 
     scenario "Do not show poll results or stats to admins if disabled", :admin do
@@ -629,10 +708,10 @@ describe "Polls" do
       expect(page).not_to have_content("Participation statistics")
 
       visit results_poll_path(poll)
-      expect(page).to have_content("You do not have permission to carry out the action 'results' on poll.")
+      expect(page).to have_content("You do not have permission to carry out the action 'results' on Poll.")
 
       visit stats_poll_path(poll)
-      expect(page).to have_content("You do not have permission to carry out the action 'stats' on poll.")
+      expect(page).to have_content("You do not have permission to carry out the action 'stats' on Poll.")
     end
 
     scenario "Generates navigation links for polls without a slug" do

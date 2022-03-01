@@ -1,4 +1,6 @@
 class SiteCustomization::Image < ApplicationRecord
+  include HasAttachment
+
   VALID_IMAGES = {
     "logo_header" => [260, 80],
     "social_media_icon" => [470, 246],
@@ -12,11 +14,11 @@ class SiteCustomization::Image < ApplicationRecord
     "welcome/step_1" => [270, 240],
     "welcome/step_2" => [270, 240],
     "welcome/step_3" => [270, 240],
-    "bg_footer" => [1200, 300],
-    "auth_bg" => [934, 1398]
+    "auth_bg" => [934, 1398],
+    "bg_footer" => [1200, 300]
   }.freeze
 
-  has_attached_file :image
+  has_attachment :image
 
   validates :name, presence: true, uniqueness: true, inclusion: { in: VALID_IMAGES.keys }
   validates_attachment_content_type :image, content_type: ["image/png", "image/jpeg"]

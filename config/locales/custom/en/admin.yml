@@ -10,8 +10,3 @@ en:
       confirm_unmark_featured: "Are you sure? This action will unmark this debate as featured and will be hidden from the main debates page."
     segment_recipient:
       beta_testers: "Beta testers"
-    settings:
-      index:
-        map:
-          form:
-            submit: "Edit"
