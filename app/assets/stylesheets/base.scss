@@ -458,6 +458,8 @@ body > header,
 .wrapper > header {
   background: none;
   border-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .top-bar {
@@ -556,6 +558,10 @@ body > header,
       }
     }
   }
+
+  .menu {
+    padding-left: $line-height / 2;
+  }
 }
 
 .menu-icon {
@@ -579,6 +585,7 @@ body > header,
 
 .menu-button {
   color: $brand;
+  margin-left: $line-height / 4;
 }
 
 .subnavigation {
@@ -733,6 +740,7 @@ body > header,
       background-position: 100% 30%;
       background-repeat: no-repeat;
       background-size: contain;
+      margin-right: calc(#{$global-width / 2} - 50vw);
       margin-top: $line-height * 2;
       min-height: $line-height * 20;
     }
@@ -1161,9 +1169,12 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: calc(#{$global-width / 2} - 50vw);
-    margin-right: calc(#{$global-width / 2} - 50vw);
-    overflow-x: hidden;
+
+    @include breakpoint(large) {
+      margin-left: calc(#{$global-width / 2} - 50vw);
+      margin-right: calc(#{$global-width / 2} - 50vw);
+      overflow-x: hidden;
+    }
   }
 
   &.groups {
