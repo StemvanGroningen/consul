@@ -3,6 +3,6 @@ nl:
     actions:
       create:
         proposal_notification: "Melding verzonden"
-        budget_investment: "Idee is aangemaakt."
+        budget_investment: "Idee is ingediend"
       update:
-        proposal: "Initiatief is bijgewerkt."
+        proposal: "Initiatief is aangepast."

@@ -1,0 +1,67 @@
+nl:
+  valuation:
+    header:
+      title: "Beoordelen"
+    menu:
+      title: "Beoordelen"
+      budgets: "Burgerbegrotingen"
+    budgets:
+      index:
+        title: "Burgerbegrotingen"
+        filters:
+          current: "Open"
+          finished: "Afgerond"
+        table_name: "Naam"
+        table_phase: "Fase"
+        table_assigned_investments_valuation_open: "Burgerbegrotingen met een open beoordelingsfase"
+        table_actions: "Activiteiten"
+        evaluate: "Beoordelen"
+        no_budgets: "Er zijn geen burgerbegrotingen"
+    budget_investments:
+      index:
+        headings_filter_all: "Alle koppen"
+        filters:
+          valuation_open: "Open"
+          valuating: "In beoordeling"
+          valuation_finished: "Beoordeling voltooid"
+        assigned_to: "Toegeschreven aan %{valuator}"
+        title: "Budget bestemmingen"
+        edit: "Bewerk dossier"
+        table_id: "ID"
+        table_title: "Titel"
+        table_heading_name: "Kop naam"
+        table_actions: "Activiteiten"
+        no_investments: "Er zijn geen ideeën."
+      show:
+        back: "Terug"
+        title: "Idee"
+        info: "Informatie over indiener"
+        by: "Ingediend door"
+        sent: "Ingediend op"
+        heading: "Idee"
+        dossier: "Dossier"
+        edit_dossier: "Bewerk dossier"
+        price: "Prijs"
+        price_first_year: "Kosten eerste jaar"
+        currency: "€"
+        feasibility: "Haalbaarheidscheck"
+        feasible: "Haalbaar"
+        unfeasible: "Onhaalbaar"
+        undefined: "Niet gedefinieerd"
+        valuation_finished: "Beoordeling voltooid"
+        duration: "Tijdscope"
+        responsibles: "Verantwoordelijken"
+        assigned_admin: "Toegewezen admin"
+        assigned_valuators: "Toegewezen beoordelaars"
+      edit:
+        dossier: "Dossier"
+        price: "Prijs (%{currency})"
+        price_first_year: "Kosten tijdens het eerste jaar (%{currency}) <small>(optioneel, gegevens niet openbaar)</small>"
+        feasibility: "Haalbaarheid"
+        valuation_finished_alert: "De beoordeling als voltooid markeren? Daarna kan de haalbaarheid van het idee niet meer worden gewijzigd"
+        not_feasible_alert: "Een e-mail met de beoordeling onhaalbaar wordt verstuurd naar de idee indiener"
+        save: "Bewaar wijzigingen"
+      notice:
+        valuate: "Dossier bijgewerkt"
+      valuation_comments: "Reacties op beoordeling"
+      not_in_valuating_phase: "Ideeën kunnen alleen worden geëvalueerd wanneer de beoordelingsfase open staat."

@@ -3,8 +3,8 @@ nl:
     mailer:
       confirmation_instructions:
         title: "Bevestig je account door de volgende link te gebruiken"
-        confirm_link: "Klik op %{link} om de registratie van je account af te ronden."
-        link: "deze link"
+        confirm_link: "%{link} om de registratie af te ronden."
+        link: "Bevestig je account"
         text: "Met deze email registreer je je account voor de Stem van Groningen. Als je dit niet hebt aangevraagd, klik dan niet op de link en negeer deze mail."
       reset_password_instructions:
         ignore_text: "Geen nieuw wachtwoord opgevraagd? Dan kun je deze mail negeren."
@@ -18,25 +18,25 @@ nl:
     shared:
       sign_in: "Inloggen bestaand account"
       sign_up: "Registreren nieuw account"
-      not_organization: "Vertegenwoordig je geen organisatie of collectief? Registreer je dan %{link}."
-      not_organization_link: "hier"
+      not_organization: "Vertegenwoordig je geen organisatie of collectief? %{link}."
+      not_organization_link: "Registreer je dan hier"
       links:
-        new_confirmation: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? %{link}."
-        new_confirmation_link: "Klik dan hier"
+        new_confirmation: "Heb je geen mail met bevestigingslink ontvangen? Misschien is deze in je spamfolder gekomen. Ook niet? %{link}."
+        new_confirmation_link: "Stuur de e-mail opnieuw"
         login: "Inloggen"
-        not_received: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>."
+        not_received: "Heb je geen mail met bevestigingslink ontvangen? Misschien is deze in je spamfolder gekomen. Ook niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>."
     organizations:
       registrations:
         new:
           organization_name_label: "Naam van organisatie of collectief"
-          responsible_name_note: "Dit is de persoon die namens de vereniging of het collectief initiatieven indient"
+          responsible_name_note: "Dit is de persoon die namens de vereniging, organisatie of het collectief meedoet op Stem van Groningen"
           title: "Als organisatie of collectief registreren."
           submit: "Registreren"
         success:
-          instructions_1: "Wij nemen zo snel mogelijk contact met je op om het collectief of de vereniging te verifiëren."
+          instructions_1: "Wij nemen zo snel mogelijk contact met je op om de vereniging, organisatie of het collectief te Verifiëren."
           instructions_2: "We hebben een mail met een bevestigingslink gestuurd naar het opgegeven e-mailadres."
-          instructions_3: "Klik op de link om het account te bevestigen. Hierna kun je als collectief of vereniging meedoen op Stem van Groningen."
-          thank_you: "Bedankt voor het registreren als collectief of vereniging op de website."
+          instructions_3: "Klik op de link om het account te bevestigen. Hierna kun je als vereniging, organisatie of collectief meedoen op Stem van Groningen."
+          thank_you: "Bedankt voor het registreren als vereniging, organisatie of collectief op de website."
     sessions:
       new:
         submit: "Inloggen"
@@ -44,26 +44,26 @@ nl:
     users:
       registrations:
         new:
-          email_label: "Emailadres"
+          email_label: "E-mailadres"
           title: "Registreren"
           organization_signup: "Vertegenwoordig je een organisatie of een collectief? Registreer je dan %{signup_link}."
           organization_signup_link: "hier"
-          username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
+          username_note: "Deze naam zal zichtbaar zijn voor andere gebruikers op de website"
           terms: "Ik ben een inwoner van de gemeente en ik accepteer de %{terms}."
           terms_link: "gebruiksvoorwaarden"
           terms_title: "Ik ben een inwoner van de gemeente Groningen en ik accepteer de gebruiksvoorwaarden"
           submit: "Registreren"
           username_label: "Gebruikersnaam"
-          username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
+          username_note: "Deze naam zal zichtbaar zijn voor andere gebruikers"
         success:
           title: "Verifieer je e-mailadres"
-          instructions_1: "Bekijk je mailbox - we hebben een mail gestuurd met een link om je e-mailadres te verifiëren."
+          instructions_1: "Bekijk je mailbox - we hebben een mail gestuurd met een link om je account te bevestigen."
           instructions_2: "Wanneer je dit hebt geverifieerd, kun je beginnen met participeren."
-          thank_you: "Bedankt voor het invullen van je gegevens. Om je aanmelding te voltooien moet je je e-mailadres verifiëren. "
+          thank_you: "Bedankt voor het invullen van je gegevens. Om je aanmelding te voltooien moet je je account bevestigen. "
     confirmations:
       new:
-        title: "Stuur registratiemail opnieuw"
+        title: "Stuur bevestigingsmail opnieuw"
         description: "Heb je geen link ontvangen? Misschien is deze in je spamfolder terecht gekomen. Via onderstaande knop kun je de mail opnieuw laten versturen."
         submit: "Stuur link opnieuw"
       show:
-        submit: "Bevestig"
+        submit: "Bevestigen"

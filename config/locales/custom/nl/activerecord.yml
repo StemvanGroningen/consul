@@ -78,15 +78,15 @@ nl:
         allow_custom_content: "Sta contentblok toe"
         latitude: "Breedtegraad (optioneel)"
         longitude: "Lengtegraad (optioneel)"
-        price: "Kosten hoeveel geld beschikbaar is"
+        price: "Beschikbare budget"
       budget/heading/translation:
         name: "Naam rubriek"
       budget/investment:
         heading_id: "Voor welk(e) wijk/dorp/gebied is dit idee?"
         location: "Hier kun je meer vertellen over de locatie"
         organization_name: "Als je een voorstel doet uit naam van een stichting, coöperatie of organisatie, voer dan hier de naam in"
-        feasibility_explanation: "Feasibility explanation (optioneel)"
-        unfeasibility_explanation: "Unfeasibility explanation"
+        feasibility_explanation: "Uitleg haalbaarheid"
+        unfeasibility_explanation: "Uitleg haalbaarheid"
       budget/investment/translation:
         title: "Titel van het idee"
         description: "Omschrijving"
@@ -120,7 +120,7 @@ nl:
         title: "Titel"
         description: "Omschrijving"
         day_offset: "Na hoeveel dagen na het indienen van het initiatief wordt de promotie actief?"
-        required_supports: "Na hoeveel steunbetuigingen voor het initiatief wordt de promotie  actief?"
+        required_supports: "Na hoeveel steunbetuigingen voor het initiatief wordt de promotie actief?"
         order: "Op welke positie moet deze promotie staan, in de gebruiker zijn lijst van promotiemiddelen?"
         active: "Actief"
         action_type_proposed_action: "Voorgestelde actie"
