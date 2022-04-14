@@ -22,14 +22,8 @@ describe "Welcome page" do
       end
     end
 
-    scenario "Show published budgets info" do
+    scenario "Show budgets info" do
       budget = create(:budget, :accepting)
-      finished = create(:budget, :finished)
-      group = create(:budget_group, budget: finished)
-      create(:budget_heading, group: group, price: 10000)
-      hide_money = create(:budget, :valuating, :hide_money)
-      draft = create(:budget, :drafting)
-      draft.current_phase.update!(description: "Budget in draft mode")
 
       visit root_path
 
@@ -41,25 +35,35 @@ describe "Welcome page" do
         expect(page).to have_content "#{budget.start_date.to_date}"
         expect(page).to have_content "#{budget.end_date.to_date}"
         expect(page).to have_content budget.description
-        expect(page).to have_content "See this budget", count: 3
+        expect(page).to have_content "See this budget", count: 1
         expect(page).to have_link href: budget_path(budget)
-        expect(page).to have_content finished.name
-        expect(page).to have_content finished.formatted_total_headings_price
-        expect(page).to have_content "COMPLETED"
-        expect(page).to have_content "€", count: 1
-        expect(page).to have_content "#{finished.start_date.to_date}"
-        expect(page).to have_content "#{finished.end_date.to_date}"
-        expect(page).to have_content finished.description
-        expect(page).to have_link href: budget_path(finished)
-        expect(page).not_to have_content draft.name
-        expect(page).not_to have_content draft.description
-        expect(page).not_to have_link href: budget_path(draft)
-        expect(page).to have_content hide_money.name
-        expect(page).to have_content "#{hide_money.start_date.to_date}"
-        expect(page).to have_content "#{hide_money.end_date.to_date}"
-        expect(page).to have_content hide_money.description
-        expect(page).to have_link href: budget_path(hide_money)
       end
+    end
+  end
+
+  scenario "Show all budgets except drafting, reviewing and finished" do
+    create(:widget_feed, kind: "budgets", limit: 10)
+    create(:budget, :drafting, name: "Budget draft")
+
+    phase = %w[accepting selecting reviewing publishing_prices balloting reviewing_ballots valuating finished]
+
+    phase.each_with_index do |phase_name, index|
+      create(:budget, phase: phase_name, name: "Budget #{index} #{phase_name}")
+    end
+
+    visit root_path
+
+    within "#feed_budgets" do
+      expect(page).to have_content "Budget 0 accepting"
+      expect(page).to have_content "Budget 1 selecting"
+      expect(page).to have_content "Budget 2 reviewing"
+      expect(page).to have_content "Budget 3 publishing_prices"
+      expect(page).to have_content "Budget 4 balloting"
+      expect(page).to have_content "Budget 5 reviewing_ballots"
+      expect(page).not_to have_content "Budget draft"
+      expect(page).not_to have_content "Budget 6 valuating"
+      expect(page).not_to have_content "Budget 7 finished"
+      expect(page).to have_css ".budget", count: 6
     end
   end
 
