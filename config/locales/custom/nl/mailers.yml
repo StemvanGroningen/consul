@@ -6,9 +6,9 @@ nl:
       intro: "Beste <strong>%{author}</strong>,"
       text: "Bedankt voor het delen van je idee <strong>%{investment}</strong> voor <strong>%{budget}</strong>."
       follow: "We houden je op de hoogte van het proces. Je kunt dit ook volgen op <strong>%{link}</strong>."
-      follow_link: "Burgerbegroting"
+      follow_link: "Ideeën"
       sincerely: "Groeten van Stem van Groningen"
-      share_button: "Deel je idee"
+      share: "Deel je idee"
     config:
       manage_email_subscriptions: "Wil je dit soort mails niet meer ontvangen? Verander dan hier je instellingen"
     budget_investment_selected:
@@ -36,12 +36,12 @@ nl:
       subject: "Iemand heeft gereageerd op je idee %{commentable}"
       title: "Iemand heeft gereageerd op je idee"
       hi: "Beste"
-      new_comment_by_html: "Er is een nieuwe reactie op je idee:"
+      new_comment_by: "Er is een nieuwe reactie op je idee:"
     reply:
       subject: "Iemand heeft gereageerd op jouw reactie"
       title: "Iemand heeft gereageerd op jouw reactie"
       hi: "Beste"
-      new_reply_by_html: "<strong>%{commenter}</strong> heeft gereageerd op jouw reactie"
+      new_reply_by: "<strong>%{commenter}</strong> heeft gereageerd op jouw reactie"
     direct_message_for_receiver:
       subject: "Je hebt een nieuw privébericht ontvangen"
       title: "Je hebt een nieuw privébericht ontvangen."
@@ -49,7 +49,8 @@ nl:
       unsubscribe_account: "Mijn profiel"
     direct_message_for_sender:
       subject: "Je hebt een privébericht gestuurd"
-      title: "Je hebt het volgende privébericht gestuurd naar <strong>%{receiver}</strong>:"
+      title: "Je hebt een privébericht gestuurd"
+      text: "Je hebt het volgende privébericht gestuurd naar <strong>%{receiver}</strong>:"
     user_invite:
       subject: "Welkom op de %{org_name}"
       title: "Welkom op de %{org}"
@@ -59,7 +60,8 @@ nl:
       thanks: "Bedankt!"
     email_verification:
       subject: "Bevestig je e-mailadres"
-      title: "Bevestig je account door op de link te klikken:"
+      title: "Bevestig je account"
+      text: "Bevestig je account door op de link te klikken:"
       instructions: "Om je registratie bij de Stem van Groningen af te ronden klik je op %{verification_link}."
       instructions_2: "Met deze email wordt je account bij de Stem van Groningen geregistreerd. Heb je dit niet aangevraagd? Klik dan niet op de link en negeer deze mail."
       thanks: "Groeten van Stem van Groningen"

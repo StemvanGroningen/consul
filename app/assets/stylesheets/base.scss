@@ -466,10 +466,6 @@ body > header,
   background: #fff !important;
   justify-content: space-between;
 
-  .menu {
-    border-bottom: 0;
-  }
-
   .menu > li {
 
     a {
@@ -699,9 +695,12 @@ body > header,
   }
 }
 
-.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
-  border-top-color: transparent;
-  margin-top: -8px;
+.dropdown.menu > li {
+
+  &.is-dropdown-submenu-parent > a::after {
+    border-top-color: transparent;
+    margin-top: -8px;
+  }
 }
 
 .top-bar {
@@ -752,11 +751,6 @@ body > header,
         font-size: rem-calc(60);
       }
     }
-  }
-
-  .lead {
-    font-weight: bold;
-    margin: $line-height * 2 0;
   }
 
   h2,
@@ -1279,7 +1273,7 @@ footer {
       }
 
       &:hover {
-       color: $white;
+        color: $white;
 
         &::after {
           border-left-color: $dark;
@@ -2183,6 +2177,22 @@ footer {
   min-width: 0;
 }
 
+.admin {
+
+  .top-links {
+    justify-content: right;
+
+    a {
+      flex-grow: unset;
+    }
+  }
+
+  .top-links .locale,
+  .top-bar h1 {
+    padding-left: $line-height / 2;
+  }
+}
+
 .ui-datepicker-calendar thead tr th {
   border: 1px solid $border;
 }
@@ -2799,6 +2809,10 @@ footer {
   }
 }
 
+.verification button {
+  min-height: 0;
+}
+
 // 13. Custom
 // ------------------------------
 
@@ -3239,7 +3253,6 @@ footer {
 
       &.current-phase {
         background: $brand-secondary;
-        background: red;
         color: #fff;
 
         &::after {
