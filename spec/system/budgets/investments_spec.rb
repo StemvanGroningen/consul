@@ -1852,4 +1852,12 @@ describe "Budget Investments" do
       end
     end
   end
+
+  scenario "Show have link to original image" do
+    investment_with_image = create(:budget_investment, :with_image, heading: heading)
+
+    visit budget_investment_path(budget, investment_with_image)
+
+    expect(page).to have_link(href: investment_with_image.image.attachment.url(:original).to_s)
+  end
 end
