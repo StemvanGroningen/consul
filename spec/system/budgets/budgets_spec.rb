@@ -787,4 +787,13 @@ describe "Budgets" do
       end
     end
   end
+
+  scenario "Phase have link to original image" do
+    budget.update!(phase: :finished)
+    create(:image, imageable: budget.phases.finished, title: "Phase image")
+
+    visit budgets_path
+
+    expect(page).to have_link(href: budget.phases.finished.image.attachment.url(:original).to_s)
+  end
 end
