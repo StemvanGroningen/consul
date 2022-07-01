@@ -2289,6 +2289,20 @@ footer {
   }
 }
 
+.polls-show .more-info-title {
+  color: $brand;
+  margin-top: $line-height;
+  position: relative;
+
+  &::before {
+    border: 1px solid $border;
+    content: "";
+    position: absolute;
+    top: -12px;
+    width: 100%;
+  }
+}
+
 // 12. Icons
 // --------------------
 
