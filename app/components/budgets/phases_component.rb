@@ -1,5 +1,5 @@
 class Budgets::PhasesComponent < ApplicationComponent
-  delegate :wysiwyg, :auto_link_already_sanitized_html, to: :helpers
+  delegate :wysiwyg, :auto_link_already_sanitized_html, :image_absolute_url, to: :helpers
   attr_reader :budget
 
   def initialize(budget)

@@ -1,9 +1,11 @@
 <footer>
   <div class="row">
-    <div class="small-12 column">
-      <h1>
-        <%= image_tag(image_path_for("logo_header.png"), alt: Setting["org_name"]) %>
-      </h1>
+    <div class="small-12 medium-6 column">
+      <% if feature?(:logo_image_footer) %>
+        <h1 id="logo_footer" class="logo">
+          <%= image_tag(image_path_for("logo_footer.png"), alt: "") %>
+        </h1>
+      <% end %>
     </div>
   </div>
 
@@ -34,7 +36,7 @@
       </div>
     <% end %>
 
-    &copy; <%= t("layouts.footer.copyright", version: "1.4.1", year: Time.current.year) %>
+    &copy; <%= t("layouts.footer.copyright", version: "1.5.0", year: Time.current.year) %>
     <ul class="no-bullet">
       <li><%= link_to t("layouts.footer.privacy"), page_path("privacy") %>&nbsp;|</li>
       <li><%= link_to t("layouts.footer.conditions"), page_path("conditions") %>&nbsp;|</li>

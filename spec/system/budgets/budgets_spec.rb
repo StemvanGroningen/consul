@@ -765,6 +765,6 @@ describe "Budgets" do
 
     visit budgets_path
 
-    expect(page).to have_link(href: budget.phases.finished.image.attachment.url(:original).to_s)
+    expect(page).to have_link(href: polymorphic_path(budget.phases.finished.image.attachment))
   end
 end

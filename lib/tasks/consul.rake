@@ -8,7 +8,4 @@ namespace :consul do
   task "execute_release_1.5.0_tasks": [
     "active_storage:remove_paperclip_compatibility_in_existing_attachments"
   ]
-
-  desc "Runs tasks needed to upgrade from 1.1.0 to 1.2.0"
-  task "execute_release_1.2.0_tasks": []
 end

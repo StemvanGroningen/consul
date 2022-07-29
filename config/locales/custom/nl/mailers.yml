@@ -9,8 +9,6 @@ nl:
       follow_link: "Ideeën"
       sincerely: "Groeten van Stem van Groningen"
       share: "Deel je idee"
-    config:
-      manage_email_subscriptions: "Wil je dit soort mails niet meer ontvangen? Verander dan hier je instellingen"
     budget_investment_selected:
       subject: "Gefeliciteerd, idee '%{code}' gaat door naar de stemronde!"
       title: "Gefeliciteerd, je idee gaat door naar de stemronde!"
