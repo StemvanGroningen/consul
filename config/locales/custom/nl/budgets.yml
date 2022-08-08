@@ -180,6 +180,8 @@ nl:
         recommendation_three: "wat er nodig is voor de realisatie ervan"
         recommendation_four: "wat je zelf wilt of kunt doen voor de realisatie"
         recommendation_five: "of het eenmalig is (zoals een activiteit) of voor meerdere jaren (zoals een voorziening)"
+      votes:
+        already_supported: "Je hebt dit idee al gesteund. Deel het!"
     show:
       see_results: "Bekijk de uitslag"
       unfeasible: "Bekijk de niet stembare ideeën"

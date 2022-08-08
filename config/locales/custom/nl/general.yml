@@ -17,6 +17,7 @@ nl:
       user_permission_support_proposal: "Reageren op peilingen"
       username_label: "Gebruikersnaam"
       organization_responsible_name_placeholder: "Vertegenwoordiger van de organisatie of groep"
+      notifications: "E-mail instellingen"
   debates:
     create:
       form:
@@ -177,6 +178,7 @@ nl:
       no_notifications: "Dit initiatief heeft geen meldingen."
       retired_warning: "De auteur heeft dit initiatief teruggetrokken."
       retired_warning_link_to_explanation: "Lees de uitleg voordat je het initiatief alsnog steunt."
+      draft: "Dit idee is een concept. Het is nog niet zichtbaar voor anderen. En kan nog niet gesteund worden."
     created:
       title: "Gefeliciteerd! Je hebt de eerste stap gezet"
       motivation: "Voordat je je initiatief publiceert op de website, is het slim om een campagne op te zetten. Dit helpt je om voldoende steun voor je initiatief te krijgen."
@@ -302,7 +304,7 @@ nl:
       proposal_totals:
         active_resources: "Actieve promotiemiddelen"
         community: "Deelnemers in community"
-        preview_proposal: "Preview"
+        preview_proposal: "Mijn idee"
         show_proposal: "Bekijk  initiatief"
         current_goal: "Huidige doel"
         supports:
