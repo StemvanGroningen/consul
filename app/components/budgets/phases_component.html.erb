@@ -51,11 +51,10 @@
             <% if phase.main_link_text.present? && phase.main_link_url.present? %>
               <%= link_to phase.main_link_text, phase.main_link_url, class: "main-link" %>
             <% end %>
-
-            <div class="budget-phase-image">
-              <%= render "shared/budgets_phase_video", budget: budget,
-                          phases: phases, phase: phase %>
-            </div>
+          </div>
+          <div class="budget-phase-image">
+            <%= render "shared/budgets_phase_video", budget: budget,
+                        phases: phases, phase: phase %>
           </div>
         </div>
       </div>
