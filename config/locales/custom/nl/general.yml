@@ -490,7 +490,7 @@ nl:
         title: "Poster van jouw initiatief"
         poster_title: "Blijf niet kijken,"
         poster_subtitle: "maar steun me! ;)"
-        intro_text: "<strong>Ik heb mijn idee gedeeld op de %{org}</strong> En met jouw steun kunnen we er samen voor zorgen dat dit idee wordt waargemaakt."
+        intro_text: "<strong>Ik heb mijn idee gedeeld op de %{org}</strong> En met jouw steun kunnen we ervoor zorgen dat dit idee wordt uitgevoerd."
         proposal_code: "Je vindt mijn idee door te zoeken op: %{code}"
         support: "Steun mijn idee"
         footer: "<strong>Ga naar %{link} en steun mijn idee.</strong> Hoe meer steun, hoe beter. Bedankt!"
@@ -503,12 +503,12 @@ nl:
         title: "E-mail om te delen"
     mailer:
       forward:
-        subtitle: "Als jij mijn idee steunt,<br>kunnen we hem misschien waarmaken."
+        subtitle: "Als jij mijn idee steunt,<br>wordt deze misschien waargemaakt."
         support_button: "Steun dit idee"
         hi: "Hallo!"
         introduction: "Ik heb mijn idee gedeeld op Stem van Groningen, hét platform voor participatie in mijn gemeente. En ik heb jouw steun nodig om mijn idee uit te voeren. Het steunen van een idee is heel makkelijk."
-        support: "Klik op de knop hieronder met \"steun dit idee\" om mijn idee te bekijken. Wanneer mijn idee het aangegeven aantal steun krijgt, wordt het waargemaakt. Als jij ook enthousiast wordt van dit idee, zou ik het fijn vinden dat je mijn idee steunt."
-        share: "Je zou me ook heel erg helpen door mijn idee te delen met vrienden, familie en kennissen. Alvast bedankt!"
+        support: "Klik op de knop hieronder met \"steun dit idee\" om mijn idee te bekijken. Wanneer mijn idee het aangegeven aantal steun krijgt, wordt deze uitgevoerd. Als jij ook enthousiast wordt van dit idee, zou ik het fijn vinden dat je mijn idee steunt."
+        share: "Je zou me ook heel erg helpen door mijn idee te delen met vrienden en familie. Alvast bedankt!"
   proposal_notifications:
     new:
       info_about_receivers: "Dit bericht wordt naar <strong>%{count} mensen</strong> gestuurd en is zichtbaar op de %{proposal_page}.<br>Meldingen worden niet direct gestuurd, maar de gebruikers ontvangen periodiek een email met alle meldingen omtrent jouw initiatief."
