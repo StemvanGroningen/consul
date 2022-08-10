@@ -1614,6 +1614,16 @@ footer {
   .budget-next-phase-disabled::before {
     left: 52px;
   }
+
+  .budget-phase {
+
+    @include breakpoint(medium) {
+
+      > * {
+        word-break: break-word;
+      }
+    }
+  }
 }
 
 .ballot .subtitle {
@@ -2592,6 +2602,10 @@ footer {
         top: 0;
       }
     }
+  }
+
+  .callout .small:not(.button)::after {
+    content: none;
   }
 }
 
