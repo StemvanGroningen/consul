@@ -54,7 +54,7 @@ nl:
       user:
         email_digest: "Stuur mij een mail wanneer er nieuws is over de ideeën die ik volg"
         email_on_comment: "Stuur mij een mail wanneer iemand reageert op mijn idee of discussie"
-        email_on_comment_reply: "Stuur mij een mail wanneer iemand op mijn reactie reageert"
+        email_on_comment_reply: "Stuur mij een mail wanneer iemand reageert op mijn reactie"
         email_on_direct_message: "Stuur mij een mail wanneer iemand mij een privébericht stuurt"
         newsletter: "Stuur mij nieuwsbrieven van de website"
         public_activity: "Maak mijn activiteit openbaar"

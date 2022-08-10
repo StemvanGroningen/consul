@@ -2,7 +2,7 @@ nl:
   mailers:
     config:
       notifications_link: "E-mail instellingen"
-      unsubscribe_text: "Ga naar %{notifications} en vink \"%{notification}\" uit om je af te melden voor deze e-mails."
+      unsubscribe_text: "Wil je niet meer deze mails ontvangen? Ga naar %{notifications} en vink \"%{notification}\" uit."
     budget_investment_created:
       subject: "Bedankt voor het delen van je idee!"
       title: "Bedankt voor het delen van je idee!"
