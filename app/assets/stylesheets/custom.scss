@@ -410,6 +410,17 @@ aside {
   font-size: $small-font-size !important;
 }
 
+.in-favor-against,
+.comment-votes {
+
+  button:not(.voted) {
+
+    &::before {
+      background: $brand-secondary !important;
+    }
+  }
+}
+
 // 1. Header
 // --------------------
 
