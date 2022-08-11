@@ -3,7 +3,7 @@ nl:
     ballots:
       show:
         title: Uw keuze
-        amount_progress: "%{amount_spent}/%{amount_limit}"
+        amount_progress: "%{amount_spent} / %{amount_limit}"
         amount_available:
           knapsack: "Zoveel <span>%{count}</span> kan je nog besteden"
           approval:
