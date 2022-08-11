@@ -509,6 +509,7 @@ nl:
         introduction: "Ik heb mijn idee gedeeld op Stem van Groningen, hét platform voor participatie in mijn gemeente. En ik heb jouw steun nodig om mijn idee uit te voeren. Het steunen van een idee is heel makkelijk."
         support: "Klik op de knop hieronder met \"steun dit idee\" om mijn idee te bekijken. Wanneer mijn idee het aangegeven aantal steun krijgt, wordt deze uitgevoerd. Als jij ook enthousiast wordt van dit idee, zou ik het fijn vinden dat je mijn idee steunt."
         share: "Je zou me ook heel erg helpen door mijn idee te delen met vrienden en familie. Alvast bedankt!"
+        share_in: "Delen via"
   proposal_notifications:
     new:
       info_about_receivers: "Dit bericht wordt naar <strong>%{count} mensen</strong> gestuurd en is zichtbaar op de %{proposal_page}.<br>Meldingen worden niet direct gestuurd, maar de gebruikers ontvangen periodiek een email met alle meldingen omtrent jouw initiatief."
