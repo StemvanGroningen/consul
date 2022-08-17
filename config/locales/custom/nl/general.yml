@@ -296,6 +296,11 @@ nl:
       contact_title: "Neem contact met ons op"
       privacy: "Privacyverklaring"
       contact_email: "destemvan@groningen.nl"
+      consul: "CONSUL applicatie"
+      consul_url: "https://github.com/consul/consul"
+      description: "Dit platform gebruikt %{consul} en is %{open_source}."
+      open_source: "open-source software"
+      open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
     dashboard:
       proposal_header:
         published: "Gepubliceerd"
@@ -314,6 +319,9 @@ nl:
     link_to_top:
       title: "Go back to the top of the page"
   votes:
+    agree: "I agree"
+    agree_label: "Ik ben het eens met %{title}"
+    disagree_label: "Ik ben het oneens met %{title}"
     supports: "Steun"
     budget_investments:
       not_verified: "Alleen geverifieerde gebruikers mogen stemmen op ideeën; %{verify_account}."
@@ -559,3 +567,6 @@ nl:
       submit_button: "Stuur melding"
       info_about_receivers: "Deze melding stuur je naar <strong>%{count} mensen</strong> en is te zien op %{proposal_page}.<br> Meldingen worden niet direct gestuurd, maar de gebruikers ontvangen periodiek een email met alle meldingen omtrent jouw initiatief."
       proposal_page: "de pagina van het initiatief"
+  errors:
+    messages:
+      allowed_file_content_types: "Document moet één van de volgende formats hebben: %{types}"

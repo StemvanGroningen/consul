@@ -7,6 +7,7 @@ nl:
       title: "Beheerderspagina"
     actions:
       actions: "Acties"
+      block_author: "Blokkeer gebruiker"
       confirm: "Weet je dit zeker? Je kunt deze actie niet ongedaan maken."
       hide: "Verbergen"
       hide_author: "Verbergen auteur"
@@ -32,6 +33,8 @@ nl:
       banner:
         sections:
           proposals: "Initiatieven"
+      destroy:
+        notice: "Banner succesvol verwijderd"
     activity:
       show:
         filters:
@@ -136,6 +139,7 @@ nl:
         phase_content: "Bewerk inhoud"
         hide_money: "Verberg budget"
         hide_money_help_text: "Als deze optie is aangevinkt wordt het budget, wat normaal op verschillende plekken in het begrotingsproces getoond wordt, verborgen."
+        phases_table_help_text: "In de fases kan je informatie toevoegen over de desbetreffende fase. Wat gebeurt er in welke fase? En wat wil je dat een inwoner in deze fase doet? Alle informatie die je geeft wordt per actieve fase getoond op de pagina van het budget."
       winners:
         calculate: "Tel de stemmen"
       shared:
@@ -147,6 +151,7 @@ nl:
     budget_phases:
       edit:
         title: "Bewerk fase"
+        dates_help_text: "Alleen voor informatieve doeleinden"
         duration: "Duur fase"
         duration_description: "In deze periode is de fase actief."
         image_description: "Als je een afbeelding upload zal deze te zien in de header van de burgerbegroting. Wanneer je niks upload worden de standaard kleuren gebruikt."
