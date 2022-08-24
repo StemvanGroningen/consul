@@ -9,8 +9,8 @@ nl:
       actions: "Acties"
       block_author: "Blokkeer gebruiker"
       confirm: "Weet je dit zeker? Je kunt deze actie niet ongedaan maken."
-      hide: "Verbergen"
-      hide_author: "Verbergen auteur"
+      hide: "Verberg content"
+      hide_author: "Blokkeer geberuiker"
       restore: "Terugzetten"
       unmark_featured: "Uitgelicht uitschakelen"
       edit: "Bewerk"
@@ -48,7 +48,7 @@ nl:
         no_activity: "Geen moderator activiteit."
     debates:
       index:
-        author: "Auteur"
+        author: "Gebruiker"
         title: "Verborgen discussies"
         no_debates: "Geen discussies."
     hidden_debates:
@@ -176,7 +176,7 @@ nl:
     polls:
       index:
         title: "Alle peilingen"
-        no_polls: "Gein peilingen"
+        no_polls: "Geen peilingen"
         create: "Maak peiling"
         name: "Titel peiling"
         dates: "Periode"

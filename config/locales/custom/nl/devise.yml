@@ -2,7 +2,7 @@ nl:
   devise:
     mailer:
       confirmation_instructions:
-        subject: "Bevestig je email"
+        subject: "Bevestig je account"
       reset_password_instructions:
         subject: "Wachtwoord opnieuw instellen"
       unlock_instructions:
@@ -15,17 +15,17 @@ nl:
       send_instructions: "Je ontvangt via e-mail instructies hoe je jouw account kunt ontgrendelen."
       send_paranoid_instructions: "Als je e-mailadres bij ons bekend is, ontvang je instructies over hoe je weer met jouw account kan inloggen"
       no_token: "Je kunt deze pagina niet benaderen zonder een \"wachtwoord reset e-mail\"."
-      updated: "Je wachtwoord is gewijzigd. Je bent aangemeld!"
+      updated: "Je wachtwoord is gewijzigd. Je bent aangemeld."
       updated_not_active: "Je wachtwoord is gewijzigd"
     password_expired:
       change_required: "Dit wachtwoord is helaas verlopen"
       expire_password: "Dit wachtwoord is helaas verlopen"
     confirmations:
-      confirmed: "Je account is geactiveerd"
+      confirmed: "Je account is bevestigd"
       send_instructions: "Je ontvangt via e-mail instructies om jouw account te activeren"
       send_paranoid_instructions: "We hebben een nieuwe link verstuurd. Heb je niets ontvangen? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>"
       user:
-        already_confirmed: "Je mailadres is al geverifieerd. Je kunt hiermee nu inloggen. Lukt dit niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>"
+        already_confirmed: "Je account is al geverifieerd. Je kunt hiermee nu inloggen. Lukt dit niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>"
     failure:
       already_authenticated: "Je bent al aangemeld"
       inactive: "Je account is nog niet geactiveerd"
@@ -37,10 +37,10 @@ nl:
     registrations:
       destroyed: "Jammer dat je gaat! Je account is succesvol verwijderd. Wij hopen je nog een keer terug te zien"
       signed_up: "Je bent inschreven"
-      signed_up_but_inactive: "Je bent geregistreerd. Je kon alleen niet automatisch aangemeld worden omdat jouw account nog niet geactiveerd is. Klik hiervoor op de link die naar jouw e-mailadres is verstuurd. Geen mail ontvangen? Neem dan contact op met destemvan@groningen.nl\r\n"
-      signed_up_but_locked: "Je bent geregistreerd. Je kon alleen niet automatisch aangemeld worden omdat jouw account geblokkeerd is. Neem hiervoor contact op met destemvan@groningen.nl"
+      signed_up_but_inactive: "Je account is geregistreerd. Je kon alleen niet automatisch aangemeld worden omdat jouw account nog niet bevestigd is. Klik hiervoor op de link die naar jouw e-mailadres is verstuurd. Geen mail ontvangen? Neem dan contact op met destemvan@groningen.nl\r\n"
+      signed_up_but_locked: "Je account is geregistreerd. Je kunt alleen niet automatisch aangemeld worden omdat jouw account geblokkeerd is. Neem hiervoor contact op met destemvan@groningen.nl"
       signed_up_but_unconfirmed: "Je ontvangt via de e-mail instructies hoe je jouw account kunt activeren. Het kan zijn dat de mail in je spambox komt. Heb je niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
-      update_needs_confirmation: "U hebt uw e-mailadres succesvol gewijzigd, maar we moeten uw nieuwe mailadres nog verifiëren. Controleer uw e-mail en klik op de link in de mail om uw mailadres te verifiëren"
+      update_needs_confirmation: "Je hebt je e-mailadres succesvol gewijzigd, maar we moeten je nieuwe e-mailadres nog bevestigen. Controleer je e-mail en klik op de link in de mail om jouw mailadres te bevestigen"
       updated: "Jouw accountgegevens zijn opgeslagen"
     unlocks:
       send_instructions: "Je ontvangt via de e-mail instructies hoe je jouew account kunt activeren. Geen mail ontvangen? Neem dan contact op met destemvan@groningen.nl"

@@ -8,7 +8,7 @@ nl:
         published: "Gepubliceerd"
         less_info: "Minder informatie"
       proposals:
-        empty_proposals: "Er zijn geen initiatieven"
+        empty_proposals: "Er zijn geen voorstellen"
         less_info: "Minder informatie"
       debate:
         participate: "Actief"
@@ -16,7 +16,7 @@ nl:
         help: "Help"
         section_footer:
           title: "Over plannen"
-          description: "Help mee met het beoordelen en schrijven van plannen voorafgaand aan de totstandkoming van verordeningen, beleid en uitvoering. Jouw mening telt en heeft invloed."
+          description: "Help mee met het beoordelen en schrijven van plannen, voordat ze onderdeel worden van beleid en worden uitgevoerd. Jouw mening telt en heeft invloed."
         empty_questions: "Er zijn geen discussies"
       index:
         filters:
@@ -24,19 +24,18 @@ nl:
           past: "Afgerond"
         section_header:
           icon_alt: "Inspraak icoon"
-          title: "Inspraak"
-          help: "Hulp bij inspraak"
-          description: "Hieronder staan plannen van de gemeente Groningen, waar een officiële inspraakprocedure voor is georganiseerd. Afhankelijk van het soort plan kun je opmerkingen maken op een document, discussies starten of initiatieven indienen."
+          title: "Plannen"
+          help: "Hulp bij plannen"
+          description: "Hieronder staan plannen van de gemeente. Afhankelijk van het soort plan kan je opmerkingen maken op het document, discussies starten of voorstellen indienen."
         section_footer:
-          title: "Hulp bij inspraak"
+          title: "Hulp bij plannen"
       process:
         see_latest_comments: "Bekijk plan"
-        see_latest_comments_title: "Bekijk plan"
       shared:
         key_dates: "Activiteiten"
         debate_dates: "Discussies"
-        allegations_dates: "Reacties"
-        proposals_dates: "Initiatieven"
+        allegations_dates: "Reageren"
+        proposals_dates: "Voorstellen"
       phase_empty:
         empty: "Nog niets gepubliceerd"
     annotations:
@@ -47,26 +46,28 @@ nl:
           other: "%{count} reacties"
       comments:
         cancel: "Annuleren"
-        publish_comment: "Publiceer reactie"
+        publish_comment: "Reactie plaatsen"
         comments_count:
           one: "%{count} reactie"
           other: "%{count} reacties"
     draft_versions:
       show:
-        seeing_version: "Je bekijkt nu"
+        seeing_version: "Je bekijkt nu het document"
         text_comments: "Reacties"
     questions:
       question:
         debate: "Discussie"
+      comments:
+        comments_closed: "Deze fase is afgelopen. Je kan niet meer reageren."
     proposals:
       form:
         tags_label: "Onderwerpen/labels"
-      process_title: "Inspraakproces"
-      not_verified: Voor stemvoorstellen %{verify_account}.
+      process_title: "Plan"
+      not_verified: "Om iets te kunnen doen moet je je %{verify_account}."
       participation:
-        debate_phase_not_open: "De discussie is gesloten en opmerkingen worden niet meer geaccepteerd."
-        organizations: "Deelname van organisaties in discussies is niet toegestaan"
-        unauthenticated: "Je dient %{signin} of %{signup} om deel te nemen."
+        debate_phase_not_open: "Deze fase is afgelopen. Je kan niet meer meedoen."
+        organizations: "Organisaties en collectieven mogen niet deelnemen aan discussies"
+        unauthenticated: "Je moet %{signin} of %{signup} om deel te nemen."
     summary:
       title: "Samenvatting"
       votes:
@@ -74,16 +75,16 @@ nl:
         one: "%{count} stem"
         other: "%{count} stemmen"
       debate_phase: "Discussie fase"
-      proposals_phase: "Initiatief fase"
+      proposals_phase: "Voorstel fase"
       allegations_phase: "Reactie fase"
       debates:
         zero: "Geen discussies"
         one: "%{count} discussie"
         other: "%{count} discussies"
       proposals:
-        zero: "Geen initiatieven"
-        one: "%{count} initiatief"
-        other: "%{count} initiatieven"
+        zero: "Geen voorstellen"
+        one: "%{count} voorstellen"
+        other: "%{count} voorstellen"
       comments:
         zero: "Geen reacties"
         one: "%{count} reactie"
@@ -94,5 +95,5 @@ nl:
         one: "%{count} reactie"
         other: "Top reacties"
       most_voted_comments: "Reacties met meeste stemmen"
-      no_allegation: "There are no comments"
-      process_empty: "This process didn't have any participation phases"
+      no_allegation: "Er zijn geen reacties"
+      process_empty: "In dit plan kun je nu nog niks doen"
