@@ -1,5 +1,12 @@
 nl:
   mailers:
+    config:
+      notifications_link: "E-mail instellingen"
+      unsubscribe_text: "Wil je niet meer deze mails ontvangen? Ga naar %{notifications} en vink \"%{notification}\" uit."
+    already_confirmed:
+      info: "Wij hebben vraag gekregen instructies te sturen om jouw account te bevestigen. Jouw account is al eerder bevestigd. Dit hoef je dus niet nog een keer te doen."
+      new_password: "Als je je wachtwoord bent vergeten, kan je die opnieuw instellen door te klikken op de volgende link:"
+      subject: "Je account is al bevestigd"
     budget_investment_created:
       subject: "Bedankt voor het delen van je idee!"
       title: "Bedankt voor het delen van je idee!"
@@ -9,8 +16,6 @@ nl:
       follow_link: "Ideeën"
       sincerely: "Groeten van Stem van Groningen"
       share: "Deel je idee"
-    config:
-      manage_email_subscriptions: "Wil je dit soort mails niet meer ontvangen? Verander dan hier je instellingen"
     budget_investment_selected:
       subject: "Gefeliciteerd, idee '%{code}' gaat door naar de stemronde!"
       title: "Gefeliciteerd, je idee gaat door naar de stemronde!"
@@ -47,6 +52,7 @@ nl:
       title: "Je hebt een nieuw privébericht ontvangen."
       unsubscribe: "Als je geen directe boodschappen wilt ontvangen, kijk dan eens bij %{account} en haal het vinkje weg bij 'ontvangen e-mails over directe berichten'."
       unsubscribe_account: "Mijn profiel"
+      unsubscribe_text: "Wil je geen mail ontvangen wanneer je een privébericht krijgt? Ga naar %{notifications} en vink \"Stuur mij een mail wanneer iemand mij een privébericht stuurt\" uit."
     direct_message_for_sender:
       subject: "Je hebt een privébericht gestuurd"
       title: "Je hebt een privébericht gestuurd"
@@ -66,4 +72,5 @@ nl:
       instructions_2: "Met deze email wordt je account bij de Stem van Groningen geregistreerd. Heb je dit niet aangevraagd? Klik dan niet op de link en negeer deze mail."
       thanks: "Groeten van Stem van Groningen"
       click_here_to_verify: "deze link"
+      unsubscribe_text: "Wil je geen nieuws ontvangen over ideeën die je volgt? Ga naar %{notifications} en vink \"Stuur mij een mail wanneer er nieuws is over de ideeën die ik volg\" uit."
     no_reply: "Deze mail is verstuurd vanaf een emailadres waar niet op gereageerd kan worden."

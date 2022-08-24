@@ -1,5 +1,8 @@
 nl:
   pages:
+    census_terms:
+      title: "Voorwaarden voor het gebruik van de Census"
+      description: "Informatiepagina over de voorwaarden en het gebruik van de Census."
     help:
       guide: "Deze pagina licht ieder onderdeel van het platform toe. Meer informatie over ieder onderdeel vind je door te klikken op de knoppen hieronder."
       menu:

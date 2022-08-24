@@ -35,6 +35,8 @@ nl:
     meta_description_description: "Omschrijving website, gebruikt voor zoekmachineoptimalisatie"
     meta_keywords_description: "Keywords, gebruikt voor zoekmachineoptimalisatie"
     min_age_to_participate: "Min. leeftijd deelname"
+    postal_codes: "Postcodes"
+    postal_codes_description: "Een door komma's gescheiden lijst van geldige postcodes; je kunt ook reeksen invoeren, gescheiden door een dubbele punt. Voorbeeld: 9700:9800,9912,1200AK,3201:3204 zal postcodes toelaten tussen 9700 en 9800, de postcode 9912, de postcode 1200AK, en postcodes tussen 3201 en 3204. Als je dit veld leeg laat, zijn alle postcodes geldig."
     proposals:
       successful_proposal_id: "Succesvol initiatief"
       poster_description: "Uitgebreide omschrijving poster"
@@ -80,6 +82,8 @@ nl:
       valuation_comment_notification_description: "Stuurt een email naar alle betrokken gebruikers wanneer een beoordeling aan een initiatief is gegeven. De beoordelaar zelf ontvangt deze mail niet"
       link_to_top: "Link naar bovenkant pagina"
       link_to_top_description: "Toont na het scrollen naar beneden op de pagina een knop, om weer terug te gaan naar de bovenkant van de pagina"
+      logo_image_footer: "Logo afbeelding footer"
+      logo_image_footer_description: "Laat een logo zien in de footer"
       dashboard:
         notification_emails: "Notificatiemails campagnepagina"
         notification_emails_description: "Maak het mogelijk om dashboard notificatie emails te sturen naar de auteurs van initiatieven"

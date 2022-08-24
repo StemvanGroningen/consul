@@ -410,6 +410,17 @@ aside {
   font-size: $small-font-size !important;
 }
 
+.in-favor-against,
+.comment-votes {
+
+  button:not(.voted) {
+
+    &::before {
+      background: $brand-secondary !important;
+    }
+  }
+}
+
 // 1. Header
 // --------------------
 
@@ -1576,10 +1587,6 @@ footer {
   }
 }
 
-.legislation-list .legislation p {
-  word-break: break-all;
-}
-
 // 6. Comments
 // --------------------
 
@@ -1657,86 +1664,6 @@ footer {
   .comment-body {
     padding-left: $line-height / 2;
   }
-}
-
-.comment-body .reply [class^="icon-arrow"],
-.notification-body .reply [class^="icon-arrow"] {
-  left: -18px;
-  top: -3px;
-}
-
-.comment-body .comment-user,
-.notification-body .comment-user {
-  margin-bottom: $line-height * 1.5;
-}
-
-.comment-votes {
-
-  .votes {
-    bottom: 6px;
-    position: absolute;
-    right: 0;
-
-    .like {
-
-      &:hover,
-      &.voted {
-        background: $like;
-        color: #fff;
-
-        .icon-like {
-          color: #fff;
-        }
-      }
-    }
-
-    .unlike {
-
-      &:hover,
-      &.voted {
-        background: $unlike;
-        color: #fff;
-
-        .icon-unlike {
-          color: #fff;
-        }
-      }
-    }
-
-    .participation-not-allowed {
-      position: relative;
-    }
-  }
-
-  a {
-    color: $text;
-  }
-
-  .total {
-    vertical-align: bottom;
-  }
-
-  .in-favor,
-  .against {
-    background: $light;
-    display: inline-block;
-    margin-left: $line-height / 4;
-    text-align: center;
-
-    a {
-      padding: $line-height / 4 $line-height / 2;
-    }
-
-    [class^="icon-"] {
-      color: $text;
-      display: block;
-      font-size: $small-font-size;
-    }
-  }
-}
-
-.flag-disable {
-  color: $link-soft;
 }
 
 // 7. Admin
@@ -1994,28 +1921,6 @@ footer {
 
 // 10. Proposals
 // --------------------
-
-.proposals-sidebar {
-
-  .small {
-
-    &:not(.button) {
-      display: block;
-      color: $link;
-      position: relative;
-
-      &::after {
-        content: "\f054";
-        font-family: "Font Awesome 5 Free";
-        font-size: $small-font-size;
-        font-weight: bold;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-    }
-  }
-}
 
 .supports-container {
   border-left: 0;

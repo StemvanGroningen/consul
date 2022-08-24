@@ -8,7 +8,7 @@ class Setting < ApplicationRecord
   end
 
   def type
-    if %w[feature process proposals map html homepage uploads sdg].include? prefix
+    if %w[feature process proposals map html homepage uploads sdg machine_learning].include? prefix
       prefix
     elsif %w[remote_census].include? prefix
       key.rpartition(".").first
@@ -105,6 +105,7 @@ class Setting < ApplicationRecord
         "feature.machine_learning": false,
         "feature.remove_investments_supports": true,
         "feature.welcome_steps": false,
+        "feature.logo_image_footer": true,
         "feature.background_image_footer": false,
         "homepage.widgets.feeds.debates": true,
         "homepage.widgets.feeds.processes": true,
@@ -178,6 +179,7 @@ class Setting < ApplicationRecord
         "machine_learning.comments_summary": false,
         "machine_learning.related_content": false,
         "machine_learning.tags": false,
+        "postal_codes": "",
         "remote_census.general.endpoint": "",
         "remote_census.request.method_name": "",
         "remote_census.request.structure": "",

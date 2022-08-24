@@ -1,5 +1,7 @@
 nl:
   moderation:
+    actions:
+      confirm_action: "Weet je het zeker? %{action}"
     comments:
       index:
         block_authors: "Blokkeer deelnemers"

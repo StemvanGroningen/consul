@@ -19,8 +19,8 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
 <% elsif phase.image.present? %>
-  <%= link_to phase.image.attachment.url(:original), target: "_blank" do %>
-    <%= image_tag phase.image.attachment.url(:large),
+  <%= link_to phase.image.attachment, target: "_blank" do %>
+    <%= image_tag phase.image.attachment,
                   title: phase.image.title.unicode_normalize,
                   alt: phase.image.title.unicode_normalize %>
   <% end %>

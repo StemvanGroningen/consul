@@ -29,7 +29,6 @@ describe "Welcome page" do
 
       within "#feed_budgets" do
         expect(page).to have_content budget.name
-        expect(page).to have_content budget.formatted_total_headings_price
         expect(page).to have_content budget.current_phase.name
         expect(page).to have_content "#{budget.current_enabled_phase_number}/#{budget.enabled_phases_amount}"
         expect(page).to have_content budget.current_phase.starts_at.to_date.to_s
@@ -93,6 +92,22 @@ describe "Welcome page" do
       expect(page).to have_content "Keep up with the ideas that matter to you the most, and share them "\
                                    "through social media."
       expect(page).to have_link "Another optional call to action"
+    end
+  end
+
+  scenario "Show footer logo image only if feature is enabled" do
+    Setting["feature.logo_image_footer"] = false
+
+    visit root_path
+
+    expect(page).not_to have_selector "#logo_footer"
+
+    Setting["feature.logo_image_footer"] = true
+
+    visit root_path
+
+    within "#logo_footer" do
+      expect(page).to have_css("img[alt=\"\"]")
     end
   end
 

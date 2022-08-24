@@ -4,38 +4,42 @@ describe "Admin custom information texts", :admin do
   scenario "page is correctly loaded" do
     visit admin_site_customization_information_texts_path
 
-    visit admin_site_customization_information_texts_path(tab: "basic")
-    expect(page).to have_content "Help about debates"
-    expect(page).to have_content "Help about proposals"
-    expect(page).to have_content "Help about voting"
-    expect(page).to have_content "Help about collaborative legislation"
+    click_link "Basic customization"
+    expect(page).to have_content "Help with debates"
+    expect(page).to have_content "Help with proposals"
+    expect(page).to have_content "Help with voting"
+    expect(page).to have_content "Help with collaborative legislation"
     expect(page).to have_content "Help with participatory budgets"
 
-    visit admin_site_customization_information_texts_path(tab: "debates")
-    expect(page).to have_content "Help about debates"
+    within("#information-texts-tabs") { click_link "Debates" }
 
-    visit admin_site_customization_information_texts_path(tab: "budgets")
-    expect(page).to have_content "Help with participatory budgets"
+    expect(page).to have_content "Edit debate"
 
-    visit admin_site_customization_information_texts_path(tab: "legislation")
-    expect(page).to have_content "Help about collaborative legislation"
+    within("#information-texts-tabs") { click_link "Community" }
+    expect(page).to have_content "Access the community"
 
-    visit admin_site_customization_information_texts_path(tab: "proposals")
+    within("#information-texts-tabs") { click_link "Proposals" }
     expect(page).to have_content "Create proposal"
 
-    visit admin_site_customization_information_texts_path(tab: "polls")
+    within "#information-texts-tabs" do
+      click_link "Polls"
+    end
+
     expect(page).to have_content "Results"
 
-    visit admin_site_customization_information_texts_path(tab: "layouts")
+    click_link "Layouts"
     expect(page).to have_content "Accessibility"
 
-    visit admin_site_customization_information_texts_path(tab: "mailers")
+    click_link "Emails"
     expect(page).to have_content "Confirm your email"
 
-    visit admin_site_customization_information_texts_path(tab: "management")
+    within "#information-texts-tabs" do
+      click_link "Management"
+    end
+
     expect(page).to have_content "This user account is already verified."
 
-    visit admin_site_customization_information_texts_path(tab: "welcome")
+    click_link "Welcome"
     expect(page).to have_content "See all debates"
   end
 

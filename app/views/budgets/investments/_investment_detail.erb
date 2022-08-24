@@ -19,7 +19,7 @@
 
 <br>
 <% if investment.image.present? %>
-  <%= link_to investment.image.attachment.url(:original), target: "_blank" do %>
+  <%= link_to investment.image.attachment, target: "_blank" do %>
     <%= render_image(investment.image, :large, false) %>
   <% end %>
 <% end %>

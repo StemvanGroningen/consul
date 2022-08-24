@@ -54,6 +54,10 @@ class Admin::BudgetsController < Admin::BaseController
   private
 
     def budget_params
+      params.require(:budget).permit(allowed_params)
+    end
+
+    def allowed_params
       descriptions = Budget::Phase::PHASE_KINDS.map { |p| "description_#{p}" }.map(&:to_sym)
       valid_attributes = [:phase,
                           :currency_symbol,
@@ -63,7 +67,8 @@ class Admin::BudgetsController < Admin::BaseController
                           valuator_ids: [],
                           image_attributes: image_attributes
       ] + descriptions
-      params.require(:budget).permit(*valid_attributes, *report_attributes, translation_params(Budget))
+
+      [*valid_attributes, *report_attributes, translation_params(Budget)]
     end
 
     def load_budget

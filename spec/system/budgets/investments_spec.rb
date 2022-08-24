@@ -124,7 +124,7 @@ describe "Budget Investments" do
     visit budget_investments_path(budget, heading_id: heading.id)
 
     within("#budget_investment_#{investment.id}") do
-      find("#image_#{investment.image.id}").click
+      find("#image").click
     end
 
     expect(page).to have_current_path(budget_investment_path(budget, id: investment.id))
@@ -191,6 +191,8 @@ describe "Budget Investments" do
         click_button "Search"
       end
 
+      expect(page).to have_content "containing the term 'Schwifty'"
+
       within("#budget-investments") do
         expect(page).to have_css(".budget-investment", count: 2)
 
@@ -215,9 +217,10 @@ describe "Budget Investments" do
       select "Last 24 hours", from: "By date"
       click_button "Filter"
 
-      expect(page).to have_content "There is 1 investment containing the term 'environment'"
+      expect(page).to have_content "There is 1 investment"
       expect(page).to have_css ".budget-investment", count: 1
       expect(page).to have_content "Feasible environment"
+      expect(page).not_to have_content "containing the term"
       expect(page).not_to have_content "Feasible health"
       expect(page).not_to have_content "Unfeasible environment"
       expect(page).not_to have_content "Unfeasible health"
@@ -225,11 +228,29 @@ describe "Budget Investments" do
       click_link "Unfeasible"
 
       expect(page).not_to have_content "Feasible environment"
-      expect(page).to have_content "There is 1 investment containing the term 'environment'"
+      expect(page).to have_content "There is 1 investment"
       expect(page).to have_css ".budget-investment", count: 1
       expect(page).to have_content "Unfeasible environment"
+      expect(page).not_to have_content "containing the term"
       expect(page).not_to have_content "Feasible health"
       expect(page).not_to have_content "Unfeasible health"
+    end
+
+    scenario "Advanced search without search terms" do
+      create(:budget_heading, group: heading.group)
+      create(:budget_investment, heading: heading, title: "Old thing", created_at: 2.years.ago)
+      create(:budget_investment, heading: heading, title: "Newest thing", created_at: 1.hour.ago)
+
+      visit budget_investments_path(budget, heading: heading)
+
+      click_button "Advanced search"
+      select "Last year", from: "By date"
+      click_button "Filter"
+
+      expect(page).to have_content "There is 1 investment"
+      expect(page).to have_content "Newest thing"
+      expect(page).not_to have_content "Old thing"
+      within("main") { expect(page).not_to have_content "Participatory budgeting" }
     end
   end
 
@@ -1560,11 +1581,13 @@ describe "Budget Investments" do
       end
     end
 
-    scenario "Do not show progress bar money with hidden money" do
+    scenario "Do not show progress bar money or price with hidden money" do
       budget_hide_money = create(:budget, :hide_money, phase: "balloting", voting_style: "approval")
       group = create(:budget_group, budget: budget_hide_money)
       heading = create(:budget_heading, name: "Heading without money", group: group)
       user = create(:user, :level_two)
+      investment = create(:budget_investment, :feasible, :selected, budget: budget_hide_money,
+                                               heading: heading, price: 100)
 
       visit budget_investments_path(budget_hide_money, heading: heading)
 
@@ -1572,17 +1595,27 @@ describe "Budget Investments" do
       expect(page).not_to have_content "€"
       expect(page).not_to have_css(".tagline")
 
+      within "#budget_investment_#{investment.id}" do
+        expect(page).not_to have_content "100"
+        expect(page).not_to have_content "€"
+      end
+
       login_as(user)
 
       visit budget_investments_path(budget_hide_money, heading: heading)
 
-      expect(page).to have_content "YOU CAN VOTE 1 PROJECT VOTES CAST: 0 / YOU CAN VOTE 1 PROJECT"
+      expect(page).to have_content "VOTES CAST: 0 / YOU CAN VOTE 1 PROJECT"
       expect(page).to have_content "YOU CAN STILL CAST 1 VOTE."
       expect(page).not_to have_content "Available budget"
 
       expect(page).to have_css("#progress_bar")
       expect(page).to have_css("#amount_available")
       expect(page).not_to have_css("#amount_spent")
+
+      within "#budget_investment_#{investment.id}" do
+        expect(page).not_to have_content "100"
+        expect(page).not_to have_content "€"
+      end
     end
 
     scenario "Highlight voted heading" do
@@ -1863,6 +1896,6 @@ describe "Budget Investments" do
 
     visit budget_investment_path(budget, investment_with_image)
 
-    expect(page).to have_link(href: investment_with_image.image.attachment.url(:original).to_s)
+    expect(page).to have_link(href: polymorphic_path(investment_with_image.image.attachment))
   end
 end

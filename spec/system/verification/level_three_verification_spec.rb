@@ -47,7 +47,7 @@ feature "Level three verification" do
 
     click_button "new_residence_submit"
 
-    expect(page).to have_css ".form-error", text: "In order to be verified, you must be registered."
+    expect(page).to have_css ".form-error", text: "Citizens from this postal code cannot participate"
     expect(page).not_to have_content "Account verified"
   end
 
