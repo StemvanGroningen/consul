@@ -4,14 +4,110 @@ nl:
       confirm_action: "Weet je het zeker? %{action}"
     comments:
       index:
-        block_authors: "Blokkeer deelnemers"
-        hide_comments: "Commentaar verbergen"
-        ignore_flags: "Markeer als gelezen"
-        title: "Commentaar"
+        block_authors: "Blokkeer gebruikers"
+        confirm: "Weet je het zeker?"
+        filter: "Filter"
         filters:
+          all: "Alle"
+          pending_flag_review: "In afwachting"
           with_ignored_flag: "Markeer als gelezen"
+        headers:
+          comment: "Reacties"
+          moderate: "Modereren"
+        hide: "Verberg reacties"
+        ignore_flags: "Markeer als gelezen"
+        orders:
+          flags: "Meeste ongepast meldingen"
+          newest: "Nieuwste"
+        title: "Reacties"
+    dashboard:
+      index:
+        title: "Modereren"
+    debates:
+      index:
+        block_authors: "Blokkeer gebruikers"
+        confirm: "Weet je het zeker?"
+        filter: "Filter"
+        filters:
+          all: "Alle"
+          pending_flag_review: "In afwachting"
+          with_ignored_flag: "Markeer als gelezen"
+        headers:
+          debate: "Discussies"
+          moderate: "Modereren"
+        hide: "Discussies verbergen"
+        ignore_flags: "Markeer als gelezen"
+        orders:
+          created_at: "Nieuwste"
+          flags: "Meeste ongepast meldingen"
+        title: "Discussies"
+    header:
+      title: "Modereren"
+    menu:
+      flagged_comments: "Reacties"
+      flagged_debates: "Discussies"
+      flagged_investments: "Ideeën"
+      proposals: "Initiatieven"
+      proposal_notifications: "Meldingen"
+      users: "Blokkeer gebruikers"
     proposals:
       index:
+        block_authors: "Auteurs blokkeren"
+        confirm: "Weet je het zeker?"
+        filter: "Filter"
+        filters:
+          all: "Alle"
+          pending_flag_review: "Pending review"
+          with_ignored_flag: "Markeer als gelezen"
+        headers:
+          moderate: "Modereer"
+          proposal: "Initiatieven"
+        hide: "Initiatieven verbergen"
+        ignore_flags: "Markeer als gelezen"
+        orders:
+          created_at: "Nieuweste"
+          flags: "Meeste ongepast meldingen"
+        title: "Initiatieven"
+    budget_investments:
+      index:
         block_authors: "Blokkeer auteurs"
-    menu:
-      flagged_comments: "Commentaar"
+        confirm: "Weet je het zeker?"
+        filter: "Filter"
+        filters:
+          all: "Alle"
+          pending_flag_review: "In afwachting"
+          with_ignored_flag: "Markeer als gelezen"
+        headers:
+          moderate: "Modereer"
+          budget_investment: "Ideeën"
+        hide: "Verberg ideeën"
+        ignore_flags: "Markeer als gelezen"
+        orders:
+          created_at: "Nieuwste"
+          flags: "Meeste ongepast meldingen"
+        title: "Ideeën"
+    proposal_notifications:
+      index:
+        block_authors: "Blokkeer gebruikers"
+        confirm: "Weet je het zeker?"
+        filter: "Filter"
+        filters:
+          all: "Alle"
+          pending_review: "In afwachting"
+          ignored: "Markeer als gelezen"
+        headers:
+          moderate: "Modereer"
+          proposal_notification: "Notificatie"
+        hide: "Voorstellen verbergen"
+        ignore_flags: "Markeer als gelezen"
+        orders:
+          created_at: "Nieuwste"
+          moderated: "Gemodereerd door"
+        title: "Notificaties"
+    users:
+      index:
+        hidden: "Geblokkeerd"
+        hide: "Blokkeer"
+        search_placeholder: "e-mail of naam gebruiker"
+        title: "Blokkeer gebruikers"
+      notice_hide: "De gebruiker is geblokkeerd. Alle activiteit van deze gebruiker is verborgen. "

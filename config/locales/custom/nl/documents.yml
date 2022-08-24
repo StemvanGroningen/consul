@@ -1,5 +1,5 @@
 nl:
   documents:
-    additional: "Aanvullende documenten"
+    additional: "Documenten toevoegen"
     form:
-      note: "Je kunt maximaal %{max_documents_allowed} %{accepted_content_types} bestanden toevoegen met elk een maximale grootte van %{max_file_size} MB"
+      note: "Je kunt maximaal %{max_documents_allowed} %{accepted_content_types} documenten toevoegen met elk een maximale grootte van %{max_file_size} MB"
