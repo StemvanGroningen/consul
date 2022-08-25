@@ -223,3 +223,15 @@ nl:
       hide_discarded_link: "Verberg niet gekozen ideeën"
       heading_selection_title: "Per gebied"
     no_image_alt: "Groene omgeving in Haren"
+    supports_info:
+      different: "Maar... je kunt ieder idee slechts één keer steunen. En je steun is definitief."
+      next: "Steun de ideeën die jij graag uitgevoerd wil zien."
+      scrolling: "Blijf scrollen om alle ideeën te zien"
+      share: "Je kunt ideeën die je hebt gesteund delen op social media. Zo krijgen de ideeën meer aandacht én wellicht meer steun!"
+      supported:
+        one: "Tot nu toe heb je <strong>1 idee</strong> gesteund."
+        other: "Tot nu toe heb je <strong>%{count} ideeën</strong> gesteund."
+      supported_not_logged_in: "Log in om <strong>projecten te steunen</strong>."
+      remember: "Je mag zoveel verschillende ideeën steunen als je wilt."
+      time: "Je kunt nog tot %{phase_end_date} ideeën steunen."
+      title: "Je kunt nu ideeën <strong>steunen</strong>!"
