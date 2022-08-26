@@ -3,3 +3,7 @@ nl:
     residence:
       new:
         error_not_allowed_postal_code: "Alleen met een geldige postcode kun je deelnemen"
+    user_permission_debates: "Deelnemen aan discussies"
+    user_permission_proposal: "Laten weten welke ideeën jij hebt"
+    user_permission_support_proposal: "Reageren op ideeën van anderen"
+    user_permission_votes: "Stemmen op ideeën"
