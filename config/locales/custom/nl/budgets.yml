@@ -155,6 +155,7 @@ nl:
         tag_category_label: "Categorieën"
         tags_placeholder: "Voer de categorie in die je wilt gebruiken, gescheiden door kommas (',')"
       investment:
+        add: "Stem op dit idee"
         add_label: "Stem %{investment}"
         price_title: "Prijs"
         support_title: "Steunbetuigingen"
