@@ -24,14 +24,6 @@
             </th>
           <% end %>
         <% end %>
-        <% if @budget.show_money? %>
-          <% if results_type == :compatible %>
-            <th scope="col" class="text-right">
-              <small><%= t("budgets.results.amount_available") %></small><br>
-              <%= @budget.formatted_amount(heading_price) %><br>
-            </th>
-          <% end %>
-        <% end %>
       </tr>
     </thead>
 
