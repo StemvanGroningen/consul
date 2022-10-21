@@ -7,6 +7,8 @@ class Budget < ApplicationRecord
   include SDG::Relatable
 
   translates :name, :main_link_text, :main_link_url, touch: true
+  translates :info_section_title, :info_section_description, touch: true
+  translates :info_section_link_text, :info_section_link_url, touch: true
   include Globalizable
 
   class Translation
@@ -27,6 +29,7 @@ class Budget < ApplicationRecord
   validates_translation :name, presence: true
   validates_translation :main_link_url, presence: true, unless: -> { main_link_text.blank? }
   validates :phase, inclusion: { in: ->(*) { Budget::Phase::PHASE_KINDS }}
+  validates_translation :info_section_link_url, presence: true, unless: -> { info_section_link_text.blank? }
   validates :currency_symbol, presence: true
   validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
   validates :voting_style, inclusion: { in: ->(*) { VOTING_STYLES }}

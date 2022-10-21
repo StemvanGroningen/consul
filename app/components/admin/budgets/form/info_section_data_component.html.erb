@@ -1,0 +1,26 @@
+<div class="row expanded">
+  <div class="small-12 medium-9 large-6 column end">
+    <p class="form-label"><%= t("admin.budgets.edit.info_section") %></p>
+    <p class="help-text"> <%= t("admin.budgets.edit.info_section_help_text") %></p>
+  </div>
+</div>
+
+<div class="small-12 medium-9 large-6 column end">
+  <%= translations_form.text_field :info_section_title %>
+</div>
+
+<div class="small-12 column">
+  <%= translations_form.text_area :info_section_description, class: "html-area" %>
+</div>
+
+<div class="row expanded">
+  <div class="small-12 medium-9 large-6 column end">
+    <%= translations_form.text_field :info_section_link_text %>
+  </div>
+</div>
+
+<div class="row expanded">
+  <div class="small-12 medium-9 large-6 column end">
+    <%= translations_form.text_field :info_section_link_url, hint: t("admin.shared.example_url") %>
+  </div>
+</div>

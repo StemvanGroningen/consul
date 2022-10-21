@@ -27,7 +27,11 @@
           <%= translations_form.text_field :main_link_url, hint: t("admin.shared.example_url") %>
         </div>
       </div>
+
+      <%= render Admin::Budgets::Form::InfoSectionDataComponent.new(translations_form) %>
     <% end %>
+
+    <%= render Admin::Budgets::Form::InfoSectionCheckboxComponent.new(f) %>
 
     <div class="row expanded">
       <div class="small-12 medium-4 column">

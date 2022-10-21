@@ -173,6 +173,8 @@ es:
           add_heading: "Añadir partida"
         hide_money: "Ocultar dinero"
         hide_money_help_text: "Si esta opción está marcada, todos los campos que muestran la cantidad de dinero se ocultarán durante todo el proceso."
+        info_section: "Sección de información (opcional)"
+        info_section_help_text: "Si está activa, se muestra una sección para añadir un texto de información extra para este presupuesto participativo."
       destroy:
         success_notice: Presupuesto eliminado correctamente
         unable_notice: No se puede eliminar un presupuesto con proyectos asociados

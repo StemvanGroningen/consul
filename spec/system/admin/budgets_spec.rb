@@ -258,6 +258,46 @@ describe "Admin budgets", :admin do
     end
   end
 
+  context "Show" do
+    let(:budget) { create(:budget, :drafting) }
+
+    scenario "Show info section" do
+      visit edit_admin_budget_path(budget)
+
+      check "Show info section for this budget"
+      fill_in "Info section title", with: "More info about this PB"
+      fill_in_ckeditor "Info section description", with: "Extra section with more interesting info."
+      fill_in "Info section text on the link", with: "More info here"
+      fill_in "The link on info section takes you to (add a link)", with: "https://info.consulproject.org"
+      click_button "Update Budget"
+
+      visit budget_path(budget)
+
+      within "#info_section" do
+        expect(page).to have_selector("h2", text: "More info about this PB")
+        expect(page).to have_content "Extra section with more interesting info."
+        expect(page).to have_link("More info here", href: "https://info.consulproject.org")
+      end
+    end
+
+    scenario "Do not show info section" do
+      visit edit_admin_budget_path(budget)
+
+      fill_in "Info section title", with: "More info about this PB"
+      fill_in_ckeditor "Info section description", with: "Extra section with more interesting info."
+      fill_in "Info section text on the link", with: "More info here"
+      fill_in "The link on info section takes you to (add a link)", with: "https://info.consulproject.org"
+      click_button "Update Budget"
+
+      visit budget_path(budget)
+
+      expect(page).not_to have_selector "#info_section"
+      expect(page).not_to have_selector("h2", text: "More info about this PB")
+      expect(page).not_to have_content "Extra section with more interesting info."
+      expect(page).not_to have_link("More info here", href: "https://info.consulproject.org")
+    end
+  end
+
   context "Destroy" do
     let!(:budget) { create(:budget) }
     let(:heading) { create(:budget_heading, budget: budget) }

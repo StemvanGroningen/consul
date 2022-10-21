@@ -151,6 +151,8 @@ en:
           staff_settings: "Administrators and Valuators assigned to the budget"
         hide_money: "Hide money"
         hide_money_help_text: "If this option is checked, all fields showing the amount of money will be hidden throughout the process."
+        info_section: "Info section (optional)"
+        info_section_help_text: "If active, a section is displayed to add extra information text for this participatory budget."
       destroy:
         success_notice: Budget deleted successfully
         unable_notice: You cannot delete a budget that has associated investments

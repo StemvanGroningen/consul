@@ -22,9 +22,10 @@
 
 <%= render Budgets::SubheaderComponent.new(budget) %>
 <%= render Budgets::PhasesComponent.new(budget) %>
+<%= render Budgets::InfoSectionComponent.new(budget) %>
 
 <div id="budget_info" class="budget-info">
-  <div class="row margin-top">
+  <div class="row">
     <div class="small-12 column">
       <% if budget.single_heading? %>
         <%= render Budgets::SingleHeadingComponent.new(budget) %>
