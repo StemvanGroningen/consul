@@ -161,10 +161,15 @@ en:
         voting_style_knapsack: "Knapsack"
         voting_style_approval: "Approval"
         hide_money: "Hide money amount for this budget"
+        info_section: "Show info section for this budget"
       budget/translation:
         main_link_text: "Text on the link"
         main_link_url: "The link takes you to (add a link)"
         name: "Name"
+        info_section_title: "Info section title"
+        info_section_description: "Info section description"
+        info_section_link_text: "Info section text on the link"
+        info_section_link_url: "The link on info section takes you to (add a link)"
       budget/investment:
         heading_id: "Heading"
         title: "Title"

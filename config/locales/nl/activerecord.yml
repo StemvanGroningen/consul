@@ -158,10 +158,15 @@ nl:
         phase: "Fase"
         currency_symbol: "Valuta"
         voting_style_approval: "Goedkeuring"
+        info_section: "Laat sectie met meer informatie zien voor dit project"
       budget/translation:
         name: "Titel"
         main_link_text: "Tekst knop"
         main_link_url: "Link knop"
+        info_section_title: "Titel sectie meer informatie"
+        info_section_description: "Omschrijving sectie meer informatie"
+        info_section_link_text: "Link tekst"
+        info_section_link_url: "URL"
       budget/investment:
         heading_id: "Kop"
         title: "Titel"

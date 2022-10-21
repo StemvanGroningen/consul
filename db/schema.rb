@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_110757) do
+ActiveRecord::Schema.define(version: 2022_07_05_172403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -357,6 +357,10 @@ ActiveRecord::Schema.define(version: 2022_02_03_110757) do
     t.string "name"
     t.string "main_link_text"
     t.string "main_link_url"
+    t.string "info_section_title"
+    t.text "info_section_description"
+    t.string "info_section_link_text"
+    t.string "info_section_link_url"
     t.index ["budget_id"], name: "index_budget_translations_on_budget_id"
     t.index ["locale"], name: "index_budget_translations_on_locale"
   end
@@ -404,6 +408,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_110757) do
     t.string "main_button_text"
     t.string "main_button_url"
     t.boolean "hide_money", default: false
+    t.boolean "info_section", default: false
   end
 
   create_table "campaigns", id: :serial, force: :cascade do |t|

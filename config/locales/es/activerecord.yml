@@ -161,10 +161,15 @@ es:
         voting_style_knapsack: "Bolsa de dinero"
         voting_style_approval: "Por aprobación"
         hide_money: "Ocultar la cantidad de dinero para este presupuesto"
+        info_section: "Mostrar sección de información para este presupuesto"
       budget/translation:
         main_link_text: "Texto del enlace"
         main_link_url: "El enlace te lleva a (añade un enlace)"
         name: "Nombre"
+        info_section_title: "Título sección de información"
+        info_section_description: "Descripción sección de información"
+        info_section_link_text: "Texto del botón de la sección de información"
+        info_section_link_url: "El botón de la sección de información te lleva a (añade un enlace)"
       budget/investment:
         heading_id: "Partida presupuestaria"
         title: "Título"

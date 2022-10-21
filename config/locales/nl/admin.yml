@@ -100,6 +100,8 @@ nl:
         active: Actieve
         blank_dates: Datums zijn leeg
         phases_caption: "Instellingen fases"
+        info_section: "Sectie meer informatie (optioneel)"
+        info_section_help_text: "Als deze actief is, staat er een sectie onder de fases met extra informatie naar keuze. Bijvoorbeeld over de uitgevoerde ideeën, of het verdere vervolg van dit project."
       destroy:
         success_notice: Begroting verwijderd
         unable_notice: U kunt een begroting met voorstellen niet verwijderen

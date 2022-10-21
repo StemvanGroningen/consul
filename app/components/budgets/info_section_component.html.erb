@@ -1,0 +1,17 @@
+<% if budget.info_section? %>
+  <section id="info_section" class="budget-info-section">
+    <div class="row">
+      <% if budget.info_section_title.present? %>
+        <h2><%= budget.info_section_title %></h2>
+      <% end %>
+
+      <% if budget.info_section_description.present? %>
+        <%= auto_link_already_sanitized_html(wysiwyg(budget.info_section_description)) %>
+      <% end %>
+
+      <% if budget.info_section_link_text.present? %>
+        <%= link_to budget.info_section_link_text, budget.info_section_link_url, class: "button" %>
+      <% end %>
+    </div>
+  </section>
+<% end %>
