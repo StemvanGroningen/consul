@@ -12,6 +12,13 @@
 <div class="polls-show">
   <%= render "poll_header" %>
 
+  <% if @poll.id == 34 %>
+    <div class="maptionnaire">
+      <iframe id="maptionnaire" title="" width="100%" height="800px"
+              src="https://new.maptionnaire.com/q/7ll89ilj4836">
+      </iframe>
+    </div>
+  <% else %>
   <%= render "poll_subnav" %>
 
   <div class="row margin">
@@ -125,4 +132,5 @@
       <%= render "comments" %>
     </div>
   </div>
+  <% end %>
 </div>
