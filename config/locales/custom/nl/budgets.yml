@@ -178,12 +178,12 @@ nl:
       share:
         message: "Ik vind dit een goed idee!"
       new:
-        recommendations_title: "Beschrijf bijvoorbeeld:"
-        recommendation_one: "waarom het een goed idee is"
-        recommendation_two: "voor wie het idee bedoeld is"
-        recommendation_three: "wat er nodig is om het uit te voeren"
-        recommendation_four: "wat je zelf wilt of kunt doen voor de uitvoering"
-        recommendation_five: "of het eenmalig is (zoals een activiteit) of voor meerdere jaren (zoals een voorziening)"
+        recommendations_title: "Beschrijf je idee:"
+        recommendation_one: Waarom is het een goed idee?
+        recommendation_two: Voor wie is het idee bedoeld?
+        recommendation_three: Wat is er nodig en hoeveel geld is er nodig voor de uitvoering?
+        recommendation_four: Wat wil of kun je zelf doen voor de uitvoering?
+        recommendation_five: Is het eenmalig (zoals een activiteit) of voor meerdere jaren (zoals een voorziening)?
       votes:
         already_supported: "Je hebt dit idee al gesteund. Deel het!"
     show:
@@ -224,7 +224,7 @@ nl:
       show_all_link: "Toon alle ideeën"
       hide_discarded_link: "Verberg niet gekozen ideeën"
       heading_selection_title: "Per gebied"
-    no_image_alt: "Abstracte skyline gemeente Groningen"
+    no_image_alt: "Grafische skyline gemeente Groningen"
     supports_info:
       different: "Maar... je kunt ieder idee slechts één keer steunen. En je steun is definitief."
       next: "Steun de ideeën die jij graag uitgevoerd wil zien."

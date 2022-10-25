@@ -297,7 +297,7 @@ nl:
       org_name: "Stem van Groningen"
       contact_title: "Neem contact met ons op"
       privacy: "Privacyverklaring"
-      contact_email: "destemvan@groningen.nl"
+      contact_email: "stemvan@groningen.nl"
       consul: "CONSUL applicatie"
       consul_url: "https://github.com/consul/consul"
       description: "Dit platform gebruikt %{consul} en is %{open_source}."
@@ -341,13 +341,13 @@ nl:
       subtitle: ""
       step_1:
         number: "1"
-        title: "Registreren"
-        description: "Gebruik Twitter, Facebook, Google, of jouw mailadres om in te loggen."
-        link: "Meld je binnen vijf minuten aan"
+        title: "Registreer"
+        description: "Gebruik Google, of jouw mailadres om in te loggen."
+        link: "Meld je binnen drie minuten aan"
       step_2:
         number: "2"
         title: "Stem"
-        description: "Deel en stem op ideeën voor de gemeente Groningen."
+        description: "Stem op ideeën die jij belangrijk vindt."
         link: "Bekijk wat er in de gemeente gebeurt"
       step_3:
         number: "3"
@@ -357,11 +357,11 @@ nl:
     feed:
       description:
         proposals: "Wanneer een idee voldoende steun ontvangt, gaan we kijken of we deze kunnen uitvoeren. Misschien dat we hiervoor nog een peiling opzetten, om het idee specifieker te maken. Zo kunnen alle inwoners van Groningen bepalen hoe de gemeente eruit komt te zien."
-        budgets: "In projecten bepaal jij mee wat er in een wijk of project gebeurt. Heb jij een idee hoe we de gemeente Groningen nog mooier kunnen maken? Of breng je stem uit op een idee die jij uitgevoerd wilt zien worden."
+        budgets: "In deze processen bepalen inwoners wat er met een deel van het gemeentelijke budget gebeurt. De gemeente onderzoekt of de meest gesteunde ideeën haalbaar zijn. In de stemfase die daarop volgt beslissen de inwoners welke ideeën de gemeente samen met u gaat uitvoeren."
       most_active:
         debates: "Actieve discussies"
         proposals: "Ideeën"
-        budgets: "Projecten"
+        budgets: "Lopende Ideeën"
       see_budget: "Bekijk project"
       see_process: "Bekijk plan"
       see_all:
@@ -369,7 +369,7 @@ nl:
         proposals: "Alle ideeën"
         processes: "Alle plannen"
     cards:
-      title: "Uitgelicht"
+      title: "Samen afgerond"
     recommended:
       title: "Aanbevelingen voor jou"
       help: "Deze aanbevelingen zijn gemaakt op basis van ideeën en discussies die je volgt."
