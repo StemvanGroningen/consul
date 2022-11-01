@@ -73,12 +73,18 @@
                               days: distance_of_time_in_words(Time.current, poll.ends_at + 1.day))) %>
             </p>
           <% end %>
+          <% if poll.id == 14 %>
+            <%= link_to "https://new.maptionnaire.com/q/7n929t4zty87", class: "button expanded" do %>
+              <%= t("polls.index.participate_button") %>
+            <% end %>
+          <% else %>
           <%= link_to poll_path(id: poll.slug || poll.id), class: "button expanded" do %>
             <% if poll.expired? %>
               <%= t("polls.index.participate_button_expired") %>
             <% else %>
               <%= t("polls.index.participate_button") %>
             <% end %>
+          <% end %>
           <% end %>
         </div>
       </div>
