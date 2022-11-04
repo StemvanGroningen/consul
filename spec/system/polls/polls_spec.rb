@@ -194,6 +194,17 @@ describe "Polls" do
       expect(page).to have_selector "img[alt='1. No Poverty']"
       expect(page).to have_content "target 1.1"
     end
+
+    scenario "Poll 14 links to Maptionnaire" do
+      create(:poll, id: 14)
+
+      visit polls_path
+
+      within(".poll") do
+        expect(page).to have_link("Participate in this poll",
+                                  href: "https://new.maptionnaire.com/q/7n929t4zty87")
+      end
+    end
   end
 
   context "Show" do
