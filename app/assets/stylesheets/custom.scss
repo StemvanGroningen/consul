@@ -645,6 +645,7 @@ header {
       background-position: right -150px bottom 0;
       background-repeat: no-repeat;
       background-size: contain;
+      margin-right: calc(37.5rem - 50vw);
       margin-top: $line-height * 2;
       min-height: $line-height * 30;
     }
@@ -653,7 +654,7 @@ header {
       font-size: rem-calc(36);
 
       @include breakpoint(large) {
-        font-size: rem-calc(90);
+        font-size: rem-calc(50);
       }
     }
 
