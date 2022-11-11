@@ -196,11 +196,12 @@ describe "Polls" do
     end
 
     scenario "Poll 14 links to Maptionnaire" do
-      create(:poll, id: 14)
+      poll = create(:poll, id: 14)
 
       visit polls_path
 
       within(".poll") do
+        expect(page).to have_link(poll.name, href: "https://new.maptionnaire.com/q/7n929t4zty87")
         expect(page).to have_link("Participate in this poll",
                                   href: "https://new.maptionnaire.com/q/7n929t4zty87")
       end
