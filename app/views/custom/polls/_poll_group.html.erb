@@ -14,7 +14,11 @@
           <h4><%= link_to_poll poll.questions.first.title, poll %></h4>
           <small><%= poll_dates(poll) %></small>
         <% else %>
-          <h4><%= link_to_poll poll.name, poll %></h4>
+          <% if poll.id == 14 %>
+            <h4><%= link_to poll.name, "https://new.maptionnaire.com/q/7n929t4zty87" %></h4>
+          <% else %>
+            <h4><%= link_to_poll poll.name, poll %></h4>
+          <% end %>
           <small><%= poll_dates(poll) %></small>
 
           <ul class="question-list no-bullet margin-top">
