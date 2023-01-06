@@ -297,35 +297,35 @@ describe Budget do
   describe "investments_orders" do
     it "is random when accepting and reviewing" do
       budget.phase = "accepting"
-      expect(budget.investments_orders).to eq(["random"])
+      expect(budget.investments_orders).to eq(["random", "created_at"])
       budget.phase = "reviewing"
-      expect(budget.investments_orders).to eq(["random"])
+      expect(budget.investments_orders).to eq(["random", "created_at"])
     end
 
     it "is random and price when ballotting and reviewing ballots" do
       budget.phase = "publishing_prices"
-      expect(budget.investments_orders).to eq(["random", "price"])
+      expect(budget.investments_orders).to eq(["random", "price", "created_at"])
       budget.phase = "balloting"
-      expect(budget.investments_orders).to eq(["random", "price"])
+      expect(budget.investments_orders).to eq(["random", "price", "created_at"])
       budget.phase = "reviewing_ballots"
-      expect(budget.investments_orders).to eq(["random", "price"])
+      expect(budget.investments_orders).to eq(["random", "price", "created_at"])
     end
 
     it "is random when ballotting and reviewing ballots if hide money" do
       budget.update!(voting_style: "approval", hide_money: true)
       budget.phase = "publishing_prices"
-      expect(budget.investments_orders).to eq(["random"])
+      expect(budget.investments_orders).to eq(["random", "created_at"])
       budget.phase = "balloting"
-      expect(budget.investments_orders).to eq(["random"])
+      expect(budget.investments_orders).to eq(["random", "created_at"])
       budget.phase = "reviewing_ballots"
-      expect(budget.investments_orders).to eq(["random"])
+      expect(budget.investments_orders).to eq(["random", "created_at"])
     end
 
     it "is random and confidence_score in all other cases" do
       budget.phase = "selecting"
-      expect(budget.investments_orders).to eq(["confidence_score", "random"])
+      expect(budget.investments_orders).to eq(["confidence_score", "random", "created_at"])
       budget.phase = "valuating"
-      expect(budget.investments_orders).to eq(["confidence_score", "random"])
+      expect(budget.investments_orders).to eq(["confidence_score", "random", "created_at"])
     end
   end
 

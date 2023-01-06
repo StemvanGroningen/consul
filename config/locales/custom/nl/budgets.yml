@@ -122,6 +122,7 @@ nl:
           winners: "Winnende"
         orders:
           confidence_score: "best beoordeeld"
+          created_at: "nieuwste"
         read_more: "Bekijk idee"
         search_form:
           placeholder: "Zoek ideeën..."

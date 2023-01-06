@@ -219,11 +219,11 @@ class Budget < ApplicationRecord
   def investments_orders
     case phase
     when "accepting", "reviewing", "finished"
-      %w[random]
+      %w[random created_at]
     when "publishing_prices", "balloting", "reviewing_ballots"
-      hide_money? ? %w[random] : %w[random price]
+      hide_money? ? %w[random created_at] : %w[random price created_at]
     else
-      %w[confidence_score random]
+      %w[confidence_score random created_at]
     end
   end
 
