@@ -32,8 +32,8 @@ describe "Users" do
 
     expect(page).to have_content "Confirming the account with email"
 
-    fill_in "user_password", with: "12345678"
-    fill_in "user_password_confirmation", with: "12345678"
+    fill_in "user_password", with: "judgementday"
+    fill_in "user_password_confirmation", with: "judgementday"
 
     click_button "Confirm"
 
