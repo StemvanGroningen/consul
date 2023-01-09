@@ -1003,11 +1003,22 @@ describe "Budget Investments" do
     expect(page).not_to have_selector ".js-follow"
   end
 
-  scenario "Show back link contains heading id" do
+  scenario "Show back link" do
     investment = create(:budget_investment, heading: heading)
+
+    visit budget_path(budget)
     visit budget_investment_path(budget, investment)
 
-    expect(page).to have_link "Go back", href: budget_investments_path(budget, heading_id: investment.heading)
+    click_link "Go back"
+
+    expect(page).to have_current_path(budget_path(budget))
+
+    visit root_path
+    visit budget_investment_path(budget, investment)
+
+    click_link "Go back"
+
+    expect(page).to have_current_path(root_path)
   end
 
   context "Show (feasible budget investment)" do
