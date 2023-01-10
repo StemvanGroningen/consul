@@ -16,7 +16,7 @@ describe "Welcome screen" do
     user = create(:user)
     login_through_form_as(user)
 
-    expect(page).to have_current_path(page_path("welcome_not_verified"))
+    expect(page).to have_current_path(page_path("account"))
   end
 
   scenario "for a level two verified user" do
