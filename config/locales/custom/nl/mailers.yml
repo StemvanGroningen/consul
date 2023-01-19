@@ -1,5 +1,6 @@
 nl:
   mailers:
+    sincerely: "Groeten van Stem van Groningen"
     config:
       notifications_link: "E-mail instellingen"
       unsubscribe_text: "Wil je niet meer deze mails ontvangen? Ga naar %{notifications} en vink \"%{notification}\" uit."
@@ -14,7 +15,6 @@ nl:
       text: "Bedankt voor het delen van je idee <strong>%{investment}</strong> voor <strong>%{budget}</strong>."
       follow: "We houden je op de hoogte van het proces. Je kunt dit ook volgen op <strong>%{link}</strong>."
       follow_link: "Ideeën"
-      sincerely: "Groeten van Stem van Groningen"
       share: "Deel je idee"
     budget_investment_selected:
       subject: "Gefeliciteerd, idee '%{code}' gaat door naar de stemronde!"
@@ -22,7 +22,6 @@ nl:
       hi: "Beste <strong>%{author}</strong>,"
       share: "De gemeente Groningen heeft alle ingediende ideeën bekeken, en gekeken hoeveel het ongeveer gaat kosten. Gefeliciteerd, jouw idee is haalbaar! Je kunt nu beginnen met je campagne. Deel je idee op social media en met je buren. Veel succes!"
       share_button: "Deel je idee"
-      sincerely: "Groeten van Stem van Groningen"
       thanks: "Bedankt voor het meedoen."
     budget_investment_unfeasible:
       subject: "Helaas, jouw idee is niet haalbaar"
@@ -31,12 +30,10 @@ nl:
       new_href: " hier"
       contact: "We hopen dat dit duidelijk is. Heb je toch nog vragen? Mail dan naar %{email}, we denken graag met je mee."
       email: "destemvan@groningen.nl"
-      sincerely: "Groeten van Stem van Groningen"
     budget_investment_unselected:
       subject: "Helaas heeft je idee het niet gehaald"
       hi: "Beste <strong>%{author}</strong>,"
       thanks: "Helaas heeft je idee niet genoeg stemmen gekregen om door te gaan. Heel erg bedankt voor het delen van je idee."
-      sincerely: "Groeten van Stem van Groningen"
     comment:
       subject: "Iemand heeft gereageerd op je idee %{commentable}"
       title: "Iemand heeft gereageerd op je idee"
@@ -73,7 +70,7 @@ nl:
       text: "Bevestig je account door op de link te klikken:"
       instructions: "Om je registratie bij de Stem van Groningen af te ronden klik je op %{verification_link}."
       instructions_2: "Met deze email wordt je account bij de Stem van Groningen geregistreerd. Heb je dit niet aangevraagd? Klik dan niet op de link en negeer deze mail."
-      thanks: "Groeten van Stem van Groningen"
+      thanks: "Heel erg bedankt"
       click_here_to_verify: "deze link"
       unsubscribe_text: "Wil je geen nieuws ontvangen over ideeën die je volgt? Ga naar %{notifications} en vink \"Stuur mij een mail wanneer er nieuws is over de ideeën die ik volg\" uit."
     no_reply: "Deze mail is verstuurd vanaf een emailadres waar niet op gereageerd kan worden."
