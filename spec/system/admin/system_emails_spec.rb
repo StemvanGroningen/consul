@@ -116,6 +116,7 @@ describe "System Emails" do
 
       visit admin_system_email_view_path("budget_investment_selected")
 
+      expect(page).to have_content "John Doe"
       expect(page).to have_content "Your investment project '#{investment.code}' has been selected"
       expect(page).to have_content "Share your idea on social media and with your neighbours"
 
@@ -128,6 +129,7 @@ describe "System Emails" do
 
       visit admin_system_email_view_path("budget_investment_unfeasible")
 
+      expect(page).to have_content "John Doe"
       expect(page).to have_content "Your investment project '#{investment.code}' "
       expect(page).to have_content "has been marked as unfeasible"
     end
@@ -137,6 +139,7 @@ describe "System Emails" do
 
       visit admin_system_email_view_path("budget_investment_unselected")
 
+      expect(page).to have_content "John Doe"
       expect(page).to have_content "Your investment project '#{investment.code}' "
       expect(page).to have_content "has not been selected"
       expect(page).to have_content "Thank you again for participating."
@@ -203,10 +206,11 @@ describe "System Emails" do
     end
 
     scenario "#email_verification" do
-      create(:user, confirmed_at: nil, email_verification_token: "abc")
+      user = create(:user, confirmed_at: nil, email_verification_token: "abc")
 
       visit admin_system_email_view_path("email_verification")
 
+      expect(page).to have_content "Hi #{user.name}"
       expect(page).to have_content "Confirm your account using the following link"
 
       expect(page).to have_link "this link", href: email_url(email_verification_token: "abc", host: app_host)
@@ -264,7 +268,7 @@ describe "System Emails" do
         visit admin_system_email_view_path("evaluation_comment")
 
         expect(page).to have_content "New evaluation comment for Cleaner city"
-        #expect(page).to have_content "Hi #{admin.name}"
+        expect(page).to have_content "Hi #{admin.name}"
         expect(page).to have_content "There is a new evaluation comment from #{comment.user.name} "\
                                      "to the budget investment Cleaner city"
         expect(page).to have_content comment.body
@@ -279,7 +283,7 @@ describe "System Emails" do
         visit admin_system_email_view_path("evaluation_comment")
 
         expect(page).to have_content "This is a sample comment"
-        # expect(page).to have_content admin.name
+        expect(page).to have_content admin.name
       end
     end
   end
