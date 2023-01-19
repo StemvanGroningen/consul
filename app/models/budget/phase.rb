@@ -3,7 +3,7 @@ class Budget
     PHASE_KINDS = %w[informing accepting reviewing selecting valuating publishing_prices balloting
                 reviewing_ballots finished].freeze
     PUBLISHED_PRICES_PHASES = %w[publishing_prices balloting reviewing_ballots finished].freeze
-    DESCRIPTION_MAX_LENGTH = 4000
+    DESCRIPTION_MAX_LENGTH = 8000
 
     translates :name, touch: true
     translates :summary, touch: true
