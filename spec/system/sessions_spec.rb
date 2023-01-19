@@ -23,13 +23,13 @@ describe "Sessions" do
   end
 
   scenario "Sign in redirects keeping GET parameters" do
-    create(:user, :level_two, email: "dev@consul.dev", password: "consuldev")
+    create(:user, :level_two, email: "dev@consul.dev", password: "judgementday")
     heading = create(:budget_heading, name: "outskirts")
 
     visit budget_investments_path(heading.budget, heading_id: "outskirts")
     click_link "Sign in"
     fill_in "user_login",    with: "dev@consul.dev"
-    fill_in "user_password", with: "consuldev"
+    fill_in "user_password", with: "judgementday"
     click_button "Enter"
 
     expect(page).to have_current_path budget_investments_path(heading.budget, heading_id: "outskirts")

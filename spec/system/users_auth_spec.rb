@@ -70,25 +70,25 @@ describe "Users" do
       end
 
       scenario "Sign in with username" do
-        create(:user, username: "中村広", email: "ash@nostromo.dev", password: "xenomorph")
+        create(:user, username: "中村広", email: "ash@nostromo.dev", password: "judgementday")
 
         visit "/"
         click_link "Sign in"
         fill_in "Email or username", with: "中村広"
-        fill_in "Password", with: "xenomorph"
+        fill_in "Password", with: "judgementday"
         click_button "Enter"
 
         expect(page).to have_content "You have been signed in successfully."
       end
 
       scenario "Avoid username-email collisions" do
-        u1 = create(:user, username: "Spidey", email: "peter@nyc.dev", password: "greatpower")
-        u2 = create(:user, username: "peter@nyc.dev", email: "venom@nyc.dev", password: "symbiote")
+        u1 = create(:user, username: "Spidey", email: "peter@nyc.dev", password: "judgementday")
+        u2 = create(:user, username: "peter@nyc.dev", email: "venom@nyc.dev", password: "judgement-day")
 
         visit "/"
         click_link "Sign in"
         fill_in "Email or username", with: "peter@nyc.dev"
-        fill_in "Password", with: "greatpower"
+        fill_in "Password", with: "judgementday"
         click_button "Enter"
 
         expect(page).to have_content "You have been signed in successfully."
@@ -105,14 +105,14 @@ describe "Users" do
         within("#notice") { click_button "Close" }
         click_link "Sign in"
         fill_in "Email or username", with: "peter@nyc.dev"
-        fill_in "Password", with: "symbiote"
+        fill_in "Password", with: "judgement-day"
         click_button "Enter"
 
         expect(page).not_to have_content "You have been signed in successfully."
         expect(page).to have_content "Invalid Email or username or password."
 
         fill_in "Email or username", with: "venom@nyc.dev"
-        fill_in "Password", with: "symbiote"
+        fill_in "Password", with: "judgement-day"
         click_button "Enter"
 
         expect(page).to have_content "You have been signed in successfully."
@@ -674,9 +674,9 @@ describe "Users" do
 
     expect(page).to have_content "Your password is expired"
 
-    fill_in "Current password", with: "judgmentday"
-    fill_in "New password", with: "123456789"
-    fill_in "Password confirmation", with: "123456789"
+    fill_in "Current password", with: "judgementday"
+    fill_in "New password", with: "new_password"
+    fill_in "Password confirmation", with: "new_password"
 
     click_button "Change your password"
 
@@ -704,7 +704,7 @@ describe "Users" do
 
   scenario "Admin with password expired trying to use same password" do
     user = create(:administrator).user
-    user.update!(password_changed_at: Time.current - 1.year, password: "123456789")
+    user.update!(password_changed_at: Time.current - 1.year, password: "old_password")
 
     visit new_user_session_path
     fill_in "Email or username", with: user.email
@@ -713,9 +713,9 @@ describe "Users" do
 
     expect(page).to have_content "Your password is expired"
 
-    fill_in "Current password", with: "judgmentday"
-    fill_in "New password", with: "123456789"
-    fill_in "Password confirmation", with: "123456789"
+    fill_in "Current password", with: "judgementday"
+    fill_in "New password", with: "old_password"
+    fill_in "Password confirmation", with: "old_password"
     click_button "Change your password"
 
     expect(page).to have_content "must be different than the current password."

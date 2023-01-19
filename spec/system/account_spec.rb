@@ -61,7 +61,7 @@ describe "Account" do
     fill_in "user_email", with: "new_user_email@example.com"
     fill_in "user_password", with: "new_password"
     fill_in "user_password_confirmation", with: "new_password"
-    fill_in "user_current_password", with: "judgmentday"
+    fill_in "user_current_password", with: "judgementday"
 
     click_button "Update"
 

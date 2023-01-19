@@ -28,8 +28,8 @@ describe "Registration form" do
     visit new_user_registration_path
 
     fill_in "user_username",              with: "NewUser"
-    fill_in "user_password",              with: "password"
-    fill_in "user_password_confirmation", with: "password"
+    fill_in "user_password",              with: "judgementday"
+    fill_in "user_password_confirmation", with: "judgementday"
 
     check "user_terms_of_service"
 
@@ -43,8 +43,8 @@ describe "Registration form" do
 
     fill_in "user_username",              with: "NewUserWithCode77"
     fill_in "user_email",                 with: "new@consul.dev"
-    fill_in "user_password",              with: "password"
-    fill_in "user_password_confirmation", with: "password"
+    fill_in "user_password",              with: "judgementday"
+    fill_in "user_password_confirmation", with: "judgementday"
     fill_in "user_redeemable_code",       with: "            "
     check "user_terms_of_service"
 
