@@ -813,6 +813,14 @@ header {
   }
 }
 
+.custom-page .card .figure-card {
+
+  @include breakpoint(medium) {
+    max-height: $line-height * 8;
+    min-height: $line-height * 8;
+  }
+}
+
 .welcome-cards {
 
   @include breakpoint(medium) {
