@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_05_172403) do
+ActiveRecord::Schema.define(version: 2023_02_15_073305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -1607,8 +1607,8 @@ ActiveRecord::Schema.define(version: 2022_07_05_172403) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.boolean "email_on_comment", default: false
-    t.boolean "email_on_comment_reply", default: false
+    t.boolean "email_on_comment", default: true
+    t.boolean "email_on_comment_reply", default: true
     t.string "phone_number", limit: 30
     t.string "official_position"
     t.integer "official_level", default: 0
@@ -1629,8 +1629,8 @@ ActiveRecord::Schema.define(version: 2022_07_05_172403) do
     t.datetime "level_two_verified_at"
     t.string "erase_reason"
     t.datetime "erased_at"
-    t.boolean "public_activity", default: true
-    t.boolean "newsletter", default: true
+    t.boolean "public_activity", default: false
+    t.boolean "newsletter", default: false
     t.integer "notifications_count", default: 0
     t.boolean "registering_with_oauth", default: false
     t.string "locale"

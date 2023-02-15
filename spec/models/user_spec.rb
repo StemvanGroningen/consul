@@ -83,20 +83,20 @@ describe User do
 
   describe "preferences" do
     describe "email_on_comment" do
-      it "is false by default" do
-        expect(subject.email_on_comment).to eq(false)
+      it "is true by default" do
+        expect(subject.email_on_comment).to eq(true)
       end
     end
 
     describe "email_on_comment_reply" do
-      it "is false by default" do
-        expect(subject.email_on_comment_reply).to eq(false)
+      it "is true by default" do
+        expect(subject.email_on_comment_reply).to eq(true)
       end
     end
 
     describe "subscription_to_website_newsletter" do
-      it "is true by default" do
-        expect(subject.newsletter).to eq(true)
+      it "is false by default" do
+        expect(User.new.newsletter).to eq(false)
       end
     end
 
@@ -115,6 +115,12 @@ describe User do
     describe "official_position_badge" do
       it "is false by default" do
         expect(subject.official_position_badge).to eq(false)
+      end
+    end
+
+    describe "public_activity" do
+      it "is false by default" do
+        expect(User.new.public_activity).to eq(false)
       end
     end
   end
