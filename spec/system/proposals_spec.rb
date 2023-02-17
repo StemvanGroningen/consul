@@ -508,6 +508,11 @@ describe "Proposals" do
 
     expect(page).to have_content "Testing auto link"
     expect(page).to have_link("www.example.org", href: "http://www.example.org")
+
+    within ".proposal-show" do
+      expect(find_link("www.example.org")[:rel]).to eq("nofollow")
+      expect(find_link("www.example.org")[:target]).to eq("_blank")
+    end
   end
 
   scenario "JS injection is prevented but autolinking is respected", :no_js do
