@@ -3,18 +3,18 @@ nl:
     sidebar:
       title: "Community"
       description:
-        investment: "Denk met anderen mee over dit idee."
+        investment: "Kan dit idee nog beter of wil jij helpen met de uitvoering?"
     show:
       title:
         investment: "Community idee"
       description:
-        investment: "Neem deel in de community van dit idee. Een actieve community helpt het idee (inhoudelijk) te verbeteren en draagt bij aan het krijgen van meer steun."
+        investment: "Denk of doe mee met dit idee. Help het idee verbeteren met jouw kennis. Of laat weten hoe jij kunt helpen bij de uitvoering van het idee."
       create_first_community_topic:
-        first_theme_not_logged_in: "Geen berichten geplaatst."
-        first_theme: "Creëer eerste community bericht"
+        first_theme_not_logged_in: "Nog geen berichten."
+        first_theme: "Plaats een bericht"
         sub_first_theme: "Om een thema of onderwerp te creëeren moet je %{sign_in} of %{sign_up}."
       sidebar:
-        new_topic: "Nieuw bericht"
+        new_topic: "Bericht plaatsen"
       topic:
         edit: "Bewerk bericht"
         destroy: "Verwijder bericht"

@@ -45,20 +45,20 @@ nl:
         description: "Omschrijving"
       proposal:
         video_url: "Link naar video"
-        retired_reason: "Reden om initiatief terug te trekken"
+        retired_reason: "Reden om idee terug te trekken"
       proposal/translation:
         title: "Titel initiatief"
         description: "Omschrijving"
         summary: "Samenvatting initiatief"
         retired_explanation: "Toelichting"
       user:
-        email_digest: "Stuur mij een mail wanneer er nieuws is over de ideeën die ik volg"
-        email_on_comment: "Stuur mij een mail wanneer iemand reageert op mijn idee of discussie"
-        email_on_comment_reply: "Stuur mij een mail wanneer iemand reageert op mijn reactie"
-        email_on_direct_message: "Stuur mij een mail wanneer iemand mij een privébericht stuurt"
-        newsletter: "Stuur mij nieuwsbrieven van de website"
+        email_digest: "Ja, ik wil nieuws ontvangen over de ideeën die ik volg per e-mail"
+        email_on_comment: "Ja, wanneer iemand reageert op mijn idee of discussie wil ik hier een e-mail van ontvangen"
+        email_on_comment_reply: "Ja, wanneer iemand reageert op mijn reactie wil ik hier een e-mail van ontvangen"
+        email_on_direct_message: "Ja, wanneer ik een privébericht ontvang wil ik hier een e-mail van ontvangen"
+        newsletter: "Ja, ik wil nieuwsbrieven ontvangen"
         public_activity: "Maak mijn activiteit openbaar"
-        public_interests: "Maak de onderwerpen/labels die ik volg openbaar"
+        public_interests: "Ja, iedereen kan zien welke thema's ik volg"
         recommended_debates: "Toon aanbevelingen voor discussie"
         recommended_proposals: "Toon aanbevelingen voor voorstellen"
       direct_message:
@@ -82,14 +82,14 @@ nl:
       budget/heading/translation:
         name: "Naam rubriek"
       budget/investment:
-        heading_id: "Voor welk thema of gebied is dit idee?"
+        heading_id: "Voor welk thema of gebied is dit idee?*"
         location: "Hier kun je meer vertellen over de locatie"
-        organization_name: "Als je een voorstel doet uit naam van een stichting, coöperatie of organisatie, voer dan hier de naam in"
+        organization_name: "Als je een idee indient namens een organisatie,stichting of groep, voer dan hier de naam in"
         feasibility_explanation: "Feasibility explanation (optioneel)"
         unfeasibility_explanation: "Unfeasibility explanation"
       budget/investment/translation:
-        title: "Titel van het idee"
-        description: "Omschrijving"
+        title: "Titel*"
+        description: "Omschrijving van je idee"
       active_poll/translation:
         description: "Omschrijving"
       legislation/process/translation:
@@ -112,7 +112,7 @@ nl:
         status_draft: "Concept"
         status_published: "Gepubliceerd"
       tag:
-        name: "Vul de naam van het onderwerp/label toe"
+        name: "Vul de naam van het thema in"
       topic:
         title: "Titel"
         description: "Bericht"
@@ -131,7 +131,7 @@ nl:
         date_of_birth: "Geboortedatum"
         postal_code: "Postcode"
       organization:
-        name: "Naam organisatie of collectief"
+        name: "Naam organisatie, stichting of groep"
       proposal_notification:
         body: "Bericht"
         title: "Titel"

@@ -4,14 +4,14 @@ nl:
       confirm_action: "Weet je het zeker? %{action}"
     comments:
       index:
-        block_authors: "Blokkeer deelnemers"
-        hide_comments: "Commentaar verbergen"
-        ignore_flags: "Markeer als gelezen"
-        title: "Commentaar"
+        block_authors: "Blokkeer gebruiker"
+        hide_comments: "Reactie verbergen"
+        ignore_flags: "Markeer als gelezen / niets mee doen"
+        title: "Reacties"
         filters:
-          with_ignored_flag: "Markeer als gelezen"
+          with_ignored_flag: "Markeer als gelezen / niets mee doen"
     proposals:
       index:
-        block_authors: "Blokkeer auteurs"
+        block_authors: "Blokkeer gebruikers"
     menu:
-      flagged_comments: "Commentaar"
+      flagged_comments: "Reacties"
