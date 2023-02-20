@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get "help/faq",         to: "pages#show", id: "faq",                    as: "faq"
 
   get "beweegplekmikkelhorst", to: redirect("/budgets/20")
+  get "sterkhoogerk", to: redirect("/budgets/22")
   # Static pages
   resources :pages, path: "/", only: [:show]
 end
