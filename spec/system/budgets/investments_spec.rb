@@ -165,12 +165,13 @@ describe "Budget Investments" do
     expect(page).to have_content "Unfeasible investment"
     expect(page).to have_css ".budget-investment", count: 1
 
-    click_link "Not selected for the final voting"
-
-    expect(page).to have_css ".budget-investment", count: 3
-    expect(page).to have_content "Unselected investment"
-    expect(page).to have_content "Unclassified investment"
-    expect(page).to have_content "Feasible investment"
+    # Unselected filter removed
+    # click_link "Not selected for the final voting"
+    #
+    # expect(page).to have_css ".budget-investment", count: 3
+    # expect(page).to have_content "Unselected investment"
+    # expect(page).to have_content "Unclassified investment"
+    # expect(page).to have_content "Feasible investment"
 
     click_link "Winners"
 
@@ -1664,6 +1665,7 @@ describe "Budget Investments" do
     end
 
     scenario "Show unselected budget investments" do
+      skip "Unselected filter removed"
       investment1 = create(:budget_investment, :unselected, :feasible, :finished, heading: heading)
       investment2 = create(:budget_investment, :selected,   :feasible, :finished, heading: heading)
       investment3 = create(:budget_investment, :selected,   :feasible, :finished, heading: heading)
@@ -1682,6 +1684,7 @@ describe "Budget Investments" do
     end
 
     scenario "Do not display vote button for unselected investments in index" do
+      skip "Unselected filter removed"
       investment = create(:budget_investment, :unselected, heading: heading)
 
       visit budget_investments_path(budget, heading_id: heading.id, filter: "unselected")

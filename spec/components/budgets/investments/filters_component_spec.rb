@@ -35,9 +35,9 @@ describe Budgets::Investments::FiltersComponent do
 
     render_inline Budgets::Investments::FiltersComponent.new
 
-    expect(page).to have_link count: 3
+    expect(page).to have_link count: 2
     expect(page).to have_link "Active"
-    expect(page).to have_link "Not selected for the final voting"
+    expect(page).not_to have_link "Not selected for the final voting"
     expect(page).to have_link "Unfeasible"
   end
 
@@ -46,9 +46,9 @@ describe Budgets::Investments::FiltersComponent do
 
     render_inline Budgets::Investments::FiltersComponent.new
 
-    expect(page).to have_link count: 3
+    expect(page).to have_link count: 2
     expect(page).to have_link "Winners"
-    expect(page).to have_link "Not selected for the final voting"
+    expect(page).not_to have_link "Not selected for the final voting"
     expect(page).to have_link "Unfeasible"
   end
 end
