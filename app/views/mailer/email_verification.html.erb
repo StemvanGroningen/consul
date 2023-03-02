@@ -24,6 +24,19 @@
     ) %>
   </p>
 
+  <table style="width: 100%;">
+    <tbody>
+      <tr>
+        <td style="padding-bottom: 12px; padding-top: 24px; text-align: center;">
+          <%= link_to email_url(email_verification_token: @token),
+                      style: css_for_mailer_button, target: "_blank" do %>
+            <%= t("mailers.email_verification.button") %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
   <p style="<%= css_for_mailer_text %>">
     <%= sanitize(t("mailers.email_verification.instructions_2")) %>
   </p>
