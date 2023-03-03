@@ -31,7 +31,7 @@ nl:
       inactive: "Je account is nog niet bevestigd"
       locked: "Je hebt helaas geen toegang tot je account"
       last_attempt: "Je kunt nog één keer je wachtwoord proberen. Wanneer dit niet goed is, wordt jouw account geblokkeerd."
-      timeout: ""
+      timeout: "De sessie is verlopen. Log alsjeblieft opnieuw in."
       unauthenticated: "Log in om verder te gaan. Nog geen account? Maak deze dan aan of log in via social media"
       unconfirmed: "Je account is nog niet bevestigd. Bekijk de uitleg in de bevestigingsmail om dit te doen. "
     registrations:
@@ -43,12 +43,19 @@ nl:
       update_needs_confirmation: "Je hebt jouw e-mailadres aangepast. Je moet deze nog wel bevestigen. Klik hiervoor op de link in de bevestigingsmail."
       updated: "Jouw gegevens zijn opgeslagen"
     unlocks:
-      send_instructions: "
-      We hebben een bevestigingsmail gestuurd. Het kan dat deze in je spamfolder is terecht gekomen. Nog niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
+      send_instructions: "We hebben een bevestigingsmail gestuurd. Het kan dat deze in je spamfolder is terecht gekomen. Nog niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
       send_paranoid_instructions: "Je ontvangt via e-mail uitleg hoe je weer toegang krijgt tot je account. Het kan dat deze in je spamfolder is terecht gekomen. Nog niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
-      unlocked: "Je hebt weer toegang tot je account"
+      unlocked: "Je hebt weer toegang tot je account en kan weer inloggen"
     omniauth_callbacks:
       success: "Ingelogd met %{kind}."
   errors:
     messages:
-      equal_to_current_password: "Dit wachtwoord moet anders zijn dan het vorige wachtwoord"
+      equal_to_current_password: "Dit wachtwoord moet anders zijn dan jouw vorige wachtwoord"
+      already_confirmed: "Je account is al bevestigd. Je kan meedoen op de website"
+      confirmation_period_expired: "Je moet je account bevestigen binnen %{period}, we kunnen je een nieuwe bevestigingsmail sturen"
+      expired: "Je wachtwoord is verlopen, vraag een nieuwe aan"
+      not_found: "Sorry, we hebben dit niet kunnen vinden"
+      not_locked: "Sorry, we konden de pagina niet sluiten"
+      not_saved:
+        one: "1 fout zorgt dat we %{resource} niet kunnen opslaan. Controleer alsjeblieft wat je hebt ingevuld en pas het aan."
+        other: "%{count} fouten zorgen dat we  %{resource} niet kunnen opslaan. Controleer alsjeblieft wat je hebt ingevuld en pas het aan."

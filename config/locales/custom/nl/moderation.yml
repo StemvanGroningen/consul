@@ -1,17 +1,110 @@
 nl:
   moderation:
     actions:
-      confirm_action: "Weet je het zeker? %{action}"
+      confirm_action: "Weet je het zeker?%{action}"
     comments:
       index:
-        block_authors: "Blokkeer gebruiker"
-        hide_comments: "Reactie verbergen"
-        ignore_flags: "Markeer als gelezen / niets mee doen"
-        title: "Reacties"
+        block_authors: Gebruikers
+        filter: Filter
         filters:
-          with_ignored_flag: "Markeer als gelezen / niets mee doen"
+          all: Alle
+          pending_flag_review: In afwachting
+          with_ignored_flag: Niets aan de hand
+        headers:
+          comment: Reacties
+          moderate: Modereren
+        hide: Verberg reactie
+        ignore_flags: Niets aan de hand
+        orders:
+          flags: Meest gemeld
+          newest: Nieuwste
+        title: Reacties
+    dashboard:
+      index:
+        title: Modereren
+    debates:
+      index:
+        block_authors: Blokkeer auteur
+        filter: Filter
+        filters:
+          all: Alle
+          pending_flag_review: In afwachting
+          with_ignored_flag: Niets aan de hand
+          debate: Discussie
+          moderate: Modereer
+        hide: Discussie verbergen
+        ignore_flags: Niets aan de hand
+        orders:
+          created_at: Nieuwste
+          flags: Meest gemeld
+        title: Discussies
+    header:
+      title: Modereren
+    menu:
+      flagged_comments: Reacties
+      flagged_debates: Discussies
+      flagged_investments: Ideeën projecten
+      proposals: Ideeën
+      proposal_notifications: Updates van inwoners
+      users: Gebruikers
     proposals:
       index:
-        block_authors: "Blokkeer gebruikers"
-    menu:
-      flagged_comments: "Reacties"
+        block_authors: Blokkeer auteur
+        filter: Filter
+        filters:
+          all: Alle
+          pending_flag_review: In afwachting
+          with_ignored_flag: Niets aan de hand
+        headers:
+          moderate: Modereer
+          proposal: Idee
+        hide: Idee verbergen
+        ignore_flags: Niets aan de hand
+        orders:
+          created_at: Nieuwste
+          flags: Niets aan de hand
+        title: Ideeën
+    budget_investments:
+      index:
+        block_authors: Blokkeer auteur
+        filter: Filter
+        filters:
+          all: Alle
+          pending_flag_review: In afwachting
+          with_ignored_flag: Niets aan de hand
+        headers:
+          moderate: Modereer
+          budget_investment: Idee
+        hide: Verbergen idee
+        ignore_flags: Niets aan de hand
+        orders:
+          created_at: Meest recent
+          flags: Meest gemeld
+        title: Ideeën projecten
+    proposal_notifications:
+      index:
+        block_authors: Blokkeer auteur
+        filter: Filter
+        filters:
+          all: Alle
+          pending_review: In afwachting
+          ignored: Niets aan de hand
+        headers:
+          moderate: Modereer
+          proposal_notification: 
+        hide: Update verbergen
+        ignore_flags: Niets aan de hand
+        orders:
+          created_at: Nieuwste
+          moderated: Gemodereerd door
+        title: Updates verstuurd door inwoners
+    users:
+      index:
+        block: Blokkeer
+        confirm_block: "Weet je het zeker? Hierdoor is gebruiker \"%{name}\" en al zijn bijdragen niet meer."
+        confirm_hide: "Weet je het zeker? Hierdoor wordt gebruiker \"%{name}\" niet meer zichtbaar, maar zie je zijn bijdragen (reacties, discussies, iodeeën) wel."
+        hide: Verberg
+        search_placeholder: e-mailadres of gebruikersnaam
+        title: Blokkeer deelnemers
+      notice_block: De gebruiker is geblokkeerd. Alle inhoud die door deze gebruiker is gemaakt, is niet meer zichtbaar.
+      notice_hide: De gebruiker is verborgen. 

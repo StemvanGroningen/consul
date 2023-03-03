@@ -1,13 +1,13 @@
 nl:
   management:
     budget_investments:
-      edit: "Pas je idee aan."
+      edit: "Bewerk idee"
       create: "Nieuw idee"
       filters:
         unfeasible: "Onhaalbare ideeën"
     budgets:
       create_new_investment: "Nieuw idee"
-      print_investments: "Druk idee af"
+      print_investments: "Idee printen"
       support_investments: "Ideeën"
     menu:
       create_budget_investment: "Nieuw idee"

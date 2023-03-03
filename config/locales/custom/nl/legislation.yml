@@ -7,9 +7,15 @@ nl:
         coming_soon: "Binnenkort"
         published: "Gepubliceerd"
         less_info: "Minder informatie"
+        additional_info: "Meer informatie"
+        description: "Wat gaan we doen?"
+        more_info: "Meer informatie"
       proposals:
-        empty_proposals: "Er zijn geen voorstellen"
+        empty_proposals: "Er zijn geen nog verbetervoorstellen"
         less_info: "Minder informatie"
+        filters:
+          random: Alle
+          winners: Meenemen in het plan
       debate:
         participate: "Actief"
         icon_alt: "Plannen icoon"
@@ -17,7 +23,7 @@ nl:
         section_footer:
           title: "Over plannen"
           description: "Reageer, schrijf mee of kom met verbetervoorstellen voor plannen in de gemeente."
-        empty_questions: "Er zijn geen discussies"
+        empty_questions: "Er zijn geen vragen"
       index:
         filters:
           open: "Plannen"
@@ -26,7 +32,7 @@ nl:
           icon_alt: "Plannen icoon"
           title: "Plannen"
           help: "Hulp bij inspraak"
-          description: "Reageer, schrijf mee of kom met verbetervoorstellen voor plannen in de gemeente."
+          description: "Reageer op vragen en documenten of kom met verbetervoorstellen voor plannen in de gemeente."
         section_footer:
           title: "Hulp bij plannen"
       process:
@@ -35,27 +41,46 @@ nl:
       shared:
         key_dates: "Meedoen"
         debate_dates: "Vragen"
-        allegations_dates: "Reacties"
-        proposals_dates: "Voorstellen"
+        allegations_dates: "Documenten"
+        proposals_dates: "Verbetervoorstellen"
       phase_empty:
         empty: "Je kunt nog niet meedoen"
     annotations:
       index:
         title: "Reacties"
+        comments_about: Reactie
+        see_in_context: Waar in het document reageert deze reactie op?
         comments_count:
           one: "%{count} reactie"
           other: "%{count} reacties"
       comments:
         cancel: "Annuleren"
-        publish_comment: "Publiceer reactie"
+        publish_comment: "Reageer"
         comments_count:
           one: "%{count} reactie"
           other: "%{count} reacties"
     draft_versions:
       show:
-        seeing_version: "Je bekijkt nu"
+        seeing_version: "Je bekijkt nu het document"
         text_comments: "Reacties"
+        select_draft_version: Selecteer concept
+        select_version_submit: Bekijk document
+        updated_at: Op de website sinds %{date}
+        see_changes: Wat is dit voor document?
+        see_comments: Bekijk alle reacties
+        text_toc: Inhoud
+        text_body: Document
+      changes:
+        title: Uitleg
+        seeing_changelog_version: Uitleg over het document
+        see_text: Bekijk document
     questions:
+      comments:
+        comment_button: Reageer
+        comments_title: Antwoorden
+        comments_closed: De vraag is gesloten en je kunt hier nu niet meer op antwoorden
+        form:
+          leave_comment: Laat jouw antwoord achter
       question:
         debate: "Vragen"
     proposals:
@@ -64,26 +89,26 @@ nl:
       process_title: "Plannen"
       not_verified: "Om mee te doen, moet je %{verify_account}."
       participation:
-        debate_phase_not_open: "De discussie is gesloten en opmerkingen worden niet meer geaccepteerd."
+        debate_phase_not_open: "De vraag is gesloten en je kunt hier nu niet meer op antwoorden"
         organizations: "Als organisatie, stichting of groep mag je niet reageren op een vraag."
-        unauthenticated: "Om mee te doen moet je %{signin} of %{signup}."
+        unauthenticated: "Om mee te doen moet je %{signin}."
     summary:
       title: "Samenvatting"
       votes:
-        zero: "%{count} stemmen"
-        one: "%{count} stem"
-        other: "%{count} stemmen"
+        zero: "%{count} vind-ik-leuks"
+        one: "%{count} vind-ik-leuk"
+        other: "%{count} vind-ik-leuks"
       debate_phase: "Vragen"
-      proposals_phase: "Voorstellen"
+      proposals_phase: "Verbetervoorstellen"
       allegations_phase: "Reactie"
       debates:
         zero: "Geen vragen"
         one: "%{count} vraag"
         other: "%{count} vragen"
       proposals:
-        zero: "Geen voorstellen"
-        one: "%{count} voorstel"
-        other: "%{count} voorstellen"
+        zero: "Geen verbetervoorstellen"
+        one: "%{count} verbetervoorstel"
+        other: "%{count} verbetervoorstellen"
       comments:
         zero: "Geen reacties"
         one: "%{count} reactie"
@@ -93,6 +118,6 @@ nl:
         zero: "Geen reacties"
         one: "%{count} reactie"
         other: "Top reacties"
-      most_voted_comments: "Reacties met meeste stememen"
+      most_voted_comments: "Reacties met meeste vind-ik-leuks"
       no_allegation: "Er zijn nog geen reacties"
       process_empty: "Je kunt nog niet meedoen"

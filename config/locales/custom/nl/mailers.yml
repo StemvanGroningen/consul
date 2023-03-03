@@ -3,7 +3,7 @@ nl:
     sincerely: "Groeten van Stem van Groningen"
     config:
       notifications_link: "E-mail instellingen"
-      unsubscribe_text: "Wil je niet meer deze mails ontvangen? Ga naar %{notifications} en vink \"%{notification}\" uit."
+      unsubscribe_text: "Wil je deze mails niet meer ontvangen? Ga naar %{notifications} en vink \"%{notification}\" uit."
     already_confirmed:
       info: "Wij hebben vraag gekregen instructies te sturen om jouw account te bevestigen. Jouw account is al eerder bevestigd. Dit hoef je dus niet nog een keer te doen."
       new_password: "Als je je wachtwoord bent vergeten, kan je die opnieuw instellen door te klikken op de volgende link:"
@@ -63,9 +63,9 @@ nl:
     user_invite:
       subject: "Welkom op de %{org_name}"
       title: "Welkom op de %{org}"
-      text: "Je kunt je inschrijven voor de Stem van Groningen! Klik hiervoor op de volgende link:"
+      text: "Je kunt je inschrijven voor de Stem van Groningen via de knop 'Schrijf je in':"
       button: "Schrijf je in"
-      ignore: "Heb je deze uitnodiging ongevraagd ontvangen? Geen zorgen, dan kun je deze mail negeren.  "
+      ignore: "Heb je de uitnodiging om je in te schrijven ongevraagd ontvangen? Geen zorgen, dan kun je deze mail negeren.  "
       thanks: "Bedankt!"
     email_verification:
       hi: "Beste <strong>%{user}</strong>,"
@@ -76,5 +76,4 @@ nl:
       instructions_2: "Heb jij geen account aangemaakt? Klik dan niet op 'Bevestig mijn account' en negeer deze mail."
       click_here_to_verify: "deze link"
       unsubscribe_text: "Wil je geen nieuws ontvangen over ideeën die je volgt? Ga naar %{notifications} en klik \"Ja, ik wil nieuws ontvangen over de ideeën die ik volg per e-mail\" uit."
-      button: "Bevestig mijn account"
     no_reply: "Deze mail is verstuurd vanaf een emailadres waar niet op gereageerd kan worden."

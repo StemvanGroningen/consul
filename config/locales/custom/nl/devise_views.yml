@@ -10,6 +10,12 @@ nl:
         ignore_text: "Geen nieuw wachtwoord opgevraagd? Dan kun je deze mail negeren."
         info_text: "Je wachtwoord verandert niet, totdat je deze via de link aanpast."
         text: "We hebben een verzoek gekregen om je wachtwoord te veranderen. Je kunt dit doen via de volgende link:"
+      unlock_instructions:
+        hello: Hallo
+        info_text: Je account is geblokkeerd, omdat je te vaak hebt geprobeerd in te loggen met de verkeerde inloggegevens.
+        instructions_text: "Door via een mail je account te ontgrendelen, krijg je weer toegang"
+        title: Je account is geblokkeerd
+        unlock_link: Weer toegang krijgen tot mijn account
     menu:
       login_items:
         login: "Inloggen"
@@ -20,11 +26,18 @@ nl:
       sign_up: "Nieuw account aanmaken"
       not_organization: "Liever een account voor jezelf? Maak dan een %{link}."
       not_organization_link: "persoonlijk account"
+      new_unlock: Geen e-mail ontvangen om account te ontgrendelen?
       links:
         new_confirmation: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Dan kunnen wij de %{link}."
         new_confirmation_link: "bevestigingsmail opnieuw sturen"
+        
         login: "Inloggen"
         not_received: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>."
+    unlocks:
+      new:
+        email_label: E-mail
+        submit: Stuur mail opnieuw om toegang te krijgen tot mijn account
+        title: Stuur mail
     organizations:
       registrations:
         new:
@@ -55,11 +68,27 @@ nl:
           submit: "Account aanmaken"
           username_label: "Gebruikersnaam"
           username_note: "De naam die je hier intypt is zichtbaar voor iedereen op de Stem van Groningen"
+          password_note: "Deze moet minimaal uit 12 tekens te bestaan"
         success:
           title: "Bevestig je account"
           instructions_1: "Bekijk je mail - we hebben een mail gestuurd met een link om je account te bevestigen."
           instructions_2: "Wanneer je dit hebt gedaan, kun je meedoen op de Stem van Groningen."
-          thank_you: "Bedankt voor het invullen van je gegevens. Om je aanmelding te voltooien moet je je e-mailadres verifiëren. "
+          thank_you: "Bedankt voor het aanmaken van een account. Je moet alleen nog je account bevestigen."
+          title: Pas e-mailadres aan
+        delete_form:
+          erase_reason_label: Reden
+          info: Wanneer je je account verwijderd, kunnen we dit niet ongedaan maken. Bevestig dat je dit echt wilt. 
+          info_reason: Wil je ook een reden opgeven?
+        edit:
+          current_password_label: Huidig wachtwoord
+          edit: Accountgegevens aanpassen
+          email_label: E-mail
+          leave_blank: Je nieuwe wachtwoord moet minimaal uit 12 tekens bestaan. Laat dit veld leeg als je je wachtwoord niet wilt aanpassen
+          need_current: Vul je huidige wachtwoord in om te bevestigen dat je je e-mailadres of wachtwoord wilt aanpassen 
+          password_confirmation_label: Bevestig nieuw wachtwoord
+          password_label: Nieuw wachtwoord
+          update_submit: Aanpassen
+          waiting_for: "In afwachting van bevestiging:"
     confirmations:
       new:
         title: "Stuur bevestigingsmail opnieuw"

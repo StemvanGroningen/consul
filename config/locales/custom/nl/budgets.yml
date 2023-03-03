@@ -26,7 +26,7 @@ nl:
             one: "Je kan op <span>1</span> idee stemmen"
             other: "Je kan op <span>%{count}</span> ideeën stemmen"
         amount_available:
-          knapsack: "Je kan nog <span>%{count}</span> uitgeven."
+          knapsack: "nog <span>%{count}</span>"
           approval:
             zero: "Je kan nog <span>%{count}</span> stemmen uitbrengen."
             one: "Je kan nog <span>%{count}</span> stem uitbrengen."
@@ -115,13 +115,15 @@ nl:
         filters:
           not_unfeasible: "Nog te beoordelen"
           feasible: "Beoordeling haalbaar"
-          unfeasible: "Beoordeling niet haalbaar"
+          unfeasible: "Niet naar stemronde"
           unselected: "Niet naar stemronde"
           selected: "Naar stemronde"
           winners: "Gekozen"
         orders:
-          confidence_score: "Best beoordeeld"
+          confidence_score: "Meeste interactie"
           created_at: "Nieuwste"
+          price: "Hoogste kosten"
+          random: "Willekeurig"
         read_more: "Bekijk idee"
         search_form:
           placeholder: "Zoek"
@@ -185,6 +187,10 @@ nl:
         recommendation_five: "of het eenmalig is (zoals een activiteit) of voor meerdere jaren (zoals een voorziening)"
       votes:
         already_supported: "Je vindt dit idee al leuk. Deel het op social media!"
+        remove_support: "Vind-ik-leuk verwijderen"
+        remove_support_label: "Ik vind %{investment} niet (meer) leuk"
+        support: "Ik vind dit idee leuk"
+        support_label: "Ik vind %{investment} leuk"
     show:
       see_results: "Bekijk de uitslag"
       unfeasible: "Bekijk de niet stembare ideeën"
@@ -217,18 +223,18 @@ nl:
       unfeasible_investment_proyects: "Lijst van alle ideeën in de stemronde"
       not_selected_investment_proyects: "Lijst van ideeën die niet door zijn naar de stemronde"
       accepted: "Breng je stem uit"
-      amount_available: "Beschikbare bedrag:"
+      amount_available: "Beschikbare stemmen:"
       heading: "De uitslag"
       page_title: "De uitslag"
-      show_all_link: "Toon alle ideeën"
-      hide_discarded_link: "Verbergen"
+      show_all_link: "Toon alle ideeën met stemmen"
+      hide_discarded_link: "Verberg ideeën die het niet zijn geworden"
       heading_selection_title: "Per gebied of thema"
     no_image_alt: "Dit idee heeft geen afbeelding"
     supports_info:
-      different: "Maar... je kunt ieder idee slechts één keer leuk vinden En je vind-ik-leuk is definitief."
+      different: "Maar... je kunt ieder idee slechts één keer leuk vinden."
       next: "Welke ideeën mogen van jou door naar de volgende fase? Vind ze leuk om het aan te geven."
       scrolling: "Blijf scrollen om alle ideeën te zien"
-      share: "Je kunt ideeën die je leuk vindt delen op social media. Zo krijgen de ideeën meer aandacht en meer vind-ik-leuks!"
+      share: "Je kunt ideeën die je leuk vindt delen op social media. Zo krijgen de ideeën meer aandacht en misschien wel meer vind-ik-leuks!"
       supported:
         one: "Tot nu toe vind je <strong>1 idee</strong> leuk."
         other: "Tot nu toe vind je <strong>%{count} ideeën</strong> leuk."

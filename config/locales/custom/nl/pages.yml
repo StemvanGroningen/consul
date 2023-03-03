@@ -13,29 +13,31 @@ nl:
         processes: "Plannen"
       debates:
         title: "Discussies"
-        description: "Bij het onderdeel %{link} deel en bespreek je je mening met anderen. Ook kun je hier een initiatief delen, dat via andere onderdelen op %{org} tot concrete acties van de gemeente kan leiden."
+        description: "Bij het onderdeel %{link} deel en bespreek je je mening met anderen."
         link: "discussie"
         feature: "Je kan een discussie starten, reageren op anderen en aangeven met welke discussies en reacties je het (on)eens bent. Om dit te kunnen doen, moet je wel eerst %{link}."
         feature_link: "inloggen"
         figcaption: 'Knoppen om aan te geven of je het “eens” of “oneens” bent.'
       proposals:
         title: "Ideeën"
-        description: "Je kunt je %{link} met de gemeente delen en reageren op ideeën van anderen. Ideeën hebben voldoende steun nodig, voordat we gaan kijken of we dit idee kunnen gaan uitvoeren."
+        description: "In %{link} kun je je idee voor de gemeente vrij delen. Het hoort niet bij een van de projecten. Voordat de gemeente kan gaan kijken of het idee uitgevoerd kan worden, moet je voldoende steun verzamelen voor je idee."
         link: "Ideeën"
         image_alt: "Knop met het woord steun erop, waarmee je een idee kan steunen."
         figcaption: "Knop waarmee je een idee kan steunen."
       budgets:
-        description: "In dit onderdeel staan %{link} in de gemeente op de website. Afhankelijk van het type project kan je ideeën indienen, reageren op ideeën van anderen (en de gemeente). Ook kan je ideeën leuk vinden of stemmen op ideeën. Hiermee verbeter jij ideeën die er zijn of/en bepaal jij welke ideeën worden uitgevoerd. "
+        title: "Projecten"
+        description: "In dit onderdeel staan %{link} in de gemeente op de website. Afhankelijk van het type project kan je ideeën indienen of reageren op ideeën. Ook kan je ideeën leuk vinden of stemmen op ideeën. Hiermee verbeter jij ideeën die er zijn of/en bepaal jij welke ideeën worden uitgevoerd. "
         link: "projecten"
         image_alt: "De fases 'vind-ik-leuk' en 'stemmen'"
         figcaption: "De fases 'vind-ik-leuk' en 'stemmen'"
       polls:
         title: "Peilingen"
+        description: "Bij peilingen kan jij je voorkeur doorgeven door op opties te klikken of antwoord te geven op vragen."
         feature_1: "Om mee te kunnen doen aan een peiling moet je %{link}."
         feature_1_link: "inloggen"
       processes:
         title: "Plannen"
-        description: "In het onderdeel %{link} kan je reageren op vragen, verbetervoorstellen indienen voor plannen en direct meeschrijven aan stukken."
+        description: "In het onderdeel %{link} kan je reageren op vragen over specifieke plannen. Afhankelijk van het soort plan, kan je verbetervoorstellen indienen en meeschrijven aan documenten."
         link: "plannen"
         feature: "Om  mee te kunnen doen aan plannen moet je %{link}."
         feature_link: "inloggen"
