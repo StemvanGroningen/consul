@@ -181,8 +181,9 @@ describe "Emails" do
   end
 
   context "Comment replies" do
-    let(:user) { create(:user, email_on_comment_reply: true) }
-    let(:debate) { create(:debate) }
+    let(:user) { create(:user, email_on_comment: false, email_on_comment_reply: true) }
+    let(:author) { create(:user, email_on_comment: false, email_on_comment_reply: false) }
+    let(:debate) { create(:debate, author: author) }
     let!(:comment) { create(:comment, commentable: debate, user: user) }
 
     scenario "Send email on comment reply" do

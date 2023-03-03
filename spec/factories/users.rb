@@ -8,6 +8,7 @@ FactoryBot.define do
     confirmed_at        { Time.current }
     date_of_birth       { 20.years.ago }
     public_activity     { true }
+    newsletter          { true }
 
     trait :incomplete_verification do
       after :create do |user|

@@ -334,6 +334,7 @@ describe "Internal valuation comments on Budget::Investments" do
   end
 
   scenario "Send email notification" do
+    investment.author.update!(email_on_comment: false)
     ActionMailer::Base.deliveries = []
 
     login_as(admin_user)
