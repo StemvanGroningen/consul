@@ -2349,3 +2349,10 @@ footer {
     margin-bottom: $line-height / 2;
   }
 }
+
+.activity {
+
+  table tr td {
+    word-break: break-all;
+  }
+}
