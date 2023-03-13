@@ -253,6 +253,7 @@ ignore_unused:
   - "sdg.*.filter.more.*"
   - "sdg_management.relations.index.filter*"
   - "tags.list.filter.more.*"
+  - "devise_views.menu.login_items.signup"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
