@@ -1,10 +1,10 @@
 nl:
   moderation:
     actions:
-      confirm_action: "Weet je het zeker?%{action}"
+      confirm_action: "Weet je zeker dat je %{action}. Hierdoor is de gebruiker en zijn bijdragen niet meer zichtbaar."
     comments:
       index:
-        block_authors: Gebruikers
+        block_authors: "Blokkeer auteur"
         filter: Filter
         filters:
           all: Alle

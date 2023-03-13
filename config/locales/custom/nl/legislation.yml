@@ -15,7 +15,7 @@ nl:
         less_info: "Minder informatie"
         filters:
           random: Alle
-          winners: Meenemen in het plan
+          winners: "Dit nemen we mee"
       debate:
         participate: "Actief"
         icon_alt: "Plannen icoon"
@@ -49,7 +49,7 @@ nl:
       index:
         title: "Reacties"
         comments_about: Reactie
-        see_in_context: Waar in het document reageert deze reactie op?
+        see_in_context: "Bekijk in de tekst"
         comments_count:
           one: "%{count} reactie"
           other: "%{count} reacties"
@@ -68,17 +68,18 @@ nl:
         updated_at: Op de website sinds %{date}
         see_changes: Wat is dit voor document?
         see_comments: Bekijk alle reacties
-        text_toc: Inhoud
-        text_body: Document
+        text_toc: "Inhoud"
+        text_body: "Document"
+        see_text: "Bekijk de tekst"
       changes:
         title: Uitleg
-        seeing_changelog_version: Uitleg over het document
-        see_text: Bekijk document
+        seeing_changelog_version: "Uitleg over het document"
+        see_text: "Bekijk document"
     questions:
       comments:
-        comment_button: Reageer
-        comments_title: Antwoorden
-        comments_closed: De vraag is gesloten en je kunt hier nu niet meer op antwoorden
+        comment_button: "Reageer"
+        comments_title: "Antwoorden"
+        comments_closed: "De vraag is gesloten en je kunt hier nu niet meer op antwoorden"
         form:
           leave_comment: Laat jouw antwoord achter
       question:

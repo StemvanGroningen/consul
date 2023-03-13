@@ -18,6 +18,8 @@ nl:
       username_label: "Gebruikersnaam"
       organization_responsible_name_placeholder: "Vertegenwoordiger van dit account"
       notifications: "E-mail instellingen"
+      public_interests_my_title_list: "Thema's die je volgt"
+      public_interests_user_title_list: "Thema's die je volgt"
   debates:
     debate:
       votes:
@@ -90,6 +92,7 @@ nl:
     proposal: "idee"
     budget/investment: "idee"
     not_saved: "Je %{resource} kan niet geplaatst worden, omdat je iets niet (goed) hebt ingevuld. <br>Controleer wat je hebt ingevuld."
+    budget/investment: "idee"
     accept_terms: ""
   proposals:
     proposal:
@@ -264,6 +267,11 @@ nl:
     comment_link: Reactie
     reply_button: Reageer
     reply_link: Reageer
+  annotator:
+    help:
+      alt: "Selecteer de tekst waarop je wilt reageren en druk op de knop met het potlood."
+      text: "Om te reageren moet je %{sign_in} of %{sign_up}. Selecteer daarna in het document de tekst waarop je wilt reageren en druk op de knop met het potlood."
+      title: "Hoe kan ik reageren op dit document?"
   users:
     login_to_comment: "Je moet %{signin} of een %{signup} om te kunnen reageren."
     login_to_continue: "Je moet %{signin} of een %{signup} om verder te gaan."
@@ -272,12 +280,15 @@ nl:
     show:
       comments: "Reacties"
       proposals: "Ideeën"
-      budget_investments: "Projecten"
+      budget_investments: "Ideeën"
       actions: "Acties"
       filters:
         follows:
-          one: "Je volgt 1 idee"
-          other: "Je volgt %{count} ideeën"
+          one: "1 gevolgd idee"
+          other: "%{count} gevolgde ideeën"
+        debates:
+          one: "1 discussie"
+          other: "%{count} discussies"
         proposals:
           one: "1 idee"
           other: "%{count} ideeën"
@@ -424,6 +435,7 @@ nl:
         found:
           one: "Er bestaat al een idee met de term '%{query}'. Je kunt dat idee steunen of meedoen, in plaats van een nieuw idee delen."
           other: "Er bestaan al idee met de term '%{query}'. Je kunt die ideeën steunen of met ze meedoen. In plaats van een nieuw idee delen."
+      expired: "Je kunt je idee in deze fase niet meer aanpassen"
     tags_cloud:
       districts: "Thema of gebied"
       categories: "Thema's"
@@ -546,6 +558,10 @@ nl:
         support: "Klik op de knop hieronder met \"steun dit idee\" om mijn idee te bekijken. Wanneer mijn idee het aangegeven aantal steun krijgt, wordt deze uitgevoerd. Als jij ook enthousiast wordt van dit idee, zou ik het fijn vinden dat je mijn idee steunt."
         share: "Je zou me ook heel erg helpen door mijn idee te delen met vrienden en familie. Alvast bedankt!"
         share_in: "Delen via"
+  proposal_notifications:
+    new:
+      info_about_receivers: "Dit bericht wordt naar <strong>%{count} mensen</strong> gestuurd en is zichtbaar op de %{proposal_page}.<br>Meldingen worden niet direct gestuurd, maar de gebruikers ontvangen periodiek een e-mail met alle meldingen omtrent jouw idee."
+      proposal_page: "pagina van je idee"
   omniauth:
     facebook:
       sign_in: "Inloggen via Facebook"
