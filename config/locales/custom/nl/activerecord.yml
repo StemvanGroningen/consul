@@ -84,7 +84,7 @@ nl:
       budget/heading/translation:
         name: "Naam rubriek"
       budget/investment:
-        heading_id: "Voor welk thema of gebied is dit idee?*"
+        heading_id: "Voor welk thema of gebied is dit idee?"
         location: "Hier kun je meer vertellen over de locatie"
         organization_name: "Als je een idee indient namens een organisatie, stichting of groep, voer dan hier de naam in"
         feasibility_explanation: "Feasibility explanation (optioneel)"
