@@ -204,8 +204,7 @@ describe "Voter" do
       click_link "Sign out"
 
       login_as user
-      visit account_path
-      click_link "Verify my account"
+      visit verification_path
 
       verify_residence
       #confirm_phone(user)

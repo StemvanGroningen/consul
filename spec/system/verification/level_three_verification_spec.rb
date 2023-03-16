@@ -13,8 +13,7 @@ feature "Level three verification" do
 
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     select "DNI", from: "residence_document_type"
     fill_in "residence_document_number", with: "12345678Z"
@@ -25,7 +24,7 @@ feature "Level three verification" do
 
     click_button "new_residence_submit"
 
-    expect(page).to have_content "Account verified"
+    expect(page).not_to have_content "Account verified"
   end
 
   scenario "Verification with wrong residency zipcode" do
@@ -35,8 +34,7 @@ feature "Level three verification" do
 
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     select "DNI", from: "residence_document_type"
     fill_in "residence_document_number", with: "12345678Z"
@@ -60,8 +58,7 @@ feature "Level three verification" do
 
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     select "DNI", from: "residence_document_type"
     fill_in "residence_document_number", with: "12345678Z"

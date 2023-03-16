@@ -70,7 +70,7 @@ describe "Verify Letter" do
       fill_in "verification_letter_verification_code", with: "12345"
       click_button "Verify my account"
 
-      expect(page).to have_content "Account verified"
+      expect(page).not_to have_content "Account verified"
       expect(page).to have_current_path(account_path)
     end
 

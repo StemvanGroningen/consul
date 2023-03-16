@@ -51,8 +51,7 @@ describe "Sessions" do
   scenario "Sign out does not redirect to POST requests URLs" do
     login_as(create(:user))
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
     click_button "Verify residence"
 
     expect(page).to have_content(/errors prevented the verification of your residence/)

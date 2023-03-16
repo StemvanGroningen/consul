@@ -14,11 +14,11 @@
       <%= render "shared/errors", resource: @account %>
 
       <div class="row">
-        <div class="small-12 medium-7 column">
+        <div class="small-12 column">
 
           <h2><%= t("account.show.personal") %></h2>
 
-          <div class="small-12 medium-10">
+          <div class="small-12 medium-6">
             <% if @account.organization? %>
               <%= f.fields_for :organization do |fo| %>
                 <%= fo.text_field :name, autofocus: true, maxlength: Organization.name_max_length %>
@@ -86,56 +86,6 @@
           <% end %>
 
           <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
-        </div>
-
-        <div class="user-permissions small-12 medium-5 column">
-          <h2><%= t("account.show.user_permission_title") %></h2>
-
-          <p><%= t("account.show.user_permission_info") %></p>
-
-          <ul>
-            <li><span class="icon-check"></span>&nbsp;<%= t("verification.user_permission_debates") %></li>
-            <li><span class="icon-check"></span>&nbsp;<%= t("verification.user_permission_proposal") %></li>
-            <li>
-              <% if current_user.level_two_or_three_verified? %>
-                <span class="icon-check"></span>
-              <% else %>
-                <span class="icon-x"></span>
-              <% end %>
-              <%= t("verification.user_permission_support_proposal") %>
-            </li>
-            <li>
-              <% if current_user.level_three_verified? %>
-                <span class="icon-check"></span>
-              <% else %>
-                <span class="icon-x"></span>
-              <% end %>
-              <%= t("verification.user_permission_votes") %>
-            </li>
-          </ul>
-
-          <% unless Setting["feature.user.skip_verification"].present? %>
-            <p>
-              <%= t("account.show.user_permission_verify") %>
-            </p>
-
-            <% unless @account.organization? %>
-              <div>
-                <span class="verify-account">
-                  <% if current_user.level_three_verified? %>
-                    <p class="already-verified">
-                      <span class="icon-check"></span>
-                      <%= t("account.show.verified_account") %>
-                    </p>
-                  <% elsif current_user.level_two_verified? %>
-                    <%= link_to t("account.show.finish_verification"), verification_path, class: "button success" %>
-                  <% else %>
-                    <%= link_to t("account.show.verify_my_account"), verification_path, class: "button success" %>
-                  <% end %>
-                </span>
-              </div>
-            <% end %>
-          <% end %>
         </div>
       </div>
     <% end %>

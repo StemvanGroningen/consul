@@ -17,7 +17,7 @@ module Verifications
     check "residence_terms_of_service"
 
     click_button "new_residence_submit"
-    expect(page).to have_content "Account verified"
+    expect(page).not_to have_content "Account verified"
   end
 
   def officing_verify_residence
