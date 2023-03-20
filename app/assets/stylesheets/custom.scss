@@ -79,6 +79,16 @@ main {
   }
 }
 
+p {
+
+  a {
+
+    &:not(.button) {
+      text-decoration: underline !important;
+    }
+  }
+}
+
 .button {
 
   &:hover {
