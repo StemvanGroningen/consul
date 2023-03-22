@@ -73,5 +73,6 @@ nl:
       instructions_2: "Heb jij geen account aangemaakt? Klik dan niet op 'Bevestig mijn account' en negeer deze mail."
       click_here_to_verify: "Bevestig mijn account"
       unsubscribe_text: "Wil je geen nieuws ontvangen over ideeën die je volgt? Ga naar %{notifications} en klik \"Ja, ik wil nieuws ontvangen over de ideeën die ik volg per e-mail\" uit."
+      thanks: "Heel erg bedankt"
       button: "Bevestig mijn account"
     no_reply: "Deze mail is verstuurd vanaf een emailadres waar niet op gereageerd kan worden."
