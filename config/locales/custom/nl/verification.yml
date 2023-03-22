@@ -2,8 +2,8 @@ nl:
   verification:
     residence:
       new:
-        error_not_allowed_postal_code: "Alleen met een geldige postcode kun je deelnemen"
-    user_permission_debates: "Deelnemen aan discussies"
+        error_not_allowed_postal_code: "Je kunt hier alleen aan meedoen als je in een bepaald gebied woont"
+    user_permission_debates: "Meedoen discussies"
     user_permission_proposal: "Laten weten welke ideeën jij hebt"
     user_permission_support_proposal: "Reageren op ideeën van anderen"
     user_permission_votes: "Stemmen op ideeën"

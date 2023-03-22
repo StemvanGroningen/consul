@@ -79,6 +79,16 @@ main {
   }
 }
 
+p {
+
+  a {
+
+    &:not(.button) {
+      text-decoration: underline !important;
+    }
+  }
+}
+
 .button {
 
   &:hover {
@@ -1043,6 +1053,10 @@ footer {
   a {
     color: $brand;
   }
+}
+
+.budget-investment .supports .button-support {
+  font-size: $small-font-size;
 }
 
 .investment-project .supports .total-supports,
@@ -2343,5 +2357,12 @@ footer {
   .submenu h2 {
     margin: 0;
     margin-bottom: $line-height / 2;
+  }
+}
+
+.activity {
+
+  table tr td {
+    word-break: break-all;
   }
 }

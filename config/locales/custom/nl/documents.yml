@@ -1,5 +1,24 @@
 nl:
   documents:
-    additional: "Aanvullende documenten"
+    title: Bestanden
+    max_documents_allowed_reached: Je hebt nu het maximum aantal bestanden bereikt dat je toe kunt voegen. <strong>Je moet nu eerst een bestand verwijderen, voordat je een andere kunt toevoegen.</strong>
+    additional: Aanvullende informatie
     form:
-      note: "Je kunt maximaal %{max_documents_allowed} %{accepted_content_types} bestanden toevoegen met elk een maximale grootte van %{max_file_size} MB"
+      title: Bestanden
+      title_placeholder: Voer een naam in voor je bestand
+      delete_button: Verwijder bestand
+      cancel_button: Annuleren
+      note: "Je kunt maximaal %{max_documents_allowed} %{accepted_content_types} bestanden toevoegen. Elk bestand mag een maximale grootte hebben van %{max_file_size} MB"
+      add_new_document: Bestand toevoegen
+    actions:
+      destroy:
+        notice: Bestand is succesvol verwijderd
+        alert: Het bestand kon niet verwijderd worden. Probeer het nog een keer.
+        confirm: 
+    buttons:
+      download_document: Download bestand
+      destroy_document: Verwijder bestand
+    errors:
+      messages:
+        in_between: Het bestand dat je toe wilt voegen moet tussen %{min} en %{max} zijn
+        wrong_content_type: Het type bestand dat je probeert toe te voegen %{content_type} accepteren we niet. Voeg een bestand toe van het type %{accepted_content_types}

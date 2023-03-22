@@ -2,8 +2,13 @@ nl:
   images:
     form:
       title: "Afbeelding"
-      note: "Je kunt een %{accepted_content_types} bestand uploaden met een maximale grootte van %{max_file_size} MB"
+      note: "Je kunt een %{accepted_content_types} afbeelding toevoegen, die maximaal %{max_file_size} MB is"
       add_new_image: "Afbeelding toevoegen"
+    actions:
+      destroy:
+        notice: "De afbeelding is verwijderd"
+        alert: "De afbeelding kan niet verwijderd worden. Probeer het opnieuw."
     errors:
       messages:
-        wrong_content_type: "type bestand komt niet overeen met toegestane typen"
+        wrong_content_type: "de afbeelding die je wilt toevoegen, is van een type dat we niet accepteren"
+        in_between: "De afbeelding die je wilt toevoegen, moet tussen %{min} en %{max} zijn."

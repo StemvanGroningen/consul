@@ -7,83 +7,109 @@ nl:
         coming_soon: "Binnenkort"
         published: "Gepubliceerd"
         less_info: "Minder informatie"
+        additional_info: "Meer informatie"
+        description: "Wat gaan we doen?"
+        more_info: "Meer informatie"
       proposals:
-        empty_proposals: "Er zijn geen initiatieven"
+        empty_proposals: "Er zijn geen nog verbetervoorstellen"
         less_info: "Minder informatie"
+        filters:
+          random: Alle
+          winners: "Dit nemen we mee"
       debate:
         participate: "Actief"
         icon_alt: "Plannen icoon"
         help: "Help"
         section_footer:
           title: "Over plannen"
-          description: "Help mee met het beoordelen en schrijven van plannen voorafgaand aan de totstandkoming van verordeningen, beleid en uitvoering. Jouw mening telt en heeft invloed."
-        empty_questions: "Er zijn geen discussies"
+          description: "Reageer, schrijf mee of kom met verbetervoorstellen voor plannen in de gemeente."
+        empty_questions: "Er zijn geen vragen"
       index:
         filters:
-          open: "Inspraak"
+          open: "Plannen"
           past: "Afgerond"
         section_header:
-          icon_alt: "Inspraak icoon"
-          title: "Inspraak"
+          icon_alt: "Plannen icoon"
+          title: "Plannen"
           help: "Hulp bij inspraak"
-          description: "Hieronder staan plannen van de gemeente Groningen, waar een officiële inspraakprocedure voor is georganiseerd. Afhankelijk van het soort plan kun je opmerkingen maken op een document, discussies starten of initiatieven indienen."
+          description: "Reageer op vragen en documenten of kom met verbetervoorstellen voor plannen in de gemeente."
         section_footer:
-          title: "Hulp bij inspraak"
+          title: "Hulp bij plannen"
       process:
         see_latest_comments: "Bekijk plan"
         see_latest_comments_title: "Bekijk plan"
       shared:
-        key_dates: "Activiteiten"
-        debate_dates: "Discussies"
-        allegations_dates: "Reacties"
-        proposals_dates: "Initiatieven"
+        key_dates: "Meedoen"
+        debate_dates: "Vragen"
+        allegations_dates: "Documenten"
+        proposals_dates: "Verbetervoorstellen"
       phase_empty:
-        empty: "Nog niets gepubliceerd"
+        empty: "Je kunt nog niet meedoen"
     annotations:
       index:
         title: "Reacties"
+        comments_about: Reactie
+        see_in_context: "Bekijk in de tekst"
         comments_count:
           one: "%{count} reactie"
           other: "%{count} reacties"
       comments:
         cancel: "Annuleren"
-        publish_comment: "Publiceer reactie"
+        publish_comment: "Reageer"
         comments_count:
           one: "%{count} reactie"
           other: "%{count} reacties"
     draft_versions:
       show:
-        seeing_version: "Je bekijkt nu"
+        seeing_version: "Je bekijkt nu het document"
         text_comments: "Reacties"
+        select_draft_version: Selecteer concept
+        select_version_submit: Bekijk document
+        updated_at: Op de website sinds %{date}
+        see_changes: Wat is dit voor document?
+        see_comments: Bekijk alle reacties
+        text_toc: "Inhoud"
+        text_body: "Document"
+        see_text: "Bekijk de tekst"
+      changes:
+        title: Uitleg
+        seeing_changelog_version: "Uitleg over het document"
+        see_text: "Bekijk document"
     questions:
+      comments:
+        comment_button: "Reageer"
+        comments_title: "Antwoorden"
+        comments_closed: "De vraag is gesloten en je kunt hier nu niet meer op antwoorden"
+        form:
+          leave_comment: Laat jouw antwoord achter
       question:
-        debate: "Discussie"
+        debate: "Vragen"
     proposals:
       form:
-        tags_label: "Onderwerpen/labels"
-      process_title: "Inspraakproces"
-      not_verified: Voor stemvoorstellen %{verify_account}.
+        tags_label: "Thema's"
+      process_title: "Plannen"
+      not_verified: "Om mee te doen, moet je %{verify_account}."
       participation:
-        debate_phase_not_open: "De discussie is gesloten en opmerkingen worden niet meer geaccepteerd."
-        organizations: "Deelname van organisaties in discussies is niet toegestaan"
-        unauthenticated: "Je dient %{signin} of %{signup} om deel te nemen."
+        debate_phase_not_open: "De vraag is gesloten en je kunt hier nu niet meer op antwoorden"
+        organizations: "Als organisatie, stichting of groep mag je niet reageren op een vraag."
+        unauthenticated: "Om mee te doen moet je %{signin}."
     summary:
       title: "Samenvatting"
       votes:
-        zero: "%{count} stemmen"
-        one: "%{count} stem"
-        other: "%{count} stemmen"
-      debate_phase: "Discussie fase"
-      proposals_phase: "Initiatief fase"
-      allegations_phase: "Reactie fase"
+        zero: "%{count} vind-ik-leuks"
+        one: "%{count} vind-ik-leuk"
+        other: "%{count} vind-ik-leuks"
+      debate_phase: "Vragen"
+      proposals_phase: "Verbetervoorstellen"
+      allegations_phase: "Reactie"
       debates:
-        zero: "Geen discussies"
-        one: "%{count} discussie"
-        other: "%{count} discussies"
+        zero: "Geen vragen"
+        one: "%{count} vraag"
+        other: "%{count} vragen"
       proposals:
-        zero: "Geen initiatieven"
-        one: "%{count} initiatief"
-        other: "%{count} initiatieven"
+        zero: "Geen verbetervoorstellen"
+        one: "%{count} verbetervoorstel"
+        other: "%{count} verbetervoorstellen"
       comments:
         zero: "Geen reacties"
         one: "%{count} reactie"
@@ -93,6 +119,6 @@ nl:
         zero: "Geen reacties"
         one: "%{count} reactie"
         other: "Top reacties"
-      most_voted_comments: "Reacties met meeste stemmen"
-      no_allegation: "There are no comments"
-      process_empty: "This process didn't have any participation phases"
+      most_voted_comments: "Reacties met meeste vind-ik-leuks"
+      no_allegation: "Er zijn nog geen reacties"
+      process_empty: "Je kunt nog niet meedoen"

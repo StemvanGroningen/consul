@@ -3,24 +3,27 @@ nl:
     sidebar:
       title: "Community"
       description:
-        investment: "Denk met anderen mee over dit idee."
+        proposal: Denk en doe mee
+        investment: "Kan dit idee nog beter of wil jij helpen met de uitvoering?"
+      button_to_access: Ik wil helpen
     show:
       title:
         investment: "Community idee"
       description:
-        investment: "Neem deel in de community van dit idee. Een actieve community helpt het idee (inhoudelijk) te verbeteren en draagt bij aan het krijgen van meer steun."
+        investment: "Denk of doe mee met dit idee. Help het idee verbeteren met jouw kennis. Of laat weten hoe jij kunt helpen bij de uitvoering van het idee."
       create_first_community_topic:
-        first_theme_not_logged_in: "Geen berichten geplaatst."
-        first_theme: "Creëer eerste community bericht"
-        sub_first_theme: "Om een thema of onderwerp te creëeren moet je %{sign_in} of %{sign_up}."
+        first_theme_not_logged_in: "Nog geen berichten."
+        first_theme: "Plaats een bericht"
+        sub_first_theme: "Om een thema of onderwerp te creëeren moet je %{sign_in}."
       sidebar:
-        new_topic: "Nieuw bericht"
+        new_topic: "Bericht plaatsen"
       topic:
         edit: "Bewerk bericht"
         destroy: "Verwijder bericht"
-      author: "Auteur"
+      author: "Indiener"
+      back: Terug naar %{proposal}
     topic:
-      create: "Creëer bericht"
+      create: "Maak bericht"
       edit: "Bewerk bericht"
       form:
         new:
@@ -32,3 +35,8 @@ nl:
       show:
         tab:
           comments_tab: "Reacties"
+      sidebar:
+        recommendations_title: Advies bij het maken van een bericht
+        recommendation_one: Kritiek om het idee te verbeteren is welkom, maar doe dit wel op een respectvolle manier
+        recommendation_two: Laat geen contactgegevens (telefoonnummer, adres, e-mailadres) achter
+        recommendation_three: Plaats geen reclame of spam

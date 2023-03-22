@@ -6,7 +6,7 @@
     <legend><%= t("shared.required") %></legend>
 
     <% unless budget.single_heading? %>
-      <div>
+      <div class="required">
         <%= f.select :heading_id, budget_heading_select_options(budget), { include_blank: true } %>
       </div>
     <% end %>
@@ -16,14 +16,14 @@
     </div>
 
     <%= f.translatable_fields do |translations_form| %>
-      <div>
+      <div class="required">
         <%= translations_form.text_field :title,
               maxlength: Budget::Investment.title_max_length,
               data: suggest_data(investment) %>
       </div>
       <div class="js-suggest" data-locale="<%= translations_form.locale %>"></div>
 
-      <div>
+      <div class="required">
         <%= translations_form.text_area :description,
               maxlength: Budget::Investment.description_max_length,
               class: "html-area" %>

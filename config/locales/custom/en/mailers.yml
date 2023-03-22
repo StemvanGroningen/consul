@@ -8,3 +8,5 @@ en:
       email: "cooperatieve.wijkraad@groningen.nl"
     direct_message_for_receiver:
       title: You've received a new private message.
+    email_verification:
+      button: "Confirm my account"

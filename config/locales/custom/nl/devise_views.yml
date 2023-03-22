@@ -3,40 +3,53 @@ nl:
     mailer:
       confirmation_instructions:
         title: "Bevestig je account door de volgende link te gebruiken"
-        confirm_link: "Klik op %{link} om de registratie van je account af te ronden."
-        link: "deze link"
-        text: "Met deze email registreer je je account voor de Stem van Groningen. Als je dit niet hebt aangevraagd, klik dan niet op de link en negeer deze mail."
+        confirm_link: "Klik op %{link} om je account te bevestigen. Hierna kan je meedoen op de Stem van Groningen."
+        link: "Account bevestigen"
+        text: "Met deze e-mail bevestig je je account voor de Stem van Groningen. Als je dit niet hebt aangevraagd, klik dan niet op de link en negeer deze mail."
       reset_password_instructions:
         ignore_text: "Geen nieuw wachtwoord opgevraagd? Dan kun je deze mail negeren."
-        info_text: "Je wachtwoord verandert niet totdat je deze via de link aanpast."
+        info_text: "Je wachtwoord verandert niet, totdat je deze via de link aanpast."
         text: "We hebben een verzoek gekregen om je wachtwoord te veranderen. Je kunt dit doen via de volgende link:"
+      unlock_instructions:
+        hello: Hallo
+        info_text: Je account is geblokkeerd, omdat je te vaak hebt geprobeerd in te loggen met de verkeerde inloggegevens.
+        instructions_text: "Door via een mail je account te ontgrendelen, krijg je weer toegang"
+        title: Je account is geblokkeerd
+        unlock_link: Weer toegang krijgen tot mijn account
     menu:
       login_items:
         login: "Inloggen"
         logout: "Uitloggen"
-        signup: "Registreren"
+        signup: "Account aanmaken"
     shared:
       sign_in: "Inloggen bestaand account"
-      sign_up: "Registreren nieuw account"
-      not_organization: "Vertegenwoordig je geen organisatie of collectief? Registreer je dan %{link}."
-      not_organization_link: "hier"
+      sign_up: "Nieuw account aanmaken"
+      not_organization: "Liever een account voor jezelf? Maak dan een %{link}."
+      not_organization_link: "persoonlijk account"
+      new_unlock: Geen e-mail ontvangen om account te ontgrendelen?
       links:
-        new_confirmation: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? %{link}."
-        new_confirmation_link: "Klik dan hier"
+        new_confirmation: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Dan kunnen wij de %{link}."
+        new_confirmation_link: "bevestigingsmail opnieuw sturen"
+        
         login: "Inloggen"
         not_received: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>."
+    unlocks:
+      new:
+        email_label: E-mail
+        submit: Stuur mail opnieuw om toegang te krijgen tot mijn account
+        title: Stuur mail
     organizations:
       registrations:
         new:
-          organization_name_label: "Naam van organisatie of collectief"
-          responsible_name_note: "Dit is de persoon die namens de vereniging of het collectief initiatieven indient"
-          title: "Als organisatie of collectief registreren."
-          submit: "Registreren"
+          organization_name_label: "Naam organisatie, stichting of groep"
+          responsible_name_note: "Dit is de persoon die namens de organisatie, stichting of groep ideeën indient of reacties plaatst"
+          title: "Als organisatie, stichting of groep een account aanmaken."
+          submit: "Account aanmaken"
         success:
-          instructions_1: "Wij nemen zo snel mogelijk contact met je op om het collectief of de vereniging te verifiëren."
+          instructions_1: "Wij nemen zo snel mogelijk contact met je op om de organistie, stichting of groep te verifiëren."
           instructions_2: "We hebben een mail met een bevestigingslink gestuurd naar het opgegeven e-mailadres."
-          instructions_3: "Klik op de link om het account te bevestigen. Hierna kun je als collectief of vereniging meedoen op Stem van Groningen."
-          thank_you: "Bedankt voor het registreren als collectief of vereniging op de website."
+          instructions_3: "Klik op de link om het account te bevestigen. Hierna kun je als organisatie, stichting of groep meedoen op Stem van Groningen."
+          thank_you: "Bedankt voor aanmaken van een account op Stem van Groningen"
     sessions:
       new:
         submit: "Inloggen"
@@ -44,26 +57,42 @@ nl:
     users:
       registrations:
         new:
-          email_label: "Emailadres"
-          title: "Registreren"
-          organization_signup: "Vertegenwoordig je een organisatie of een collectief? Registreer je dan %{signup_link}."
-          organization_signup_link: "hier"
-          username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
+          email_label: "E-mailadres"
+          title: "Nieuw account aanmaken"
+          organization_signup: "Wil je namens een organisatie, stichting of als groep je stem laten horen? Maak dan een %{signup_link}."
+          organization_signup_link: "apart account aan"
+          username_note: "De naam die je hier intypt is zichtbaar voor iedereen op Stem van Groningen"
           terms: "Ik ben een inwoner van de gemeente en ik accepteer de %{terms}."
-          terms_link: "gebruiksvoorwaarden"
-          terms_title: "Ik ben een inwoner van de gemeente Groningen en ik accepteer de gebruiksvoorwaarden"
-          submit: "Registreren"
+          terms_link: "gebruikersvoorwaarden"
+          terms_title: "Ik ben een inwoner van de gemeente Groningen en ik accepteer de gebruikersvoorwaarden"
+          submit: "Account aanmaken"
           username_label: "Gebruikersnaam"
-          username_note: "De opgegeven naam zal zichtbaar zijn voor andere gebruikers"
+          username_note: "De naam die je hier intypt is zichtbaar voor iedereen op de Stem van Groningen"
+          password_note: "Deze moet minimaal uit 12 tekens te bestaan"
         success:
-          title: "Verifieer je e-mailadres"
-          instructions_1: "Bekijk je mailbox - we hebben een mail gestuurd met een link om je e-mailadres te verifiëren."
-          instructions_2: "Wanneer je dit hebt geverifieerd, kun je beginnen met participeren."
-          thank_you: "Bedankt voor het invullen van je gegevens. Om je aanmelding te voltooien moet je je e-mailadres verifiëren. "
+          title: "Bevestig je account"
+          instructions_1: "Bekijk je mail - we hebben een mail gestuurd met een link om je account te bevestigen."
+          instructions_2: "Wanneer je dit hebt gedaan, kun je meedoen op de Stem van Groningen."
+          thank_you: "Bedankt voor het aanmaken van een account. Je moet alleen nog je account bevestigen."
+          title: Pas e-mailadres aan
+        delete_form:
+          erase_reason_label: Reden
+          info: Wanneer je je account verwijderd, kunnen we dit niet ongedaan maken. Bevestig dat je dit echt wilt. 
+          info_reason: Wil je ook een reden opgeven?
+        edit:
+          current_password_label: Huidig wachtwoord
+          edit: Accountgegevens aanpassen
+          email_label: E-mail
+          leave_blank: Je nieuwe wachtwoord moet minimaal uit 12 tekens bestaan. Laat dit veld leeg als je je wachtwoord niet wilt aanpassen
+          need_current: Vul je huidige wachtwoord in om te bevestigen dat je je e-mailadres of wachtwoord wilt aanpassen 
+          password_confirmation_label: Bevestig nieuw wachtwoord
+          password_label: Nieuw wachtwoord
+          update_submit: Aanpassen
+          waiting_for: "In afwachting van bevestiging:"
     confirmations:
       new:
-        title: "Stuur registratiemail opnieuw"
-        description: "Heb je geen link ontvangen? Misschien is deze in je spamfolder terecht gekomen. Via onderstaande knop kun je de mail opnieuw laten versturen."
-        submit: "Stuur link opnieuw"
+        title: "Stuur bevestigingsmail opnieuw"
+        description: "Via onderstaande knop kun je de bevestigingsmail opnieuw laten versturen. Het kan een paar minuten duren voordat je de mail hebt."
+        submit: "Stuur mail opnieuw"
       show:
         submit: "Bevestig"

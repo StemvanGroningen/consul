@@ -2,52 +2,60 @@ nl:
   devise:
     mailer:
       confirmation_instructions:
-        subject: "Bevestig je email"
+        subject: "Bevestig je account"
       reset_password_instructions:
         subject: "Wachtwoord opnieuw instellen"
       unlock_instructions:
         subject: "Instructies voor ontgrendelen account"
     sessions:
-      signed_in: "Je bent ingelogd."
-      signed_out: "Je bent uitgelogd."
-      already_signed_out: "Je bent afgemeld"
+      signed_in: "Je bent ingelogd"
+      signed_out: "Je bent uitgelogd"
+      already_signed_out: "Je bent al uitgelogd"
     passwords:
-      send_instructions: "Je ontvangt via e-mail instructies hoe je jouw account kunt ontgrendelen."
-      send_paranoid_instructions: "Als je e-mailadres bij ons bekend is, ontvang je instructies over hoe je weer met jouw account kan inloggen"
-      no_token: "Je kunt deze pagina niet benaderen zonder een \"wachtwoord reset e-mail\"."
-      updated: "Je wachtwoord is gewijzigd. Je bent aangemeld!"
-      updated_not_active: "Je wachtwoord is gewijzigd"
+      send_instructions: "Je ontvangt via e-mail uitleg hoe je weer toegang krijgt tot je account"
+      send_paranoid_instructions: "Als je e-mailadres bij ons bekend is, ontvang je een mail met uitleg"
+      no_token: "Je kunt niet bij deze webpagina zonder een \"wachtwoord reset e-mail\"."
+      updated: "Je wachtwoord is aangepast. Je bent ingelogd."
+      updated_not_active: "Je wachtwoord is aangepast"
     password_expired:
-      change_required: "Dit wachtwoord is helaas verlopen"
-      expire_password: "Dit wachtwoord is helaas verlopen"
+      change_required: "Dit wachtwoord is helaas niet meer geldig"
+      expire_password: "Dit wachtwoord is helaas niet meer geldig"
     confirmations:
-      confirmed: "Je account is geactiveerd"
-      send_instructions: "Je ontvangt via e-mail instructies om jouw account te activeren"
+      confirmed: "Je account is bevestigd"
+      send_instructions: "Je ontvangt via e-mail instructies om jouw account te bevestigen"
       send_paranoid_instructions: "We hebben een nieuwe link verstuurd. Heb je niets ontvangen? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>"
       user:
-        already_confirmed: "Je mailadres is al geverifieerd. Je kunt hiermee nu inloggen. Lukt dit niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>"
+        already_confirmed: "Je account is al bevestigd. Je kunt hiermee nu inloggen. Lukt dit niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>"
     failure:
-      already_authenticated: "Je bent al aangemeld"
-      inactive: "Je account is nog niet geactiveerd"
-      locked: "Je account is vergrendeld"
-      last_attempt: "Je hebt nog één poging over voordat jouw account wordt geblokkeerd."
-      timeout: "Oeps! Je sessie is verlopen. Meld je opnieuw aan om verder te gaan"
-      unauthenticated: "Log in om verder te gaan. Nog geen account? Maak deze eenvoudig aan via 'registreren'"
-      unconfirmed: "Je account is nog niet geactiveerd. Klik op de link in je e-mail om jouw account te activeren "
+      already_authenticated: "Je account is al bevestigd"
+      inactive: "Je account is nog niet bevestigd"
+      locked: "Je hebt helaas geen toegang tot je account"
+      last_attempt: "Je kunt nog één keer je wachtwoord proberen. Wanneer dit niet goed is, wordt jouw account geblokkeerd."
+      timeout: "De sessie is verlopen. Log alsjeblieft opnieuw in."
+      unauthenticated: "Log in om verder te gaan. Nog geen account? Maak deze dan aan of log in via social media"
+      unconfirmed: "Je account is nog niet bevestigd. Bekijk de uitleg in de bevestigingsmail om dit te doen. "
     registrations:
       destroyed: "Jammer dat je gaat! Je account is succesvol verwijderd. Wij hopen je nog een keer terug te zien"
-      signed_up: "Je bent inschreven"
-      signed_up_but_inactive: "Je bent geregistreerd. Je kon alleen niet automatisch aangemeld worden omdat jouw account nog niet geactiveerd is. Klik hiervoor op de link die naar jouw e-mailadres is verstuurd. Geen mail ontvangen? Neem dan contact op met destemvan@groningen.nl\r\n"
-      signed_up_but_locked: "Je bent geregistreerd. Je kon alleen niet automatisch aangemeld worden omdat jouw account geblokkeerd is. Neem hiervoor contact op met destemvan@groningen.nl"
-      signed_up_but_unconfirmed: "Je ontvangt via de e-mail instructies hoe je jouw account kunt activeren. Het kan zijn dat de mail in je spambox komt. Heb je niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
-      update_needs_confirmation: "U hebt uw e-mailadres succesvol gewijzigd, maar we moeten uw nieuwe mailadres nog verifiëren. Controleer uw e-mail en klik op de link in de mail om uw mailadres te verifiëren"
-      updated: "Jouw accountgegevens zijn opgeslagen"
+      signed_up: "Je bent ingelogd"
+      signed_up_but_inactive: "Je hebt een account aangemaakt. Je moet deze nog wel bevestigen. Klik hiervoor op de link in de bevestigingsmail. Geen mail ontvangen? Neem dan contact op met destemvan@groningen.nl\r\n"
+      signed_up_but_locked: "Je hebt een account. Je kan alleen niet inloggen, omdat je geen toegang hebt. Neem hiervoor contact op met destemvan@groningen.nl"
+      signed_up_but_unconfirmed: "Je ontvangt via e-mail uitleg hoe je weer toegang krijgt tot je account. Het kan dat deze in je spamfolder is terecht gekomen. Nog niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
+      update_needs_confirmation: "Je hebt jouw e-mailadres aangepast. Je moet deze nog wel bevestigen. Klik hiervoor op de link in de bevestigingsmail."
+      updated: "Jouw gegevens zijn opgeslagen"
     unlocks:
-      send_instructions: "Je ontvangt via de e-mail instructies hoe je jouew account kunt activeren. Geen mail ontvangen? Neem dan contact op met destemvan@groningen.nl"
-      send_paranoid_instructions: "Je ontvangt via de e-mail instructies hoe je jouw account kunt activeren. Het kan zijn dat de mail in je spambox komt. Heb je niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
-      unlocked: "Je account is succesvol ontgrendeld. Je kunt jezelf weer registreren!"
+      send_instructions: "We hebben een bevestigingsmail gestuurd. Het kan dat deze in je spamfolder is terecht gekomen. Nog niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
+      send_paranoid_instructions: "Je ontvangt via e-mail uitleg hoe je weer toegang krijgt tot je account. Het kan dat deze in je spamfolder is terecht gekomen. Nog niks ontvangen? Neem dan contact op met destemvan@groningen.nl"
+      unlocked: "Je hebt weer toegang tot je account en kan weer inloggen"
     omniauth_callbacks:
-      success: "Successvol aangemeld via %{kind}."
+      success: "Ingelogd met %{kind}."
   errors:
     messages:
-      equal_to_current_password: "Dit wachtwoord moet anders zijn dan het vorige wachtwoord"
+      equal_to_current_password: "Dit wachtwoord moet anders zijn dan jouw vorige wachtwoord"
+      already_confirmed: "Je account is al bevestigd. Je kan meedoen op de website"
+      confirmation_period_expired: "Je moet je account bevestigen binnen %{period}, we kunnen je een nieuwe bevestigingsmail sturen"
+      expired: "Je wachtwoord is verlopen, vraag een nieuwe aan"
+      not_found: "Sorry, we hebben dit niet kunnen vinden"
+      not_locked: "Sorry, we konden de pagina niet sluiten"
+      not_saved:
+        one: "1 fout zorgt dat we %{resource} niet kunnen opslaan. Controleer alsjeblieft wat je hebt ingevuld en pas het aan."
+        other: "%{count} fouten zorgen dat we  %{resource} niet kunnen opslaan. Controleer alsjeblieft wat je hebt ingevuld en pas het aan."
