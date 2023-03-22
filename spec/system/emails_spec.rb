@@ -212,9 +212,7 @@ describe "Emails" do
   end
 
   scenario "Email depending on user's locale" do
-    visit root_path(locale: :es)
-
-    click_link "Registrarse"
+    visit new_user_registration_path(locale: :es)
     fill_in_signup_form
     click_button "Registrarse"
 

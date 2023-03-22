@@ -1,8 +1,6 @@
 module Users
   def sign_up(email = "manuela@consul.dev", password = "judgementday")
-    visit "/"
-
-    click_link "Register"
+    visit new_user_registration_path
 
     fill_in "user_username",              with: "Manuela Carmena #{rand(99999)}"
     fill_in "user_email",                 with: email

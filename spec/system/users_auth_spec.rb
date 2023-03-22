@@ -5,8 +5,7 @@ describe "Users" do
     context "Sign up" do
       scenario "Success" do
         message = "You have been sent a message containing a verification link. Please click on this link to activate your account."
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
 
         fill_in "Username", with: "Manuela Carmena"
         fill_in "Email", with: "manuela@consul.dev"
@@ -24,8 +23,7 @@ describe "Users" do
       end
 
       scenario "Errors on sign up" do
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_button "Register"
 
         expect(page).to have_content error_message
@@ -33,8 +31,7 @@ describe "Users" do
 
       scenario "User already confirmed email with the token" do
         message = "You have been sent a message containing a verification link. Please click on this link to activate your account."
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
 
         fill_in "Username", with: "Manuela Carmena"
         fill_in "Email", with: "manuela@consul.dev"
@@ -240,8 +237,7 @@ describe "Users" do
       scenario "Sign up when Oauth provider has a verified email" do
         OmniAuth.config.add_mock(:twitter, twitter_hash_with_verified_email)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
 
         click_link "Sign up with Twitter"
 
@@ -259,8 +255,7 @@ describe "Users" do
       scenario "Sign up when Oauth provider has an unverified email" do
         OmniAuth.config.add_mock(:twitter, twitter_hash_with_email)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
 
         click_link "Sign up with Twitter"
 
@@ -287,8 +282,7 @@ describe "Users" do
       scenario "Sign up, when no email was provided by OAuth provider" do
         OmniAuth.config.add_mock(:twitter, twitter_hash)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Twitter"
 
         expect(page).to have_current_path(finish_signup_path)
@@ -317,8 +311,7 @@ describe "Users" do
       scenario "Cancelling signup" do
         OmniAuth.config.add_mock(:twitter, twitter_hash)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Twitter"
 
         expect(page).to have_current_path(finish_signup_path)
@@ -352,8 +345,7 @@ describe "Users" do
         create(:user, username: "manuela", email: "manuela@consul.dev", password: "judgementday")
         OmniAuth.config.add_mock(:twitter, twitter_hash_with_verified_email)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Twitter"
 
         expect(page).to have_current_path(finish_signup_path)
@@ -380,8 +372,7 @@ describe "Users" do
         create(:user, username: "manuela", email: "manuela@consul.dev", password: "judgementday")
         OmniAuth.config.add_mock(:twitter, twitter_hash_with_email)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Twitter"
 
         expect(page).to have_current_path(finish_signup_path)
@@ -413,8 +404,7 @@ describe "Users" do
         create(:user, username: "peter", email: "manuela@example.com")
         OmniAuth.config.add_mock(:twitter, twitter_hash)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Twitter"
 
         expect(page).to have_current_path(finish_signup_path)
@@ -450,8 +440,7 @@ describe "Users" do
         create(:user, username: "peter", email: "manuelacarmena@example.com")
         OmniAuth.config.add_mock(:twitter, twitter_hash_with_email)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Twitter"
 
         expect(page).to have_current_path(finish_signup_path)
@@ -494,8 +483,7 @@ describe "Users" do
       scenario "Sign up" do
         OmniAuth.config.add_mock(:wordpress_oauth2, wordpress_hash)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
 
         click_link "Sign up with Wordpress"
 
@@ -523,8 +511,7 @@ describe "Users" do
         create(:user, username: "manuela", email: "manuelacarmena@example.com", password: "judgementday")
         OmniAuth.config.add_mock(:wordpress_oauth2, wordpress_hash)
 
-        visit "/"
-        click_link "Register"
+        visit new_user_registration_path
         click_link "Sign up with Wordpress"
 
         expect(page).to have_current_path(finish_signup_path)
