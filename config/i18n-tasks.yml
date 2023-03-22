@@ -253,6 +253,11 @@ ignore_unused:
   - "sdg.*.filter.more.*"
   - "sdg_management.relations.index.filter*"
   - "tags.list.filter.more.*"
+  - "account.show.finish_verification"
+  - "account.show.user_permission_info"
+  - "account.show.user_permission_title"
+  - "account.show.user_permission_verify"
+  - "account.show.verify_my_account"
   - "devise_views.menu.login_items.signup"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:

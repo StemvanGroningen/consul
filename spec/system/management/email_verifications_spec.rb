@@ -27,7 +27,7 @@ describe "EmailVerifications" do
     expect(page).to have_content "You are a verified user"
 
     expect(page).not_to have_link "Verify my account"
-    expect(page).to have_content "Account verified"
+    expect(page).not_to have_content "Account verified"
 
     expect(user.reload.document_number).to eq("12345678Z")
     expect(user).to be_level_three_verified

@@ -8,8 +8,7 @@ describe "Residence" do
     user = create(:user)
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     verify_residence
   end
@@ -19,8 +18,7 @@ describe "Residence" do
     login_as(user)
     #mock_valid_remote_census_response
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     fill_in "residence_document_number", with: "12345678Z"
     select "DNI", from: "residence_document_type"
@@ -29,7 +27,7 @@ describe "Residence" do
     check "residence_terms_of_service"
     click_button "Verify residence"
 
-    expect(page).to have_content "Account verified"
+    expect(page).not_to have_content "Account verified"
   end
 
   scenario "Residence form use min age to participate" do
@@ -38,8 +36,7 @@ describe "Residence" do
     user = create(:user)
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     expect(page).to have_select("residence_date_of_birth_1i",
                                  with_options: [min_age.years.ago.year])
@@ -54,8 +51,7 @@ describe "Residence" do
 
     login_as(new_user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     fill_in "residence_document_number", with: "12345678Z"
     select "DNI", from: "residence_document_type"
@@ -65,7 +61,7 @@ describe "Residence" do
 
     click_button "Verify residence"
 
-    expect(page).to have_content "Account verified"
+    expect(page).not_to have_content "Account verified"
 
     expect(vote.reload.voter).to eq(new_user)
     expect(erased_user.reload.document_number).to be_blank
@@ -76,8 +72,7 @@ describe "Residence" do
     user = create(:user)
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     click_button "Verify residence"
 
@@ -89,8 +84,7 @@ describe "Residence" do
     user = create(:user)
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     fill_in "residence_document_number", with: "12345678Z"
     select "DNI", from: "residence_document_type"
@@ -110,8 +104,7 @@ describe "Residence" do
     user = create(:user)
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     fill_in "residence_document_number", with: "12345678Z"
     select "DNI", from: "residence_document_type"
@@ -131,8 +124,7 @@ describe "Residence" do
     user = create(:user)
     login_as(user)
 
-    visit account_path
-    click_link "Verify my account"
+    visit verification_path
 
     5.times do
       fill_in "residence_document_number", with: "12345678Z"

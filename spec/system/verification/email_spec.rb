@@ -29,7 +29,7 @@ describe "Verify email" do
     expect(page).to have_content "You are a verified user"
 
     expect(page).not_to have_link "Verify my account"
-    expect(page).to have_content "Account verified"
+    expect(page).not_to have_content "Account verified"
   end
 
   scenario "Errors on token verification" do
