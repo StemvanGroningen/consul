@@ -79,13 +79,18 @@ main {
   }
 }
 
-p {
+p,
+.auth-form {
 
   a {
 
     &:not(.button) {
       text-decoration: underline !important;
     }
+  }
+
+  .submenu a {
+    text-decoration: none !important;
   }
 }
 
