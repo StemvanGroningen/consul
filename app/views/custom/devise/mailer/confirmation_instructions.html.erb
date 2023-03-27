@@ -1,15 +1,46 @@
-<td style="padding-bottom: 20px; padding-left: 10px;">
+<td style="<%= css_for_mailer_content %>">
 
-  <h1 style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;">
+  <h1 style="<%= css_for_mailer_heading %>">
     <%= t("devise_views.mailer.confirmation_instructions.title") %>
   </h1>
 
-  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t("devise_views.mailer.confirmation_instructions.confirm_link",
-        link: link_to(t("devise_views.mailer.confirmation_instructions.link"), confirmation_url(@resource, confirmation_token: @token), style: "color: #2895F1; text-decoration:none;")).html_safe %>
+  <h1 style="<%= css_for_mailer_text %>">
+    <%= sanitize(t("devise_views.mailer.confirmation_instructions.hi", user: @user.name)) %>
+  </h1>
+
+  <p style="<%= css_for_mailer_text %>">
+    <%= t("devise_views.mailer.confirmation_instructions.welcome") %>
   </p>
 
-  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+  <p style="<%= css_for_mailer_text %>">
+    <%= sanitize(t("devise_views.mailer.confirmation_instructions.confirm_link",
+                 link: link_to(t("devise_views.mailer.confirmation_instructions.link"),
+                       confirmation_url(@resource, confirmation_token: @token),
+                       style: css_for_mailer_link)), attributes: %w[href style]) %>
+  </p>
+
+  <table style="width: 100%;">
+    <tbody>
+      <tr>
+        <td style="padding-bottom: 12px; padding-top: 24px; text-align: center;">
+          <%= link_to confirmation_url(@resource, confirmation_token: @token),
+                      style: css_for_mailer_button, target: "_blank" do %>
+            <%= t("devise_views.mailer.confirmation_instructions.link") %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="<%= css_for_mailer_text %>">
     <%= t("devise_views.mailer.confirmation_instructions.text") %>
+  </p>
+
+  <p style="<%= css_for_mailer_text %>">
+    <%= t("devise_views.mailer.confirmation_instructions.thanks") %>
+  </p>
+
+  <p style="<%= css_for_mailer_text %>">
+    <%= t("mailers.sincerely") %>
   </p>
 </td>

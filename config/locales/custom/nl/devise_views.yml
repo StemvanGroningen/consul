@@ -2,10 +2,13 @@ nl:
   devise_views:
     mailer:
       confirmation_instructions:
-        title: "Bevestig je account door de volgende link te gebruiken"
-        confirm_link: "Klik op %{link} om je account te bevestigen. Hierna kan je meedoen op de Stem van Groningen."
-        link: "Account bevestigen"
-        text: "Met deze e-mail bevestig je je account voor de Stem van Groningen. Als je dit niet hebt aangevraagd, klik dan niet op de link en negeer deze mail."
+        title: "Bevestig je account"
+        hi: "Beste <strong>%{user}</strong>,"
+        welcome: "Welkom bij Stem van Groningen! Voordat je mee kan doen op de website, moet je je account nog bevestigen."
+        confirm_link: "Via de knop %{link} bevestig je je account bij Stem van Groningen."
+        link: "Bevestig mijn account"
+        text: "Heb jij geen account aangemaakt? Klik dan niet op 'Bevestig mijn account' en negeer deze mail."
+        thanks: "Heel erg bedankt"
       reset_password_instructions:
         ignore_text: "Geen nieuw wachtwoord opgevraagd? Dan kun je deze mail negeren."
         info_text: "Je wachtwoord verandert niet, totdat je deze via de link aanpast."
@@ -30,7 +33,7 @@ nl:
       links:
         new_confirmation: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Dan kunnen wij de %{link}."
         new_confirmation_link: "bevestigingsmail opnieuw sturen"
-        
+
         login: "Inloggen"
         not_received: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Neem dan contact op met <a href=\"mailto:destemvan@groningen.nl\">destemvan@groningen.nl</a>."
     unlocks:
@@ -74,17 +77,17 @@ nl:
           instructions_1: "Bekijk je mail - we hebben een mail gestuurd met een link om je account te bevestigen."
           instructions_2: "Wanneer je dit hebt gedaan, kun je meedoen op de Stem van Groningen."
           thank_you: "Bedankt voor het aanmaken van een account. Je moet alleen nog je account bevestigen."
-          title: Pas e-mailadres aan
+          title: "Bevestig je e-mailadres"
         delete_form:
           erase_reason_label: Reden
-          info: Wanneer je je account verwijderd, kunnen we dit niet ongedaan maken. Bevestig dat je dit echt wilt. 
+          info: Wanneer je je account verwijderd, kunnen we dit niet ongedaan maken. Bevestig dat je dit echt wilt.
           info_reason: Wil je ook een reden opgeven?
         edit:
           current_password_label: Huidig wachtwoord
           edit: Accountgegevens aanpassen
           email_label: E-mail
           leave_blank: Je nieuwe wachtwoord moet minimaal uit 12 tekens bestaan. Laat dit veld leeg als je je wachtwoord niet wilt aanpassen
-          need_current: Vul je huidige wachtwoord in om te bevestigen dat je je e-mailadres of wachtwoord wilt aanpassen 
+          need_current: Vul je huidige wachtwoord in om te bevestigen dat je je e-mailadres of wachtwoord wilt aanpassen
           password_confirmation_label: Bevestig nieuw wachtwoord
           password_label: Nieuw wachtwoord
           update_submit: Aanpassen
