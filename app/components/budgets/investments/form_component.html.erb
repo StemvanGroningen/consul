@@ -48,6 +48,15 @@
       </div>
     <% end %>
 
+    <% if budget.show_money? %>
+      <%= f.label :author_estimation_cost, t("budgets.investments.form.author_estimation_cost",
+                                             currency: budget.currency_symbol) %>
+      <p class="help-text">
+        <%= t("budgets.investments.form.author_estimation_cost_help") %>
+      </p>
+      <%= f.number_field :author_estimation_cost, label: false %>
+    <% end %>
+
     <% if feature?(:map) %>
       <div>
         <%= render "map_locations/form_fields",

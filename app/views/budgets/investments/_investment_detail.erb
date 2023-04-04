@@ -26,6 +26,13 @@
 
 <%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
 
+<% if investment.should_show_author_estimation_cost? %>
+  <p>
+    <strong><%= t("budgets.investments.show.author_estimation_cost") %></strong>
+    <%= @budget.formatted_amount(investment.author_estimation_cost) %>
+  </p>
+<% end %>
+
 <% if feature?(:map) && map_location_available?(@investment.map_location) %>
   <div class="margin">
     <%= render_map(investment.map_location, "budget_investment", false, nil) %>

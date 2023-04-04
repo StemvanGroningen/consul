@@ -131,7 +131,7 @@ nl:
         title: "Ideeën"
       show:
         supports: "Vind ik leuk"
-        location: "Locatie: <strong>%{location}</strong>"
+        location: "<strong>Locatie:</strong> %{location}"
         organization_name: "Idee ingediend door: <strong>%{name}</strong>"
         author: "Indiener"
         comments_tab: "Reacties"
@@ -146,6 +146,7 @@ nl:
         price_explanation: "Waarom zijn dit de kosten?"
         votes: "Stemmen"
         edit: "Bewerk je idee"
+        author_estimation_cost: "Geschatte kosten van de indiener van het idee:"
       form:
         title: "Deel een idee"
         map_location_instructions: "Klik op de kaart om de locatie aan te geven. Je kunt de kaart bewegen"
@@ -156,6 +157,8 @@ nl:
         updated_notice: "Je idee is bewerkt."
         tag_category_label: "Thema's"
         tags_placeholder: "Als je meerdere thema's wilt toevoegen, scheidt ze dan door komma's (thema, thema)"
+        author_estimation_cost: "Geschatte kosten (%{currency})"
+        author_estimation_cost_help: "Kun je een schatting maken van wat het idee ongeveer kost? Vult dat dan hier in."
       investment:
         add: "Stem op dit idee"
         add_label: "Stem %{investment}"
