@@ -14,7 +14,7 @@ nl:
       create_first_community_topic:
         first_theme_not_logged_in: "Nog geen berichten."
         first_theme: "Plaats een bericht"
-        sub_first_theme: "Om een thema of onderwerp te creëeren moet je %{sign_in}."
+        sub_first_theme: "Om een bericht te plaatsen moet je %{sign_in}."
       sidebar:
         new_topic: "Bericht plaatsen"
       topic:
