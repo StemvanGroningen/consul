@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   get "help/how-to-use",  to: "pages#show", id: "help/how_to_use/index",  as: "how_to_use"
   get "help/faq",         to: "pages#show", id: "faq",                    as: "faq"
 
+  get "beijumbruist", to: redirect("/budgets/18")
+  get "lewenborgleeft", to: redirect("/budgets/19")
   get "beweegplekmikkelhorst", to: redirect("/budgets/20")
   get "sterkhoogerk", to: redirect("/budgets/22")
   # Static pages
