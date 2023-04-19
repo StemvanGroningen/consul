@@ -1912,4 +1912,48 @@ describe "Budget Investments" do
 
     expect(page).to have_link(href: polymorphic_path(investment_with_image.image.attachment))
   end
+
+  context "Estimated cost" do
+    scenario "Only appear if budget is showing money" do
+      budget.update!(phase: "accepting")
+      login_as(author)
+
+      visit new_budget_investment_path(budget)
+
+      expect(page).to have_content "Estimated cost (€)"
+      expect(page).to have_content "Estimated cost of realizing this idea."
+
+      budget.update!(hide_money: true)
+
+      visit new_budget_investment_path(budget)
+
+      expect(page).not_to have_content "Estimated cost (€)"
+      expect(page).not_to have_content "Estimated cost of realizing this idea."
+    end
+
+    scenario "Is hidden after valuating phase" do
+      phases_with_estimation = %w[accepting reviewing selecting valuating]
+      phases_without_estimation = %w[publishing_prices balloting reviewing_ballots finished]
+
+      investment_estimated = create(:budget_investment, heading: heading, author_estimation_cost: "1000")
+
+      phases_with_estimation.each do |phase|
+        budget.update!(phase: phase)
+
+        visit budget_investment_path(budget, investment_estimated)
+
+        expect(page).to have_content "Estimated cost by the author"
+        expect(page).to have_content "€1,000"
+      end
+
+      phases_without_estimation.each do |phase|
+        budget.update!(phase: phase)
+
+        visit budget_investment_path(budget, investment_estimated)
+
+        expect(page).not_to have_content "Estimated cost by the author"
+        expect(page).not_to have_content "€1,000"
+      end
+    end
+  end
 end

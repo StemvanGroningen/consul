@@ -124,6 +124,7 @@ module Budgets
       def allowed_params
         attributes = [:heading_id, :tag_list, :organization_name, :location,
                       :terms_of_service, :related_sdg_list,
+                      :author_estimation_cost,
                       image_attributes: image_attributes,
                       documents_attributes: document_attributes,
                       map_location_attributes: map_location_attributes]

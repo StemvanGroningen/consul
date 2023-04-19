@@ -349,6 +349,11 @@ class Budget
       feasible? && valuation_finished? && feasibility_explanation.present?
     end
 
+    def should_show_author_estimation_cost?
+      phases = %w[accepting reviewing selecting valuating]
+      author_estimation_cost.present? && phases.include?(budget.current_phase.kind)
+    end
+
     def formatted_price
       budget.formatted_amount(price)
     end

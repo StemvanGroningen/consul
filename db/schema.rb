@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_15_073305) do
+ActiveRecord::Schema.define(version: 2023_04_03_125448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -299,6 +299,7 @@ ActiveRecord::Schema.define(version: 2023_02_15_073305) do
     t.integer "cached_votes_down", default: 0
     t.integer "cached_votes_total", default: 0
     t.text "feasibility_explanation"
+    t.bigint "author_estimation_cost"
     t.index ["administrator_id"], name: "index_budget_investments_on_administrator_id"
     t.index ["author_id"], name: "index_budget_investments_on_author_id"
     t.index ["budget_id"], name: "index_budget_investments_on_budget_id"

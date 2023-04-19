@@ -3,6 +3,7 @@ en:
     investments:
       show:
         edit: "Edit"
+        author_estimation_cost: "Estimated cost by the author:"
       new:
         recommendations_title: "Describe the idea. Think for example of:"
         recommendation_one: "Why is it a good idea?"
@@ -10,3 +11,6 @@ en:
         recommendation_three: "Is it once-only (like an activity) or for several years (like a facility)?"
         recommendation_four: "How much money do you think you will need for it? (optional, estimation is also fine)"
         recommendation_five: "What would you like to do yourself for the realization of the idea?"
+      form:
+        author_estimation_cost: "Estimated cost (%{currency})"
+        author_estimation_cost_help: "Estimated cost of realizing this idea."
