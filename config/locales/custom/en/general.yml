@@ -42,6 +42,8 @@ en:
         description: "Keep up with the ideas that matter to you the most, and share them through social media."
         link: "Another optional call to action"
   layouts:
+    header:
+      helpman: "Stem van Helpman"
     footer:
       org_name: "Stem van Groningen"
       contact_title: "Neem contact met ons:"
