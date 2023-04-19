@@ -18,7 +18,7 @@
 // 0. Global styles
 // --------------------
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
 body,
 h1,
@@ -28,6 +28,16 @@ h4,
 p,
 a {
   font-family: "Montserrat", sans-serif !important;
+}
+
+a {
+
+  &:not(.button) {
+
+    &:hover {
+      color: #595959 !important;
+    }
+  }
 }
 
 .button {
@@ -985,7 +995,7 @@ footer {
 
   p {
     font-size: rem-calc(20);
-    font-weight: bold;
+    font-weight: 500;
     line-height: $line-height * 1.5;
   }
 
