@@ -1,13 +1,13 @@
 <div class="row margin-bottom">
   <div class="small-12 column">
 
-    <h1 class="inline-block margin-bottom">
+    <h1 class="margin-bottom">
       <%= t("notifications.index.title") %>
     </h1>
 
     <%= link_to t("notifications.index.mark_all_as_read"),
             mark_all_as_read_notifications_path, method: :put,
-            class: "button hollow float-right-medium" %>
+            class: "button hollow float-right-medium read-notifications" %>
 
     <ul class="menu simple clear">
       <li class="is-active">
