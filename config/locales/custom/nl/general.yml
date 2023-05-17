@@ -324,6 +324,7 @@ nl:
       open_gov: "Open Overheid"
       notification_item:
         new_notifications:
+          zero: "Je hebt geen nieuwe meldingen"
           one: "Je hebt een nieuwe melding"
           other: "Je hebt %{count} nieuwe meldingen"
         notifications: "Meldingen"
@@ -357,6 +358,27 @@ nl:
           other: "%{count} vind-ik-leuks"
     link_to_top:
       title: "Ga terug naar de bovenkant van de pagina"
+  notifications:
+    index:
+      empty_notifications: "Je hebt geen nieuwe meldingen."
+      mark_all_as_read: "Markeer alles als gelezen"
+      read: "Gelezen"
+      title: "Meldingen"
+      unread: "Ongelezen"
+    notification:
+      action:
+        comments_on:
+          one: "Iemand heeft gereageerd op"
+          other: "Er zijn %{count} nieuwe reacties op"
+        proposal_notification:
+          one: "Er is een nieuwe melding over"
+          other: "Er zijn %{count} nieuwe meldingen over"
+        replies_to:
+          one: "Iemand heeft gereageerd op uw reactie op"
+          other: "Er zijn %{count} reacties op uw reactie op"
+      mark_as_read: "Markeer als gelezen"
+      mark_as_unread: "Markeer als ongelezen"
+      notifiable_hidden: "Dit bericht is niet meer beschikbaar"
   votes:
     agree: "Ik ben het eens"
     agree_label: "Ik ben het eens met %{title}"
