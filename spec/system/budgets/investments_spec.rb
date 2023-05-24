@@ -179,6 +179,24 @@ describe "Budget Investments" do
     expect(page).to have_content "Winner investment"
   end
 
+  scenario "Index should show a message if user is not logged in" do
+    create(:budget_investment, heading: heading)
+    visit budget_investments_path(budget, heading_id: heading.id)
+
+    within "#sidebar" do
+      expect(page).to have_css ".callout.primary"
+      expect(page).to have_content "To create a new budget investment you must sign in or sign up"
+    end
+
+    login_as(author)
+    visit budget_investments_path(budget, heading_id: heading.id)
+
+    within "#sidebar" do
+      expect(page).not_to have_css ".callout.primary"
+      expect(page).not_to have_content "To create a new budget investment you must sign in or sign up"
+    end
+  end
+
   context("Search") do
     scenario "Search by text" do
       investment1 = create(:budget_investment, heading: heading, title: "Get Schwifty")
