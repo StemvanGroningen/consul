@@ -12,6 +12,13 @@
   <% end %>
 <% end %>
 
+<% if !current_user %>
+  <div class="callout primary margin-top">
+    <%= sanitize(t("budgets.investments.index.sidebar.not_logged_in",
+                    sign_in: link_to_signin, sign_up: link_to_signup)) %>
+  </div>
+<% end %>
+
 <% if @heading && can?(:show, @ballot) %>
   <div class="my-ballot">
     <h2 class="sidebar-title">
