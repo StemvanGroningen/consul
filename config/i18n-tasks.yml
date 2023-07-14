@@ -262,6 +262,8 @@ ignore_unused:
   - "account.show.verify_my_account"
   - "devise_views.menu.login_items.signup"
   - "layouts.header.poll_questions"
+  - "shared.optional"
+  - "shared.required"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:

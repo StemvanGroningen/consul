@@ -71,6 +71,7 @@ en:
         recommendations: "Recommendations"
     form:
       tags_label: "Tags"
+      terms_of_service_error: "If you do not accept the privacy notice, you cannot submit an idea."
   polls:
     index:
       section_header:

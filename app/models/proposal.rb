@@ -53,7 +53,7 @@ class Proposal < ApplicationRecord
   validates :responsible_name, length: { in: 6..Proposal.responsible_name_max_length }, unless: :skip_user_verification?
   validates :retired_reason, presence: true, inclusion: { in: ->(*) { RETIRE_OPTIONS }}, unless: -> { retired_at.blank? }
 
-  validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
+  validates :terms_of_service, acceptance: { allow_nil: false, message: I18n.t("proposals.form.terms_of_service_error") }, on: :create
 
   validate :valid_video_url?
 
