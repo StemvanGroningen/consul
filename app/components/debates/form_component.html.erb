@@ -2,7 +2,7 @@
   <%= render "shared/errors", resource: debate %>
 
   <fieldset class="required-fields">
-    <legend><%= t("shared.required") %></legend>
+    <p class="margin-bottom"><strong><%= t("shared.required_fields") %></strong></p>
 
     <%= render "shared/globalize_locales", resource: debate %>
 
@@ -25,8 +25,6 @@
   <%= f.invisible_captcha :subtitle %>
 
   <fieldset>
-    <legend><%= t("shared.optional") %></legend>
-
     <div>
       <%= f.text_field :tag_list, value: debate.tag_list.to_s,
                         hint: t("debates.form.tags_instructions"),
@@ -41,10 +39,8 @@
   <div class="submit-form-container">
     <div class="small-12 medium-9 small-centered submit-form-box required">
       <% if debate.new_record? %>
-        <p class="form-label"><%= t("shared.required_fields") %></p>
-
-        <div>
-          <%= f.hidden_field :terms_of_service, value: 1,
+        <div class="actions">
+          <%= f.check_box :terms_of_service, value: 1,
             title: t("form.accept_terms_title"),
             label: t("form.accept_terms",
                      policy: link_to(t("form.policy"), "/privacy", target: "blank"),

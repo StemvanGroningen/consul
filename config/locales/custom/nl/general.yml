@@ -93,7 +93,9 @@ nl:
     budget/investment: "idee"
     not_saved: "Je %{resource} kan niet geplaatst worden, omdat je iets niet (goed) hebt ingevuld. <br>Controleer wat je hebt ingevuld."
     budget/investment: "idee"
-    accept_terms: ""
+    accept_terms: "Ik heb de %{policy} gelezen en ik ga akkoord."
+    policy: "privacyverklaring"
+    accept_terms_title: "Ik heb de privacyverklaring gelezen en ik ga akkoord"
   proposals:
     proposal:
       reason_for_supports_necessary: ""

@@ -356,6 +356,7 @@ describe "Emails" do
 
       fill_in_new_investment_title with: "Build a hospital"
       fill_in_ckeditor "Description", with: "We have lots of people that require medical attention"
+      check "budget_investment_terms_of_service"
 
       click_button "Create Investment"
       expect(page).to have_content "Investment created successfully"

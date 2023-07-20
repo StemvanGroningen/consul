@@ -303,6 +303,7 @@ nl:
       map_location: "Locatie"
       map_location_instructions: "Beweeg de kaart en wijs de locatie aan."
       map_remove_marker: "Locatie verwijderen"
+      terms_of_service_error: "Als je de privacyverklaring niet accepteert kun je geen idee indienen."
     index:
       featured_proposals: Featured
       orders:

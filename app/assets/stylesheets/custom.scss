@@ -450,6 +450,23 @@ form label {
   color: $text;
 }
 
+.proposal-form .actions,
+.debate-form .actions,
+.budget-investment-form .actions {
+  border: 0;
+  margin-top: 0;
+  padding: 0;
+
+  a {
+    color: $text !important;
+    text-decoration: underline;
+  }
+}
+
+.is-invalid-label .checkbox {
+  color: $text;
+}
+
 // 1. Header
 // --------------------
 

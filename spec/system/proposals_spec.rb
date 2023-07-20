@@ -355,6 +355,7 @@ describe "Proposals" do
     fill_in "External video URL", with: "https://www.youtube.com/watch?v=yPQfcG-eimk"
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
     fill_in "Tags", with: "Refugees, Solidarity"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -387,6 +388,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "This is the summary"
     fill_in "Proposal text", with: "This is the description"
     fill_in "Full name of the person submitting the proposal", with: "Some other robot"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -406,6 +408,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "This is the summary"
     fill_in_ckeditor "Proposal text", with: "This is the description"
     fill_in "Full name of the person submitting the proposal", with: "Some other robot"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -423,6 +426,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "In summary, what we want is..."
     fill_in_ckeditor "Proposal text", with: "This is very important because..."
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -449,6 +453,7 @@ describe "Proposals" do
     fill_in_new_proposal_title with: "Help refugees"
     fill_in "Proposal summary", with: "In summary, what we want is..."
     fill_in_ckeditor "Proposal text", with: "This is very important because..."
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
     expect(page).to have_content "Proposal created successfully."
@@ -477,6 +482,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "In summary, what we want is..."
     fill_in "Proposal text", with: "<p>This is <script>alert('an attack');</script></p>"
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -499,6 +505,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "In summary, what we want is..."
     fill_in_ckeditor "Proposal text", with: "This is a link www.example.org"
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -525,6 +532,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "In summary, what we want is..."
     fill_in "Proposal text", with: js_injection_string
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
+    check "I agree to the Privacy Policy and the Terms and conditions of use"
 
     click_button "Create proposal"
 
@@ -581,6 +589,7 @@ describe "Proposals" do
       fill_in_ckeditor "Proposal text", with: "This is very important because..."
       fill_in "External video URL", with: "https://www.youtube.com/watch?v=yPQfcG-eimk"
       fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
+      check "I agree to the Privacy Policy and the Terms and conditions of use"
 
       select("California", from: "proposal_geozone_id")
       click_button "Create proposal"
@@ -1409,6 +1418,7 @@ describe "Proposals" do
       login_as(create(:user))
       visit new_proposal_path
       fill_in "Proposal title", with: "search"
+      check "I agree to the Privacy Policy and the Terms and conditions of use"
 
       within("div.js-suggest") do
         expect(page).to have_content "You are seeing 5 of 6 proposals containing the term 'search'"
@@ -1422,6 +1432,7 @@ describe "Proposals" do
       login_as(create(:user))
       visit new_proposal_path
       fill_in "Proposal title", with: "debate"
+      check "I agree to the Privacy Policy and the Terms and conditions of use"
 
       within("div.js-suggest") do
         expect(page).not_to have_content "You are seeing"
@@ -1613,6 +1624,7 @@ describe "Successful proposals" do
       fill_in_ckeditor "Proposal text", with: "This is very important because..."
       fill_in "External video URL", with: "https://www.youtube.com/watch?v=yPQfcG-eimk"
       fill_in "Tags", with: "Refugees, Solidarity"
+      check "I agree to the Privacy Policy and the Terms and conditions of use"
 
       click_button "Create proposal"
 
@@ -1635,6 +1647,7 @@ describe "Successful proposals" do
       fill_in "Proposal summary", with: "In summary, what we want is..."
       fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
       click_sdg_goal(1)
+      check "I agree to the Privacy Policy and the Terms and conditions of use"
 
       click_button "Create proposal"
 
