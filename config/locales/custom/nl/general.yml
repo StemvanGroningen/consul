@@ -329,6 +329,7 @@ nl:
           other: "Je hebt %{count} nieuwe meldingen"
         notifications: "Meldingen"
         no_notifications: "Je hebt geen nieuwe meldingen"
+      helpman: "Stem van Helpman"
     admin:
       watch_form_message: "Je hebt niet-opgeslagen wijzigingen. Verlaat de pagina?"
     footer:
