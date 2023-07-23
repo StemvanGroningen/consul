@@ -798,7 +798,6 @@ en:
           mailers: "Emails"
           management: "Management"
           welcome: "Welcome"
-          budgets: "Participatory budgeting"
           legislation: "Collaborative Legislation"
         buttons:
           save: "Save"

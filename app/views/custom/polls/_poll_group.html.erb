@@ -82,13 +82,11 @@
               <%= t("polls.index.participate_button") %>
             <% end %>
           <% else %>
-          <%= link_to poll_path(id: poll.slug || poll.id), class: "button expanded" do %>
             <% if poll.expired? %>
-              <%= t("polls.index.participate_button_expired") %>
+              <%= link_to_poll t("polls.index.participate_button_expired"), poll, "button expanded" %>
             <% else %>
-              <%= t("polls.index.participate_button") %>
+              <%= link_to_poll t("polls.index.participate_button"), poll, "button expanded" %>
             <% end %>
-          <% end %>
           <% end %>
         </div>
       </div>
