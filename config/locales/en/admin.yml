@@ -608,7 +608,6 @@ en:
           draft_phase_description: If this phase is active, the process won't be listed on processes index. Allow to preview the process and create content before the start.
           allegations_phase: Comments phase
           proposals_phase: Proposals phase
-          use_markdown: Use Markdown to format the text
           homepage_description: Here you can explain the content of the process
           banner_title: Header colors
         index:
@@ -790,6 +789,7 @@ en:
         information_texts_menu:
           basic: "Basic customization"
           debates: "Debates"
+          budgets: "Budgets"
           community: "Community"
           proposals: "Proposals"
           polls: "Polls"
@@ -846,6 +846,7 @@ en:
       all_proposal_authors: Proposal authors (including archived and withdrawn)
       proposal_authors: Proposal authors
       investment_authors: Investment authors in the current budget
+      investment_followers: "Users following any investment in the current budget"
       feasible_and_undecided_investment_authors: "Authors of some investment in the current budget that does not comply with: [valuation finished unfesasible]"
       selected_investment_authors: Authors of selected investments in the current budget
       winner_investment_authors: Authors of winner investments in the current budget

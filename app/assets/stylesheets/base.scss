@@ -801,7 +801,7 @@ body > header,
 
 .locale .locale-form {
 
-  @include breakpoint(small-only) {
+  @include breakpoint(small only) {
     padding-left: $line-height / 4;
   }
 }
@@ -1268,6 +1268,28 @@ footer {
   }
 }
 
+.budget-header .budgets-index,
+.budget-group-show,
+.budget-groups-index,
+.budget-ballot-show {
+
+  > header {
+
+    &::before {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.budget-header {
+
+  &::before {
+    left: 0;
+    right: 0;
+  }
+}
+
 .budget-phases {
 
   header {
@@ -1675,6 +1697,13 @@ footer {
       height: auto;
     }
   }
+
+  .investments-list-item {
+
+    h3 {
+      word-wrap: break-word;
+    }
+  }
 }
 
 .budget-investment-new .header {
@@ -2023,10 +2052,6 @@ a {
 }
 
 .draft-panels .draft-allegation .calc-comments {
-
-  .comments-box-container {
-    top: rem-calc(100) !important;
-  }
 
   .comment-box .comment-input {
     border-bottom: 0;
@@ -2944,12 +2969,6 @@ a {
     position: absolute;
     right: 12px;
     top: 0;
-  }
-
-  .zoom-link,
-  .orbit-caption,
-  .orbit-controls {
-    display: none;
   }
 }
 
