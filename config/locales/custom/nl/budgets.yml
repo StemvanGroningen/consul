@@ -159,6 +159,7 @@ nl:
         tags_placeholder: "Als je meerdere thema's wilt toevoegen, scheidt ze dan door komma's (thema, thema)"
         author_estimation_cost: "Geschatte kosten (%{currency})"
         author_estimation_cost_help: "Kun je een schatting maken van wat het idee ongeveer kost? Vult dat dan hier in."
+        terms_of_service_error: "Als je de privacyverklaring niet accepteert kun je geen idee indienen."
       investment:
         add: "Stem op dit idee"
         add_label: "Stem %{investment}"

@@ -14,3 +14,4 @@ en:
       form:
         author_estimation_cost: "Estimated cost (%{currency})"
         author_estimation_cost_help: "Estimated cost of realizing this idea."
+        terms_of_service_error: "If you do not accept the privacy notice, you cannot submit an idea."
