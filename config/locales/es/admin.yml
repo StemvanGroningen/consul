@@ -655,7 +655,6 @@ es:
           draft_phase_description: Si esta fase está activa, el proceso no aparecerá en la página de procesos. Permite previsualizar el proceso y crear contenido antes del inicio.
           allegations_phase: Fase de comentarios
           proposals_phase: Fase de propuestas
-          use_markdown: Usa Markdown para formatear el texto
           homepage_description: Aquí puedes explicar el contenido del proceso
           banner_title: Colores del encabezado
         index:
@@ -836,6 +835,7 @@ es:
         information_texts_menu:
           basic: "Personalización básica"
           debates: "Debates"
+          budgets: "Presupuestos participativos"
           community: "Comunidad"
           proposals: "Propuestas"
           polls: "Votaciones"
@@ -892,6 +892,7 @@ es:
       all_proposal_authors: Usuarios autores de propuestas (incluyendo archivadas y retiradas)
       proposal_authors: Usuarios autores de propuestas
       investment_authors: Usuarios autores de proyectos de gasto en los actuales presupuestos
+      investment_followers: "Usuarios que siguen algún proyecto de gasto en los actuales presupuestos"
       feasible_and_undecided_investment_authors: "Usuarios autores de algún proyecto de gasto en los actuales presupuestos que no cumpla: [evaluación finalizada inviable]"
       selected_investment_authors: Usuarios autores de proyectos de gasto seleccionadas en los actuales presupuestos
       winner_investment_authors: Usuarios autores de proyectos de gasto ganadoras en los actuales presupuestos

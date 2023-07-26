@@ -86,6 +86,23 @@ describe "Polls" do
       end
     end
 
+    scenario "Expired polls are ordered by ends date" do
+      travel_to "01/07/2023".to_date do
+        create(:poll, starts_at: "03/05/2023", ends_at: "01/06/2023", name: "Expired poll one")
+        create(:poll, starts_at: "02/05/2023", ends_at: "02/06/2023", name: "Expired poll two")
+        create(:poll, starts_at: "01/05/2023", ends_at: "03/06/2023", name: "Expired poll three")
+        create(:poll, starts_at: "04/05/2023", ends_at: "04/06/2023", name: "Expired poll four")
+        create(:poll, starts_at: "05/05/2023", ends_at: "05/06/2023", name: "Expired poll five")
+
+        visit polls_path(filter: "expired")
+
+        expect("Expired poll five").to appear_before("Expired poll four")
+        expect("Expired poll four").to appear_before("Expired poll three")
+        expect("Expired poll three").to appear_before("Expired poll two")
+        expect("Expired poll two").to appear_before("Expired poll one")
+      end
+    end
+
     scenario "Proposal polls won't be listed" do
       proposal = create(:proposal)
       _poll = create(:poll, related: proposal)
@@ -167,20 +184,22 @@ describe "Polls" do
       expect(page).to have_content("You already have participated in this poll")
     end
 
-    scenario "Poll title link to stats if enabled" do
+    scenario "Poll title and button link to stats if enabled" do
       poll = create(:poll, :expired, name: "Poll with stats", stats_enabled: true)
 
       visit polls_path(filter: "expired")
 
       expect(page).to have_link("Poll with stats", href: stats_poll_path(poll.slug))
+      expect(page).to have_link("Poll ended", href: stats_poll_path(poll.slug))
     end
 
-    scenario "Poll title link to results if enabled" do
+    scenario "Poll title and button link to results if enabled" do
       poll = create(:poll, :expired, name: "Poll with results", stats_enabled: true, results_enabled: true)
 
       visit polls_path(filter: "expired")
 
       expect(page).to have_link("Poll with results", href: results_poll_path(poll.slug))
+      expect(page).to have_link("Poll ended", href: results_poll_path(poll.slug))
     end
 
     scenario "Shows SDG tags when feature is enabled" do
