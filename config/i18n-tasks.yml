@@ -264,6 +264,7 @@ ignore_unused:
   - "layouts.header.poll_questions"
   - "shared.optional"
   - "shared.required"
+  - "welcome.feed.description.budgets"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:
