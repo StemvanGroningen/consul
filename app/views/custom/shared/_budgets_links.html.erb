@@ -10,9 +10,6 @@
           <%= link_to budget.name, url_for(budget) %>
         </li>
       <% end %>
-      <li>
-        <%= link_to t("layouts.header.helpman"), page_path("helpman") %>
-      </li>
     </ul>
   <% else %>
     <%= layout_menu_link_to t("layouts.header.budgets"),
