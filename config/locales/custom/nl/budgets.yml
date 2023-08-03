@@ -149,9 +149,9 @@ nl:
         author_estimation_cost: "Geschatte kosten van de indiener van het idee:"
       form:
         title: "Deel een idee"
-        map_location_instructions: "Klik op de kaart om de locatie aan te geven. Je kunt de kaart bewegen"
+        map_location_instructions: "Klik op de kaart om de locatie van jouw idee aan te geven. Je kunt de kaart bewegen."
         map_skip_checkbox: "Dit idee heeft geen eigen locatie of ik weet de locatie niet."
-        tags_instructions: "Je kunt aangeven waar jouw idee over gaat. Je kunt eigen thema's toevoegen, of kiezen uit bestaande thema's door hierop te klikken."
+        tags_instructions: "Je kunt aangeven waar jouw idee over gaat. Je kunt kiezen uit bestaande thema's door hierop te klikken of je eigen thema's toevoegen."
         tags_label: "Thema's"
         edit_permission: "Je moet zelf het idee hebben ingediend om het te kunnen bewerken."
         updated_notice: "Je idee is bewerkt."
