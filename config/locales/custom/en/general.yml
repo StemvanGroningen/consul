@@ -85,3 +85,14 @@ en:
       one: "1 comment"
       other: "%{count} comments"
       zero: "No comments"
+  groningen_map:
+    title: "See what's happening in my neighborhood"
+    see_zone: "See projects in %{zone}"
+    zone:
+      centrum: "A-Kwartier, Binnenstad, Binnenstad-Oost, Hortusbuurt, Ebbingekwartier, Westerhaven, Stationsgebied"
+      haren: "Glimmen, Haren, Noordlaren, Ommen"
+      oost: "Beijum, Drielanden, Engelbert, De Hunze, Van Starkenborgh, Lewenborg, Middelbert, Noorderhoogebrug Oosterhoogebrug, Ruischerbrug, Meerstad, Harkstede GN, Noorddijk, Ulgersmaborg, Ruischerwaard"
+      oude_wijken: "De Hoogte, Korrewegwijk (Indische buurt, Professorenbuurt), Noorderplantsoenbuurt, Oosterparkwijk, Oranjebuurt, Schildersbuurt, Kostverloren, Woonschepenhaven"
+      ten_boer: "Garmerwolde, Lellens, Sint Annen, Ten Boer, Ten Post, Thesinge, Winneweer, Wittewierum, Woltersum"
+      west: "De Buitenhof, Dorkwerd, Gravenburg, De Held, Hoogkerk, Leegkerk, Paddepoel, Reitdiep, Selwerd, Tuinwijk, Vinkhuizen"
+      zuid: "Badstratenbuurt, Coendersborg, Corpus den Hoorn, Grunobuurt, Helpermaar, Helpman, Herewegbuurt, Hoornse Meer, Hoornse Park, Laanhuizen, Rivierenbuurt, Oosterpoortbuurt, De Linie, Europapark, Piccardthof, De Wijert, Zeeheldenbuurt, Klein Martijn, De Meeuwen, Villabuurt, Kop van Oost"

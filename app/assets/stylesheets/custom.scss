@@ -1022,6 +1022,37 @@ header {
   }
 }
 
+.groningen-map-list {
+
+  .accordion-title {
+    color: $text;
+    font-size: $small-font-size;
+
+    &::before {
+      content: "\f107";
+    }
+  }
+
+  .accordion-content a {
+    font-size: rem-calc(14);
+    text-decoration: underline;
+  }
+
+  .is-active > .accordion-title::before {
+    content: "\f106";
+  }
+
+  .is-active > .accordion-title,
+  .accordion-title {
+
+    &::before {
+      color: $brand;
+      font-family: "Font Awesome 5 Free";
+      font-weight: bold;
+    }
+  }
+}
+
 // 3. Footer
 // --------------------
 

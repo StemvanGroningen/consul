@@ -126,4 +126,36 @@ describe "Welcome page" do
       expect(page).to have_css("img[alt=\"\"]")
     end
   end
+
+  scenario "Show custom SVG map" do
+    visit root_path
+
+    expect(page).to have_content "See what's happening in my neighborhood"
+    expect(page).to have_selector ".accordion.groningen-map-list"
+    expect(page).to have_css("svg[id=\"groningen_map\"]")
+
+    within "#groningen_map" do
+      zones = ["Centrum", "Haren", "Oost", "Oude Wijken", "Ten Boer", "West", "Zuid"]
+      zones.each do |zone|
+        within_window(window_opened_by { find(:css, "a[id=\"#{zone}\"]").click }) do
+          expect(page).to have_current_path(page_path(zone.parameterize))
+        end
+      end
+    end
+
+    visit page_path("in_de_wijk")
+
+    expect(page).to have_content "See what's happening in my neighborhood"
+    expect(page).to have_selector ".accordion.groningen-map-list"
+    expect(page).to have_css("svg[id=\"groningen_map\"]")
+
+    within "#groningen_map" do
+      zones = ["Centrum", "Haren", "Oost", "Oude Wijken", "Ten Boer", "West", "Zuid"]
+      zones.each do |zone|
+        within_window(window_opened_by { find(:css, "a[id=\"#{zone}\"]").click }) do
+          expect(page).to have_current_path(page_path(zone.parameterize))
+        end
+      end
+    end
+  end
 end
