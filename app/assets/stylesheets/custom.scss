@@ -2349,12 +2349,23 @@ footer {
 
 .auth-page {
 
+  .logo {
+    display: block;
+    margin: $line-height 0;
+    text-align: center;
+
+    a img {
+      max-width: rem-calc(212);
+    }
+  }
+
   .auth-title {
     margin: $line-height * 2 0;
     text-align: center;
   }
 
   .auth-form {
+    padding-top: $line-height * 2;
 
     @include breakpoint(medium) {
       margin-bottom: 0;
