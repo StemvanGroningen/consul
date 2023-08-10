@@ -28,6 +28,7 @@ h4,
 p,
 a {
   font-family: "Montserrat", sans-serif !important;
+  color: $text;
 }
 
 a {
@@ -77,6 +78,7 @@ main {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
 
     &:hover {
+      background: $black;
       box-shadow: none;
     }
   }
@@ -107,7 +109,7 @@ p,
 .button {
 
   &:hover {
-    background: $hover;
+    background: $black;
   }
 
   &.hollow {
@@ -450,21 +452,44 @@ form label {
   color: $text;
 }
 
-.proposal-form .actions,
-.debate-form .actions,
-.budget-investment-form .actions {
-  border: 0;
-  margin-top: 0;
-  padding: 0;
+.proposal-form,
+.debate-form,
+.budget-investment-form {
 
-  a {
-    color: $text !important;
-    text-decoration: underline;
+  [type="submit"] {
+
+    &:hover,
+    &:focus {
+      background: $black;
+    }
+  }
+
+  .actions {
+    border: 0;
+    margin-top: 0;
+    padding: 0;
+
+    a {
+      color: $text !important;
+      text-decoration: underline;
+    }
   }
 }
 
 .is-invalid-label .checkbox {
   color: $text;
+}
+
+.debate-new,
+.proposal-new,
+.budget-investment-new {
+
+  header {
+
+    h1 {
+      color: #fff;
+    }
+  }
 }
 
 // 1. Header
@@ -502,7 +527,7 @@ header {
 }
 
 .top-bar-title {
-  background: $brand;
+  background: #fff;
   margin: 0;
   position: relative;
 
@@ -512,7 +537,7 @@ header {
   }
 
   &::before {
-    background: $brand;
+    background: #fff;
     content: "";
     height: 100%;
     left: -999%;
@@ -1003,11 +1028,11 @@ footer {
 }
 
 .footer {
-  background: #2d313b;
+  background: $black;
   padding-top: $line-height * 3;
 
   .footer-title {
-    margin: $line-height 0;
+    color: #fff;
   }
 
   p {
@@ -1073,6 +1098,27 @@ footer {
       color: #fff;
       min-width: 30%;
     }
+  }
+}
+
+.budget-header {
+
+  .main-link {
+
+    &:hover {
+      background-color: $black;
+      color: #fff !important;
+    }
+  }
+}
+
+.budget-groups-index,
+.budget-group-show,
+.budget-ballot-show {
+
+  > header {
+    background: #fff;
+    color: $text;
   }
 }
 
@@ -1204,6 +1250,54 @@ footer {
   .budget-next-phase-disabled::before {
     left: 52px;
   }
+
+  .budget-phase .main-link {
+
+    &:hover,
+    &:focus {
+      background: $black;
+      color: #fff !important;
+    }
+  }
+
+  .tabs-title > a {
+    color: $text;
+
+    &.current-phase {
+
+      &:hover {
+        background: $black;
+
+        &::after {
+          border-left-color: $black;
+        }
+      }
+    }
+
+    &[aria-selected="true"],
+    &.is-active {
+      background: $black;
+
+      &::after {
+        border-left-color: $black;
+      }
+    }
+  }
+
+  .phase-title {
+
+    &.current-phase-tab a {
+
+      &:hover {
+        background: $black;
+        color: #fff !important;
+
+        &::after {
+          border-left-color: $black;
+        }
+      }
+    }
+  }
 }
 
 .ballot .subtitle {
@@ -1272,6 +1366,8 @@ footer {
   }
 }
 
+.debate-new,
+.proposal-new,
 .budget-investment-new {
 
   .recommendations li::before {
@@ -1790,6 +1886,13 @@ footer {
   }
 }
 
+.admin-sidebar li a {
+
+  &:hover {
+    color: #fff !important;
+  }
+}
+
 // 8. Debates
 // --------------------
 
@@ -2283,7 +2386,7 @@ footer {
   position: relative;
 
   &::before {
-    color: $border;
+    color: $text;
     font-family: "Font Awesome 5 Free";
     font-size: rem-calc(30);
     font-weight: normal;
@@ -2315,6 +2418,14 @@ footer {
   &::before {
     content: "\f080";
     font-size: rem-calc(36);
+  }
+}
+
+.legislation-text h3,
+.legislation-title h2 {
+
+  &::before {
+    color: $text;
   }
 }
 
@@ -2398,6 +2509,13 @@ footer {
 
     @include breakpoint(medium) {
       min-height: rem-calc(1390);
+
+      h1 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: rem-calc(300);
+      }
     }
   }
 
