@@ -1049,11 +1049,15 @@ footer {
 
   .social {
 
+    p {
+      text-align: left;
+    }
+
     [class^="fa"] {
       color: $footer;
       font-size: rem-calc(40);
-      text-align: center;
-      width: rem-calc(60);
+      text-align: left;
+      width: rem-calc(48);
     }
 
     a {
@@ -1061,6 +1065,7 @@ footer {
       display: inline-block;
       font-size: rem-calc(20);
       line-height: rem-calc(40);
+      margin-left: 0;
       vertical-align: top;
     }
   }

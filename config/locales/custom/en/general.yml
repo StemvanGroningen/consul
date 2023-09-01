@@ -43,7 +43,6 @@ en:
         link: "Another optional call to action"
   layouts:
     footer:
-      org_name: "Stem van Groningen"
       contact_title: "Neem contact met ons:"
       contact_email: "destemvan@groningen.nl"
   debates:

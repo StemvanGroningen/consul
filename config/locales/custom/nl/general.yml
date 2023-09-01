@@ -334,7 +334,6 @@ nl:
     admin:
       watch_form_message: "Je hebt niet-opgeslagen wijzigingen. Verlaat de pagina?"
     footer:
-      org_name: "Stem van Groningen"
       contact_title: "Neem contact met ons op"
       privacy: "Privacyverklaring"
       contact_email: "destemvan@groningen.nl"
