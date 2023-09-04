@@ -529,6 +529,13 @@ header {
       }
     }
   }
+
+  .responsive-menu {
+
+    @include breakpoint(small only) {
+      flex-basis: 100%;
+    }
+  }
 }
 
 .top-bar-title {
