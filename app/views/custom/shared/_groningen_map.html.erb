@@ -22,3 +22,28 @@
     </ul>
   </div>
 </div>
+
+<div class="row">
+  <div class="small-12 column text-center">
+    <h1 class="margin"><%= t("groningen_map.title") %></h1>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= render "shared/map_svg_old" %>
+  </div>
+
+  <div class="small-12 medium-3 column">
+    <ul class="accordion groningen-map-list" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+      <% zones = ["Ten Boer", "Oost", "Oude Wijken", "Centrum", "West", "Zuid", "Haren"] %>
+      <% zones.each do |zone| %>
+        <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title"><%= zone %></a>
+          <div class="accordion-content" data-tab-content>
+            <p class="small"><%= t("groningen_map.zone.#{zone.parameterize(separator: "_")}") %></p>
+            <%= link_to t("groningen_map.see_zone", zone: zone), zone.parameterize, class: "see-zone" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
