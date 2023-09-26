@@ -7,7 +7,7 @@ describe "Admin budget investments", :admin do
                   { budget_id: "budget_id", id: "id" },
                   "imageable_fill_new_valid_budget_investment",
                   "Update",
-                  "Investment project updated succesfully."
+                  "Investment project updated successfully."
 
   it_behaves_like "admin nested documentable",
                   "administrator",
@@ -16,5 +16,5 @@ describe "Admin budget investments", :admin do
                   { budget_id: "budget_id", id: "id" },
                   "documentable_fill_new_valid_budget_investment",
                   "Update",
-                  "Investment project updated succesfully."
+                  "Investment project updated successfully."
 end
