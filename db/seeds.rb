@@ -1,5 +1,5 @@
 # Default admin user (change password after first deploy to a server!)
-if Administrator.count == 0 && !Rails.env.test?
+if Administrator.count == 0 && (!Rails.env.test? || !Tenant.default?)
   admin = User.create!(username: "admin", email: "admin@consul.dev", password: "012345678910",
                        password_confirmation: "012345678910", confirmed_at: Time.current,
                        terms_of_service: "1")

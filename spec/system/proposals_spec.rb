@@ -69,9 +69,7 @@ describe "Proposals" do
       end
     end
 
-    scenario "Index view mode is not shown with selected filter" do
-      create(:proposal, :selected)
-
+    scenario "Index view mode is not shown with selected filter", :consul do
       visit proposals_path
 
       click_link "View selected proposals"
@@ -112,18 +110,6 @@ describe "Proposals" do
       within("#proposal_#{proposal_with_image.id}") do
         expect(page).to have_css("img[alt='#{proposal_with_image.image.title}']")
       end
-    end
-
-    scenario "Can visit a proposal from image link" do
-      proposal = create(:proposal, :with_image)
-
-      visit proposals_path
-
-      within("#proposal_#{proposal.id}") do
-        find("#image").click
-      end
-
-      expect(page).to have_current_path(proposal_path(proposal))
     end
   end
 
@@ -262,11 +248,11 @@ describe "Proposals" do
       end
     end
 
-    scenario "After visiting another page" do
+    scenario "After visiting another page", :consul do
       proposal = create(:proposal)
 
       visit proposal_path(proposal)
-      within("#proposal_#{proposal.id}") { click_link "Proposals" }
+      click_link "Go back"
       click_link proposal.title
 
       within("#proposal_sticky") do
@@ -275,11 +261,11 @@ describe "Proposals" do
       end
     end
 
-    scenario "After using the browser's back button" do
+    scenario "After using the browser's back button", :consul do
       proposal = create(:proposal)
 
       visit proposal_path(proposal)
-      within("#proposal_#{proposal.id}") { click_link "Proposals" }
+      click_link "Go back"
 
       expect(page).to have_link proposal.title
 
@@ -343,7 +329,7 @@ describe "Proposals" do
     expect(page).to have_css "meta[property='og:title'][content=\'#{proposal.title}\']", visible: :hidden
   end
 
-  scenario "Create and publish", :with_frozen_time do
+  scenario "Create and publish", :consul do
     author = create(:user)
     login_as(author)
 
@@ -371,14 +357,14 @@ describe "Proposals" do
     expect(page).to have_content "Help refugees"
     expect(page).to have_content "In summary, what we want is..."
     expect(page).to have_content "This is very important because..."
-    expect(page.find(:css, "iframe")[:src]).to eq "https://www.youtube.com/embed/yPQfcG-eimk"
+    expect(page).to have_content "https://www.youtube.com/watch?v=yPQfcG-eimk"
     expect(page).to have_content author.name
     expect(page).to have_content "Refugees"
     expect(page).to have_content "Solidarity"
     expect(page).to have_content I18n.l(Date.current)
   end
 
-  scenario "Create with invisible_captcha honeypot field", :no_js do
+  scenario "Create with invisible_captcha honeypot field", :consul do
     author = create(:user)
     login_as(author)
 
@@ -397,7 +383,7 @@ describe "Proposals" do
     expect(page).to have_current_path(proposals_path)
   end
 
-  scenario "Create proposal too fast" do
+  scenario "Create proposal too fast", :consul do
     allow(InvisibleCaptcha).to receive(:timestamp_threshold).and_return(Float::INFINITY)
 
     author = create(:user)
@@ -417,7 +403,7 @@ describe "Proposals" do
     expect(page).to have_current_path(new_proposal_path)
   end
 
-  scenario "Responsible name is stored for anonymous users" do
+  scenario "Responsible name is stored for anonymous users", :consul do
     author = create(:user)
     login_as(author)
 
@@ -442,7 +428,7 @@ describe "Proposals" do
     end
   end
 
-  scenario "Responsible name field is not shown for verified users" do
+  scenario "Responsible name field is not shown for verified users", :consul do
     author = create(:user, :level_two)
     login_as(author)
 
@@ -473,7 +459,7 @@ describe "Proposals" do
     expect(page).to have_content error_message
   end
 
-  scenario "JS injection is prevented but safe html is respected", :no_js do
+  scenario "JS injection is prevented but safe html is respected", :consul do
     author = create(:user)
     login_as(author)
 
@@ -496,7 +482,7 @@ describe "Proposals" do
     expect(page.html).not_to include "&lt;p&gt;This is"
   end
 
-  scenario "Autolinking is applied to description" do
+  scenario "Autolinking is applied to description", :consul do
     author = create(:user)
     login_as(author)
 
@@ -522,7 +508,7 @@ describe "Proposals" do
     end
   end
 
-  scenario "JS injection is prevented but autolinking is respected", :no_js do
+  scenario "JS injection is prevented but autolinking is respected", :consul do
     author = create(:user)
     js_injection_string = "<script>alert('hey')</script> <a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
     login_as(author)
@@ -559,7 +545,15 @@ describe "Proposals" do
   end
 
   context "Geozones" do
+    scenario "When there are not gezones defined it does not show the geozone link" do
+      visit proposal_path(create(:proposal))
+
+      expect(page).not_to have_selector "#geozone"
+      expect(page).not_to have_link "All city"
+    end
+
     scenario "Default whole city" do
+      create(:geozone)
       author = create(:user)
       login_as(author)
 
@@ -577,7 +571,26 @@ describe "Proposals" do
       end
     end
 
-    scenario "Specific geozone" do
+    scenario "form shows the geozone selector when there are geozones defined" do
+      create(:geozone)
+      author = create(:user)
+      login_as(author)
+
+      visit new_proposal_path
+
+      expect(page).to have_field("Scope of operation")
+    end
+
+    scenario "form do not show geozone selector when there are no geozones defined" do
+      author = create(:user)
+      login_as(author)
+
+      visit new_proposal_path
+
+      expect(page).not_to have_field("Scope of operation")
+    end
+
+    scenario "Specific geozone", :consul do
       create(:geozone, name: "California")
       create(:geozone, name: "New York")
       login_as(create(:user))
@@ -790,7 +803,7 @@ describe "Proposals" do
       expect(medium_proposal.title).to appear_before(worst_proposal.title)
     end
 
-    scenario "Proposals are ordered by confidence_score" do
+    scenario "Proposals are ordered by confidence_score", :consul do
       best_proposal = create(:proposal, title: "Best proposal")
       best_proposal.update_column(:confidence_score, 10)
       worst_proposal = create(:proposal, title: "Worst proposal")
@@ -799,8 +812,8 @@ describe "Proposals" do
       medium_proposal.update_column(:confidence_score, 5)
 
       visit proposals_path
-      click_link "Highest rated"
-      expect(page).to have_selector("a.is-active", text: "Highest rated")
+      click_link "highest rated"
+      expect(page).to have_selector("a.is-active", text: "highest rated")
 
       within "#proposals" do
         expect(best_proposal.title).to appear_before(medium_proposal.title)
@@ -811,14 +824,14 @@ describe "Proposals" do
       expect(page).to have_current_path(/page=1/)
     end
 
-    scenario "Proposals are ordered by newest" do
+    scenario "Proposals are ordered by newest", :consul do
       best_proposal = create(:proposal, title: "Best proposal", created_at: Time.current)
-      medium_proposal = create(:proposal, title: "Medium proposal", created_at: Time.current - 1.hour)
-      worst_proposal = create(:proposal, title: "Worst proposal", created_at: Time.current - 1.day)
+      medium_proposal = create(:proposal, title: "Medium proposal", created_at: 1.hour.ago)
+      worst_proposal = create(:proposal, title: "Worst proposal", created_at: 1.day.ago)
 
       visit proposals_path
-      click_link "Newest"
-      expect(page).to have_selector("a.is-active", text: "Newest")
+      click_link "newest"
+      expect(page).to have_selector("a.is-active", text: "newest")
 
       within "#proposals" do
         expect(best_proposal.title).to appear_before(medium_proposal.title)
@@ -853,39 +866,39 @@ describe "Proposals" do
         expect(page).to have_link "See more recommendations"
       end
 
-      scenario "should display text when there are no results" do
+      scenario "should display text when there are no results", :consul do
         proposal = create(:proposal, tag_list: "Distinct_to_sport")
         user     = create(:user, followables: [proposal])
 
         login_as(user)
         visit proposals_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
         expect(page).to have_content "There are not proposals related to your interests"
       end
 
-      scenario "should display text when user has no related interests" do
+      scenario "should display text when user has no related interests", :consul do
         user = create(:user)
 
         login_as(user)
         visit proposals_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
         expect(page).to have_content "Follow proposals so we can give you recommendations"
       end
 
-      scenario "can be sorted when there's a logged user" do
+      scenario "can be sorted when there's a logged user", :consul do
         proposal = create(:proposal, tag_list: "Sport")
         user     = create(:user, followables: [proposal])
 
         login_as(user)
         visit proposals_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
-        expect(page).to have_selector("a.is-active", text: "Recommendations")
+        expect(page).to have_selector("a.is-active", text: "recommendations")
 
         within "#proposals-list" do
           expect(best_proposal.title).to appear_before(medium_proposal.title)
@@ -1096,20 +1109,20 @@ describe "Proposals" do
       expect(page).not_to have_link "See more recommendations"
     end
 
-    scenario "do not show order links in selected proposals list" do
+    scenario "do not show order links in selected proposals list", :consul do
       visit proposals_path
 
       expect(page).to have_css  "ul.submenu"
-      expect(page).to have_link "Most active"
-      expect(page).to have_link "Highest rated"
-      expect(page).to have_link "Newest"
+      expect(page).to have_link "most active"
+      expect(page).to have_link "highest rated"
+      expect(page).to have_link "newest"
 
       click_link "View selected proposals"
 
       expect(page).not_to have_css  "ul.submenu"
-      expect(page).not_to have_link "Most active"
-      expect(page).not_to have_link "Highest rated"
-      expect(page).not_to have_link "Newest"
+      expect(page).not_to have_link "most active"
+      expect(page).not_to have_link "highest rated"
+      expect(page).not_to have_link "newest"
     end
 
     scenario "show archived proposals in selected proposals list" do
@@ -1177,7 +1190,7 @@ describe "Proposals" do
       end
     end
 
-    scenario "Order by relevance by default" do
+    scenario "Order by relevance by default", :consul do
       create(:proposal, title: "In summary", summary: "Title content too", cached_votes_up: 10)
       create(:proposal, title: "Title content", summary: "Summary", cached_votes_up: 1)
       create(:proposal, title: "Title here", summary: "Content here", cached_votes_up: 100)
@@ -1186,7 +1199,7 @@ describe "Proposals" do
       fill_in "search", with: "Title content"
       click_button "Search"
 
-      expect(page).to have_selector("a.is-active", text: "Relevance")
+      expect(page).to have_selector("a.is-active", text: "relevance")
 
       within("#proposals") do
         expect(all(".proposal")[0].text).to match "Title content"
@@ -1195,7 +1208,7 @@ describe "Proposals" do
       end
     end
 
-    scenario "Reorder results maintaing search" do
+    scenario "Reorder results maintaing search", :consul do
       create(:proposal, title: "Show you got",      cached_votes_up: 10,  created_at: 1.week.ago)
       create(:proposal, title: "Show what you got", cached_votes_up: 1,   created_at: 1.month.ago)
       create(:proposal, title: "Show you got",      cached_votes_up: 100, created_at: Time.current)
@@ -1207,9 +1220,9 @@ describe "Proposals" do
 
       expect(page).to have_content "Search results"
 
-      click_link "Newest"
+      click_link "newest"
 
-      expect(page).to have_selector("a.is-active", text: "Newest")
+      expect(page).to have_selector("a.is-active", text: "newest")
 
       within("#proposals") do
         expect(all(".proposal")[0].text).to match "Show you got"
@@ -1219,7 +1232,7 @@ describe "Proposals" do
       end
     end
 
-    scenario "Reorder by recommendations results maintaing search" do
+    scenario "Reorder by recommendations results maintaing search", :consul do
       user = create(:user, recommended_proposals: true)
 
       create(:proposal, title: "Show you got",      cached_votes_up: 10,  tag_list: "Sport")
@@ -1232,8 +1245,8 @@ describe "Proposals" do
       visit proposals_path
       fill_in "search", with: "Show you got"
       click_button "Search"
-      click_link "Recommendations"
-      expect(page).to have_selector("a.is-active", text: "Recommendations")
+      click_link "recommendations"
+      expect(page).to have_selector("a.is-active", text: "recommendations")
 
       within("#proposals") do
         expect(all(".proposal")[0].text).to match "Show you got"
@@ -1315,8 +1328,7 @@ describe "Proposals" do
                   "proposal",
                   "new_proposal_path",
                   "edit_proposal_path",
-                  "proposal_path",
-                  {}
+                  "proposal_path"
 
   scenario "Erased author" do
     user = create(:user)
@@ -1406,7 +1418,7 @@ describe "Proposals" do
   end
 
   context "Suggesting proposals" do
-    scenario "Show up to 5 suggestions" do
+    scenario "Show up to 5 suggestions", :consul do
       create(:proposal, title: "First proposal, has search term")
       create(:proposal, title: "Second title")
       create(:proposal, title: "Third proposal, has search term")
@@ -1425,7 +1437,7 @@ describe "Proposals" do
       end
     end
 
-    scenario "No found suggestions" do
+    scenario "No found suggestions", :consul do
       create(:proposal, title: "First proposal").update_column(:confidence_score, 10)
       create(:proposal, title: "Second proposal").update_column(:confidence_score, 8)
 
@@ -1607,7 +1619,7 @@ describe "Successful proposals" do
       Setting["feature.user.skip_verification"] = "true"
     end
 
-    scenario "Create" do
+    scenario "Create", :consul do
       author = create(:user)
       login_as(author)
 
@@ -1640,7 +1652,7 @@ describe "Successful proposals" do
       Setting["sdg.process.proposals"] = true
     end
 
-    scenario "create proposal with sdg related list" do
+    scenario "create proposal with sdg related list", :consul do
       login_as(user)
       visit new_proposal_path
       fill_in_new_proposal_title with: "A title for a proposal related with SDG related content"

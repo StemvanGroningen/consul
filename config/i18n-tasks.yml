@@ -247,6 +247,8 @@ ignore_unused:
   - "budgets.investments.show.code"
   - "mailers.budget_investment_created.share"
   - "mailers.budget_investment_selected.thanks"
+  - "mailers.budget_investment_selected.sincerely"
+  - "mailers.budget_investment_unselected.sincerely"
   - "mailers.comment.new_comment_by"
   - "mailers.direct_message_for_receiver.unsubscribe"
   - "mailers.direct_message_for_receiver.unsubscribe_account"
