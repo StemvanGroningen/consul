@@ -53,6 +53,7 @@ describe "Debates" do
     fill_in_new_debate_title with: "A title for a debate"
     fill_in_ckeditor "Initial debate text", with: "This is very important because..."
 
+    check "debate_terms_of_service"
     click_button "Start a debate"
 
     expect(page).to have_content "A title for a debate"
@@ -103,6 +104,7 @@ describe "Debates" do
     fill_in "Debate title", with: "Testing an attack"
     fill_in "Initial debate text", with: "<p>This is a JS <script>alert('an attack');</script></p>"
 
+    check "debate_terms_of_service"
     click_button "Start a debate"
 
     expect(page).to have_content "Debate created successfully."
@@ -120,6 +122,7 @@ describe "Debates" do
     fill_in_new_debate_title with: "Testing auto link"
     fill_in_ckeditor "Initial debate text", with: "This is a link www.example.org"
 
+    check "debate_terms_of_service"
     click_button "Start a debate"
 
     expect(page).to have_content "Debate created successfully."
@@ -136,6 +139,7 @@ describe "Debates" do
     fill_in "Debate title", with: "Testing auto link"
     fill_in "Initial debate text", with: js_injection_string
 
+    check "debate_terms_of_service"
     click_button "Start a debate"
 
     expect(page).to have_content "Debate created successfully."
@@ -399,6 +403,7 @@ describe "Debates" do
       fill_in_ckeditor "Initial debate text", with: "This is very important because..."
       click_sdg_goal(1)
 
+      check "debate_terms_of_service"
       click_button "Start a debate"
 
       within(".sdg-goal-tag-list") { expect(page).to have_link "1. No Poverty" }

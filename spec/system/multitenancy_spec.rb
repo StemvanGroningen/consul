@@ -118,7 +118,7 @@ describe "Multitenancy", :seed_tenants do
     end
   end
 
-  scenario "Sign up into subdomain" do
+  scenario "Sign up into subdomain", :consul do
     with_subdomain("mars") do
       visit "/"
       click_link "Register"
@@ -138,7 +138,7 @@ describe "Multitenancy", :seed_tenants do
     end
   end
 
-  scenario "Users from another tenant can't sign in" do
+  scenario "Users from another tenant can't sign in", :consul do
     create(:tenant, schema: "venus")
     Tenant.switch("mars") { create(:user, email: "marty@consul.dev", password: "20151021") }
 

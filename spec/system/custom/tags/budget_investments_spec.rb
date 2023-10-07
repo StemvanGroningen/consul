@@ -22,6 +22,7 @@ describe "Tags" do
 
     fill_in "budget_investment_tag_list", with: "#{tag_medio_ambiente.name}, #{tag_economia.name}"
 
+    check "budget_investment_terms_of_service"
     click_button "Create Investment"
 
     expect(page).to have_content "Investment created successfully."
@@ -38,6 +39,7 @@ describe "Tags" do
     fill_in_ckeditor "Description", with: "If I had a gym near my place I could go do Zumba"
 
     find(".js-add-tag-link", text: tag_economia.name).click
+    check "budget_investment_terms_of_service"
     click_button "Create Investment"
 
     expect(page).to have_content "Investment created successfully."
@@ -61,6 +63,7 @@ describe "Tags" do
     fill_in_ckeditor "Description", with: "If I had a gym near my place I could go do Zumba"
 
     find(".js-add-tag-link", text: "Education").click
+    check "budget_investment_terms_of_service"
     click_button "Create Investment"
 
     expect(page).to have_content "Investment created successfully."
@@ -84,6 +87,7 @@ describe "Tags" do
     fill_in_ckeditor "Description", with: "If I had a gym near my place I could go do Zumba"
 
     find(".js-add-tag-link", text: "Education").click
+    check "budget_investment_terms_of_service"
     click_button "Create Investment"
 
     expect(page).to have_content "Investment created successfully."
@@ -121,6 +125,7 @@ describe "Tags" do
 
     fill_in "budget_investment_tag_list", with: "user_id=1, &a=3, <script>alert('hey');</script>"
 
+    check "budget_investment_terms_of_service"
     click_button "Create Investment"
 
     expect(page).to have_content "Investment created successfully."

@@ -21,6 +21,7 @@ describe "Proposals" do
       fill_in_ckeditor "Proposal text", with: "This is very important because..."
       fill_in "External video URL", with: "https://www.youtube.com/watch?v=yRYFKcMa_Ek"
 
+      check "proposal_terms_of_service"
       click_button "Create proposal"
 
       expect(page).to have_content "Proposal created successfully."

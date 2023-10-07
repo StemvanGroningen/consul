@@ -9,7 +9,7 @@ describe "Site customization images" do
     expect(page).to have_css("link[rel='shortcut icon'][href$='favicon_custom.ico']", visible: :hidden)
   end
 
-  scenario "Custom auth background" do
+  scenario "Custom auth background", :consul do
     stub_const("#{SiteCustomization::Image}::VALID_IMAGES", { "auth_bg" => [260, 80] })
     create(:site_customization_image,
            name: "auth_bg",

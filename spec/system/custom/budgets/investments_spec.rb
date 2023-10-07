@@ -96,6 +96,7 @@ describe "Budget Investments" do
               "or on behalf of more people, write its name", with: "T.I.A."
       fill_in "Tags", with: "Towers"
 
+      check "budget_investment_terms_of_service"
       click_button "Create Investment"
 
       expect(page).to have_content "Investment created successfully"
@@ -133,6 +134,7 @@ describe "Budget Investments" do
       fill_in "budget_investment_organization_name", with: "T.I.A."
       fill_in "budget_investment_tag_list", with: "Towers"
 
+      check "budget_investment_terms_of_service"
       click_button "Create Investment"
 
       expect(page).to have_content "Investment created successfully"
@@ -171,6 +173,7 @@ describe "Budget Investments" do
               "or on behalf of more people, write its name", with: "T.I.A."
       fill_in "Tags", with: "Towers"
 
+      check "budget_investment_terms_of_service"
       click_button "Create Investment"
 
       expect(page).to have_content "Investment created successfully"
@@ -324,6 +327,7 @@ describe "Budget Investments" do
       fill_in_ckeditor "Description", with: "I want to live in a high tower over the clouds"
       click_sdg_goal(1)
 
+      check "budget_investment_terms_of_service"
       click_button "Create Investment"
 
       within(".sdg-goal-tag-list") { expect(page).to have_link "1. No Poverty" }

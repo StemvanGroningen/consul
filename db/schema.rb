@@ -238,10 +238,10 @@ ActiveRecord::Schema.define(version: 2023_05_23_090028) do
     t.boolean "allow_custom_content", default: false
     t.text "latitude"
     t.text "longitude"
+    t.integer "geozone_id"
     t.integer "max_ballot_lines", default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "geozone_id"
     t.index ["geozone_id"], name: "index_budget_headings_on_geozone_id"
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end

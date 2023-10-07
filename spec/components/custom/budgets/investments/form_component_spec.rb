@@ -19,7 +19,7 @@ describe Budgets::Investments::FormComponent do
         url: budget_investments_path(budget)
       )
 
-      expect(page).not_to have_field "I agree to the Privacy Policy and the Terms and conditions of use"
+      expect(page).to have_field "I agree to the Privacy Policy and the Terms and conditions of use"
     end
   end
 end

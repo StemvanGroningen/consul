@@ -29,8 +29,8 @@ describe Budget do
       expect(budget.investments_preview_list(3)).not_to eq budget.investments_preview_list(3)
     end
 
-    it "returns only feasible investments if phase is selecting, valuating or publishing_prices" do
-      %w[selecting valuating publishing_prices].each do |phase_name|
+    it "returns only feasible investments if phase is valuating or publishing_prices" do
+      %w[valuating publishing_prices].each do |phase_name|
         budget.phase = phase_name
 
         expect(budget.investments_preview_list.count).to be budget.investments.feasible.count

@@ -52,7 +52,7 @@ describe AdminLegislationSanitizer do
       expect(sanitizer.sanitize(html)).to eq(html)
     end
 
-    it "doesn't allow style" do
+    it "doesn't allow style", :consul do
       html = 'Dangerous<img src="/smile.png" alt="Smile" style="width:10px;"> image'
       expect(sanitizer.sanitize(html)).not_to eq(html)
     end

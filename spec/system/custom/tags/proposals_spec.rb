@@ -12,6 +12,7 @@ describe "Tags" do
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
     fill_in "Tags", with: "Economía, Hacienda"
 
+    check "proposal_terms_of_service"
     click_button "Create proposal"
 
     expect(page).to have_content "Proposal created successfully."
@@ -36,6 +37,7 @@ describe "Tags" do
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
 
     find(".js-add-tag-link", text: "Education").click
+    check "proposal_terms_of_service"
     click_button "Create proposal"
 
     expect(page).to have_content "Proposal created successfully."
@@ -79,6 +81,7 @@ describe "Tags" do
 
     fill_in "Tags", with: "user_id=1, &a=3, <script>alert('hey');</script>"
 
+    check "proposal_terms_of_service"
     click_button "Create proposal"
 
     expect(page).to have_content "Proposal created successfully."

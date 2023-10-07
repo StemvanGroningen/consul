@@ -11,6 +11,7 @@ describe "Tags" do
 
     fill_in "debate_tag_list", with: "Impuestos, Economía, Hacienda"
 
+    check "debate_terms_of_service"
     click_button "Start a debate"
 
     expect(page).to have_content "Debate created successfully."

@@ -162,6 +162,7 @@ describe "Proposals" do
     fill_in "Proposal summary", with: "In summary, what we want is..."
     fill_in_ckeditor "Proposal text", with: "This is very important because..."
 
+    check "proposal_terms_of_service"
     click_button "Create proposal"
     expect(page).to have_content "Proposal created successfully."
     click_link "No, I want to publish the proposal"
@@ -180,6 +181,7 @@ describe "Proposals" do
     fill_in "Proposal text", with: "<p>This is <script>alert('an attack');</script></p>"
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
 
+    check "proposal_terms_of_service"
     click_button "Create proposal"
 
     expect(page).to have_content "Proposal created successfully."
@@ -202,6 +204,7 @@ describe "Proposals" do
     fill_in_ckeditor "Proposal text", with: "This is a link www.example.org"
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
 
+    check "proposal_terms_of_service"
     click_button "Create proposal"
 
     expect(page).to have_content "Proposal created successfully."
@@ -223,6 +226,7 @@ describe "Proposals" do
     fill_in "Proposal text", with: js_injection_string
     fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
 
+    check "proposal_terms_of_service"
     click_button "Create proposal"
 
     expect(page).to have_content "Proposal created successfully."
@@ -507,6 +511,7 @@ describe "Proposals" do
       fill_in "External video URL", with: "https://www.youtube.com/watch?v=yPQfcG-eimk"
       fill_in "Tags", with: "Refugees, Solidarity"
 
+      check "proposal_terms_of_service"
       click_button "Create proposal"
 
       expect(page).to have_content "Proposal created successfully."
@@ -529,6 +534,7 @@ describe "Proposals" do
       fill_in "Full name of the person submitting the proposal", with: "Isabel Garcia"
       click_sdg_goal(1)
 
+      check "proposal_terms_of_service"
       click_button "Create proposal"
 
       within(".sdg-goal-tag-list") { expect(page).to have_link "1. No Poverty" }
