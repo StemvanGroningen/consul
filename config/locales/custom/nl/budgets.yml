@@ -227,7 +227,7 @@ nl:
       unfeasible_investment_proyects: "Lijst van alle ideeën in de stemronde"
       not_selected_investment_proyects: "Lijst van ideeën die niet door zijn naar de stemronde"
       accepted: "Breng je stem uit"
-      amount_available: "Beschikbare stemmen:"
+      amount_available: "Beschikbare budget:"
       heading: "De uitslag"
       page_title: "De uitslag"
       show_all_link: "Toon alle ideeën met stemmen"
