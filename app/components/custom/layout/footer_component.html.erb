@@ -18,10 +18,6 @@
         <%= link_to t("layouts.footer.contact_email"),
                     "mailto:destemvan@groningen.nl" %>
       </p>
-
-      <p class="info">
-        <%= sanitize(content_block("footer", I18n.locale)) %>
-      </p>
     </div>
   </div>
 
@@ -32,7 +28,7 @@
       </div>
     <% end %>
 
-    &copy; <%= t("layouts.footer.copyright", version: "1.5.0", year: Time.current.year) %>
+    &copy; <%= t("layouts.footer.copyright", version: "2.0.1", year: Time.current.year) %>
     <ul class="no-bullet">
       <li><%= link_to t("layouts.footer.privacy"), page_path("privacy") %>&nbsp;|</li>
       <li><%= link_to t("layouts.footer.conditions"), page_path("conditions") %>&nbsp;|</li>

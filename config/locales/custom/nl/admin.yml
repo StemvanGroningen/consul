@@ -140,6 +140,7 @@ nl:
         hide_money: "Verberg budget"
         hide_money_help_text: "Als deze optie is aangevinkt wordt het budget, wat normaal op verschillende plekken in het begrotingsproces getoond wordt, verborgen."
         phases_table_help_text: "In de fases kan je informatie toevoegen over de desbetreffende fase. Wat gebeurt er in welke fase? En wat wil je dat een inwoner in deze fase doet? Alle informatie die je geeft wordt per actieve fase getoond op de pagina van het budget."
+        submit: "Bewerk Burgerbegroting"
       winners:
         calculate: "Tel de stemmen"
       shared:
