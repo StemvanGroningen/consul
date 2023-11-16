@@ -10,7 +10,9 @@ namespace :db do
     logger = ApplicationLogger.new
 
     logger.info "Calculating tsvector for comments"
-    Comment.with_hidden.find_each(&:calculate_tsvector)
+    Comment.with_hidden.find_each do |comment|
+      comment.calculate_tsvector unless comment.send(:searchable_values_sql) == ""
+    end
 
     logger.info "Calculating tsvector for proposal notifications"
     ProposalNotification.with_hidden.find_each(&:calculate_tsvector)
