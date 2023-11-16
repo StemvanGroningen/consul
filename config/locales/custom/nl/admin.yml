@@ -140,6 +140,7 @@ nl:
         hide_money: "Verberg budget"
         hide_money_help_text: "Als deze optie is aangevinkt wordt het budget, wat normaal op verschillende plekken in het begrotingsproces getoond wordt, verborgen."
         phases_table_help_text: "In de fases kan je informatie toevoegen over de desbetreffende fase. Wat gebeurt er in welke fase? En wat wil je dat een inwoner in deze fase doet? Alle informatie die je geeft wordt per actieve fase getoond op de pagina van het budget."
+        submit: "Bewerk Burgerbegroting"
       winners:
         calculate: "Tel de stemmen"
       shared:
@@ -166,7 +167,6 @@ nl:
       name: "Naam kop"
       price: "Budget"
       population: "Populatie"
-      allow_custom_content: "Contentblokken toestaan"
       form:
         population_info: "Het veld rubriek wordt gebruikt voor statistische doeleinden. Na afloop van de begroting kan worden weergegeven door welk percentage is gestemd. Het veld is optioneel, dus je kunt het leeg laten als het niet van toepassing is."
         content_blocks_info: "Als dit is aangevinkt, kun je op maat gemaakte content toevoegen. Via Instellingen Costum content blocks. Deze content zal dan verschijnen bij de ideeën pagina."

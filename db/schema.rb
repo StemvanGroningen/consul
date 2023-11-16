@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_03_125448) do
+ActiveRecord::Schema.define(version: 2023_05_23_090028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -238,9 +238,11 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.boolean "allow_custom_content", default: false
     t.text "latitude"
     t.text "longitude"
+    t.integer "geozone_id"
     t.integer "max_ballot_lines", default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["geozone_id"], name: "index_budget_headings_on_geozone_id"
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
@@ -322,6 +324,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.text "summary"
     t.string "name"
     t.string "main_link_text"
+    t.string "main_button_text"
     t.string "main_link_url"
     t.index ["budget_phase_id"], name: "index_budget_phase_translations_on_budget_phase_id"
     t.index ["locale"], name: "index_budget_phase_translations_on_locale"
@@ -334,7 +337,6 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.boolean "enabled", default: true
-    t.string "main_button_text"
     t.string "main_button_url"
     t.index ["ends_at"], name: "index_budget_phases_on_ends_at"
     t.index ["kind"], name: "index_budget_phases_on_kind"
@@ -357,6 +359,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "main_link_text"
+    t.string "main_button_text"
     t.string "main_link_url"
     t.string "info_section_title"
     t.text "info_section_description"
@@ -406,7 +409,6 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.text "description_informing"
     t.string "voting_style", default: "knapsack"
     t.boolean "published"
-    t.string "main_button_text"
     t.string "main_button_url"
     t.boolean "hide_money", default: false
     t.boolean "info_section", default: false
@@ -463,6 +465,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.string "ancestry"
     t.integer "confidence_score", default: 0, null: false
     t.boolean "valuation", default: false
+    t.tsvector "tsv"
     t.index ["ancestry"], name: "index_comments_on_ancestry"
     t.index ["cached_votes_down"], name: "index_comments_on_cached_votes_down"
     t.index ["cached_votes_total"], name: "index_comments_on_cached_votes_total"
@@ -470,6 +473,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
     t.index ["confidence_score"], name: "index_comments_on_confidence_score"
     t.index ["hidden_at"], name: "index_comments_on_hidden_at"
+    t.index ["tsv"], name: "index_comments_on_tsv", using: :gin
     t.index ["user_id"], name: "index_comments_on_user_id"
     t.index ["valuation"], name: "index_comments_on_valuation"
   end
@@ -574,6 +578,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.string "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "tenant"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
@@ -647,6 +652,8 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "census_code"
+    t.text "geojson"
+    t.string "color"
   end
 
   create_table "geozones_polls", id: :serial, force: :cascade do |t|
@@ -873,6 +880,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.datetime "updated_at", null: false
     t.text "title"
     t.datetime "hidden_at"
+    t.text "description"
     t.index ["hidden_at"], name: "index_legislation_question_translations_on_hidden_at"
     t.index ["legislation_question_id"], name: "index_d34cc1e1fe6d5162210c41ce56533c5afabcdbd3"
     t.index ["locale"], name: "index_legislation_question_translations_on_locale"
@@ -956,14 +964,14 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.index ["proposal_id"], name: "index_map_locations_on_proposal_id"
   end
 
-  create_table "maps", force: :cascade do |t|
+  create_table "maps", id: :serial, force: :cascade do |t|
     t.integer "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_id"], name: "index_maps_on_budget_id"
   end
 
-  create_table "milestone_statuses", force: :cascade do |t|
+  create_table "milestone_statuses", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "hidden_at"
@@ -1231,7 +1239,6 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.integer "user_id"
     t.string "origin"
     t.integer "officer_id"
-    t.string "token"
     t.index ["booth_assignment_id"], name: "index_poll_voters_on_booth_assignment_id"
     t.index ["document_number"], name: "index_poll_voters_on_document_number"
     t.index ["officer_assignment_id"], name: "index_poll_voters_on_officer_assignment_id"
@@ -1255,9 +1262,6 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.string "related_type"
     t.integer "related_id"
     t.tsvector "tsv"
-    t.boolean "polis", default: false
-    t.string "polis_url"
-    t.string "polis_report_url"
     t.index ["budget_id"], name: "index_polls_on_budget_id", unique: true
     t.index ["geozone_restricted"], name: "index_polls_on_geozone_restricted"
     t.index ["related_type", "related_id"], name: "index_polls_on_related_type_and_related_id"
@@ -1294,6 +1298,8 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.datetime "hidden_at"
     t.datetime "ignored_at"
     t.datetime "confirmed_hide_at"
+    t.tsvector "tsv"
+    t.index ["tsv"], name: "index_proposal_notifications_on_tsv", using: :gin
   end
 
   create_table "proposal_translations", id: :serial, force: :cascade do |t|
@@ -1578,6 +1584,17 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.index ["proposals_count"], name: "index_tags_on_proposals_count"
   end
 
+  create_table "tenants", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "schema"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "schema_type", default: 0, null: false
+    t.datetime "hidden_at"
+    t.index ["name"], name: "index_tenants_on_name", unique: true
+    t.index ["schema"], name: "index_tenants_on_schema", unique: true
+  end
+
   create_table "topics", id: :serial, force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -1640,7 +1657,6 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.string "redeemable_code"
     t.string "gender", limit: 10
     t.datetime "date_of_birth"
-    t.boolean "email_on_proposal_notification", default: true
     t.boolean "email_digest", default: true
     t.boolean "email_on_direct_message", default: true
     t.boolean "official_position_badge", default: false
@@ -1648,7 +1664,6 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.boolean "created_from_signature", default: false
     t.integer "failed_email_digests_count", default: 0
     t.text "former_users_data_log", default: ""
-    t.integer "balloted_heading_id"
     t.boolean "public_interests", default: false
     t.boolean "recommended_debates", default: true
     t.boolean "recommended_proposals", default: true
@@ -1721,6 +1736,15 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
     t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
+  create_table "votation_types", force: :cascade do |t|
+    t.integer "questionable_id"
+    t.string "questionable_type"
+    t.integer "vote_type"
+    t.integer "max_votes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "votes", id: :serial, force: :cascade do |t|
     t.string "votable_type"
     t.integer "votable_id"
@@ -1785,6 +1809,7 @@ ActiveRecord::Schema.define(version: 2023_04_03_125448) do
   add_foreign_key "administrators", "users"
   add_foreign_key "budget_administrators", "administrators"
   add_foreign_key "budget_administrators", "budgets"
+  add_foreign_key "budget_headings", "geozones"
   add_foreign_key "budget_investments", "communities"
   add_foreign_key "budget_valuators", "budgets"
   add_foreign_key "budget_valuators", "valuators"

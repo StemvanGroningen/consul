@@ -53,7 +53,7 @@ describe "Tags" do
     expect(page).to have_content "Hacienda"
   end
 
-  scenario "Create" do
+  scenario "Create", :consul do
     user = create(:user)
     login_as(user)
 
@@ -72,7 +72,7 @@ describe "Tags" do
     expect(page).to have_content "Impuestos"
   end
 
-  scenario "Create with too many tags" do
+  scenario "Create with too many tags", :consul do
     user = create(:user)
     login_as(user)
 

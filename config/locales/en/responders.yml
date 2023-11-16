@@ -31,8 +31,7 @@ en:
         valuator_group: "Valuator group updated successfully"
         translation: "Translation updated successfully"
       destroy:
-        budget_investment: "Investment project deleted succesfully."
-        error: "Could not delete"
+        budget_investment: "Investment project deleted successfully."
         topic: "Topic deleted successfully."
         poll_question_answer_video: "Answer video deleted successfully."
         valuator_group: "Valuator group deleted successfully"

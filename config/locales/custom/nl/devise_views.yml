@@ -71,7 +71,7 @@ nl:
           submit: "Account aanmaken"
           username_label: "Gebruikersnaam"
           username_note: "De naam die je hier intypt is zichtbaar voor iedereen op de Stem van Groningen"
-          password_note: "Deze moet minimaal uit 12 tekens te bestaan"
+          password_note: "Deze moet minimaal uit 12 tekens bestaan"
         success:
           title: "Bevestig je account"
           instructions_1: "Bekijk je mail - we hebben een mail gestuurd met een link om je account te bevestigen."
