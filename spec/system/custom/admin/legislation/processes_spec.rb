@@ -140,7 +140,7 @@ describe "Admin collaborative legislation", :admin do
 
       expect(page).to have_content "An example legislation process"
       expect(page).not_to have_content "Summary of the process"
-      expect(page).to have_css("img[alt='An example legislation process']")
+      expect(page).not_to have_css("img[alt='An example legislation process']")
     end
   end
 
