@@ -18,7 +18,7 @@ describe "Custom content blocks" do
     expect(page).not_to have_content("content for top links")
   end
 
-  scenario "footer" do
+  scenario "footer", :consul do
     create(:site_customization_content_block, name: "footer", locale: "en",
                                               body: "content for footer")
     create(:site_customization_content_block, name: "footer", locale: "es",
