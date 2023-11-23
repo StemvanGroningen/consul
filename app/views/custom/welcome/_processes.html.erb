@@ -16,7 +16,7 @@
                     <h3><%= item.title %></h3>
                   </figcaption>
                 </figure>
-                <p class="description"><%= item.summary %></p>
+                <p class="description"><%= sanitize(item.summary) %></p>
                 <p><%= t("welcome.feed.see_process") %></p>
               <% end %>
             </div>
