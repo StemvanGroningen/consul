@@ -20,7 +20,7 @@
 
   <div class="legislation-content">
     <div class="row">
-      <div class="small-12 medium-9 column">
+      <div class="small-12 medium-7 column">
         <% if header == :small %>
           <% if @process.description.present? %>
             <p class="title"><%= t("legislation.processes.header.description") %></p>
@@ -49,7 +49,11 @@
         <% end %>
       </div>
 
-      <aside class="small-12 medium-3 column">
+      <aside class="small-12 medium-5 column">
+        <% if @process.image.present? %>
+          <%= image_tag(@process.image.variant(:large), alt: @process.title, id: "image") %>
+        <% end %>
+
         <% if process.draft_publication.enabled? %>
           <div class="sidebar-divider"></div>
           <p class="sidebar-title">

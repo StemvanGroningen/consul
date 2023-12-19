@@ -150,13 +150,13 @@ describe "Legislation" do
       expect(page).not_to have_css ".ssb-facebook"
     end
 
-    scenario "Do not show image" do
+    scenario "Show image" do
       process = create(:legislation_process)
       create(:image, imageable: process)
 
       visit legislation_process_path(process)
 
-      expect(page).not_to have_css "#image"
+      expect(page).to have_css "#image"
     end
   end
 
