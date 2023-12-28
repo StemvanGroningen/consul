@@ -106,7 +106,7 @@ describe "Homepage", :admin do
       visit root_path
 
       within("#feed_budgets") do
-        expect(page).to have_content("Description of the phase with a link to CONSUL website")
+        expect(page).not_to have_content("Description of the phase with a link to CONSUL website")
         expect(page).not_to have_link("CONSUL website")
       end
     end
