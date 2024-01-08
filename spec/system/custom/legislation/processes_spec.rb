@@ -156,7 +156,8 @@ describe "Legislation" do
 
       visit legislation_process_path(process)
 
-      expect(page).not_to have_css "#image"
+      expect(page).to have_css "#image"
+      expect(page).to have_css "#image_mobile"
     end
   end
 
