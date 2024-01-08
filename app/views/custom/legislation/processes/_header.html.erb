@@ -21,6 +21,11 @@
   <div class="legislation-content">
     <div class="row">
       <div class="small-12 medium-7 column">
+        <div class="show-for-small-only">
+          <% if @process.image.present? %>
+            <%= image_tag(@process.image.variant(:large), alt: @process.title, id: "image") %>
+          <% end %>
+        </div>
         <% if header == :small %>
           <% if @process.description.present? %>
             <p class="title"><%= t("legislation.processes.header.description") %></p>
@@ -50,9 +55,11 @@
       </div>
 
       <aside class="small-12 medium-5 column">
-        <% if @process.image.present? %>
-          <%= image_tag(@process.image.variant(:large), alt: @process.title, id: "image") %>
-        <% end %>
+        <div class="hide-for-small-only">
+          <% if @process.image.present? %>
+            <%= image_tag(@process.image.variant(:large), alt: @process.title, id: "image") %>
+          <% end %>
+        </div>
 
         <% if process.draft_publication.enabled? %>
           <div class="sidebar-divider"></div>
