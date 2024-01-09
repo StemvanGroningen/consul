@@ -29,8 +29,7 @@ describe "Welcome page" do
 
       within "#feed_budgets" do
         expect(page).to have_content budget.name
-        expect(page).to have_content budget.current_phase.name
-        expect(page).to have_content "#{budget.current_enabled_phase_number}/#{budget.enabled_phases_amount}"
+        expect(page).to have_content "Current phase: #{budget.current_phase.name}"
         expect(page).not_to have_content budget.current_phase.starts_at.to_date.to_s
         expect(page).not_to have_content (budget.current_phase.ends_at.to_date - 1.day).to_s
         expect(page).not_to have_content budget.description
