@@ -20,9 +20,7 @@
     <% if budget.finished? %>
       <h4 class="completed"><%= t("admin.budgets.index.table_budget_completed") %></h4>
     <% else %>
-      <h4><%= budget.current_phase.name %></h4>
-      <p><%= t("budgets.index.current_phase") %>
-      <%= budget.current_enabled_phase_number %>/<%= budget.enabled_phases_amount %></p>
+      <p><%= t("budgets.index.current_phase") %>: <%= budget.current_phase.name %></p>
     <% end %>
 
     <p><%= t("welcome.feed.see_budget") %></p>
