@@ -1041,6 +1041,15 @@ header {
   }
 }
 
+.feed-content {
+
+  .legislation-process {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: $line-height / 2 0;
+  }
+}
+
 // 3. Footer
 // --------------------
 
