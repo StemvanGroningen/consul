@@ -1546,7 +1546,7 @@ footer {
 }
 
 .legislation-title {
-  margin-bottom: $line-height * 2;
+  margin-bottom: 0;
   margin-top: $line-height * 2;
 
   h2 {
@@ -1569,6 +1569,7 @@ footer {
   .title {
     border-bottom: 0;
     color: $label;
+    display: none;
     margin-top: 0;
   }
 }

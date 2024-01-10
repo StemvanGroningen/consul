@@ -38,7 +38,7 @@ describe "Custom Pages" do
         expect(page).to have_content("Print this info")
       end
 
-      scenario "Don't show subtitle if its blank" do
+      scenario "Don't show subtitle if its blank", :consul do
         custom_page = create(:site_customization_page, :published,
           slug: "slug-without-subtitle",
           title_en: "Custom page",

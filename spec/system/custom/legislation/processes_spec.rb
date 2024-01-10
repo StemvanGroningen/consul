@@ -139,6 +139,25 @@ describe "Legislation" do
       expect(page).to have_selector "img[alt='1. No Poverty']"
       expect(page).to have_content "target 1.1"
     end
+
+    scenario "Do not show social share buttons" do
+      process = create(:legislation_process)
+
+      visit legislation_process_path(process)
+
+      expect(page).not_to have_css ".social-share-button"
+      expect(page).not_to have_css ".ssb-twitter"
+      expect(page).not_to have_css ".ssb-facebook"
+    end
+
+    scenario "Show image" do
+      process = create(:legislation_process)
+      create(:image, imageable: process)
+
+      visit legislation_process_path(process)
+
+      expect(page).to have_css "#image"
+    end
   end
 
   context "process page" do
