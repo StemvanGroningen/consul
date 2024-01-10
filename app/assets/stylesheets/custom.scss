@@ -740,10 +740,12 @@ header {
 
   .jumbo {
     background: none;
+    background-image: none !important;
     background-size: 0;
 
     @include breakpoint(large) {
       background: none;
+      background-image: none !important;
       background-position: right -150px bottom 0;
       background-repeat: no-repeat;
       background-size: contain;
@@ -790,6 +792,10 @@ header {
     &.title {
       border-bottom: 0;
     }
+  }
+
+  .feeds-participation {
+    clear: both;
   }
 }
 
