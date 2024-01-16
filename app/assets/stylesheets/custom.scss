@@ -742,6 +742,8 @@ header {
     background: none;
     background-image: none !important;
     background-size: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
 
     @include breakpoint(large) {
       background: none;
