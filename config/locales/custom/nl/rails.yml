@@ -5,3 +5,18 @@ nl:
   time:
     formats:
       datetime: "%d-%m-%Y · %H:%M:%S"
+  date:
+    month_names:
+      -
+      - januari
+      - februari
+      - maart
+      - april
+      - mei
+      - juni
+      - juli
+      - augustus
+      - september
+      - oktober
+      - november
+      - december
