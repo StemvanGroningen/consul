@@ -2,7 +2,7 @@ class Legislation::QuestionsController < Legislation::BaseController
   load_and_authorize_resource :process
   load_and_authorize_resource :question, through: :process
 
-  has_orders %w[most_voted newest oldest], only: :show
+  has_orders %w[newest most_voted oldest], only: :show
 
   def show
     @commentable = @question
