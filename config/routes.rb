@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   get "beijumbruist", to: redirect("/budgets/18")
   get "lewenborgleeft", to: redirect("/budgets/19")
   get "beweegplekmikkelhorst", to: redirect("/budgets/20")
-  get "sterkhoogerk", to: redirect("/budgets/22")
+  get "sterkhoogerk", to: redirect("/budgets/27")
 
   # Static pages
   resources :pages, path: "/", only: [:show]
