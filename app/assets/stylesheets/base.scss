@@ -486,6 +486,11 @@ aside {
   }
 }
 
+.ssb-twitter,
+.ssb-facebook {
+  color: #fff !important;
+}
+
 // 1. Header
 // --------------------
 header,
@@ -720,6 +725,10 @@ body > header,
           top: unset;
           width: calc(100% + 8px);
         }
+      }
+
+      > a::after {
+        border: 0;
       }
 
       > a::before {
@@ -2052,6 +2061,10 @@ a {
     border-bottom: 0;
     padding-bottom: 0;
   }
+
+  .comments-box-container {
+    z-index: 1;
+  }
 }
 
 .comments-box-container .comment-meta .comment-votes {
@@ -2130,6 +2143,10 @@ a {
 
   .calc-comments .comment-box {
     overflow: auto;
+  }
+
+  details:not([open]) .draft-panel .panel-title {
+    margin-top: rem-calc(120);
   }
 }
 
@@ -2996,6 +3013,28 @@ a {
 
     img {
       padding-top: rem-calc(100);
+    }
+
+    .button-facebook:hover {
+      background: #3b5998;
+    }
+
+    .button-google:hover {
+      background: #de4c34;
+    }
+
+    .button-twitter:hover {
+      background: #45b0e3;
+    }
+
+    .button-facebook:hover,
+    .button-google:hover,
+    .button-twitter:hover {
+      color: #fff;
+
+      &::before {
+        color: #fff;
+      }
     }
   }
 
