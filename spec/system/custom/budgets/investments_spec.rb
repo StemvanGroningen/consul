@@ -188,6 +188,19 @@ describe "Budget Investments" do
       expect(page).to have_content "1 Investment"
       expect(page).to have_content "Build a skyscraper"
     end
+
+    scenario "Show image copyright message" do
+      login_as(author)
+
+      visit new_budget_investment_path(budget)
+
+      within ".images" do
+        expect(page).to have_content "If you add a photo, be sure that you have permission to post "\
+                                     "the photo or that you own the rights to the photo, for example, "\
+                                     "because you took the photo yourself. Stem van Groningen may "\
+                                     "remove photos that do not belong to you."
+      end
+    end
   end
 
   scenario "Show" do

@@ -4,6 +4,7 @@ nl:
       title: "Afbeelding"
       note: "Je kunt een %{accepted_content_types} afbeelding toevoegen van maximaal %{max_file_size} MB"
       add_new_image: "Afbeelding toevoegen"
+      copyright: "Als je een foto toevoegt, moet je zeker weten dat je toestemming hebt om de foto te plaatsen of dat je de rechten van de foto bezit, bijvoorbeeld omdat je de foto zelf hebt gemaakt. Stem van Groningen kan foto's verwijderen die niet van jou zijn."
     actions:
       destroy:
         notice: "De afbeelding is verwijderd"
