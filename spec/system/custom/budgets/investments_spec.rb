@@ -194,12 +194,10 @@ describe "Budget Investments" do
 
       visit new_budget_investment_path(budget)
 
-      within ".images" do
-        expect(page).to have_content "If you add a photo, be sure that you have permission to post "\
-                                     "the photo or that you own the rights to the photo, for example, "\
-                                     "because you took the photo yourself. Stem van Groningen may "\
-                                     "remove photos that do not belong to you."
-      end
+      expect(page).to have_content "If you add a photo, be sure that you have permission to post " \
+                                   "the photo or that you own the rights to the photo, for example, " \
+                                   "because you took the photo yourself. Stem van Groningen may " \
+                                   "remove photos that do not belong to you."
     end
   end
 

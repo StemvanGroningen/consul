@@ -75,9 +75,7 @@ feature "Level three verification" do
 
     click_button "new_residence_submit"
 
-    expect(page).to have_content "Thank you for requesting your maximum security code " \
-                                 "(only required for the final votes). In a few days " \
-                                 "we will send it to the address featuring in the data " \
-                                 "we have on file."
+    expect(page).to have_css ".form-error", text: "has already been taken"
+    expect(page).not_to have_content "Account verified"
   end
 end

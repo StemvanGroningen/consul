@@ -9,7 +9,7 @@
       possible_symbols = "-_.,;!?";
 
       pass = Array.apply(null, {
-        length: 8
+        length: 12
       }).map(function() {
         var i;
         i = Math.floor(Math.random() * possible_chars.length);

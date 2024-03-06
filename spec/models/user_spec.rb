@@ -83,13 +83,13 @@ describe User do
 
   describe "preferences" do
     describe "email_on_comment" do
-      it "is false by default" do
+      it "is false by default", :consul do
         expect(subject.email_on_comment).to be false
       end
     end
 
     describe "email_on_comment_reply" do
-      it "is false by default" do
+      it "is false by default", :consul do
         expect(subject.email_on_comment_reply).to be false
       end
     end

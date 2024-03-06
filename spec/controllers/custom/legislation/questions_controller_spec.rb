@@ -6,7 +6,7 @@ describe Legislation::QuestionsController do
 
     it "has custom order for comments" do
       get :show, params: { process_id: question.process.id, id: question.id }
-      expect(controller.valid_orders).to eq %w[most_voted newest oldest]
+      expect(controller.valid_orders).to eq %w[newest most_voted oldest]
     end
   end
 end

@@ -3,7 +3,7 @@ require "rails_helper"
 describe "Users" do
   context "Regular authentication" do
     context "Sign up" do
-      scenario "Success" do
+      scenario "Success", :consul do
         message = "You have been sent a message containing a verification link. " \
                   "Please click on this link to activate your account."
         visit "/"
@@ -31,7 +31,7 @@ describe "Users" do
         expect(page).to have_content error_message
       end
 
-      scenario "User already confirmed email with the token" do
+      scenario "User already confirmed email with the token", :consul do
         message = "You have been sent a message containing a verification link. " \
                   "Please click on this link to activate your account."
         visit "/"
@@ -758,7 +758,7 @@ describe "Users" do
     end
 
     context "Sign up" do
-      scenario "Success with password" do
+      scenario "Success with password", :consul do
         message = "You have been sent a message containing a verification link. Please click on this" \
                   " link to activate your account."
         visit "/"
@@ -779,7 +779,7 @@ describe "Users" do
         expect(page).to have_content "Your account has been confirmed."
       end
 
-      scenario "Errors on sign up" do
+      scenario "Errors on sign up", :consul do
         visit "/"
         click_link "Register"
 
