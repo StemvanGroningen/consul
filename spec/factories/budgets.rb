@@ -83,7 +83,7 @@ FactoryBot.define do
     sequence(:name) { |n| "Group #{n}" }
 
     trait :drafting_budget do
-      association :budget, factory: [:budget, :drafting]
+      budget factory: [:budget, :drafting]
     end
   end
 
@@ -91,14 +91,14 @@ FactoryBot.define do
     sequence(:name) { |n| "Heading #{n}" }
     price { 1000000 }
     population { 1234 }
-    latitude { "40.416775" }
-    longitude { "-3.703790" }
+    latitude { MapLocation.default_latitude }
+    longitude { MapLocation.default_longitude }
 
     transient { budget { nil } }
     group { association :budget_group, budget: budget || association(:budget) }
 
     trait :drafting_budget do
-      association :group, factory: [:budget_group, :drafting_budget]
+      group factory: [:budget_group, :drafting_budget]
     end
 
     trait :with_investment_with_milestone do
@@ -113,7 +113,7 @@ FactoryBot.define do
     sequence(:title) { |n| "Budget Investment #{n} title" }
     heading { budget&.headings&.reload&.sample || association(:budget_heading, budget: budget) }
 
-    association :author, factory: :user
+    author factory: :user
     description          { "Spend money on this" }
     price                { 10 }
     feasibility_explanation { "" }
@@ -200,7 +200,11 @@ FactoryBot.define do
     end
 
     trait :with_map_location do
-      map_location
+      map_location do
+        association :map_location,
+                    longitude: heading.longitude.to_f + rand(-0.0001..0.0001),
+                    latitude: heading.latitude.to_f + rand(-0.0001..0.0001)
+      end
     end
 
     trait :flagged do
@@ -253,7 +257,7 @@ FactoryBot.define do
   end
 
   factory :budget_ballot, class: "Budget::Ballot" do
-    association :user, factory: :user
+    user
     budget
 
     transient { investments { [] } }
@@ -266,7 +270,7 @@ FactoryBot.define do
   end
 
   factory :budget_ballot_line, class: "Budget::Ballot::Line" do
-    association :investment, factory: :budget_investment
+    investment factory: :budget_investment
 
     transient { user { nil } }
 
@@ -277,7 +281,7 @@ FactoryBot.define do
 
   factory :budget_reclassified_vote, class: "Budget::ReclassifiedVote" do
     user
-    association :investment, factory: :budget_investment
+    investment factory: :budget_investment
     reason { "unfeasible" }
   end
 
@@ -286,7 +290,7 @@ FactoryBot.define do
   end
 
   factory :heading_content_block, class: "Budget::ContentBlock" do
-    association :heading, factory: :budget_heading
+    heading factory: :budget_heading
     locale { "en" }
     body { "Some heading contents" }
   end

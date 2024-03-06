@@ -6,10 +6,24 @@ describe "Results" do
   let(:heading) { create(:budget_heading, group: group, price: 1000) }
 
   before do
-    create(:budget_investment, :selected, title: "First selected", heading: heading, price: 200, ballot_lines_count: 900)
-    create(:budget_investment, :selected, title: "Second selected", heading: heading, price: 300, ballot_lines_count: 800)
-    create(:budget_investment, :incompatible, title: "Incompatible investment", heading: heading, price: 500, ballot_lines_count: 700)
-    create(:budget_investment, :selected, title: "Exceeding price", heading: heading, price: 600, ballot_lines_count: 600)
+    create(:budget_investment, :selected, title: "First selected",
+                                          heading: heading,
+                                          price: 200,
+                                          ballot_lines_count: 900)
+
+    create(:budget_investment, :selected, title: "Second selected",
+                                          heading: heading, price: 300,
+                                          ballot_lines_count: 800)
+
+    create(:budget_investment, :incompatible, title: "Incompatible investment",
+                                              heading: heading,
+                                              price: 500,
+                                              ballot_lines_count: 700)
+
+    create(:budget_investment, :selected, title: "Exceeding price",
+                                          heading: heading,
+                                          price: 600,
+                                          ballot_lines_count: 600)
 
     Budget::Result.new(budget, heading).calculate_winners
   end
@@ -42,7 +56,7 @@ describe "Results" do
     visit budget_path(budget)
     click_link "See results"
 
-    expect(page).to have_selector("a.is-active", text: heading.name)
+    expect(page).to have_css "a.is-active", text: heading.name
 
     within("#budget-investments-compatible") do
       expect(page).to have_content "First selected"
@@ -102,7 +116,7 @@ describe "Results" do
   scenario "Loads budget and heading by slug", :consul do
     visit budget_results_path(budget.slug, heading_id: heading.slug)
 
-    expect(page).to have_selector("a.is-active", text: heading.name)
+    expect(page).to have_css "a.is-active", text: heading.name
 
     within("#budget-investments-compatible") do
       expect(page).to have_content "First selected"

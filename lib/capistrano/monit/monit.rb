@@ -1,6 +1,5 @@
 begin
-  set :init_config_files, %w[puma delayed_job]
-  set :monit_config_files, %w[nginx postgres puma delayed_job]
+  set :monit_config_files, %w[nginx postgres]
 
   def upload_erb(from, to)
     if File.exist?(from)
@@ -23,13 +22,6 @@ begin
     desc "Setup Monit"
     task :setup do
       on roles(:app) do
-        fetch(:init_config_files).each do |file|
-          execute "mkdir -p #{shared_path}/config/monit/init.d"
-          upload_erb "lib/capistrano/monit/init.d/#{file}.erb", "#{shared_path}/config/monit/init.d/#{file}"
-          execute "sudo cp #{shared_path}/config/monit/init.d/#{file} /etc/init.d/#{file}"
-          execute "sudo chmod +x /etc/init.d/#{file}"
-        end
-
         fetch(:monit_config_files).each do |file|
           execute "mkdir -p #{shared_path}/config/monit/conf.d"
           upload_erb "lib/capistrano/monit/conf.d/#{file}.erb", "#{shared_path}/config/monit/conf.d/#{file}"
@@ -59,11 +51,18 @@ begin
       on roles(:app) do
         execute "sudo rm -rf #{shared_path}/config/monit"
 
-        fetch(:init_config_files).each do |file|
-          execute "sudo rm /etc/init.d/#{file}"
-        end
-
         fetch(:monit_config_files).each do |file|
+          execute "sudo rm /etc/monit/conf.d/#{file}.conf"
+        end
+      end
+    end
+
+    desc "Delete outdated Monit configuration"
+    task :cleanup do
+      on roles(:app) do
+        %w[puma delayed_job].each do |file|
+          execute "sudo rm #{shared_path}/config/monit/conf.d/#{file}"
+          execute "sudo rm /etc/init.d/#{file}"
           execute "sudo rm /etc/monit/conf.d/#{file}.conf"
         end
       end

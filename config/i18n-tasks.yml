@@ -134,6 +134,9 @@ ignore_missing:
   - "debates.index.section_footer.help_text_link"
   - "devise_views.mailer.confirmation_instructions.hi"
   - "devise_views.mailer.confirmation_instructions.thanks"
+  - "admin.settings.index.map.*"
+  - "layouts.footer.participation_*"
+  - "layouts.header.open_gov"
 
 ## Consider these keys used:
 ignore_unused:

@@ -15,7 +15,7 @@ describe "Proposals" do
 
       click_link "View selected proposals"
 
-      expect(page).not_to have_selector(".view-mode")
+      expect(page).not_to have_css(".view-mode")
       expect(page).not_to have_button("View mode")
     end
 
@@ -29,6 +29,21 @@ describe "Proposals" do
       end
 
       expect(page).to have_current_path(proposal_path(proposal))
+    end
+  end
+
+  context "Show" do
+    scenario "After using the browser's back button, social buttons will have one screen reader" do
+      Setting["org_name"] = "CONSUL"
+      proposal = create(:proposal)
+      visit proposal_path(proposal)
+      click_link "CONSUL"
+
+      expect(page).to have_content "Most active debates"
+
+      go_back
+
+      expect(page).to have_css "span.show-for-sr", text: "twitter", count: 1
     end
   end
 
@@ -145,9 +160,9 @@ describe "Proposals" do
     click_link "Dashboard"
     click_link "Edit my proposal"
 
-    within_window(window_opened_by { click_link "Edit proposal" }) do
-      expect(page).to have_field "Full name of the person submitting the proposal", with: "Isabel Garcia"
-    end
+    click_link "Edit proposal"
+
+    expect(page).to have_field "Full name of the person submitting the proposal", with: "Isabel Garcia"
   end
 
   scenario "Responsible name field is not shown for verified users" do
