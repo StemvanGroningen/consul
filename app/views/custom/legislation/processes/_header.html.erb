@@ -40,12 +40,18 @@
             </div>
 
             <button type="button" id="read_more" class="button" data-toggler="hide"
-                    data-toggle="legislation_info read_more read_less">
+                    data-toggle="legislation_info read_more read_less"
+                    <% if banner_color? %>
+                      style="background:<%= process.font_color %>; color:<%= process.background_color %>;"
+                    <% end %>>
               <%= t("legislation.processes.header.more_info") %>
             </button>
 
             <button type="button" id="read_less" class="button hide" data-toggler="hide"
-                    data-toggle="legislation_info read_more read_less">
+                    data-toggle="legislation_info read_more read_less"
+                    <% if banner_color? %>
+                      style="background:<%= process.font_color %>; color:<%= process.background_color %>;"
+                    <% end %>>
               <%= t("legislation.processes.header.less_info") %>
             </button>
           <% end %>
