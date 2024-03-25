@@ -344,4 +344,11 @@ describe "Budget Investments" do
       within(".sdg-goal-tag-list") { expect(page).to have_link "1. No Poverty" }
     end
   end
+
+  scenario "Show back link contains heading id" do
+    investment = create(:budget_investment, heading: heading)
+    visit budget_investment_path(budget, investment)
+
+    expect(page).to have_link "Go back", href: budget_investments_path(budget, heading_id: investment.heading)
+  end
 end

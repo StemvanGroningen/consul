@@ -14,7 +14,7 @@
               investment.author,
               Flag.flagged?(current_user, investment)] do %>
       <div class="small-12 medium-9 column">
-        <%= back_link_to %>
+        <%= back_link_to budget_investments_path(investment.budget, heading_id: investment.heading) %>
 
         <%= render "/budgets/investments/investment_detail", investment: investment %>
       </div>
@@ -22,39 +22,6 @@
 
     <aside class="small-12 medium-3 column">
       <%= render "/budgets/investments/author_actions", investment: investment %>
-
-      <% if investment.unfeasible? && investment.valuation_finished? %>
-        <div class="callout warning">
-          <%= sanitize(t("budgets.investments.show.project_unfeasible")) %>
-        </div>
-      <% elsif investment.winner? && @budget.finished? %>
-        <div class="callout success">
-          <strong><%= t("budgets.investments.show.project_winner") %></strong>
-        </div>
-      <% elsif investment.selected? %>
-        <div class="callout success">
-          <%= sanitize(t("budgets.investments.show.project_selected")) %>
-        </div>
-      <% elsif @budget.balloting_or_later? %>
-        <div class="callout warning">
-          <%= sanitize(t("budgets.investments.show.project_not_selected")) %>
-        </div>
-      <% end %>
-      <% if investment.should_show_price? %>
-        <div class="sidebar-divider"></div>
-        <h2><%= t("budgets.investments.show.price") %></h2>
-        <div class="supports text-center">
-          <p class="investment-project-amount">
-            <%= investment.formatted_price %>
-          </p>
-        </div>
-        <% if investment.should_show_price_explanation? %>
-          <div class="text-center" data-magellan>
-            <%= link_to t("budgets.investments.show.see_price_explanation"),
-                          "#price_explanation", class: "small" %>
-          </div>
-        <% end %>
-      <% end %>
 
       <% if investment.should_show_aside? %>
         <% if investment.should_show_votes? %>

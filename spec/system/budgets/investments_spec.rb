@@ -978,7 +978,7 @@ describe "Budget Investments" do
     expect(page).not_to have_css ".js-follow"
   end
 
-  scenario "Show back link" do
+  scenario "Show back link", :consul do
     investment = create(:budget_investment, heading: heading)
 
     visit budget_path(budget)

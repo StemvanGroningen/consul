@@ -733,6 +733,17 @@ header {
   }
 }
 
+a:active,
+a:focus:active,
+button:active,
+button:focus:active,
+[type="button"]:active,
+[type="button"]:focus:active,
+[type="submit"]:active,
+[type="submit"]:focus:active {
+  box-shadow: none;
+}
+
 // 2. Homepage and custom pages
 // ----------------------------
 

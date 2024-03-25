@@ -1,0 +1,106 @@
+<%= translatable_form_for(investment, url: url, html: { class: "budget-investment-form" }) do |f| %>
+
+  <%= render "shared/errors", resource: investment %>
+
+  <fieldset class="required-fields">
+    <p class="margin-bottom"><strong><%= t("shared.required_fields") %></strong></p>
+
+    <% unless budget.single_heading? %>
+      <div class="required">
+        <%= f.select :heading_id, budget_heading_select_options(budget), { include_blank: true } %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= render "shared/globalize_locales", resource: investment %>
+    </div>
+
+    <%= f.translatable_fields do |translations_form| %>
+      <div class="required">
+        <%= translations_form.text_field :title,
+                                         maxlength: Budget::Investment.title_max_length,
+                                         data: suggest_data(investment) %>
+      </div>
+      <div class="js-suggest" data-locale="<%= translations_form.locale %>"></div>
+
+      <div class="required">
+        <%= translations_form.text_area :description,
+                                        maxlength: Budget::Investment.description_max_length,
+                                        class: "html-area" %>
+      </div>
+    <% end %>
+  </fieldset>
+
+  <%= f.invisible_captcha :subtitle %>
+
+  <fieldset>
+    <% if feature?(:allow_images) %>
+      <%= render Images::NestedComponent.new(f) %>
+    <% end %>
+
+    <% if feature?(:allow_attached_documents) %>
+      <%= render Documents::NestedComponent.new(f) %>
+    <% end %>
+
+    <% if budget.show_money? %>
+      <%= f.label :author_estimation_cost, t("budgets.investments.form.author_estimation_cost",
+                                             currency: budget.currency_symbol) %>
+      <p class="help-text">
+        <%= t("budgets.investments.form.author_estimation_cost_help") %>
+      </p>
+      <%= f.number_field :author_estimation_cost, label: false %>
+    <% end %>
+
+    <% if feature?(:map) %>
+      <div>
+        <%= render "map_locations/form_fields",
+                   form: f,
+                   map_location: investment.map_location || budget_map&.map_location || MapLocation.new,
+                   label: t("budgets.investments.form.map_location"),
+                   help: t("budgets.investments.form.map_location_instructions"),
+                   i18n_namespace: "budgets.investments" %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.text_field :location %>
+    </div>
+
+    <div>
+      <%= f.text_field :organization_name %>
+    </div>
+
+    <div>
+      <%= f.label :tag_list, t("budgets.investments.form.tags_label") %>
+      <p class="help-text" id="tags-list-help-text"><%= t("budgets.investments.form.tags_instructions") %></p>
+
+      <div id="category_tags" class="tags">
+        <%= f.label :category_tag_list, t("budgets.investments.form.tag_category_label") %>
+        <% categories.each do |tag| %>
+          <a class="js-add-tag-link"><%= tag.name %></a>
+        <% end %>
+      </div>
+
+      <br>
+      <%= f.text_field :tag_list, value: investment.tag_list.to_s,
+                                  label: false,
+                                  placeholder: t("budgets.investments.form.tags_placeholder"),
+                                  aria: { describedby: "tags-list-help-text" },
+                                  class: "js-tag-list tag-autocomplete",
+                                  data: { js_url: suggest_tags_path } %>
+    </div>
+
+    <%= render SDG::RelatedListSelectorComponent.new(f) %>
+  </fieldset>
+
+  <div class="submit-form-container">
+    <div class="actions">
+      <div class="small-12 medium-9 small-centered submit-form-box required">
+        <% unless current_user.manager? || investment.persisted? %>
+          <%= render Shared::AgreeWithTermsOfServiceFieldComponent.new(f) %>
+        <% end %>
+        <%= f.submit(nil, class: "button large margin-top") %>
+      </div>
+    </div>
+  </div>
+<% end %>
