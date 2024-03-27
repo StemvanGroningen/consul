@@ -14,9 +14,8 @@
 <div class="auth-title">
   <p>
     <%= sanitize(t("devise_views.users.registrations.new.organization_signup",
-        signup_link: link_to(t("devise_views.users.registrations.new.organization_signup_link"), new_organization_registration_path,
-        title: t("shared.target_blank"),
-        target: "_blank"))) %>
+                   signup_link: link_to(t("devise_views.users.registrations.new.organization_signup_link"),
+                                        new_organization_registration_path))) %>
   </p>
 </div>
 
@@ -42,19 +41,16 @@
                            hint: t("devise_views.users.registrations.new.password_note") %>
 
       <%= f.password_field :password_confirmation, autocomplete: "off",
-                           label: t("devise_views.users.registrations.new.password_confirmation_label") %>
+                                                   label: t("devise_views.users.registrations.new.password_confirmation_label") %>
 
       <% if resource.use_redeemable_code %>
         <%= f.text_field :redeemable_code %>
       <% end %>
 
       <%= f.check_box :terms_of_service,
-        title: t("devise_views.users.registrations.new.terms_title"),
-        label: t("devise_views.users.registrations.new.terms",
-                 terms: link_to(t("devise_views.users.registrations.new.terms_link"),
-                                "/conditions",
-                                title: t("shared.target_blank"),
-                                target: "_blank")) %>
+                      label: t("devise_views.users.registrations.new.terms",
+                               terms: new_window_link_to(t("devise_views.users.registrations.new.terms_link"),
+                                                         "/conditions")) %>
 
       <div class="small-12 margin-top">
         <%= f.submit t("devise_views.users.registrations.new.submit"), class: "button expanded large" %>

@@ -1,0 +1,23 @@
+<% provide :title do %>
+  <%= t("layouts.header.collaborative_legislation") %> - <%= t("legislation.processes.index.filters.#{@current_filter}") %>
+<% end %>
+
+<%= render "shared/section_header", i18n_namespace: "legislation.processes.index.section_header", image: "fas fa-book" %>
+
+<div class="row">
+  <div id="legislation" class="legislation-list small-12 medium-9 column">
+
+    <%= render "shared/filter_subnav", i18n_namespace: "legislation.processes.index" %>
+
+    <div id="legislation-list">
+      <% if @processes.any? %>
+        <%= render @processes %>
+        <%= paginate @processes %>
+      <% else %>
+        <div class="callout primary margin-top">
+          <%= t("legislation.processes.index.no_#{@current_filter}_processes") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

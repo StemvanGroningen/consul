@@ -166,7 +166,7 @@ nl:
         price_title: "Bedrag"
         support_title: "Vind-ik-leuks"
         supports:
-          zero: "nog geen<br>vind-ik-leuks"
+          zero: "nog geen vind-ik-leuks"
           one: "1 vind-ik-leuk"
           other: "%{count} vind-ik-leuks"
         already_added: "Je hebt dit idee al toegevoegd"

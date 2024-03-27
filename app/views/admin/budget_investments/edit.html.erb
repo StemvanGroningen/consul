@@ -18,27 +18,23 @@
       <%= f.translatable_fields do |translations_form| %>
         <div class="small-12 column">
           <%= translations_form.text_field :title,
-                maxlength: Budget::Investment.title_max_length %>
+                                           maxlength: Budget::Investment.title_max_length %>
         </div>
 
         <div class="small-12 column">
           <%= translations_form.text_area :description,
-                maxlength: Budget::Investment.description_max_length,
-                class: "html-area" %>
+                                          maxlength: Budget::Investment.description_max_length,
+                                          class: "html-area" %>
         </div>
       <% end %>
 
       <div class="small-12 column">
         <% if feature?(:allow_images) %>
-          <div class="images">
-            <%= render "images/nested_image", f: f %>
-          </div>
+          <%= render Images::NestedComponent.new(f) %>
         <% end %>
 
         <% if feature?(:allow_attached_documents) %>
-          <div class="documents">
-            <%= render "documents/nested_documents", f: f %>
-          </div>
+          <%= render Documents::NestedComponent.new(f) %>
         <% end %>
       </div>
 
@@ -66,8 +62,8 @@
 
         <div class="small-12 medium-6">
           <%= f.select(:administrator_id,
-                         @admins.map { |a| [a.description_or_name_and_email, a.id] },
-                         { include_blank: t("admin.budget_investments.edit.undefined") }) %>
+                       @admins.map { |a| [a.description_or_name_and_email, a.id] },
+                       { include_blank: t("admin.budget_investments.edit.undefined") }) %>
         </div>
       </div>
 
@@ -79,10 +75,10 @@
           <% end %>
         </div>
         <%= f.text_field :valuation_tag_list,
-                          value: @investment.valuation_tag_list.sort.join(","),
-                          label: false,
-                          placeholder: t("admin.budget_investments.edit.tags_placeholder"),
-                          class: "js-tag-list" %>
+                         value: @investment.valuation_tag_list.sort.join(","),
+                         label: false,
+                         placeholder: t("admin.budget_investments.edit.tags_placeholder"),
+                         class: "js-tag-list" %>
       </div>
 
       <div class="small-12 column margin-top">
@@ -110,19 +106,19 @@
       <div class="small-12 medium-3 column">
         <h2 id="incompatible"><%= t("admin.budget_investments.edit.compatibility") %></h2>
         <%= f.check_box :incompatible,
-          title: t("admin.budget_investments.edit.compatibility") %>
+                        title: t("admin.budget_investments.edit.compatibility") %>
       </div>
       <% end %>
       <div class="small-12 medium-3 column float-left">
         <h2 id="selected"><%= t("admin.budget_investments.edit.selection") %></h2>
         <%= f.check_box :selected,
-          title: t("admin.budget_investments.edit.selection") %>
+                        title: t("admin.budget_investments.edit.selection") %>
       </div>
     </div>
 
     <div class="small-12 column">
       <%= f.text_field :milestone_tag_list,
-        value: @investment.milestone_tag_list.sort.join(", ") %>
+                       value: @investment.milestone_tag_list.sort.join(", ") %>
     </div>
 
     <div class="small-12 column margin-top">

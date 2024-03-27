@@ -19,12 +19,12 @@ describe "Votes" do
 
         within(".in-favor") do
           expect(page).to have_content "50%"
-          expect(page).to have_css("button.voted")
+          expect(page).to have_css "button[aria-pressed='true']"
         end
 
         within(".against") do
           expect(page).to have_content "50%"
-          expect(page).to have_css("button.no-voted")
+          expect(page).to have_css "button[aria-pressed='false']"
         end
       end
     end

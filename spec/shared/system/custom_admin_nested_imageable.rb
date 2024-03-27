@@ -24,7 +24,7 @@ shared_examples "admin nested imageable" do |imageable_factory_name, path, image
 
         visit send(path, arguments)
 
-        expect(page).to have_css ".image", count: 1
+        expect(page).to have_css ".image-fields", count: 1
         expect(page).not_to have_css "a#new_image_link"
       end
 
@@ -35,7 +35,7 @@ shared_examples "admin nested imageable" do |imageable_factory_name, path, image
         visit send(path, arguments)
         click_link "Remove image"
 
-        expect(page).not_to have_css ".image"
+        expect(page).not_to have_css ".image-fields"
         expect(page).to have_css "a#new_image_link"
       end
 
@@ -47,7 +47,7 @@ shared_examples "admin nested imageable" do |imageable_factory_name, path, image
         click_link "Remove image"
         click_link "Add image"
 
-        expect(page).to have_css ".image", count: 1, visible: :all
+        expect(page).to have_css ".image-fields", count: 1, visible: :all
       end
     end
   end

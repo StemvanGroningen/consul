@@ -194,12 +194,10 @@ describe "Budget Investments" do
 
       visit new_budget_investment_path(budget)
 
-      within ".images" do
-        expect(page).to have_content "If you add a photo, be sure that you have permission to post "\
-                                     "the photo or that you own the rights to the photo, for example, "\
-                                     "because you took the photo yourself. Stem van Groningen may "\
-                                     "remove photos that do not belong to you."
-      end
+      expect(page).to have_content "If you add a photo, be sure that you have permission to post " \
+                                   "the photo or that you own the rights to the photo, for example, " \
+                                   "because you took the photo yourself. Stem van Groningen may " \
+                                   "remove photos that do not belong to you."
     end
   end
 
@@ -345,5 +343,12 @@ describe "Budget Investments" do
 
       within(".sdg-goal-tag-list") { expect(page).to have_link "1. No Poverty" }
     end
+  end
+
+  scenario "Show back link contains heading id" do
+    investment = create(:budget_investment, heading: heading)
+    visit budget_investment_path(budget, investment)
+
+    expect(page).to have_link "Go back", href: budget_investments_path(budget, heading_id: investment.heading)
   end
 end

@@ -9,7 +9,10 @@ feature "Level three verification" do
   scenario "Verification with correct residency zipcode" do
     user = create(:user)
 
-    create(:verified_user, document_number: "12345678Z", document_type: "1")
+    verified_user = create(:verified_user,
+                           document_number: "12345678Z",
+                           document_type: "1",
+                           phone: "611111111")
 
     login_as(user)
 
@@ -30,7 +33,10 @@ feature "Level three verification" do
   scenario "Verification with wrong residency zipcode" do
     user = create(:user)
 
-    create(:verified_user, document_number: "12345678Z", document_type: "1")
+    verified_user = create(:verified_user,
+                           document_number: "12345678Z",
+                           document_type: "1",
+                           email: "rock@example.com")
 
     login_as(user)
 

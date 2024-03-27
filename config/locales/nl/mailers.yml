@@ -7,7 +7,7 @@ nl:
       new_password: "Als je je wachtwoord vergeten bent, kan je het opnieuw instellen met de volgende link:"
       subject: Je account is al bevestigd
     comment:
-      hi: Hoi
+      hi: Hi
       new_comment_by: There is a new comment from <strong>%{commenter}</strong>
       subject: Iemand heeft een reactie achtergelaten op %{commentable}
       title: Nieuwe reactie
@@ -18,9 +18,9 @@ nl:
       click_here_to_verify: deze link
       instructions_2: Deze e-mail verifieert uw account met %{document_type} %{document_number}. Als deze email niet voor u bestemd is, klik dan niet op de link en negeer deze e-mail.
       instructions: Om de verificatie van uw account te voltooien klikt u %{verification_link}.
-      subject: Bevestig je emailadres
+      subject: Bevestig je e-mailadres
       thanks: Heel erg bedankt.
-      title: "Bevestig je emailadres"
+      title: "Bevestig je e-mailadres"
       text: "Bevestig je account met de volgende link."
     reply:
       hi: Hoi

@@ -215,11 +215,15 @@ describe "Polls" do
 
       visit poll_path(poll)
 
-      within("#answer_#{answer1.id}_gallery") do
+      within("div#answer_#{answer1.id}") do
+        expect(page).not_to have_css ".orbit-previous"
+        expect(page).not_to have_css ".orbit-next"
         expect(page).not_to have_css "nav.orbit-bullets"
       end
 
-      within("#answer_#{answer2.id}_gallery") do
+      within("div#answer_#{answer2.id}") do
+        expect(page).to have_css ".orbit-previous"
+        expect(page).to have_css ".orbit-next"
         expect(page).to have_css "nav.orbit-bullets"
       end
     end
