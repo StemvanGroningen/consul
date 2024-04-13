@@ -1838,6 +1838,11 @@ table {
     }
   }
 
+  .in-favor,
+  .against {
+    display: inline;
+  }
+
   .in-favor button {
     @include like-unlike-icon(thumbs-up, $like);
   }

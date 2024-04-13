@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "6.1.7.6"
+gem "rails", "6.1.7.7"
 
 gem "acts-as-taggable-on", "~> 9.0.1"
 gem "acts_as_votable", "~> 0.14.0"
@@ -44,7 +44,7 @@ gem "omniauth-twitter", "~> 1.4.0"
 gem "paranoia", "~> 2.6.2"
 gem "pg", "~> 1.4.3"
 gem "pg_search", "~> 2.3.6"
-gem "puma", "~> 5.6.7"
+gem "puma", "~> 5.6.8"
 gem "recipient_interceptor", "~> 0.3.1"
 gem "redcarpet", "~> 3.6.0"
 gem "responders", "~> 3.1.0"
@@ -59,7 +59,7 @@ gem "turbolinks", "~> 5.2.1"
 gem "turnout", "~> 2.5.0"
 gem "uglifier", "~> 4.2.0"
 gem "uuidtools", "~> 2.2.0"
-gem "view_component", "~> 3.6.0"
+gem "view_component", "~> 3.11.0"
 gem "whenever", "~> 1.0.0", require: false
 gem "wicked_pdf", "~> 2.7.0"
 gem "wkhtmltopdf-binary", "~> 0.12.6"
@@ -69,10 +69,10 @@ source "https://rails-assets.org" do
 end
 
 group :development, :test do
-  gem "bullet", "~> 7.0.7"
+  gem "bullet", "~> 7.1.6"
   gem "byebug", "~> 11.1.3"
-  gem "factory_bot_rails", "~> 6.2.0"
-  gem "faker", "~> 3.2.1"
+  gem "factory_bot_rails", "~> 6.4.3"
+  gem "faker", "~> 3.2.3"
   gem "i18n-tasks", "~> 0.9.37"
   gem "knapsack", "~> 1.22"
   gem "launchy", "~> 2.5.2"
@@ -82,10 +82,10 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara", "~> 3.39.2"
+  gem "capybara", "~> 3.40.0"
   gem "capybara-webmock", "~> 0.7.0"
   gem "email_spec", "~> 2.2.2"
-  gem "pdf-reader"
+  gem "pdf-reader", "~> 2.12.0"
   gem "rspec-rails", "~> 5.1.2"
   gem "selenium-webdriver", "~> 4.16.0"
   gem "simplecov", "~> 0.22.0", require: false
@@ -100,18 +100,18 @@ group :development do
   gem "capistrano3-delayed-job", "~> 1.7.6"
   gem "capistrano3-puma", "~> 5.2.0"
   gem "erb_lint", "~> 0.5.0", require: false
-  gem "mdl", "~> 0.12.0", require: false
+  gem "mdl", "~> 0.13.0", require: false
   gem "pronto", "~> 0.11.1", require: false
   gem "pronto-erb_lint", "~> 0.1.6", require: false
   gem "pronto-eslint", "~> 0.11.1", require: false
   gem "pronto-rubocop", "~> 0.11.5", require: false
   gem "pronto-scss", "~> 0.11.0", require: false
   gem "rubocop", "~> 1.56.4", require: false
-  gem "rubocop-capybara", "~> 2.19.0", require: false
-  gem "rubocop-factory_bot", "~> 2.24.0", require: false
+  gem "rubocop-capybara", "~> 2.20.0", require: false
+  gem "rubocop-factory_bot", "~> 2.25.1", require: false
   gem "rubocop-performance", "~> 1.19.1", require: false
-  gem "rubocop-rails", "~> 2.21.2", require: false
-  gem "rubocop-rspec", "~> 2.24.1", require: false
+  gem "rubocop-rails", "~> 2.23.1", require: false
+  gem "rubocop-rspec", "~> 2.27.0", require: false
   gem "rvm1-capistrano3", "~> 1.4.0", require: false
   gem "scss_lint", "~> 0.60.0", require: false
   gem "web-console", "~> 4.2.1"
