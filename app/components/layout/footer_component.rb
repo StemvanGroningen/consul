@@ -1,6 +1,5 @@
 class Layout::FooterComponent < ApplicationComponent
-  delegate :image_path_for, to: :helpers
-  delegate :content_block, to: :helpers
+  use_helpers :content_block, :image_path_for
 
   def footer_legal_content_block
     content_block("footer_legal")

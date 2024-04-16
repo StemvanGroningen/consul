@@ -22,12 +22,14 @@ Bundler/OrderedGems:
 
 Capybara/ClickLinkOrButtonStyle:
   Enabled: true
+  EnforcedStyle: strict
 
 Capybara/CurrentPathExpectation:
   Enabled: true
 
 Capybara/NegationMatcher:
   Enabled: true
+  EnforcedStyle: not_to
 
 Capybara/RSpec/HaveSelector:
   Enabled: true
@@ -375,6 +377,9 @@ Rails/CreateTableWithTimestamps:
 Rails/Date:
   Enabled: true
 
+Rails/DeprecatedActiveModelErrorsMethods: # TODO: Remove after upgrading to Rails 7
+  Enabled: true
+
 Rails/DurationArithmetic:
   Enabled: true
 
@@ -503,6 +508,9 @@ Rails/Validation:
   Enabled: true
 
 Rails/WhereEquals:
+  Enabled: true
+
+Rails/WhereMissing:
   Enabled: true
 
 Rails/WhereNot:
