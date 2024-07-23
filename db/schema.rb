@@ -1798,8 +1798,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_13_135357) do
 
   create_table "zipcodes", id: :serial, force: :cascade do |t|
     t.string "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -128,6 +128,7 @@ nl:
         search_form:
           placeholder: "Zoek"
         unfeasible: "Niet stembare ideeën"
+        unfeasible_text: "De Coöperatieve Wijkraad heeft alle ideeën bekeken die de afgelopen weken zijn verzameld. We hebben nagekeken of ze écht voor de wijk zijn en hebben onderzocht hoeveel geld het zou kosten om dit idee uit te voeren. Hieronder vind je alle ideeën waar niet op gestemd kan worden. We hebben uitgelegd aan de indiener van het idee waarom wij dat vinden. Sommige ideeën zijn gecombineerd met een ander idee, andere ideeën waren een suggestie. Sommige ideeën worden al uitgevoerd en met sommige indieners van ideeën hebben we helaas geen contact kunnen krijgen."
         title: "Ideeën"
       show:
         supports: "Vind ik leuk"

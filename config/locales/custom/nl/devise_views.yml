@@ -27,8 +27,6 @@ nl:
     shared:
       sign_in: "Inloggen bestaand account"
       sign_up: "Nieuw account aanmaken"
-      not_organization: "Liever een account voor jezelf? Maak dan een %{link}."
-      not_organization_link: "persoonlijk account"
       new_unlock: Geen e-mail ontvangen om account te ontgrendelen?
       links:
         new_confirmation: "Heb je geen link ontvangen in je mail? Misschien is deze in je spamfolder gekomen. Ook niet? Dan kunnen wij de %{link}."
