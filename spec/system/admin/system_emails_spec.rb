@@ -119,7 +119,7 @@ describe "System Emails" do
 
       expect(page).to have_content "John Doe"
       expect(page).to have_content "Your investment project '#{investment.code}' has been selected"
-      expect(page).to have_content "Share your idea on social media and with your neighbours"
+      expect(page).to have_content "Start to get votes, share your investment project"
       expect(page).to have_content "Sincerely"
 
       share_url = budget_investment_url(budget, investment, anchor: "social-share", host: app_host)
@@ -292,6 +292,7 @@ describe "System Emails" do
                                     anchor: "comments",
                                     host: app_host
                                   )
+        expect(page).to have_content "Sincerely"
       end
 
       scenario "uses a current_user as a sample user for sample regular comments" do
@@ -343,7 +344,7 @@ describe "System Emails" do
       visit admin_system_email_preview_pending_path("proposal_notification_digest")
 
       within("#proposal_notification_#{proposal_notification1.id}") do
-        click_link "Moderate notification send"
+        click_button "Moderate notification send"
       end
 
       expect(page).not_to have_content("Proposal A Title")

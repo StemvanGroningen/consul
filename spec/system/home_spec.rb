@@ -143,16 +143,18 @@ describe "Home" do
     expect(page).not_to have_css(".title", text: "Featured")
   end
 
-  scenario "Cards are ordered by creation date" do
-    create(:widget_card, title: "Card one", link_text: "Link one", link_url: "consul.dev")
-    create(:widget_card, title: "Card two", link_text: "Link two", link_url: "consul.dev")
-    create(:widget_card, title: "Card three", link_text: "Link three", link_url: "consul.dev")
+  scenario "cards are first sorted by 'order' field, then by 'created_at' when order is equal", :consul do
+    create(:widget_card, title: "Card one", order: 1)
+    create(:widget_card, title: "Card two", order: 3)
+    create(:widget_card, title: "Card three", order: 2)
+    create(:widget_card, title: "Card four", order: 3)
 
     visit root_path
 
-    within("#welcome_cards") do
-      expect("Card three").to appear_before("Card two")
-      expect("Card two").to appear_before("Card one")
+    within(".cards-container") do
+      expect("CARD ONE").to appear_before("CARD THREE")
+      expect("CARD THREE").to appear_before("CARD TWO")
+      expect("CARD TWO").to appear_before("CARD FOUR")
     end
   end
 
@@ -179,6 +181,22 @@ describe "Home" do
       visit root_path(locale: :es)
 
       within(".header-card") { expect(page).not_to have_link }
+    end
+  end
+
+  describe "Link to skip to main content" do
+    it "is visible on focus" do
+      visit root_path
+
+      expect(page).to have_link "Skip to main content", visible: :hidden
+      expect(page).to have_css "main"
+      expect(page).not_to have_css "main:target"
+
+      page.execute_script("$('.skip-to-main-content a').focus()")
+      sleep 0.01 until page.has_link?("Skip to main content", visible: :visible)
+      click_link "Skip to main content"
+
+      expect(page).to have_css "main:target"
     end
   end
 end

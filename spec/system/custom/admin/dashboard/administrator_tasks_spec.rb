@@ -3,7 +3,7 @@ require "rails_helper"
 describe "Admin administrator tasks", :admin do
   context "when visiting index" do
     context "and actions defined" do
-      let!(:task) { create :dashboard_administrator_task, :pending }
+      let!(:task) { create(:dashboard_administrator_task, :pending) }
 
       before do
         visit admin_dashboard_administrator_tasks_path

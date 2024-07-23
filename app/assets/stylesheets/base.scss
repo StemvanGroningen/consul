@@ -75,6 +75,21 @@ button,
   border-top-right-radius: 0 !important;
 }
 
+p,
+.auth-form {
+
+  a {
+
+    &:not(.button) {
+      text-decoration: underline !important;
+    }
+  }
+
+  .submenu a {
+    text-decoration: none !important;
+  }
+}
+
 main {
 
   .button {
@@ -478,6 +493,7 @@ aside {
   position: fixed;
   right: 24px;
   width: rem-calc(48);
+  z-index: 1;
 
   a {
     color: $text;
@@ -493,6 +509,72 @@ aside {
 .ssb-twitter,
 .ssb-facebook {
   color: #fff !important;
+}
+
+.ssb-twitter {
+  @include has-fa-icon(twitter-x, brands);
+  background: #000;
+}
+
+.social-share-button .ssb-icon {
+
+  &:hover,
+  &:focus {
+    background: #ececec;
+    color: #000 !important;
+  }
+}
+
+form {
+
+  select {
+
+    &:focus {
+      border: 2px solid $border-forms;
+    }
+  }
+
+  select,
+  textarea,
+  [type]:not([type="button"],
+  [type=checkbox],
+  [type=file],
+  [type=radio],
+  [type=submit]):not(.close-button),
+  .cke {
+    border: 2px solid $border-forms;
+  }
+}
+
+.subnavigation .input-group-button button {
+  border: 2px solid $border-forms;
+}
+
+::placeholder {
+  color: #595959;
+}
+
+.skip-to-content-link {
+  background: #fff;
+  border: 2px solid $brand;
+  color: $link;
+  left: 0;
+  padding: $line-height;
+  position: absolute;
+  top: 0;
+
+  &:focus {
+    z-index: 999;
+  }
+
+  &:not(:focus) {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    width: 1px !important;
+  }
 }
 
 // 1. Header
@@ -514,6 +596,7 @@ body > header,
 
     .menu {
       margin-bottom: 0;
+      padding-left: $line-height / 2;
     }
   }
 
@@ -527,6 +610,7 @@ body > header,
     .button {
       background: none;
       border: 0;
+      border-radius: 0;
       color: $text;
       min-height: 0;
     }
@@ -863,6 +947,7 @@ body > header,
 .home-page .card,
 .custom-page .card {
   margin-top: $line-height;
+  position: relative;
 
   figure {
     border-top-left-radius: rem-calc(12);
@@ -895,6 +980,14 @@ body > header,
       color: $brand;
       text-align: right;
     }
+  }
+
+  h3 {
+    color: #fff;
+    left: $line-height / 2;
+    bottom: 0;
+    position: absolute;
+    z-index: 3;
   }
 
   .figure-card {
@@ -1100,13 +1193,6 @@ body > header,
   position: absolute;
   right: 0;
   top: 0;
-}
-
-.figure-card {
-
-  &.legislation-process img {
-    min-height: rem-calc(185);
-  }
 }
 
 // 3. Footer
@@ -3094,6 +3180,10 @@ a {
   }
 }
 
+.read-notifications {
+  margin-top: rem-calc(-12);
+}
+
 // 13. Custom
 // ------------------------------
 
@@ -3729,8 +3819,8 @@ a {
 
   .orbit-bullets button {
     background-color: #ccc;
-    height: $line-height / 2;
-    width: $line-height / 2;
+    height: $line-height;
+    width: $line-height;
 
     &.is-active {
       background-color: $brand;

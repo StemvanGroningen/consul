@@ -15,7 +15,7 @@
                             title: t("shared.go_to_page") +
                                    t("layouts.header.my_account_link") %>
     <%= link_to account_path, class: "avatar-image" do %>
-      <%= avatar_image(user, seed: user.id, size: 32) %>
+      <%= render Shared::AvatarComponent.new(user, size: 32) %>
     <% end %>
   </li>
   <li>

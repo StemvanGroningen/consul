@@ -21,7 +21,7 @@ describe "Votes" do
         accept_confirm { click_button "Support" }
 
         expect(page).to have_content "1 support"
-        expect(page).to have_content "You have already supported this investment project. "\
+        expect(page).to have_content "You have already supported this investment project. " \
                                      "Share it!"
       end
 
@@ -29,7 +29,7 @@ describe "Votes" do
       within("#budget_investment_#{other_investment.id}") do
         find_button("Support").click
 
-        expect(page).to have_content "You can only support investment projects in 1 district. "\
+        expect(page).to have_content "You can only support investment projects in 1 district. " \
                                      "You have already supported investments in"
       end
 
@@ -45,7 +45,7 @@ describe "Votes" do
         accept_confirm { click_button "Support" }
 
         expect(page).to have_content "1 support"
-        expect(page).to have_content "You have already supported this investment project. "\
+        expect(page).to have_content "You have already supported this investment project. " \
                                      "Share it!"
       end
     end

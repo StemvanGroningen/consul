@@ -132,7 +132,8 @@ describe "Debates" do
 
   scenario "JS injection is prevented but autolinking is respected", :no_js do
     author = create(:user)
-    js_injection_string = "<script>alert('hey')</script> <a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
+    js_injection_string = "<script>alert('hey')</script> " \
+                          "<a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
     login_as(author)
 
     visit new_debate_path
@@ -166,9 +167,9 @@ describe "Debates" do
       medium_debate.update_column(:confidence_score, 5)
 
       visit debates_path
-      click_link "Highest rated"
+      click_link "highest rated"
 
-      expect(page).to have_selector("a.is-active", text: "Highest rated")
+      expect(page).to have_css("a.is-active", text: "highest rated")
 
       within "#debates" do
         expect(best_debate.title).to appear_before(medium_debate.title)
@@ -185,9 +186,9 @@ describe "Debates" do
       worst_debate = create(:debate, title: "Worst", created_at: 1.day.ago)
 
       visit debates_path
-      click_link "Newest"
+      click_link "newest"
 
-      expect(page).to have_selector("a.is-active", text: "Newest")
+      expect(page).to have_css("a.is-active", text: "newest")
 
       within "#debates" do
         expect(best_debate.title).to appear_before(medium_debate.title)
@@ -210,7 +211,7 @@ describe "Debates" do
         login_as(user)
         visit debates_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
         expect(page).to have_content "There are no debates related to your interests"
       end
@@ -221,7 +222,7 @@ describe "Debates" do
         login_as(user)
         visit debates_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
         expect(page).to have_content "Follow proposals so we can give you recommendations"
       end
@@ -233,9 +234,9 @@ describe "Debates" do
         login_as(user)
         visit debates_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
-        expect(page).to have_selector("a.is-active", text: "Recommendations")
+        expect(page).to have_css("a.is-active", text: "recommendations")
 
         within "#debates" do
           expect(best_debate.title).to appear_before(medium_debate.title)
@@ -258,7 +259,7 @@ describe "Debates" do
       fill_in "search", with: "Show you got"
       click_button "Search"
 
-      expect(page).to have_selector("a.is-active", text: "Relevance")
+      expect(page).to have_css("a.is-active", text: "relevance")
 
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
@@ -276,8 +277,8 @@ describe "Debates" do
       visit debates_path
       fill_in "search", with: "Show you got"
       click_button "Search"
-      click_link "Newest"
-      expect(page).to have_selector("a.is-active", text: "Newest")
+      click_link "newest"
+      expect(page).to have_css("a.is-active", text: "newest")
 
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
@@ -300,8 +301,8 @@ describe "Debates" do
       visit debates_path
       fill_in "search", with: "Show you got"
       click_button "Search"
-      click_link "Recommendations"
-      expect(page).to have_selector("a.is-active", text: "Recommendations")
+      click_link "recommendations"
+      expect(page).to have_css("a.is-active", text: "recommendations")
 
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
@@ -317,10 +318,19 @@ describe "Debates" do
       create(:debate, title: "First debate has 1 vote", cached_votes_up: 1)
       create(:debate, title: "Second debate has 2 votes", cached_votes_up: 2)
       create(:debate, title: "Third debate has 3 votes", cached_votes_up: 3)
-      create(:debate, title: "This one has 4 votes", description: "This is the fourth debate", cached_votes_up: 4)
+      create(:debate,
+             title: "This one has 4 votes",
+             description: "This is the fourth debate",
+             cached_votes_up: 4)
       create(:debate, title: "Fifth debate has 5 votes", cached_votes_up: 5)
-      create(:debate, title: "Sixth debate has 6 votes", description: "This is the sixth debate",  cached_votes_up: 6)
-      create(:debate, title: "This has seven votes, and is not suggest", description: "This is the seven", cached_votes_up: 7)
+      create(:debate,
+             title: "Sixth debate has 6 votes",
+             description: "This is the sixth debate",
+             cached_votes_up: 6)
+      create(:debate,
+             title: "This has seven votes, and is not suggest",
+             description: "This is the seven",
+             cached_votes_up: 7)
 
       login_as(create(:user))
       visit new_debate_path
@@ -357,7 +367,7 @@ describe "Debates" do
     end
 
     page.driver.browser.switch_to.alert do
-      expect(page).to have_content "Are you sure? This action will mark this debate as featured and "\
+      expect(page).to have_content "Are you sure? This action will mark this debate as featured and " \
                                    "will be displayed on the main debates page."
     end
 
@@ -377,7 +387,7 @@ describe "Debates" do
     end
 
     page.driver.browser.switch_to.alert do
-      expect(page).to have_content "Are you sure? This action will unmark this debate as featured and "\
+      expect(page).to have_content "Are you sure? This action will unmark this debate as featured and " \
                                    "will be hidden from the main debates page."
     end
 
@@ -385,7 +395,7 @@ describe "Debates" do
     expect(page).to have_current_path(debates_path)
     expect(debate.reload.featured?).to be false
 
-    expect(page).not_to have_selector("#featured-debates")
+    expect(page).not_to have_css("#featured-debates")
   end
 
   describe "SDG related list" do

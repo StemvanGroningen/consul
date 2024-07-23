@@ -32,7 +32,7 @@ module BudgetsHelper
   end
 
   def budget_map_locations(budget)
-    return unless budget.present?
+    return if budget.blank?
 
     if budget.publishing_prices_or_later? && budget.investments.selected.any?
       investments = budget.investments.selected

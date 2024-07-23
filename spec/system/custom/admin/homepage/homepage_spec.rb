@@ -29,7 +29,7 @@ describe "Homepage", :admin do
       visit root_path
 
       within("#feed_proposals") do
-        expect(page).to have_content "Featured proposals"
+        expect(page).to have_content "Most active proposals"
         expect(page).to have_css(".proposal", count: 1)
       end
 
@@ -59,7 +59,7 @@ describe "Homepage", :admin do
       visit root_path
 
       within("#feed_proposals") do
-        expect(page).to have_content "Featured proposals"
+        expect(page).to have_content "Most active proposals"
         expect(page).to have_css(".proposal", count: 3)
       end
 
@@ -100,7 +100,7 @@ describe "Homepage", :admin do
         expect(page).to have_button "Yes"
       end
 
-      budget.current_phase.update!(description: "<p>Description of the phase with a link to "\
+      budget.current_phase.update!(description: "<p>Description of the phase with a link to " \
                                                 "<a href=\"https://consul.dev\">CONSUL website</a>.</p>")
 
       visit root_path
@@ -149,8 +149,12 @@ describe "Homepage", :admin do
   end
 
   scenario "Header card description allows wysiwyg content" do
-    header = create(:widget_card, label: "Header", title: "Welcome!", header: true,
-                    link_text: "Link text", link_url: "consul.dev",
+    header = create(:widget_card,
+                    label: "Header",
+                    title: "Welcome!",
+                    header: true,
+                    link_text: "Link text",
+                    link_url: "consul.dev",
                     description: "<h2>CONSUL</h2>&nbsp;<p><strong>Open-source software</strong></p>")
 
     visit admin_homepage_path
@@ -160,16 +164,16 @@ describe "Homepage", :admin do
       expect(page).to have_content("CONSUL Open-source software")
       expect(page).to have_content("Link text")
       expect(page).to have_content("consul.dev")
-      expect(page).not_to have_selector("h2", text: "CONSUL")
-      expect(page).not_to have_selector("strong", text: "Open-source")
+      expect(page).not_to have_css("h2", text: "CONSUL")
+      expect(page).not_to have_css("strong", text: "Open-source")
     end
 
     visit root_path
 
     within(".jumbo") do
       expect(page).to have_content("Welcome!")
-      expect(page).to have_selector("h2", text: "CONSUL")
-      expect(page).to have_selector("strong", text: "Open-source software")
+      expect(page).to have_css("h2", text: "CONSUL")
+      expect(page).to have_css("strong", text: "Open-source software")
       expect(page).to have_link("Link text", href: "consul.dev")
     end
   end

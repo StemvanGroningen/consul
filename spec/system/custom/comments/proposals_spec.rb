@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe "Commenting proposals" do
-  let(:user) { create :user }
-  let(:proposal) { create :proposal }
+  let(:user) { create(:user) }
+  let(:proposal) { create(:proposal) }
 
   scenario "Show order links only if there are comments" do
     visit proposal_path(proposal)

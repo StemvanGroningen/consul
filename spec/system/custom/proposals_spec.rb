@@ -101,7 +101,7 @@ describe "Proposals" do
     expect(page).to have_content "Help refugees"
     expect(page).to have_content "In summary, what we want is..."
     expect(page).to have_content "This is very important because..."
-    expect(page.find(:css, "iframe")[:src]).to eq "https://www.youtube.com/embed/yPQfcG-eimk"
+    expect(page.find(:css, "iframe")[:src]).to eq "https://www.youtube-nocookie.com/embed/yPQfcG-eimk"
     expect(page).to have_content author.name
     expect(page).to have_content "Refugees"
     expect(page).to have_content "Solidarity"
@@ -232,7 +232,8 @@ describe "Proposals" do
 
   scenario "JS injection is prevented but autolinking is respected", :no_js do
     author = create(:user)
-    js_injection_string = "<script>alert('hey')</script> <a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
+    js_injection_string = "<script>alert('hey')</script> " \
+                          "<a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
     login_as(author)
 
     visit new_proposal_path
@@ -299,8 +300,8 @@ describe "Proposals" do
       medium_proposal.update_column(:confidence_score, 5)
 
       visit proposals_path
-      click_link "Highest rated"
-      expect(page).to have_selector("a.is-active", text: "Highest rated")
+      click_link "highest rated"
+      expect(page).to have_css("a.is-active", text: "highest rated")
 
       within "#proposals" do
         expect(best_proposal.title).to appear_before(medium_proposal.title)
@@ -317,8 +318,8 @@ describe "Proposals" do
       worst_proposal = create(:proposal, title: "Worst proposal", created_at: 1.day.ago)
 
       visit proposals_path
-      click_link "Newest"
-      expect(page).to have_selector("a.is-active", text: "Newest")
+      click_link "newest"
+      expect(page).to have_css("a.is-active", text: "newest")
 
       within "#proposals" do
         expect(best_proposal.title).to appear_before(medium_proposal.title)
@@ -341,7 +342,7 @@ describe "Proposals" do
         login_as(user)
         visit proposals_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
         expect(page).to have_content "There are not proposals related to your interests"
       end
@@ -352,7 +353,7 @@ describe "Proposals" do
         login_as(user)
         visit proposals_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
         expect(page).to have_content "Follow proposals so we can give you recommendations"
       end
@@ -364,9 +365,9 @@ describe "Proposals" do
         login_as(user)
         visit proposals_path
 
-        click_link "Recommendations"
+        click_link "recommendations"
 
-        expect(page).to have_selector("a.is-active", text: "Recommendations")
+        expect(page).to have_css("a.is-active", text: "recommendations")
 
         within "#proposals-list" do
           expect(best_proposal.title).to appear_before(medium_proposal.title)
@@ -389,16 +390,16 @@ describe "Proposals" do
       visit proposals_path
 
       expect(page).to have_css  "ul.submenu"
-      expect(page).to have_link "Most active"
-      expect(page).to have_link "Highest rated"
-      expect(page).to have_link "Newest"
+      expect(page).to have_link "most active"
+      expect(page).to have_link "highest rated"
+      expect(page).to have_link "newest"
 
       click_link "View selected proposals"
 
       expect(page).not_to have_css  "ul.submenu"
-      expect(page).not_to have_link "Most active"
-      expect(page).not_to have_link "Highest rated"
-      expect(page).not_to have_link "Newest"
+      expect(page).not_to have_link "most active"
+      expect(page).not_to have_link "highest rated"
+      expect(page).not_to have_link "newest"
     end
   end
 
@@ -412,7 +413,7 @@ describe "Proposals" do
       fill_in "search", with: "Title content"
       click_button "Search"
 
-      expect(page).to have_selector("a.is-active", text: "Relevance")
+      expect(page).to have_css("a.is-active", text: "relevance")
 
       within("#proposals") do
         expect(all(".proposal")[0].text).to match "Title content"
@@ -433,9 +434,9 @@ describe "Proposals" do
 
       expect(page).to have_content "Search results"
 
-      click_link "Newest"
+      click_link "newest"
 
-      expect(page).to have_selector("a.is-active", text: "Newest")
+      expect(page).to have_css("a.is-active", text: "newest")
 
       within("#proposals") do
         expect(all(".proposal")[0].text).to match "Show you got"
@@ -458,8 +459,8 @@ describe "Proposals" do
       visit proposals_path
       fill_in "search", with: "Show you got"
       click_button "Search"
-      click_link "Recommendations"
-      expect(page).to have_selector("a.is-active", text: "Recommendations")
+      click_link "recommendations"
+      expect(page).to have_css("a.is-active", text: "recommendations")
 
       within("#proposals") do
         expect(all(".proposal")[0].text).to match "Show you got"

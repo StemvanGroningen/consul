@@ -1,7 +1,7 @@
 <h2><%= t("admin.officials.index.title") %></h2>
 <p><%= sanitize(t("admin.officials.index.help",
-                   link: link_to(t("admin.officials.index.help_link"),
-                         admin_settings_path(anchor: "tab-configuration")))) %></p>
+                  link: link_to(t("admin.officials.index.help_link"),
+                                admin_settings_path(anchor: "tab-configuration")))) %></p>
 
 <%= render "admin/shared/user_search", url: search_admin_officials_path %>
 

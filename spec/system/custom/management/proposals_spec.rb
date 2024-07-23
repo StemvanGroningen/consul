@@ -30,7 +30,7 @@ describe "Proposals" do
       expect(page).to have_content "Help refugees"
       expect(page).to have_content "In summary, what we want is..."
       expect(page).to have_content "This is very important because..."
-      expect(page.find(:css, "iframe")[:src]).to eq "https://www.youtube.com/embed/yRYFKcMa_Ek"
+      expect(page.find(:css, "iframe")[:src]).to eq "https://www.youtube-nocookie.com/embed/yRYFKcMa_Ek"
       expect(page).to have_content user.name
       expect(page).to have_content I18n.l(Date.current)
     end
@@ -48,16 +48,16 @@ describe "Proposals" do
       login_as_manager
       click_link "Print proposals"
 
-      expect(page).to have_link "Highest rated", class: "is-active"
+      expect(page).to have_link "highest rated", class: "is-active"
 
       within(".proposals-list") do
         expect(best_proposal.title).to appear_before(medium_proposal.title)
         expect(medium_proposal.title).to appear_before(worst_proposal.title)
       end
 
-      click_link "Newest"
+      click_link "newest"
 
-      expect(page).to have_link "Newest", class: "is-active"
+      expect(page).to have_link "newest", class: "is-active"
 
       expect(page).to have_current_path(/order=created_at/)
       expect(page).to have_current_path(/page=1/)

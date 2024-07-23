@@ -47,8 +47,12 @@ describe "Budgets" do
       visit root_path
 
       within("#navigation_bar") do
-        expect(page).to have_link(drafting_budget.name, href: budget_path(drafting_budget), visible: :hidden)
-        expect(page).to have_link(published_budget.name, href: budget_path(published_budget), visible: :hidden)
+        expect(page).to have_link(drafting_budget.name,
+                                  href: budget_path(drafting_budget),
+                                  visible: :hidden)
+        expect(page).to have_link(published_budget.name,
+                                  href: budget_path(published_budget),
+                                  visible: :hidden)
       end
     end
 
@@ -210,9 +214,9 @@ describe "Budgets" do
   scenario "Index phases list do not show on mobile", :small_window do
     visit budgets_path
 
-    expect(page).not_to have_selector "#budget_phases_tabs"
-    expect(page).not_to have_selector ".phase-title.tabs-title"
-    expect(page).not_to have_selector ".phase-title.tabs-title.is-active.current-phase-tab"
+    expect(page).not_to have_css "#budget_phases_tabs"
+    expect(page).not_to have_css ".phase-title.tabs-title"
+    expect(page).not_to have_css ".phase-title.tabs-title.is-active.current-phase-tab"
   end
 
   context "Index map" do
@@ -226,9 +230,9 @@ describe "Budgets" do
       visit budget_path(budget)
 
       within ".budgets-map" do
-        expect(page).to have_selector("[data-map-center-latitude=\"#{MapLocation.default_latitude}\"]")
-        expect(page).to have_selector("[data-map-center-longitude=\"#{MapLocation.default_longitude}\"]")
-        expect(page).to have_selector("[data-map-zoom=\"#{MapLocation.default_zoom}\"]")
+        expect(page).to have_css("[data-map-center-latitude=\"#{MapLocation.default_latitude}\"]")
+        expect(page).to have_css("[data-map-center-longitude=\"#{MapLocation.default_longitude}\"]")
+        expect(page).to have_css("[data-map-zoom=\"#{MapLocation.default_zoom}\"]")
       end
     end
 
@@ -239,9 +243,9 @@ describe "Budgets" do
       visit budget_path(budget)
 
       within ".budgets-map" do
-        expect(page).to have_selector("[data-map-center-latitude=\"30.0\"]")
-        expect(page).to have_selector("[data-map-center-longitude=\"40.0\"]")
-        expect(page).to have_selector("[data-map-zoom=\"5\"]")
+        expect(page).to have_css("[data-map-center-latitude=\"30.0\"]")
+        expect(page).to have_css("[data-map-center-longitude=\"40.0\"]")
+        expect(page).to have_css("[data-map-zoom=\"5\"]")
       end
     end
 
@@ -368,19 +372,19 @@ describe "Budgets" do
       voter = create(:user, :level_two)
 
       %w[informing accepting reviewing valuating publishing_prices balloting reviewing_ballots
-        finished].each do |phase_name|
+         finished].each do |phase_name|
         budget.update!(phase: phase_name)
 
         visit budget_path(budget)
 
         expect(page).not_to have_content "It's time to support projects!"
-        expect(page).not_to have_content "Support the projects you would like to see move on "\
+        expect(page).not_to have_content "Support the projects you would like to see move on " \
                                          "to the next phase."
         expect(page).not_to have_content "You may support on as many different projects as you would like."
         expect(page).not_to have_content "So far you've supported 0 projects."
         expect(page).not_to have_content "Log in to start supporting projects."
         expect(page).not_to have_content "There's still time until"
-        expect(page).not_to have_content "You can share the projects you have supported on through social "\
+        expect(page).not_to have_content "You can share the projects you have supported on through social " \
                                          "media and attract more attention and support to them!"
         expect(page).not_to have_link    "Keep scrolling to see all ideas"
       end
@@ -389,12 +393,12 @@ describe "Budgets" do
       visit budget_path(budget)
 
       expect(page).to have_content "It's time to support projects!"
-      expect(page).to have_content "Support the projects you would like to see move on "\
+      expect(page).to have_content "Support the projects you would like to see move on " \
                                    "to the next phase."
       expect(page).to have_content "You may support on as many different projects as you would like."
       expect(page).to have_content "Log in to start supporting projects"
       expect(page).to have_content "There's still time until"
-      expect(page).to have_content "You can share the projects you have supported on through social "\
+      expect(page).to have_content "You can share the projects you have supported on through social " \
                                    "media and attract more attention and support to them!"
       expect(page).to have_link    "Keep scrolling to see all ideas"
 

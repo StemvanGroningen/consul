@@ -1,4 +1,4 @@
-require_dependency Rails.root.join("app", "components", "admin", "menu_component").to_s
+load Rails.root.join("app", "components", "admin", "menu_component.rb")
 
 class Admin::MenuComponent
   def maps_link

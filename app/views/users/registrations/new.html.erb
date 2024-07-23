@@ -1,4 +1,4 @@
-<% provide :title do %><%= t("devise_views.users.registrations.new.title") %><% end %>
+<% provide :title, t("devise_views.users.registrations.new.title") %>
 
 <ul class="no-bullet submenu">
   <li class="inline-block">
@@ -38,7 +38,7 @@
       <%= f.email_field :email %>
 
       <%= f.password_field :password, autocomplete: "off",
-                           hint: t("devise_views.users.registrations.new.password_note") %>
+                                      hint: t("devise_views.users.registrations.new.password_note") %>
 
       <%= f.password_field :password_confirmation, autocomplete: "off",
                                                    label: t("devise_views.users.registrations.new.password_confirmation_label") %>

@@ -17,9 +17,9 @@ describe MapLocation do
     end
 
     it "returns the same object" do
-      map_location = MapLocation.create!(latitude:  MapLocation.default_latitude,
+      map_location = MapLocation.create!(latitude: MapLocation.default_latitude,
                                          longitude: MapLocation.default_longitude,
-                                         zoom:      MapLocation.default_zoom)
+                                         zoom: MapLocation.default_zoom)
       expect(map_location.from_map(Map.default)).to be map_location
       expect(map_location.from_map(Map.default)).not_to be Map.default.map_location
     end

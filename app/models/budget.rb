@@ -1,7 +1,6 @@
 class Budget < ApplicationRecord
   include Measurable
   include Sluggable
-  include StatsVersionable
   include Reportable
   include Imageable
   include SDG::Relatable
@@ -164,7 +163,6 @@ class Budget < ApplicationRecord
     current_phase&.balloting_or_later?
   end
 
-
   def enabled_phases_amount
     phases.enabled.count
   end
@@ -199,7 +197,7 @@ class Budget < ApplicationRecord
   end
 
   def total_headings_price
-    headings.map(&:price).reduce(:+)
+    headings.sum(&:price)
   end
 
   def formatted_amount(amount)
@@ -210,7 +208,7 @@ class Budget < ApplicationRecord
   end
 
   def formatted_total_headings_price
-    formatted_amount(total_headings_price)
+    formatted_amount(total_headings_price) if total_headings_price.positive?
   end
 
   def formatted_heading_price(heading)
