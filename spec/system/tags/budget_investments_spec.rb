@@ -266,7 +266,6 @@ describe "Tags" do
   end
 
   xcontext "Categories" do
-
     let!(:investment1) { create(:budget_investment, heading: heading, tag_list: tag_medio_ambiente.name) }
     let!(:investment2) { create(:budget_investment, heading: heading, tag_list: tag_medio_ambiente.name) }
     let!(:investment3) { create(:budget_investment, heading: heading, tag_list: tag_economia.name) }

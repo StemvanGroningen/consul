@@ -130,7 +130,7 @@ describe User do
 
     describe "public_activity" do
       it "is false by default" do
-        expect(User.new.public_activity).to eq(false)
+        expect(User.new.public_activity).to be false
       end
     end
   end

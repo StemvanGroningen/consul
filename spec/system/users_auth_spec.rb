@@ -608,7 +608,7 @@ describe "Users" do
     click_link "Sign in"
     click_link "Forgotten your password?"
 
-    expect(page).to have_content "Didn't receive a link in your mail? Maybe it came in your spam folder. "\
+    expect(page).to have_content "Didn't receive a link in your mail? Maybe it came in your spam folder. " \
                                  "Didn't it? Please contact destemvan@groningen.nl."
 
     fill_in "Email", with: "manuela@consul.dev"

@@ -207,7 +207,7 @@ describe "Admin budgets", :admin do
       visit budget_path(budget)
 
       within "#info_section" do
-        expect(page).to have_selector("h2", text: "More info about this PB")
+        expect(page).to have_css("h2", text: "More info about this PB")
         expect(page).to have_content "Extra section with more interesting info."
         expect(page).to have_link("More info here", href: "https://info.consulproject.org")
       end
@@ -224,8 +224,8 @@ describe "Admin budgets", :admin do
 
       visit budget_path(budget)
 
-      expect(page).not_to have_selector "#info_section"
-      expect(page).not_to have_selector("h2", text: "More info about this PB")
+      expect(page).not_to have_css "#info_section"
+      expect(page).not_to have_css("h2", text: "More info about this PB")
       expect(page).not_to have_content "Extra section with more interesting info."
       expect(page).not_to have_link("More info here", href: "https://info.consulproject.org")
     end

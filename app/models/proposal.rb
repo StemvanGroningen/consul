@@ -57,7 +57,10 @@ class Proposal < ApplicationRecord
             presence: true,
             inclusion: { in: ->(*) { RETIRE_OPTIONS }}, unless: -> { retired_at.blank? }
 
-  validates :terms_of_service, acceptance: { allow_nil: false, message: I18n.t("proposals.form.terms_of_service_error") }, on: :create
+  validates :terms_of_service,
+            acceptance: { allow_nil: false,
+                          message: I18n.t("proposals.form.terms_of_service_error") },
+            on: :create
 
   before_validation :set_responsible_name
 
