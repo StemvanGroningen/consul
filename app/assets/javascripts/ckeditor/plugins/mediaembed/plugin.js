@@ -14,7 +14,6 @@
       icons: "mediaembed",
       hidpi: true,
       init: function(editor) {
-        var me = this;
         CKEDITOR.dialog.add("MediaEmbedDialog", function(instance) {
           return {
             title: "Embed Media",
@@ -30,9 +29,9 @@
                   type: "textarea",
                   label: "Iframe Code",
                   "autofocus": "autofocus",
-                  setup: function(element) {
+                  setup: function() {
                   },
-                  commit: function(element) {
+                  commit: function() {
                   }
                 }]
               }
@@ -46,7 +45,7 @@
         });
 
         editor.addCommand("MediaEmbed", new CKEDITOR.dialogCommand("MediaEmbedDialog",
-            { allowedContent: "iframe[*]" }
+          { allowedContent: "iframe[*]" }
         ));
 
         editor.ui.addButton("MediaEmbed",

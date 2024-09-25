@@ -24,9 +24,9 @@ describe "Proposal's dashboard" do
 
     within(".dashboard-related-content") do
       expect(page).to have_content("RELATED CONTENT (2)")
-      expect(page).to have_selector(".related-content-title", text: "PROPOSAL")
+      expect(page).to have_css(".related-content-title", text: "PROPOSAL")
       expect(page).to have_link related_proposal.title
-      expect(page).to have_selector(".related-content-title", text: "DEBATE")
+      expect(page).to have_css(".related-content-title", text: "DEBATE")
       expect(page).to have_link related_debate.title
     end
   end

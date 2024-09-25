@@ -1,4 +1,4 @@
-  require "rails_helper"
+require "rails_helper"
 
 describe UserSegments do
   let(:user1) { create(:user) }

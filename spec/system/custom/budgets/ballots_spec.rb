@@ -86,7 +86,7 @@ describe "Ballots" do
         within("#sidebar") do
           expect(page).to have_content "Bring back King Kong"
           expect(page).to have_content "€10,000"
-          expect(page).to have_link "Submit my ballot"
+          expect(page).to have_link "Check my votes"
         end
 
         add_to_ballot("Paint cabs black")
@@ -97,7 +97,7 @@ describe "Ballots" do
         within("#sidebar") do
           expect(page).to have_content "Paint cabs black"
           expect(page).to have_content "€20,000"
-          expect(page).to have_link "Submit my ballot"
+          expect(page).to have_link "Check my votes"
         end
       end
 
@@ -113,7 +113,7 @@ describe "Ballots" do
         within("#sidebar") do
           expect(page).to have_content investment.title
           expect(page).to have_content "€10,000"
-          expect(page).to have_link "Submit my ballot"
+          expect(page).to have_link "Check my votes"
         end
 
         within("#budget_investment_#{investment.id}") do
@@ -126,7 +126,7 @@ describe "Ballots" do
         within("#sidebar") do
           expect(page).not_to have_content investment.title
           expect(page).not_to have_content "€10,000"
-          expect(page).to have_link "Submit my ballot"
+          expect(page).to have_link "Check my votes"
         end
       end
     end

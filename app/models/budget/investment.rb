@@ -63,7 +63,10 @@ class Budget
     validates :heading_id, presence: true
     validates :unfeasibility_explanation, presence: { if: :unfeasibility_explanation_required? }
     validates :price, presence: { if: :price_required? }
-    validates :terms_of_service, acceptance: { allow_nil: false, message: I18n.t("budgets.investments.form.terms_of_service_error") }, on: :create
+    validates :terms_of_service,
+              acceptance: { allow_nil: false,
+                            message: I18n.t("budgets.investments.form.terms_of_service_error") },
+              on: :create
 
     scope :sort_by_confidence_score, -> { reorder(confidence_score: :desc, id: :desc) }
     scope :sort_by_ballots,          -> { reorder(ballot_lines_count: :desc, id: :desc) }
@@ -100,6 +103,7 @@ class Budget
     scope :last_week,          -> { where("created_at >= ?", 7.days.ago) }
     scope :sort_by_flags,      -> { order(flags_count: :desc, updated_at: :desc) }
     scope :sort_by_created_at, -> { reorder(created_at: :desc) }
+    scope :sort_by_ballot_lines, -> { order(:"budget_ballot_lines.created_at") }
 
     scope :by_budget,           ->(budget)     { where(budget: budget) }
     scope :by_group,            ->(group_id)   { where(group_id: group_id) }

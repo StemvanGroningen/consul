@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe "Commenting debates" do
-  let(:user)   { create :user }
-  let(:debate) { create :debate }
+  let(:user)   { create(:user) }
+  let(:debate) { create(:debate) }
 
   scenario "Show order links only if there are comments" do
     visit debate_path(debate)

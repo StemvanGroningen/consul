@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe "Commenting Budget::Investments" do
-  let(:user) { create :user }
-  let(:investment) { create :budget_investment }
+  let(:user) { create(:user) }
+  let(:investment) { create(:budget_investment) }
 
   scenario "Show order links only if there are comments" do
     visit budget_investment_path(investment.budget, investment)

@@ -11,7 +11,8 @@ class Admin::MapsController < Admin::BaseController
 
     if @map.save
       create_map_location
-      redirect_to edit_admin_map_map_location_path(@map, @map.map_location), notice: t("admin.maps.flash.create")
+      redirect_to edit_admin_map_map_location_path(@map, @map.map_location),
+                  notice: t("admin.maps.flash.create")
     else
       render :new
     end
@@ -26,7 +27,7 @@ class Admin::MapsController < Admin::BaseController
   private
 
     def load_maps
-      @maps = Map.all.order(id: :desc)
+      @maps = Map.order(id: :desc)
     end
 
     def load_map

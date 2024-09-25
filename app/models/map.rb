@@ -13,9 +13,9 @@ class Map < ApplicationRecord
 
   def set_default_map_location
     if budget_id == 0
-      map_location = MapLocation.create!(latitude:  MapLocation.default_latitude,
+      map_location = MapLocation.create!(latitude: MapLocation.default_latitude,
                                          longitude: MapLocation.default_longitude,
-                                         zoom:      MapLocation.default_zoom)
+                                         zoom: MapLocation.default_zoom)
       update!(map_location: map_location)
     end
   end

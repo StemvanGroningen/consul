@@ -23,7 +23,7 @@ describe "Admin newsletter emails", :admin do
 
     visit admin_newsletter_path(newsletter)
 
-    accept_confirm { click_link "Send" }
+    accept_confirm { click_button "Send" }
 
     expect(page).to have_content "Newsletter sent successfully"
 

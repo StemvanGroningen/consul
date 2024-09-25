@@ -1,18 +1,12 @@
 require "rails_helper"
 
-feature "Level three verification" do
-
-  background do
+describe "Level three verification" do
+  before do
     Zipcode.create!(code: "9713BH")
   end
 
   scenario "Verification with correct residency zipcode" do
     user = create(:user)
-
-    verified_user = create(:verified_user,
-                           document_number: "12345678Z",
-                           document_type: "1",
-                           phone: "611111111")
 
     login_as(user)
 
@@ -20,7 +14,8 @@ feature "Level three verification" do
 
     select "DNI", from: "residence_document_type"
     fill_in "residence_document_number", with: "12345678Z"
-    select_date "31-#{I18n.l(Date.current.at_end_of_year, format: "%B")}-1980", from: "residence_date_of_birth"
+    select_date "31-#{I18n.l(Date.current.at_end_of_year, format: "%B")}-1980",
+                from: "residence_date_of_birth"
 
     fill_in "residence_postal_code", with: "9713BH"
     check "residence_terms_of_service"
@@ -33,18 +28,14 @@ feature "Level three verification" do
   scenario "Verification with wrong residency zipcode" do
     user = create(:user)
 
-    verified_user = create(:verified_user,
-                           document_number: "12345678Z",
-                           document_type: "1",
-                           email: "rock@example.com")
-
     login_as(user)
 
     visit verification_path
 
     select "DNI", from: "residence_document_type"
     fill_in "residence_document_number", with: "12345678Z"
-    select_date "31-#{I18n.l(Date.current.at_end_of_year, format: "%B")}-1980", from: "residence_date_of_birth"
+    select_date "31-#{I18n.l(Date.current.at_end_of_year, format: "%B")}-1980",
+                from: "residence_date_of_birth"
 
     fill_in "residence_postal_code", with: "9713BA"
     check "residence_terms_of_service"
@@ -68,7 +59,8 @@ feature "Level three verification" do
 
     select "DNI", from: "residence_document_type"
     fill_in "residence_document_number", with: "12345678Z"
-    select_date "31-#{I18n.l(Date.current.at_end_of_year, format: "%B")}-1980", from: "residence_date_of_birth"
+    select_date "31-#{I18n.l(Date.current.at_end_of_year, format: "%B")}-1980",
+                from: "residence_date_of_birth"
 
     fill_in "residence_postal_code", with: "9713BH"
     check "residence_terms_of_service"

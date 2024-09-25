@@ -1,4 +1,4 @@
-require_dependency Rails.root.join("app", "models", "site_customization", "image").to_s
+load Rails.root.join("app", "models", "site_customization", "image.rb")
 
 class SiteCustomization::Image
   VALID_IMAGES = {
@@ -31,11 +31,11 @@ class SiteCustomization::Image
         image.analyze
       end
 
-      unless image.metadata[:width] >= required_width
+      if image.metadata[:width] < required_width
         errors.add(:image, :image_width, required_width: required_width)
       end
 
-      unless image.metadata[:height] >= required_height
+      if image.metadata[:height] < required_height
         errors.add(:image, :image_height, required_height: required_height)
       end
     end

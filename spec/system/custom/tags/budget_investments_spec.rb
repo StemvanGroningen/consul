@@ -5,8 +5,11 @@ describe "Tags" do
   let(:budget)  { create(:budget, name: "Big Budget") }
   let(:group)   { create(:budget_group, name: "Health", budget: budget) }
   let!(:heading) do
-    create(:budget_heading, name: "More hospitals",
-           group: group, latitude: "40.416775", longitude: "-3.703790")
+    create(:budget_heading,
+           name: "More hospitals",
+           group: group,
+           latitude: "40.416775",
+           longitude: "-3.703790")
   end
   let!(:tag_medio_ambiente) { create(:tag, :category, name: "Medio Ambiente") }
   let!(:tag_economia) { create(:tag, :category, name: "Economía") }
@@ -107,7 +110,8 @@ describe "Tags" do
     fill_in_new_investment_title with: "Build a skyscraper"
     fill_in_ckeditor "Description", with: "I want to live in a high tower over the clouds"
 
-    fill_in "budget_investment_tag_list", with: "Impuestos, Economía, Hacienda, Sanidad, Educación, Política, Igualdad"
+    fill_in "budget_investment_tag_list",
+            with: "Impuestos, Economía, Hacienda, Sanidad, Educación, Política, Igualdad"
 
     click_button "Create Investment"
 

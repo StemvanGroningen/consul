@@ -70,7 +70,7 @@ describe "Welcome page" do
 
     visit root_path
 
-    expect(page).not_to have_selector "#home_page_steps"
+    expect(page).not_to have_css "#home_page_steps"
 
     Setting["feature.welcome_steps"] = true
 
@@ -79,7 +79,7 @@ describe "Welcome page" do
     within "#home_page_steps" do
       expect(page).to have_content "1"
       expect(page).to have_content "Sign-up"
-      expect(page).to have_content "Short text describing some of the data that is expected to be "\
+      expect(page).to have_content "Short text describing some of the data that is expected to be " \
                                    "asked when making an account."
       expect(page).to have_link "Make an account in 5 minutes"
       expect(page).to have_content "2"
@@ -88,7 +88,7 @@ describe "Welcome page" do
       expect(page).to have_link "See what's happening around the city right now"
       expect(page).to have_content "3"
       expect(page).to have_content "Share"
-      expect(page).to have_content "Keep up with the ideas that matter to you the most, and share them "\
+      expect(page).to have_content "Keep up with the ideas that matter to you the most, and share them " \
                                    "through social media."
       expect(page).to have_link "Another optional call to action"
     end
@@ -99,7 +99,7 @@ describe "Welcome page" do
 
     visit root_path
 
-    expect(page).not_to have_selector "#logo_footer"
+    expect(page).not_to have_css "#logo_footer"
 
     Setting["feature.logo_image_footer"] = true
 
@@ -115,7 +115,7 @@ describe "Welcome page" do
 
     visit root_path
 
-    expect(page).not_to have_selector "#bg_footer"
+    expect(page).not_to have_css "#bg_footer"
 
     Setting["feature.background_image_footer"] = true
 

@@ -34,7 +34,8 @@ describe "Legislation" do
 
     scenario "Participation phases show their status" do
       travel_to "01/06/2020".to_date do
-        process = create(:legislation_process, debate_start_date: "01/05/2020",
+        process = create(:legislation_process,
+                         debate_start_date: "01/05/2020",
                          debate_end_date: "30/05/2020",
                          proposals_phase_start_date: "01/06/2020",
                          proposals_phase_end_date: "30/06/2020",
@@ -94,7 +95,8 @@ describe "Legislation" do
 
     scenario "Participation phases have a link to the corresponding phase" do
       travel_to "01/06/2020".to_date
-      process = create(:legislation_process, debate_start_date: "01/05/2020",
+      process = create(:legislation_process,
+                       debate_start_date: "01/05/2020",
                        debate_end_date: "30/05/2020",
                        proposals_phase_start_date: "01/06/2020",
                        proposals_phase_end_date: "30/06/2020",
@@ -112,11 +114,11 @@ describe "Legislation" do
       visit legislation_processes_path
 
       within("#legislation_process_#{process.id} .legislation-calendar") do
-        expect(page).to have_selector("a", text: phase_debate)
-        expect(page).to have_selector("a", text: phase_draft)
-        expect(page).to have_selector("a", text: phase_proposals)
-        expect(page).to have_selector("a", text: phase_comments)
-        expect(page).to have_selector("a", text: phase_result)
+        expect(page).to have_css("a", text: phase_debate)
+        expect(page).to have_css("a", text: phase_draft)
+        expect(page).to have_css("a", text: phase_proposals)
+        expect(page).to have_css("a", text: phase_comments)
+        expect(page).to have_css("a", text: phase_result)
         expect(page).to have_link(href: debate_legislation_process_path(process))
         expect(page).to have_link(href: draft_publication_legislation_process_path(process))
         expect(page).to have_link(href: proposals_legislation_process_path(process))
@@ -131,12 +133,13 @@ describe "Legislation" do
       Setting["feature.sdg"] = true
       Setting["sdg.process.legislation"] = true
 
-      process = create(:legislation_process, sdg_goals: [SDG::Goal[1]],
-                                   sdg_targets: [SDG::Target["1.1"]])
+      process = create(:legislation_process,
+                       sdg_goals: [SDG::Goal[1]],
+                       sdg_targets: [SDG::Target["1.1"]])
 
       visit legislation_process_path(process)
 
-      expect(page).to have_selector "img[alt='1. No Poverty']"
+      expect(page).to have_css "img[alt='1. No Poverty']"
       expect(page).to have_content "target 1.1"
     end
 

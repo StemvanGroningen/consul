@@ -14,8 +14,8 @@ describe "Cards", :admin do
 
     visit root_path
 
-    expect(page).not_to have_selector "#header_background_image"
-    expect(page).to have_selector "#header_image"
+    expect(page).not_to have_css "#header_background_image"
+    expect(page).to have_css "#header_image"
   end
 
   scenario "Create header with image as background" do
@@ -32,8 +32,8 @@ describe "Cards", :admin do
 
     visit root_path
 
-    expect(page).to have_selector "#header_background_image"
-    expect(page).not_to have_selector "#header_image"
+    expect(page).to have_css "#header_background_image"
+    expect(page).not_to have_css "#header_image"
   end
 
   scenario "Create header without image" do
@@ -48,8 +48,8 @@ describe "Cards", :admin do
 
     visit root_path
 
-    expect(page).not_to have_selector "#header_background_image"
-    expect(page).not_to have_selector "#header_image"
+    expect(page).not_to have_css "#header_background_image"
+    expect(page).not_to have_css "#header_image"
   end
 
   scenario "Checkbox of image as background does not appear on regular cards" do

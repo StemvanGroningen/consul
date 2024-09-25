@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe "Residence" do
-
   before { Zipcode.create!(code: "28013") }
 
   scenario "Verify resident" do

@@ -3,11 +3,11 @@
   <head>
     <%= render "layouts/common_head", default_title: setting["org_name"] %>
     <%= render "layouts/meta_tags" %>
-    <%= raw setting["html.per_page_code_head"] %>
+    <%== setting["html.per_page_code_head"] %>
   </head>
 
   <body class="auth-page">
-    <%= raw setting["html.per_page_code_body"] %>
+    <%== setting["html.per_page_code_body"] %>
     <div class="wrapper">
       <div class="small-12 small-centered column">
         <h1 class="logo">
@@ -18,11 +18,11 @@
       </div>
 
       <div class="small-12 medium-9 large-5 small-centered column">
-        <div class="auth-form margin">
+        <main id="main" class="auth-form margin <%= yield(:main_class) %>">
           <%= render "layouts/flash" %>
 
           <%= yield %>
-        </div>
+        </main>
       </div>
     </div>
 

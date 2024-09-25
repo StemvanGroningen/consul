@@ -4,7 +4,9 @@ describe "Results" do
   let(:budget)  { create(:budget, :finished) }
   let(:group)   { create(:budget_group, budget: budget) }
   let(:heading) { create(:budget_heading, group: group, price: 1000) }
-  let!(:investment) { create(:budget_investment, :selected, heading: heading, price: 200, ballot_lines_count: 900) }
+  let!(:investment) do
+    create(:budget_investment, :selected, heading: heading, price: 200, ballot_lines_count: 900)
+  end
 
   before do
     Budget::Result.new(budget, heading).calculate_winners
@@ -23,7 +25,7 @@ describe "Results" do
     visit budget_results_path(budget.slug, heading_id: heading.slug)
 
     expect(page).to have_content("By district")
-    expect(page).to have_selector("a.is-active", text: heading.name)
+    expect(page).to have_css("a.is-active", text: heading.name)
 
     within("#budget-investments-compatible") do
       expect(page).to have_content investment.title
@@ -34,7 +36,7 @@ describe "Results" do
     visit budget_results_path(budget.slug, heading_id: heading.slug)
 
     expect(page).not_to have_content("By district")
-    expect(page).not_to have_selector("a.is-active", text: heading.name)
+    expect(page).not_to have_css("a.is-active", text: heading.name)
 
     within("#budget-investments-compatible") do
       expect(page).to have_content investment.title

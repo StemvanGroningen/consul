@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function( config )
   config.allowedContent = true;
   config.format_tags = "p;h2;h3";
 
-  config.removePlugins = "balloonpanel,balloontoolbar,copyformatting,scayt,wsc";
+  config.removePlugins = "balloonpanel,balloontoolbar,copyformatting,scayt,wsc,elementspath";
   config.extraPlugins = "mediaembed";
 
   // Rails CSRF token

@@ -112,6 +112,6 @@ module ProposalsHelper
   end
 
   def proposals_any?(kind)
-    Proposal.send("#{kind}").any?
+    Proposal.send(kind.to_s).any?
   end
 end

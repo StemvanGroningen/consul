@@ -202,11 +202,11 @@ describe "Cross-Site Scripting protection" do
 
     expect(page.text).not_to be_empty
 
-    expect(page).to have_selector("table")
-    expect(page).to have_selector("thead")
-    expect(page).to have_selector("tbody")
-    expect(page).to have_selector("th", count: 2)
-    expect(page).to have_selector("tr", count: 2)
-    expect(page).to have_selector("td", count: 2)
+    expect(page).to have_css("table")
+    expect(page).to have_css("thead")
+    expect(page).to have_css("tbody")
+    expect(page).to have_css("th", count: 2)
+    expect(page).to have_css("tr", count: 2)
+    expect(page).to have_css("td", count: 2)
   end
 end

@@ -10,8 +10,8 @@ describe "Polls" do
       visit polls_path
 
       expect(page).to have_content(poll.name)
-      expect(page).to have_content("Question 1 #{question1.title}")
-      expect(page).to have_content("Question 2 #{question2.title}")
+      expect(page).to have_content(question1.title)
+      expect(page).to have_content(question2.title)
     end
 
     scenario "Polls display remaining days to participate if not expired" do
@@ -67,44 +67,6 @@ describe "Polls" do
       end
     end
 
-    scenario "Displays a message asking anonymous users to sign in" do
-      create_list(:poll, 3)
-      create(:poll, :expired, name: "Expired poll")
-
-      visit polls_path
-
-      expect(page).to have_css(".message .callout .fa-user", count: 3)
-      expect(page).to have_content("You must sign in or sign up to participate", count: 3)
-    end
-
-    scenario "Displays a message asking unverified users to verify their account" do
-      create_list(:poll, 3)
-      create(:poll, :expired, name: "Expired poll")
-      user = create(:user)
-
-      login_as(user)
-
-      visit polls_path
-
-      expect(page).to have_css(".message .callout .fa-user", count: 3)
-      expect(page).to have_content("You must verify your account to participate", count: 3)
-
-      click_link "Expired"
-
-      expect(page).not_to have_css(".message .callout .fa-user")
-      expect(page).not_to have_content("You must verify your account to participate")
-    end
-
-    scenario "Geozone poll" do
-      create(:poll, geozone_restricted: true)
-
-      login_as(create(:user, :level_two))
-      visit polls_path
-
-      expect(page).to have_css(".message .callout .fa-globe", count: 1)
-      expect(page).to have_content("This poll is not available on your geozone")
-    end
-
     scenario "Already participated in a poll" do
       poll_with_question = create(:poll)
       question = create(:poll_question, :yes_no, poll: poll_with_question)
@@ -119,29 +81,41 @@ describe "Polls" do
       expect(page).to have_css(".message .callout .fa-check-circle", count: 1)
       expect(page).to have_content("You already have participated in this poll")
     end
+
+    scenario "Poll title and button link to stats if enabled" do
+      poll = create(:poll, :expired, name: "Poll with stats", stats_enabled: true)
+
+      visit polls_path(filter: "expired")
+
+      expect(page).to have_link("Poll with stats", href: stats_poll_path(poll.slug))
+      expect(page).to have_link("Poll ended", href: stats_poll_path(poll.slug))
+    end
+
+    scenario "Poll title and button link to results if enabled" do
+      poll = create(:poll, :expired, name: "Poll with results", stats_enabled: true, results_enabled: true)
+
+      visit polls_path(filter: "expired")
+
+      expect(page).to have_link("Poll with results", href: results_poll_path(poll.slug))
+      expect(page).to have_link("Poll ended", href: results_poll_path(poll.slug))
+    end
+
+    scenario "Poll 14 links to Maptionnaire" do
+      poll = create(:poll, id: 14)
+
+      visit polls_path
+
+      within(".poll") do
+        expect(page).to have_link(poll.name, href: "https://new.maptionnaire.com/q/7n929t4zty87")
+        expect(page).to have_link("Participate in this poll",
+                                  href: "https://new.maptionnaire.com/q/7n929t4zty87")
+      end
+    end
   end
 
   context "Show" do
     let(:geozone) { create(:geozone) }
     let(:poll) { create(:poll, summary: "Summary", description: "Description") }
-
-    scenario "Lists questions from proposals as well as regular ones" do
-      normal_question = create(:poll_question, poll: poll)
-      proposal_question = create(:poll_question, poll: poll, proposal: create(:proposal))
-
-      visit poll_path(poll)
-      expect(page).to have_content(poll.name)
-      expect(page).to have_content(poll.summary)
-
-      expect(page).to have_content("Question 1 #{proposal_question.title}", normalize_ws: true)
-      expect(page).to have_content("Question 2 #{normal_question.title}", normalize_ws: true)
-
-      find("#read_more").click
-      expect(page).to have_content(poll.description)
-
-      find("#read_less").click
-      expect(page).not_to have_content(poll.description)
-    end
 
     scenario "Do not show question number in polls with one question" do
       question = create(:poll_question, poll: poll)
@@ -181,62 +155,64 @@ describe "Polls" do
 
     scenario "Read more button appears only in long answer descriptions" do
       question = create(:poll_question, poll: poll)
-      answer_long = create(:poll_question_answer, title: "Long answer", question: question,
+      option_long = create(:poll_question_option,
+                           title: "Long answer",
+                           question: question,
                            description: Faker::Lorem.characters(number: 700))
-      create(:poll_question_answer, title: "Short answer", question: question,
+      create(:poll_question_option,
+             title: "Short answer",
+             question: question,
              description: Faker::Lorem.characters(number: 100))
 
       visit poll_path(poll)
 
       expect(page).to have_content "Long answer"
       expect(page).to have_content "Short answer"
-      expect(page).to have_css "#answer_description_#{answer_long.id}.answer-description.short"
+      expect(page).to have_css "#option_description_#{option_long.id}.option-description.short"
 
-      within "#poll_more_info_answers" do
+      within "#poll_more_info_options" do
         expect(page).to have_content "Read more about Long answer"
         expect(page).not_to have_content "Read more about Short answer"
       end
 
-      find("#read_more_#{answer_long.id}").click
+      find("#read_more_#{option_long.id}").click
 
       expect(page).to have_content "Read less about Long answer"
-      expect(page).to have_css "#answer_description_#{answer_long.id}.answer-description"
-      expect(page).not_to have_css "#answer_description_#{answer_long.id}.answer-description.short"
+      expect(page).to have_css "#option_description_#{option_long.id}.option-description"
+      expect(page).not_to have_css "#option_description_#{option_long.id}.option-description.short"
 
-      find("#read_less_#{answer_long.id}").click
+      find("#read_less_#{option_long.id}").click
 
       expect(page).to have_content "Read more about Long answer"
-      expect(page).to have_css "#answer_description_#{answer_long.id}.answer-description.short"
+      expect(page).to have_css "#option_description_#{option_long.id}.option-description.short"
     end
 
     scenario "Show orbit bullets and controls only when there is more than one image" do
       poll = create(:poll)
       question = create(:poll_question, poll: poll)
-      answer1 = create(:poll_question_answer, title: "Answer with one image", question: question)
-      answer2 = create(:poll_question_answer, title: "Answer with two images", question: question)
-      create(:image, imageable: answer1)
-      create(:image, imageable: answer2)
-      create(:image, imageable: answer2)
+      option_1 = create(:poll_question_option, title: "Answer with one image", question: question)
+      option_2 = create(:poll_question_option, title: "Answer with two images", question: question)
+      create(:image, imageable: option_1)
+      create(:image, imageable: option_2)
+      create(:image, imageable: option_2)
 
       visit poll_path(poll)
 
-      within("div#answer_#{answer1.id}") do
+      within("div#option_#{option_1.id}") do
         expect(page).not_to have_css ".orbit-previous"
         expect(page).not_to have_css ".orbit-next"
-        expect(page).not_to have_css "nav.orbit-bullets"
       end
 
-      within("div#answer_#{answer2.id}") do
+      within("div#option_#{option_2.id}") do
         expect(page).to have_css ".orbit-previous"
         expect(page).to have_css ".orbit-next"
-        expect(page).to have_css "nav.orbit-bullets"
       end
     end
 
     scenario "Question answers appear in the given order" do
       question = create(:poll_question, poll: poll)
-      answer1 = create(:poll_question_answer, title: "First", question: question, given_order: 2)
-      answer2 = create(:poll_question_answer, title: "Second", question: question, given_order: 1)
+      answer1 = create(:poll_question_option, title: "First", question: question, given_order: 2)
+      answer2 = create(:poll_question_option, title: "Second", question: question, given_order: 1)
 
       visit poll_path(poll)
 
@@ -247,19 +223,19 @@ describe "Polls" do
 
     scenario "More info answers appear in the given order" do
       question = create(:poll_question, poll: poll)
-      answer1 = create(:poll_question_answer, title: "First", question: question, given_order: 2)
-      answer2 = create(:poll_question_answer, title: "Second", question: question, given_order: 1)
+      answer1 = create(:poll_question_option, title: "First", question: question, given_order: 2)
+      answer2 = create(:poll_question_option, title: "Second", question: question, given_order: 1)
 
       visit poll_path(poll)
 
-      within("div.poll-more-info-answers") do
+      within("div.poll-more-info-options") do
         expect(answer2.title).to appear_before(answer1.title)
       end
     end
 
     scenario "Answer images are shown" do
       question = create(:poll_question, :yes_no, poll: poll)
-      create(:image, imageable: question.question_answers.first, title: "The yes movement")
+      create(:image, imageable: question.question_options.first, title: "The yes movement")
 
       visit poll_path(poll)
 

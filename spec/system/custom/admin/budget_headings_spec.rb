@@ -24,7 +24,7 @@ describe "Admin budget headings", :admin do
 
       within "section", text: "HEADING GROUPS" do
         within "tbody" do
-          expect(page).to have_selector "tr", count: 3
+          expect(page).to have_css "tr", count: 3
 
           within("tr", text: "Laptops") { expect(page).to have_content "€1,000" }
           within("tr", text: "Tablets") { expect(page).to have_content "€2,000" }

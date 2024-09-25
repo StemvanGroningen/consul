@@ -91,8 +91,8 @@ describe "Budget Investments" do
 
       fill_in "Title", with: "Build a skyscraper"
       fill_in_ckeditor "Description", with: "I want to live in a high tower over the clouds"
-      fill_in "Information about the location", with: "City center"
-      fill_in "If you are proposing in the name of a collective/organization, "\
+      fill_in "Location additional info", with: "City center"
+      fill_in "If you are proposing in the name of a collective/organization, " \
               "or on behalf of more people, write its name", with: "T.I.A."
       fill_in "Tags", with: "Towers"
 
@@ -122,9 +122,9 @@ describe "Budget Investments" do
       expect(page).not_to have_content("#{heading.name} (#{budget.formatted_heading_price(heading)})")
 
       within("#budget_investment_heading_id") do
-        expect(page).to have_selector("option[value='#{heading.id}']")
-        expect(page).to have_selector("option[value='#{heading2.id}']")
-        expect(page).to have_selector("option[value='#{heading3.id}']")
+        expect(page).to have_css("option[value='#{heading.id}']")
+        expect(page).to have_css("option[value='#{heading2.id}']")
+        expect(page).to have_css("option[value='#{heading3.id}']")
       end
 
       select "#{group.name}: #{heading2.name}", from: "budget_investment_heading_id"
@@ -162,14 +162,17 @@ describe "Budget Investments" do
 
       expect(page).not_to have_content("#{heading.name} (#{budget.formatted_heading_price(heading)})")
       expect(page).to have_select "Heading",
-        options: ["", "Health: More hospitals", "Health: Medical supplies", "Education: Schools"]
+                                  options: ["",
+                                            "Health: More hospitals",
+                                            "Health: Medical supplies",
+                                            "Education: Schools"]
 
       select "Health: Medical supplies", from: "Heading"
 
       fill_in_new_investment_title with: "Build a skyscraper"
       fill_in_ckeditor "Description", with: "I want to live in a high tower over the clouds"
-      fill_in "Information about the location", with: "City center"
-      fill_in "If you are proposing in the name of a collective/organization, "\
+      fill_in "Location additional info", with: "City center"
+      fill_in "If you are proposing in the name of a collective/organization, " \
               "or on behalf of more people, write its name", with: "T.I.A."
       fill_in "Tags", with: "Towers"
 
@@ -217,10 +220,17 @@ describe "Budget Investments" do
   end
 
   scenario "Show feasible explanation only when valuation finished" do
-    investment = create(:budget_investment, :feasible, budget: budget, heading: heading,
+    investment = create(:budget_investment,
+                        :feasible,
+                        budget: budget,
+                        heading: heading,
                         feasibility_explanation: "Local government is competent in this")
 
-    investment_2 = create(:budget_investment, :feasible, :finished, budget: budget, heading: heading,
+    investment_2 = create(:budget_investment,
+                          :feasible,
+                          :finished,
+                          budget: budget,
+                          heading: heading,
                           feasibility_explanation: "The feasible explanation")
 
     user = create(:user)
@@ -248,12 +258,18 @@ describe "Budget Investments" do
       user = create(:user, :level_two)
 
       global_group   = create(:budget_group, budget: budget, name: "Global Group")
-      global_heading = create(:budget_heading, group: global_group, name: "Global Heading",
-                              latitude: -43.145412, longitude: 12.009423)
+      global_heading = create(:budget_heading,
+                              group: global_group,
+                              name: "Global Heading",
+                              latitude: -43.145412,
+                              longitude: 12.009423)
 
       carabanchel_heading = create(:budget_heading, group: group, name: "Carabanchel")
-      new_york_heading    = create(:budget_heading, group: group, name: "New York",
-                                   latitude: -43.223412, longitude: 12.009423)
+      new_york_heading    = create(:budget_heading,
+                                   group: group,
+                                   name: "New York",
+                                   latitude: -43.223412,
+                                   longitude: 12.009423)
 
       create(:budget_investment, :selected, price: 1, heading: global_heading, title: "World T-Shirt")
       create(:budget_investment, :selected, price: 10, heading: global_heading, title: "Eco pens")
@@ -275,12 +291,12 @@ describe "Budget Investments" do
 
       expect(page).to have_content "You can"
       expect(page).to have_link "change your vote", href: budget_ballot_path(budget)
-      expect(page).to have_content "at any time until December 31, 2020. "\
+      expect(page).to have_content "at any time until December 31, 2020. " \
                                    "No need to spend all the money available."
 
       visit budget_ballot_path(budget)
 
-      expect(page).to have_content "But you can change your vote at any time "\
+      expect(page).to have_content "But you can change your vote at any time " \
                                    "until this phase is closed."
 
       within("#budget_group_#{global_group.id}") do

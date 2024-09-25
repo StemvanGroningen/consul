@@ -608,7 +608,7 @@ describe "Users" do
     click_link "Sign in"
     click_link "Forgotten your password?"
 
-    expect(page).to have_content "Didn't receive a link in your mail? Maybe it came in your spam folder. "\
+    expect(page).to have_content "Didn't receive a link in your mail? Maybe it came in your spam folder. " \
                                  "Didn't it? Please contact destemvan@groningen.nl."
 
     fill_in "Email", with: "manuela@consul.dev"
@@ -640,14 +640,13 @@ describe "Users" do
                                  "you will receive a link to use to reset your password."
   end
 
-  scenario "Re-send confirmation instructions" do
+  scenario "Re-send confirmation instructions", :consul do
     create(:user, email: "manuela@consul.dev", confirmed_at: nil)
     ActionMailer::Base.deliveries.clear
 
     visit "/"
     click_link "Sign in"
-    expect(page).to have_content "Haven't received instructions to activate your account?"
-    click_link "Click here"
+    click_link "Haven't received instructions to activate your account?"
 
     fill_in "Email", with: "manuela@consul.dev"
     click_button "Re-send instructions"
@@ -659,12 +658,11 @@ describe "Users" do
     expect(ActionMailer::Base.deliveries.first.subject).to eq("Confirmation instructions")
   end
 
-  scenario "Re-send confirmation instructions with unexisting email" do
+  scenario "Re-send confirmation instructions with unexisting email", :consul do
     ActionMailer::Base.deliveries.clear
     visit "/"
     click_link "Sign in"
-    expect(page).to have_content "Haven't received instructions to activate your account?"
-    click_link "Click here"
+    click_link "Haven't received instructions to activate your account?"
 
     fill_in "Email", with: "fake@mail.dev"
     click_button "Re-send instructions"
@@ -674,13 +672,13 @@ describe "Users" do
     expect(ActionMailer::Base.deliveries.count).to eq(0)
   end
 
-  scenario "Re-send confirmation instructions with already verified email" do
+  scenario "Re-send confirmation instructions with already verified email", :consul do
     ActionMailer::Base.deliveries.clear
 
     create(:user, email: "manuela@consul.dev")
 
     visit new_user_session_path
-    click_link "Click here"
+    click_link "Haven't received instructions to activate your account?"
 
     fill_in "user_email", with: "manuela@consul.dev"
     click_button "Re-send instructions"

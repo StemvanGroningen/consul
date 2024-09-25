@@ -13,7 +13,7 @@ describe "Admin maps" do
 
       visit admin_maps_path
 
-      expect(page).to have_content("To show the map to users you must enable \"Proposals and budget "\
+      expect(page).to have_content("To show the map to users you must enable \"Proposals and budget " \
                                    "investments geolocation\" on \"Features\" tab.")
     end
 
@@ -98,9 +98,9 @@ describe "Admin maps" do
       click_button "Continue"
 
       expect(page).to have_content("Map created succesfully.")
-      expect(page).to have_selector("input[name='map_location[latitude]'][value=\"51.48\"]")
-      expect(page).to have_selector("input[name='map_location[longitude]'][value=\"0.0\"]")
-      expect(page).to have_selector("input[name='map_location[zoom]'][value=\"10\"]")
+      expect(page).to have_css("input[name='map_location[latitude]'][value=\"51.48\"]")
+      expect(page).to have_css("input[name='map_location[longitude]'][value=\"0.0\"]")
+      expect(page).to have_css("input[name='map_location[zoom]'][value=\"10\"]")
     end
   end
 
@@ -123,9 +123,9 @@ describe "Admin maps" do
       click_button "Save coordinates"
 
       expect(page).to have_content("Map updated succesfully.")
-      expect(page).to have_selector("input[name='map_location[latitude]'][value=\"80.0\"]")
-      expect(page).to have_selector("input[name='map_location[longitude]'][value=\"40.0\"]")
-      expect(page).to have_selector("input[name='map_location[zoom]'][value=\"5\"]")
+      expect(page).to have_css("input[name='map_location[latitude]'][value=\"80.0\"]")
+      expect(page).to have_css("input[name='map_location[longitude]'][value=\"40.0\"]")
+      expect(page).to have_css("input[name='map_location[zoom]'][value=\"5\"]")
       expect(page).to have_current_path admin_map_map_location_path(map, map.map_location)
     end
   end

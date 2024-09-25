@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Commenting polls" do
-  let(:user) { create :user }
+  let(:user) { create(:user) }
   let(:poll) { create(:poll, author: create(:user)) }
 
   scenario "Show order links only if there are comments" do

@@ -35,8 +35,9 @@ describe "Cards", :admin do
       scenario "Show image if it is present" do
         card_1 = create(:widget_card, cardable: custom_page, title: "Card one")
         card_2 = create(:widget_card, cardable: custom_page, title: "Card two")
+        card_1_image = create(:image, imageable: card_1, attachment: fixture_file_upload("clippy.jpg"))
 
-        card_1.update!(image: create(:image, imageable: card_1, attachment: fixture_file_upload("clippy.jpg")))
+        card_1.update!(image: card_1_image)
         card_2.update!(image: nil)
 
         visit custom_page.url

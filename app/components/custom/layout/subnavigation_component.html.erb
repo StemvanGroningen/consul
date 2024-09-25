@@ -1,6 +1,7 @@
 <nav>
+  <h1 class="show-for-sr"><%= t("layouts.header.navigation") %></h1>
   <ul class="dropdown menu" data-dropdown-menu>
-    <%= raw content_block("subnavigation_left") %>
+    <%== content_block("subnavigation_left") %>
 
     <% if feature?(:debates) %>
       <li>
@@ -64,6 +65,6 @@
       </li>
     <% end %>
 
-    <%= raw content_block("subnavigation_right") %>
+    <%== content_block("subnavigation_right") %>
   </ul>
 </nav>

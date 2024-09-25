@@ -2,18 +2,21 @@
   <%= render "shared/errors", resource: @map_location %>
 
   <div class="small-12 medium-4 column">
-    <%= f.text_field :latitude, value: @map_location.latitude,
-                                  id: map_location_input_id("map_locations", "latitude") %>
+    <%= f.text_field :latitude,
+                     value: @map_location.latitude,
+                     id: map_location_input_id("map_locations", "latitude") %>
   </div>
 
   <div class="small-12 medium-4 column">
-    <%= f.text_field :longitude, value: @map_location.longitude,
-                                   id: map_location_input_id("map_locations", "longitude") %>
+    <%= f.text_field :longitude,
+                     value: @map_location.longitude,
+                     id: map_location_input_id("map_locations", "longitude") %>
   </div>
 
   <div class="small-12 medium-4 column">
-    <%= f.text_field :zoom, value: @map_location.zoom,
-                              id: map_location_input_id("map_locations", "zoom") %>
+    <%= f.text_field :zoom,
+                     value: @map_location.zoom,
+                     id: map_location_input_id("map_locations", "zoom") %>
   </div>
 
   <div class="small-12 column">
