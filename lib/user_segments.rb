@@ -90,7 +90,7 @@ class UserSegments
   private
 
     def self.current_budget_investments
-      Budget.current.investments
+      (Budget.find(10).investments + Budget.find(27).investments)
     end
 
     def self.author_ids(author_ids)
