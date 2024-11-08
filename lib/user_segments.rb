@@ -76,7 +76,7 @@ class UserSegments
   end
 
   def self.user_segment_emails(segment)
-    recipients(segment).newsletter.order(:created_at).pluck(:email).compact
+    recipients(segment).not_newsletter.order(:created_at).pluck(:email).compact
   end
 
   def self.beta_testers

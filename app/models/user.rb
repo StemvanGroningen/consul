@@ -103,6 +103,7 @@ class User < ApplicationRecord
   scope :male,           -> { where(gender: "male") }
   scope :female,         -> { where(gender: "female") }
   scope :newsletter,     -> { where(newsletter: true) }
+  scope :not_newsletter, -> { where(newsletter: false) }
   scope :for_render,     -> { includes(:organization) }
   scope :by_document,    ->(document_type, document_number) do
     where(document_type: document_type, document_number: document_number)
